@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-28",
+  "scope": "Five current findings; anonymous data and saved evidence.",
+  "physical_responses": 248586,
+  "api_calls": 0,
+  "files": {
+    "report/case_report.pdf": "44729ffc9a784cdab651b5ff57801bce4575e5049a425118c6ee395edf03f5ca",
+    "presentation/defense_slides.pdf": "42ae378f35b60c84e46ccb8681d4d306ff49dba380a487e449a2cebb4d9630a5"
+  }
+}

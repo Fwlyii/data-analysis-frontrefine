@@ -1,0 +1,1483 @@
+{
+  "complete": true,
+  "references": [
+    {
+      "task_id": "HumanEval/0",
+      "reference_pass": true,
+      "oracle_sha256": "a646d15dd399d954125b13adadbcec2775f73fb39bb444f68c27af27fa249e30",
+      "base_cases": 7,
+      "hidden_cases": 12,
+      "evaluation_seconds": 0.3513,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/1",
+      "reference_pass": true,
+      "oracle_sha256": "b7cdf77e5dcfb5516ea593e3c88fb63e93273320adc450ddb0eee7d63ba19a7d",
+      "base_cases": 4,
+      "hidden_cases": 3,
+      "evaluation_seconds": 0.3103,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/10",
+      "reference_pass": true,
+      "oracle_sha256": "5cbf86f959a6ea15311c5631983533a9218fe4419720cc3940a37a5439708c7e",
+      "base_cases": 5,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.4151,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/100",
+      "reference_pass": true,
+      "oracle_sha256": "caa83bcd9eab9c8a7de62713d45bab20f69f4e0c1eaf574da6ef81a1e36653f5",
+      "base_cases": 5,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.5965,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/101",
+      "reference_pass": true,
+      "oracle_sha256": "78c1360c8180af661be19538eed4ee438d92b7aa044e75b521975665235703cc",
+      "base_cases": 6,
+      "hidden_cases": 3,
+      "evaluation_seconds": 0.3809,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/102",
+      "reference_pass": true,
+      "oracle_sha256": "4674bdb87caf4947af273a705a632731cdfea164ea247a6818806b0ca288b8c6",
+      "base_cases": 8,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.3926,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/103",
+      "reference_pass": true,
+      "oracle_sha256": "ed7111cf91734bf87bf2a1da83612eaeb18bc493c95ff84eeaf0164c10f7db7f",
+      "base_cases": 12,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3979,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/104",
+      "reference_pass": true,
+      "oracle_sha256": "153358c818c3b103b05fdec97f4c634c7bd0068e1db1df576881efc49e8cc212",
+      "base_cases": 4,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3427,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/105",
+      "reference_pass": true,
+      "oracle_sha256": "cc677ea4c1be91823780fa97bd6a732d6fa957a2d83ee1013f6cf20b134c91c2",
+      "base_cases": 5,
+      "hidden_cases": 11,
+      "evaluation_seconds": 0.3935,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/106",
+      "reference_pass": true,
+      "oracle_sha256": "5dc57fe3fdb0452b61e952e778c990b2d72dc8140e2251fdf8994650cbbe6c1f",
+      "base_cases": 4,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3517,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/107",
+      "reference_pass": true,
+      "oracle_sha256": "01130240b005dfa9c56ddcf3995fdc1663005ecd4eeeb1172babc6333d1f827f",
+      "base_cases": 8,
+      "hidden_cases": 3,
+      "evaluation_seconds": 0.3574,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/108",
+      "reference_pass": true,
+      "oracle_sha256": "8cbb5a44717847ad0e6394ea230c6bddffbc408d9314951364e84caf1f7d8852",
+      "base_cases": 8,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.3599,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/109",
+      "reference_pass": true,
+      "oracle_sha256": "d7654e3df7bc7286af9e03d1171c21b7280c394fd913be855196a85846914950",
+      "base_cases": 5,
+      "hidden_cases": 10,
+      "evaluation_seconds": 0.387,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/11",
+      "reference_pass": true,
+      "oracle_sha256": "95fbf15f8458dc41ec9d2fae0eee159d5c86f03f39bc517c7b50ebc789f5b500",
+      "base_cases": 3,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.4556,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/110",
+      "reference_pass": true,
+      "oracle_sha256": "b4e2de7b58dcb7597442f5b706f06c10ade7a80a0e5e732c3fe668a12e6cab60",
+      "base_cases": 7,
+      "hidden_cases": 8,
+      "evaluation_seconds": 0.3591,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/111",
+      "reference_pass": true,
+      "oracle_sha256": "0830e3e96ca7049f60289421ab4ccf62febea61e9d9b286b1d37f6a4ea65bf93",
+      "base_cases": 8,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3852,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/112",
+      "reference_pass": true,
+      "oracle_sha256": "b55978fe561d4600e6000e5893b3654fa9cce3df06b06be5eda64bbbc0bf0ce1",
+      "base_cases": 9,
+      "hidden_cases": 9,
+      "evaluation_seconds": 0.3711,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/113",
+      "reference_pass": true,
+      "oracle_sha256": "b74461ae0c147666116c087f0763d279e48b843e80381f294941517b18980ff2",
+      "base_cases": 3,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.3791,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/114",
+      "reference_pass": true,
+      "oracle_sha256": "1dd9c39c586c92907424df4a87d63cec4af4906070f6a6ec725b1fff22508b25",
+      "base_cases": 12,
+      "hidden_cases": 9,
+      "evaluation_seconds": 0.3463,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/115",
+      "reference_pass": true,
+      "oracle_sha256": "7813bd5d9249f00defe251e7256724448f2b1726d67014643247cddc5c058792",
+      "base_cases": 5,
+      "hidden_cases": 3,
+      "evaluation_seconds": 0.334,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/116",
+      "reference_pass": true,
+      "oracle_sha256": "7b1871af07bd8bbc4f885412a3da8de6e2cfd74a98b3dde7b10969e1d01933e5",
+      "base_cases": 8,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.331,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/117",
+      "reference_pass": true,
+      "oracle_sha256": "ed6cadd1cba5d8ccd7a0e43cdf07e406f505b2d2ae813e7b99f6c2eefde37ef5",
+      "base_cases": 14,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3929,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/118",
+      "reference_pass": true,
+      "oracle_sha256": "dcd20e6a5f2c2714b8a61577b9f119de8ccd6cadc6df59962bdc0b17d78da47d",
+      "base_cases": 13,
+      "hidden_cases": 9,
+      "evaluation_seconds": 0.3929,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/119",
+      "reference_pass": true,
+      "oracle_sha256": "46c02a2628650b20fde80a27fb30caaf6160b24d8fee0ff3cffea60020f5ff62",
+      "base_cases": 12,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3886,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/12",
+      "reference_pass": true,
+      "oracle_sha256": "464a56bc4373adf66e480e642d83a83c0e2292d2b6444a750a5be57828c16962",
+      "base_cases": 3,
+      "hidden_cases": 10,
+      "evaluation_seconds": 0.7149,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/120",
+      "reference_pass": true,
+      "oracle_sha256": "c87c33ac4f03333ea80c268e2ad6d657826ab40345edd8fc86afd2197f61c07e",
+      "base_cases": 11,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3925,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/121",
+      "reference_pass": true,
+      "oracle_sha256": "817599b8cad6dc28dba5bae2a6605ea0b3482ef649578dfc8eab647081e27f89",
+      "base_cases": 7,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.3795,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/122",
+      "reference_pass": true,
+      "oracle_sha256": "4d425928f28c49d09a5267b611cb7876407076bcb9e8354bfc1851c65afcb2c2",
+      "base_cases": 5,
+      "hidden_cases": 3,
+      "evaluation_seconds": 0.3921,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/123",
+      "reference_pass": true,
+      "oracle_sha256": "102a94803ccd622d4cb598956404ca6746e31f1bbc1a89985f22aa266babe48d",
+      "base_cases": 4,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3796,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/124",
+      "reference_pass": true,
+      "oracle_sha256": "530c6fac2c43bcdeac7cccb27c57b80f024990e8a8da648818bd01a0576d54e3",
+      "base_cases": 16,
+      "hidden_cases": 19,
+      "evaluation_seconds": 0.3436,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/125",
+      "reference_pass": true,
+      "oracle_sha256": "7c997fa706af39b677146a403cf1c537a0177a4b22914b7dd6b9dde13f542746",
+      "base_cases": 8,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3461,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/126",
+      "reference_pass": true,
+      "oracle_sha256": "67c4b18fc85da918fa994ffb2d666c12cd6e7c237f13ae7ea30698059a681832",
+      "base_cases": 13,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.3526,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/127",
+      "reference_pass": true,
+      "oracle_sha256": "f3f64683d9918d4a06cbedf10c2a0bf613f4d0db97720448d15321bacc777ede",
+      "base_cases": 8,
+      "hidden_cases": 9,
+      "evaluation_seconds": 0.3756,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/128",
+      "reference_pass": true,
+      "oracle_sha256": "4d21bc3baa740d7fd3be802b77f2516d329e39f46010b761d1baaa39f0e870bb",
+      "base_cases": 8,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.344,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/129",
+      "reference_pass": true,
+      "oracle_sha256": "69d128c1cb20ac4e8a4c69c8875102cb825fa6d53079724452573219b6cd043b",
+      "base_cases": 10,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3195,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/13",
+      "reference_pass": true,
+      "oracle_sha256": "1d864920a6ccb8866bcbc0d060818306e6f8b5c9b77ecab7daf04149c4e19ed9",
+      "base_cases": 4,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.6879,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/130",
+      "reference_pass": true,
+      "oracle_sha256": "edc20cb856201ad5c3a3730b2cc0919a8e6663e7074e548b8af1bbda84b0df71",
+      "base_cases": 10,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.7821,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/131",
+      "reference_pass": true,
+      "oracle_sha256": "a651a6f8338fbf2241a49f0210e99d481d8b969f4273df6d410d7b6703097840",
+      "base_cases": 7,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3464,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/132",
+      "reference_pass": true,
+      "oracle_sha256": "1f65103f39a5aed8c3efeab38fa0fa45df22e393b970f27efa18992e8c050888",
+      "base_cases": 14,
+      "hidden_cases": 9,
+      "evaluation_seconds": 0.3342,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/133",
+      "reference_pass": true,
+      "oracle_sha256": "e42bcb2a68f20a795b78dee655382c6dc1db48f031882ca223ec28292ef6c1d6",
+      "base_cases": 12,
+      "hidden_cases": 3,
+      "evaluation_seconds": 0.3461,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/134",
+      "reference_pass": true,
+      "oracle_sha256": "37393ce90a3f524ce20ae6bdd1956aba6dba73e3a5a3aa0b6a6ddb3ae500f7aa",
+      "base_cases": 10,
+      "hidden_cases": 11,
+      "evaluation_seconds": 0.3367,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/135",
+      "reference_pass": true,
+      "oracle_sha256": "5d34e635aedd063219d9c1f13926ccff90d684b93dc86bcb4f0182c962427f39",
+      "base_cases": 5,
+      "hidden_cases": 8,
+      "evaluation_seconds": 0.3485,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/136",
+      "reference_pass": true,
+      "oracle_sha256": "fb423775b9e1f0a80ca965678956fc124b9f8dc2039b13ef8bdb71350eff87ad",
+      "base_cases": 11,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3941,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/137",
+      "reference_pass": true,
+      "oracle_sha256": "45b1a56ba0bb45c5f95ae466a634c7d585e8179b090d773e482a9629c62b4fe8",
+      "base_cases": 8,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3894,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/138",
+      "reference_pass": true,
+      "oracle_sha256": "b4f3e8fd039243def96a07dffb250686b8542f4c7221e02024c4901cc6169587",
+      "base_cases": 8,
+      "hidden_cases": 10,
+      "evaluation_seconds": 0.4193,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/139",
+      "reference_pass": true,
+      "oracle_sha256": "88e4babb025de755b8c43be3d3b5521e6486b65cb4616ce294589347c1512f8d",
+      "base_cases": 4,
+      "hidden_cases": 4,
+      "evaluation_seconds": 1.97,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/14",
+      "reference_pass": true,
+      "oracle_sha256": "ebfda2a31445ff9c743b38fee2abc49d7f3d83d53a5589069f088131eb565a9c",
+      "base_cases": 3,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.6837,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/140",
+      "reference_pass": true,
+      "oracle_sha256": "7d86e09e29b96c54760fdbffcd5cd86da484c20abadbaf3385da3bb26938cac2",
+      "base_cases": 5,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3926,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/141",
+      "reference_pass": true,
+      "oracle_sha256": "6760e035e1e50c30c1ba7c35c0f1a1108f4778829572d8e808fab218bb599dcb",
+      "base_cases": 26,
+      "hidden_cases": 15,
+      "evaluation_seconds": 0.4239,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/142",
+      "reference_pass": true,
+      "oracle_sha256": "89bb83b738a64420cf1d4ef54b6180407589baa58f9ac473817337ce2252a7b5",
+      "base_cases": 11,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.4178,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/143",
+      "reference_pass": true,
+      "oracle_sha256": "35dddffda0f3d43a637e92d82ee0203b29aefee4c7dc5123b554ceedfd662d78",
+      "base_cases": 7,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.4191,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/144",
+      "reference_pass": true,
+      "oracle_sha256": "1e93f1e6df3f3ab0ddb1cbd38adea761acfed73af1a5bee5f5df0f4568aa90a6",
+      "base_cases": 13,
+      "hidden_cases": 8,
+      "evaluation_seconds": 0.404,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/145",
+      "reference_pass": true,
+      "oracle_sha256": "a5d9ec4c2cad33a70276b3c0ee708543d35357d465216032a6813b3000f4db64",
+      "base_cases": 6,
+      "hidden_cases": 3,
+      "evaluation_seconds": 0.4125,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/146",
+      "reference_pass": true,
+      "oracle_sha256": "db8f13f8aaedf01dc4d1a5ef412d5362994f336a6c23156025ce0242d427bf71",
+      "base_cases": 7,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.394,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/147",
+      "reference_pass": true,
+      "oracle_sha256": "01464770a8a801b5e6cead280428be6258f552483215ddf638f04ffc824f0925",
+      "base_cases": 4,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.345,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/148",
+      "reference_pass": true,
+      "oracle_sha256": "7d72df6c13974025393dce5b3dc6a2ff027d49aded812d6b4c07f8c1b690707d",
+      "base_cases": 11,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.2999,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/149",
+      "reference_pass": true,
+      "oracle_sha256": "5b6b5b86848bdf8595d92d2bd350f117dfa8f695611260e2ae82add536227960",
+      "base_cases": 7,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3551,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/15",
+      "reference_pass": true,
+      "oracle_sha256": "e1c70e68305a2bbf0a1fcece192623661eb0ebc94697f2a3e08677fb2194db3d",
+      "base_cases": 3,
+      "hidden_cases": 7,
+      "evaluation_seconds": 1.9409,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/150",
+      "reference_pass": true,
+      "oracle_sha256": "78cf7a31c9c6ce25627d1180ad7bb511fa7f46428e0f473f7399f43390000b70",
+      "base_cases": 10,
+      "hidden_cases": 9,
+      "evaluation_seconds": 0.3384,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/151",
+      "reference_pass": true,
+      "oracle_sha256": "eab3049e963822ac82fa8a8bfebf4ee94598672b379c12b015a813d5ab2fc5a4",
+      "base_cases": 7,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3296,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/152",
+      "reference_pass": true,
+      "oracle_sha256": "18227699764f3347dde358d6b493f244651bc2bed9613195f8e39f65c40b812d",
+      "base_cases": 4,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.3343,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/153",
+      "reference_pass": true,
+      "oracle_sha256": "e42b96c0960689a825034151267c28f7ba676cdb6b70bb6b01cddccf1f17f483",
+      "base_cases": 9,
+      "hidden_cases": 8,
+      "evaluation_seconds": 0.3356,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/154",
+      "reference_pass": true,
+      "oracle_sha256": "7c9e63207d00542a76b9ba202ef8ca7f59a8618c0925d312b42add5f8a9e5d70",
+      "base_cases": 6,
+      "hidden_cases": 10,
+      "evaluation_seconds": 0.3443,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/155",
+      "reference_pass": true,
+      "oracle_sha256": "69e4df7e1418b57c4d426a61a14958d2a2c65157e97ec62cde6177f2b91fcd81",
+      "base_cases": 8,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3294,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/156",
+      "reference_pass": true,
+      "oracle_sha256": "42ec952608d8be9ba9afdf9e79208f5984301a7d3afb1a1d795bd284f454ed58",
+      "base_cases": 14,
+      "hidden_cases": 16,
+      "evaluation_seconds": 0.3443,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/157",
+      "reference_pass": true,
+      "oracle_sha256": "69213101e56be2586758c99a3715decc736d291f8b835f27816448f00966faf6",
+      "base_cases": 11,
+      "hidden_cases": 8,
+      "evaluation_seconds": 0.3444,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/158",
+      "reference_pass": true,
+      "oracle_sha256": "c978d7864284ecd15a50c681d45e8fb9f3a81bceacab7ae18731cf051a9365df",
+      "base_cases": 10,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.2934,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/159",
+      "reference_pass": true,
+      "oracle_sha256": "f3aad3a3cd758ee093e1e924d609b9b136555cb5394b7c103194d7a1a1ae1026",
+      "base_cases": 6,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3449,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/16",
+      "reference_pass": true,
+      "oracle_sha256": "0ef05bcc1fcff0f1f51881dd8ce22656c96088a2a11c1721c7f0261205763865",
+      "base_cases": 5,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.6875,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/160",
+      "reference_pass": true,
+      "oracle_sha256": "0e14494781ba453c6ce8c5b105a008999f2c9119c3f5a94e9675cb5be56d5887",
+      "base_cases": 3,
+      "hidden_cases": 2,
+      "evaluation_seconds": 0.3488,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/161",
+      "reference_pass": true,
+      "oracle_sha256": "5ea16e943df2b0299afc368e380484b37efc196847ffa3da86a01d9d3fa30a5e",
+      "base_cases": 8,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3461,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/162",
+      "reference_pass": true,
+      "oracle_sha256": "3eb63f7edfce24771ee6869270c3126a43a102f51bcdb016770b0daba7a79101",
+      "base_cases": 4,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.3241,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/163",
+      "reference_pass": true,
+      "oracle_sha256": "7b712bc4c058690e5af0eda0143ee4b47e88a64211e29dab57db6f6a90c99571",
+      "base_cases": 4,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.292,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/17",
+      "reference_pass": true,
+      "oracle_sha256": "ef00c8fb688a766bc13c727615af6fbfe21dc087fcf29e91b4f40dc16edb2ffa",
+      "base_cases": 5,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.7304,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/18",
+      "reference_pass": true,
+      "oracle_sha256": "323c58bc17797c5e4aeef75654940aab57cce47d86dc692d502f9985433f5ce8",
+      "base_cases": 4,
+      "hidden_cases": 10,
+      "evaluation_seconds": 0.4834,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/19",
+      "reference_pass": true,
+      "oracle_sha256": "d402086e3c30e999e5ffd5c1a227258d1652e36347effec3245a4dcfbcdd9212",
+      "base_cases": 5,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.487,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/2",
+      "reference_pass": true,
+      "oracle_sha256": "e83bb60fb8ff36eec18e599bfdb65b0519f93df78d5705be5c02c5fc11a3c671",
+      "base_cases": 3,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.2889,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/20",
+      "reference_pass": true,
+      "oracle_sha256": "39427e6ab250be7947f86e46f76c1fc8bb0f4b5e1123ffd269e79451f650261e",
+      "base_cases": 5,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.4784,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/21",
+      "reference_pass": true,
+      "oracle_sha256": "638447030cd802250f55c5d9eb21b27d148e65bf2a84700bee1d9c9cf6a7c354",
+      "base_cases": 5,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.4586,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/22",
+      "reference_pass": true,
+      "oracle_sha256": "39fc6618c6c1c97194da1b3949ac3205d1d2118670873251c2f36132ca10dc3c",
+      "base_cases": 3,
+      "hidden_cases": 2,
+      "evaluation_seconds": 0.4807,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/23",
+      "reference_pass": true,
+      "oracle_sha256": "d3939c53dd0a3d4f802d8d2f7628523d2da5c0d963885b9fe048fb4f59bab720",
+      "base_cases": 3,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3797,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/24",
+      "reference_pass": true,
+      "oracle_sha256": "6d0bbfa272a64c86c3a8ee0fb18aa6c6af32b490693ee3ad63a3c01b75574899",
+      "base_cases": 5,
+      "hidden_cases": 12,
+      "evaluation_seconds": 0.3462,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/25",
+      "reference_pass": true,
+      "oracle_sha256": "524cc6586fa30275e7a6a4bee26fb0a51ff7d476308c05ad965eec014a14c67a",
+      "base_cases": 8,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.3476,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/26",
+      "reference_pass": true,
+      "oracle_sha256": "9cd37c42b8852fbf823f20d2532aceb6c59a17e9fa1cd477e223c22af0aa537b",
+      "base_cases": 3,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.3044,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/27",
+      "reference_pass": true,
+      "oracle_sha256": "3100e98bb3144cb716869e31cd9685c243d1138a6f04b2821b018e949d9c2bdd",
+      "base_cases": 3,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.3325,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/28",
+      "reference_pass": true,
+      "oracle_sha256": "c3f77291d41fb14e5a4e0e70832c4a78ab92a09a486e26c26ca3f47446205218",
+      "base_cases": 3,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.5166,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/29",
+      "reference_pass": true,
+      "oracle_sha256": "098513653f28a4b45f9a1c187d5b22026bd78299bea9bcc6fe4807b51831e4a6",
+      "base_cases": 2,
+      "hidden_cases": 9,
+      "evaluation_seconds": 0.5259,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/3",
+      "reference_pass": true,
+      "oracle_sha256": "8344db6d4333d3bcd67fa788f819ba13d290611eb61a2ed2ed43a30c5fb5906e",
+      "base_cases": 6,
+      "hidden_cases": 10,
+      "evaluation_seconds": 0.2969,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/30",
+      "reference_pass": true,
+      "oracle_sha256": "e0c9757ba4c78d6624cbb9336c271d680759a55489d7f6bb370dbe6d58d41ece",
+      "base_cases": 4,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.5497,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/31",
+      "reference_pass": true,
+      "oracle_sha256": "71dac09ace8602139656f11a7c365e201778805995737b3d298344f332c8a5c6",
+      "base_cases": 13,
+      "hidden_cases": 15,
+      "evaluation_seconds": 0.5828,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/32",
+      "reference_pass": true,
+      "oracle_sha256": "ebb20f6fc08c7056a5a81f04bf4548a74bbea176da32ad2e9d386bcc1ed678ec",
+      "base_cases": 100,
+      "hidden_cases": 1,
+      "evaluation_seconds": 0.5586,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/33",
+      "reference_pass": true,
+      "oracle_sha256": "1ef422bace56f3380ce7b3cb359f2b88a598ff4d68f3cb757853bd374ff3a5ab",
+      "base_cases": 10,
+      "hidden_cases": 3,
+      "evaluation_seconds": 0.4538,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/34",
+      "reference_pass": true,
+      "oracle_sha256": "bf0c644c1d8491d0a9c9f1868433ec93686b255ddc306588ae6eaebaba2932ff",
+      "base_cases": 1,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3637,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/35",
+      "reference_pass": true,
+      "oracle_sha256": "1986474caee9b68799ad2954b88a3d1db5a5dc5540048f9b975a19226f8166a6",
+      "base_cases": 2,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.393,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/36",
+      "reference_pass": true,
+      "oracle_sha256": "20913d4b7bc155072152e2072b79488c66b549bbe5f46a12ac31e9bf217e9383",
+      "base_cases": 8,
+      "hidden_cases": 3,
+      "evaluation_seconds": 0.7382,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/37",
+      "reference_pass": true,
+      "oracle_sha256": "980aba72d3b4a8b94e92baab754fe32649587749ed2c52538c2d75fe09490e0e",
+      "base_cases": 3,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.3914,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/38",
+      "reference_pass": true,
+      "oracle_sha256": "215423784b591ead9025d3acc7589c60296d20215c2b6ef5c7fee3c119696f38",
+      "base_cases": 100,
+      "hidden_cases": 3,
+      "evaluation_seconds": 0.3626,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/39",
+      "reference_pass": true,
+      "oracle_sha256": "9bb3a8b945e991bb33985c4d4d36be401c8750841e92053afbdb3a683c6b8330",
+      "base_cases": 10,
+      "hidden_cases": 2,
+      "evaluation_seconds": 0.3772,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/4",
+      "reference_pass": true,
+      "oracle_sha256": "51338804a9927aa3284e91150ff65f951919671e43030f241154eb428f221503",
+      "base_cases": 3,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.2881,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/40",
+      "reference_pass": true,
+      "oracle_sha256": "70bc2e643714f80e7b1af6b5897b04e10af551771e90ab672aff3de9d2091ba9",
+      "base_cases": 9,
+      "hidden_cases": 15,
+      "evaluation_seconds": 0.389,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/41",
+      "reference_pass": true,
+      "oracle_sha256": "bf13d5053c0216d886ec86adea5714f2f8400ba8fd2132baf3b38456fa454dc6",
+      "base_cases": 5,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.3968,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/42",
+      "reference_pass": true,
+      "oracle_sha256": "c0bcbba24bbb2624ab2cf184249a6fa33cda5438716f010c95536232bd7f29ce",
+      "base_cases": 3,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3844,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/43",
+      "reference_pass": true,
+      "oracle_sha256": "cd01b7e92b94f2e8598130ce00ff9e379ce2ef8f99c960aaadb8f367fb580946",
+      "base_cases": 9,
+      "hidden_cases": 13,
+      "evaluation_seconds": 0.3952,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/44",
+      "reference_pass": true,
+      "oracle_sha256": "bcec0f307db14a4f7f2d51a1eeab05e9a9a5a5118890e4211f96dc5ae9daa97a",
+      "base_cases": 12,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3804,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/45",
+      "reference_pass": true,
+      "oracle_sha256": "0aee2194e050ba9f307cd5958c22a0d57aa63e4a0d25ef0ce8a383b67675b7a4",
+      "base_cases": 3,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.3933,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/46",
+      "reference_pass": true,
+      "oracle_sha256": "fcaa204065aa088223470f6bb69223cbfd4358288c40fade7785452a72b62f6c",
+      "base_cases": 4,
+      "hidden_cases": 9,
+      "evaluation_seconds": 0.4005,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/47",
+      "reference_pass": true,
+      "oracle_sha256": "f3460a935eaa8865fe44140661f9cf34f6c761b187d642f420f956233762a1c2",
+      "base_cases": 5,
+      "hidden_cases": 8,
+      "evaluation_seconds": 0.4241,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/48",
+      "reference_pass": true,
+      "oracle_sha256": "8cba869c366f07a47641fdb936c9037a9cae475db99c583ae3f30a93e78788f8",
+      "base_cases": 7,
+      "hidden_cases": 10,
+      "evaluation_seconds": 0.4143,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/49",
+      "reference_pass": true,
+      "oracle_sha256": "3f32eaa96f7ca69502184e8b68ba8617829fc23524bde9872acdf25844e31b1b",
+      "base_cases": 7,
+      "hidden_cases": 12,
+      "evaluation_seconds": 0.4461,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/5",
+      "reference_pass": true,
+      "oracle_sha256": "cb86fac328e9eb3bb5b6e81e36e9ae5007722e128e71b694352461d134f642fe",
+      "base_cases": 3,
+      "hidden_cases": 8,
+      "evaluation_seconds": 0.247,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/50",
+      "reference_pass": true,
+      "oracle_sha256": "067f75690fe2fe1bc7206c372e0d8697799800a2daf4a5ab1d1b4044ba98ce86",
+      "base_cases": 100,
+      "hidden_cases": 2,
+      "evaluation_seconds": 0.4602,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/51",
+      "reference_pass": true,
+      "oracle_sha256": "6ec7dfe385cdb59703bbeca2b2e1bbc63344de774990dcd0e9790fa10790b161",
+      "base_cases": 7,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.4181,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/52",
+      "reference_pass": true,
+      "oracle_sha256": "b7a4ae7d5ee6936533106719fb093725dbbab1ed69ecb4920a8a6b58cbf1e353",
+      "base_cases": 6,
+      "hidden_cases": 10,
+      "evaluation_seconds": 0.4291,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/53",
+      "reference_pass": true,
+      "oracle_sha256": "664e571f6735f0912a11d93ed55311ce70dcc346ff3013efe40fc9cf35d19ed8",
+      "base_cases": 105,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.4333,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/54",
+      "reference_pass": true,
+      "oracle_sha256": "4b1855b21f6322dcf5e1b012dd2f99acf1e119b4c4b5e45d4a3772ca6b10114a",
+      "base_cases": 7,
+      "hidden_cases": 9,
+      "evaluation_seconds": 0.3911,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/55",
+      "reference_pass": true,
+      "oracle_sha256": "521fd04ff9fd5883b965ed198be2e3900736a307029e654acf996e5901fd7c6c",
+      "base_cases": 5,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3981,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/56",
+      "reference_pass": true,
+      "oracle_sha256": "2c90b8f7bd0b6c49b80a789e0ce65a3ee0733fedbe880f3864242e5cb066eb8a",
+      "base_cases": 12,
+      "hidden_cases": 9,
+      "evaluation_seconds": 0.3712,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/57",
+      "reference_pass": true,
+      "oracle_sha256": "ed9c04df326cd978e9b8c294e3f7c26fb62756060b6b45727e44094650e97cad",
+      "base_cases": 8,
+      "hidden_cases": 9,
+      "evaluation_seconds": 0.3423,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/58",
+      "reference_pass": true,
+      "oracle_sha256": "cf68840438af7a2310c64079a905c8ded28ad14054522ab0c3b3fedfdfd5c790",
+      "base_cases": 4,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.384,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/59",
+      "reference_pass": true,
+      "oracle_sha256": "700225d8f4175f2fcb195bec141592420c674739cf7465638320b038aa779f24",
+      "base_cases": 5,
+      "hidden_cases": 7,
+      "evaluation_seconds": 1.6578,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/6",
+      "reference_pass": true,
+      "oracle_sha256": "ef8c7f3d2d134f467c6bc81be2c825653166d42bf563b3a2813958f5a519e44a",
+      "base_cases": 3,
+      "hidden_cases": 2,
+      "evaluation_seconds": 0.4736,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/60",
+      "reference_pass": true,
+      "oracle_sha256": "b50a01e799807f240b832b8301823e8c46a649b7355692c638bb7609083a5ec3",
+      "base_cases": 5,
+      "hidden_cases": 13,
+      "evaluation_seconds": 0.3389,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/61",
+      "reference_pass": true,
+      "oracle_sha256": "426017a6588d361a85d5ea247d7492a9d88d54fe49e24bda6f74d298e226c257",
+      "base_cases": 12,
+      "hidden_cases": 12,
+      "evaluation_seconds": 0.3481,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/62",
+      "reference_pass": true,
+      "oracle_sha256": "948ab1da0e56285b9c1c1ecd0855545dd23985d41da6bec2e809c7f2cc5b9a74",
+      "base_cases": 5,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.3443,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/63",
+      "reference_pass": true,
+      "oracle_sha256": "c1f8e557fe8ea329a12db7d4581bb4f388a0a6177c0d60cd8d1c519136d8ca6a",
+      "base_cases": 7,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3797,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/64",
+      "reference_pass": true,
+      "oracle_sha256": "1f9abc53cbef7f3a10ed9fa897ca1fa96e2d5531ed93885f6aa718abe0abbef0",
+      "base_cases": 7,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.3751,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/65",
+      "reference_pass": true,
+      "oracle_sha256": "30bec7414923cfd3212192f91c98ee1ec5a6ffdfd9db7fcff37170deabb5ae2a",
+      "base_cases": 5,
+      "hidden_cases": 9,
+      "evaluation_seconds": 0.3322,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/66",
+      "reference_pass": true,
+      "oracle_sha256": "0c3b4a2ced7fa1ed31ad7118a3df358e2f6129be3d1bf829ae65d4e16a029f49",
+      "base_cases": 8,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3439,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/67",
+      "reference_pass": true,
+      "oracle_sha256": "8380c1072eb34020e835c3902275a4cc4ac3e8aec84fc38115626920a8ca2c82",
+      "base_cases": 7,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.4502,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/68",
+      "reference_pass": true,
+      "oracle_sha256": "31a733392a6b33b21b3029d4aaada1f7a84648d8c13227947baf828bacf523d7",
+      "base_cases": 8,
+      "hidden_cases": 8,
+      "evaluation_seconds": 0.4533,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/69",
+      "reference_pass": true,
+      "oracle_sha256": "5a7fbe0ec34ddf4219883c72e1092448217736cf72ee736ab4c5537859dd3b85",
+      "base_cases": 25,
+      "hidden_cases": 9,
+      "evaluation_seconds": 0.4197,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/7",
+      "reference_pass": true,
+      "oracle_sha256": "2b3d8f7605eb8b3b30e3041d098f42e65e80fcf987608515b2881dfbc5f8d831",
+      "base_cases": 4,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.4519,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/70",
+      "reference_pass": true,
+      "oracle_sha256": "741cf735726c7527a745d66d27582ebc0478f9b6442c0df852842c7cafe4f9eb",
+      "base_cases": 9,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.4132,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/71",
+      "reference_pass": true,
+      "oracle_sha256": "cd8f1a18fe5a33b39fc83436e77a6adaeab3ac1119610d603e5c0e667f8fd40c",
+      "base_cases": 9,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.3895,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/72",
+      "reference_pass": true,
+      "oracle_sha256": "e066b39b17e2ecaa0434a9473c8eeabc7cc5d735d3c41f0b75fc8540430c9a54",
+      "base_cases": 6,
+      "hidden_cases": 12,
+      "evaluation_seconds": 0.3682,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/73",
+      "reference_pass": true,
+      "oracle_sha256": "aa21e9ed1ed4cfc77500af7552b329d2ee3cdc651ab6e7d0fd506fe15da15a1c",
+      "base_cases": 8,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3436,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/74",
+      "reference_pass": true,
+      "oracle_sha256": "1fb6db76ffdbc200eeb2d1685f251a1f6e09d98edecdf30ca98cd8d3393e3870",
+      "base_cases": 9,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.3333,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/75",
+      "reference_pass": true,
+      "oracle_sha256": "d6f25b5058d3318a1b21ac2eb637bcfc0be62948c4e490a9e112e89f5f75d508",
+      "base_cases": 4,
+      "hidden_cases": 6,
+      "evaluation_seconds": 0.3339,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/76",
+      "reference_pass": true,
+      "oracle_sha256": "84a1cf16979521dc2b2c06218bf09ee5a99b78c7d2d3dc0a0aa834c5c0e88c02",
+      "base_cases": 10,
+      "hidden_cases": 15,
+      "evaluation_seconds": 0.38,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/77",
+      "reference_pass": true,
+      "oracle_sha256": "37a7b3414d4facb982882bb56801943b15c60e4ba6b0b7fe0f7c151b3c5162bc",
+      "base_cases": 16,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3332,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/78",
+      "reference_pass": true,
+      "oracle_sha256": "58e7c4424bdac19b2949557ee64ef5eab9a0a9908035a20f9fddc45159867226",
+      "base_cases": 13,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.386,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/79",
+      "reference_pass": true,
+      "oracle_sha256": "046828acfad11fd8d53b1492b4d5e9c2229e290ef3c078bfef60f93d973dcf71",
+      "base_cases": 4,
+      "hidden_cases": 3,
+      "evaluation_seconds": 0.3364,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/8",
+      "reference_pass": true,
+      "oracle_sha256": "7a59c6fae86e566e00a34155665e56a498fd45f58f2d076365e4bb332f76d1e8",
+      "base_cases": 5,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.4368,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/80",
+      "reference_pass": true,
+      "oracle_sha256": "5619092912ce1b68efd0b0b9a863870df19ac9aea4db722e53f137d2e9216dd6",
+      "base_cases": 8,
+      "hidden_cases": 14,
+      "evaluation_seconds": 0.3681,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/81",
+      "reference_pass": true,
+      "oracle_sha256": "1c13179559c59cd424798746ef0adbb11e8319cb8999a923c8c4c65a01b6a699",
+      "base_cases": 6,
+      "hidden_cases": 15,
+      "evaluation_seconds": 0.4898,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/82",
+      "reference_pass": true,
+      "oracle_sha256": "62a400b4e5ccede8d2455af732335e581893ccd39af16cddf6c4ea5103f25901",
+      "base_cases": 16,
+      "hidden_cases": 11,
+      "evaluation_seconds": 0.4796,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/83",
+      "reference_pass": true,
+      "oracle_sha256": "0acc83288db9479c367cf7d834f85af6c91e00d0d3e7641e8fc4020427fa18c9",
+      "base_cases": 5,
+      "hidden_cases": 3,
+      "evaluation_seconds": 1.5248,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/84",
+      "reference_pass": true,
+      "oracle_sha256": "1592819ed4c4e542925b5abd78564785ee1540f6dc777e4e1b47d2bfdce889e4",
+      "base_cases": 5,
+      "hidden_cases": 3,
+      "evaluation_seconds": 0.496,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/85",
+      "reference_pass": true,
+      "oracle_sha256": "81d189183fcbf1bcf399c861ef92c88a031495c7bed977c1d68512991de25c37",
+      "base_cases": 4,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.4817,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/86",
+      "reference_pass": true,
+      "oracle_sha256": "d58ac19429e3170e1f6cd2174c756c2ecd974da24c37b2dd29c349610484d0b1",
+      "base_cases": 7,
+      "hidden_cases": 4,
+      "evaluation_seconds": 0.5377,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/87",
+      "reference_pass": true,
+      "oracle_sha256": "a611ba909e759ee31f08ff3aded59083d890c251d2623eb20c826ad112fae0df",
+      "base_cases": 6,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.4291,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/88",
+      "reference_pass": true,
+      "oracle_sha256": "4e256d18e65979bd5969ee2d04e0898e46c9a046ba2ad010482d108916eee89f",
+      "base_cases": 7,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.4279,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/89",
+      "reference_pass": true,
+      "oracle_sha256": "90630893f7fa50a93b5301715c2891a37ea4148629b03d3697404fae1574a428",
+      "base_cases": 8,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3322,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/9",
+      "reference_pass": true,
+      "oracle_sha256": "6b0c9817cd92decc0ab466530968b005a4094a0d327e1ed852be3c4f16bd4090",
+      "base_cases": 4,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.4721,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/90",
+      "reference_pass": true,
+      "oracle_sha256": "5d96343b68432c07e7621743a018558632c0c80848f90c1c10f9dbcb190e1ffe",
+      "base_cases": 7,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.3571,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/91",
+      "reference_pass": true,
+      "oracle_sha256": "8790aef9df275b0894e0f6cf81e13bfe1a2f7f0f794b5a863d5d1ca43d4dbf13",
+      "base_cases": 6,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.3889,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/92",
+      "reference_pass": true,
+      "oracle_sha256": "83c901730f83f32363fe71c82e0cf32e7d3a8199e8e182a1b7b0bf24f08a24b3",
+      "base_cases": 10,
+      "hidden_cases": 15,
+      "evaluation_seconds": 0.3883,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/93",
+      "reference_pass": true,
+      "oracle_sha256": "4fe58cdc9c5c3152df7bfbdff9de9b6d666f09947e261fe27d7ffe2a6b32b62d",
+      "base_cases": 5,
+      "hidden_cases": 5,
+      "evaluation_seconds": 0.3976,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/94",
+      "reference_pass": true,
+      "oracle_sha256": "6acd8b4884f5bceb6b81152193826b2fcf582f7fbb59ff25ba172170ab2687b0",
+      "base_cases": 9,
+      "hidden_cases": 8,
+      "evaluation_seconds": 0.4415,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/95",
+      "reference_pass": true,
+      "oracle_sha256": "ce40b5f58cdcca2b3db52eb24b6cfb9f5a92a3fbe948b8950b4aac9988137b1e",
+      "base_cases": 14,
+      "hidden_cases": 10,
+      "evaluation_seconds": 0.3906,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/96",
+      "reference_pass": true,
+      "oracle_sha256": "f70ff18b2c83e0bbc91464baf26cb0bf627742e446f7766c072deda4fc54bad9",
+      "base_cases": 10,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.3837,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/97",
+      "reference_pass": true,
+      "oracle_sha256": "119919fa23ca866e5447faf8a544934522e341a9de4c54badab4b35af38772a7",
+      "base_cases": 16,
+      "hidden_cases": 3,
+      "evaluation_seconds": 0.3274,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/98",
+      "reference_pass": true,
+      "oracle_sha256": "d34172175f007b0460b21d2c423882c44f3a7216aceb740dc5ccf7552ebd5554",
+      "base_cases": 7,
+      "hidden_cases": 8,
+      "evaluation_seconds": 0.3462,
+      "sandboxed": true
+    },
+    {
+      "task_id": "HumanEval/99",
+      "reference_pass": true,
+      "oracle_sha256": "91b1fed5bdd71ebcc26cd078d801e5f0807e7f9d90ac60a72d55cfd244e675c5",
+      "base_cases": 5,
+      "hidden_cases": 7,
+      "evaluation_seconds": 0.3646,
+      "sandboxed": true
+    }
+  ],
+  "errors": [],
+  "api_calls": 0
+}

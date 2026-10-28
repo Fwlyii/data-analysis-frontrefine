@@ -1,0 +1,21 @@
+{
+  "purpose": "low-token quota diagnosis; excluded from experimental results",
+  "timestamp": "2026-10-25T14:57:06.505167+00:00",
+  "credential_slot": 1,
+  "request": {
+    "model": "Qwen/Qwen3-8B",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Reply with OK only."
+      }
+    ],
+    "temperature": 0,
+    "max_tokens": 16,
+    "enable_thinking": false,
+    "stream": false
+  },
+  "http_status": 429,
+  "error": "{\"code\":50602,\"message\":\"Request was rejected due to rate limiting. Details: TPM limit reached.\",\"data\":null}",
+  "elapsed_s": 0.131
+}

@@ -1,0 +1,32 @@
+prompt_id,prompt_text,answer_records
+AbbreviateWords,"Abbreviate words as much as possible. Remove vowels. For example, you can replace 'concept' with 'cncpt'.",2400
+BeConcise,"Think step by step before answering, but be concise.",2400
+BulletPoints,Only use bullet points. Do not use complete sentences.,2400
+CharLimit(10),Only use 10 letters for your answer.,2400
+CharLimit(100),Only use 100 letters for your answer.,2400
+CharLimit(50),Only use 50 letters for your answer.,2400
+CharLimit(500),Only use 500 letters for your answer.,2400
+ChineseCoT,Respond in Chinese.,2400
+ChineseCoT(10),"Respond in Chinese, but use at most 10 characters.",2400
+ChineseCoT(100),"Respond in Chinese, but use at most 100 characters.",2400
+ChineseCoT(50),"Respond in Chinese, but use at most 50 characters.",2400
+ChineseCoT(500),"Respond in Chinese, but use at most 500 characters.",2400
+DefaultCoT,Think step by step before answering.,2400
+NoCoT,Only give the final answer. Do not give any explanation.,2400
+NoProperGrammar,"Do not use proper grammar. Avoid using connecting words like 'and', 'since', 'but', or 'then', etc.",2400
+NoSpaces,"Do not use any spaces or line breaks. For example, instead of 'since 20 + 4 = 24' respond with 'since20+4=24'.",2400
+OnlyNumbers,Only use numbers or equations in your steps. Use as few words as possible.,2400
+StepLimit(1),"List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 1 steps.",2400
+StepLimit(2),"List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 2 steps.",2400
+StepLimit(5),"List your steps (e.g. 'Step 1', 'Step 2', ...). Use at most 5 steps.",2400
+TokenLimit(10),Only use 10 tokens for your answer.,2400
+TokenLimit(100),Only use 100 tokens for your answer.,2400
+TokenLimit(50),Only use 50 tokens for your answer.,2400
+TokenLimit(500),Only use 500 tokens for your answer.,2400
+WordLimit(1),Only use 1 words for your answer.,2400
+WordLimit(10),Only use 10 words for your answer.,2400
+WordLimit(100),Only use 100 words for your answer.,2400
+WordLimit(15),Only use 15 words for your answer.,2400
+WordLimit(25),Only use 25 words for your answer.,2400
+WordLimit(5),Only use 5 words for your answer.,2400
+WordLimit(50),Only use 50 words for your answer.,2400

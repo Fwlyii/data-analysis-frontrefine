@@ -1,0 +1,9 @@
+{
+  "task_id": "HumanEval/37",
+  "reference_pass": true,
+  "oracle_sha256": "980aba72d3b4a8b94e92baab754fe32649587749ed2c52538c2d75fe09490e0e",
+  "base_cases": 3,
+  "hidden_cases": 4,
+  "evaluation_seconds": 0.3914,
+  "sandboxed": true
+}

@@ -1,0 +1,11 @@
+{
+  "url": "https://github.com/evalplus/humanevalplus_release/releases/download/v0.1.10/HumanEvalPlus-Mini.jsonl.gz",
+  "sha256": "91486741f1627101021fbe50523df08eebb5b0bf5e804b633dcd5ca3c14dbd2f",
+  "tasks": 164,
+  "fetched_at_utc": "2026-10-26T05:56:25.319233+00:00",
+  "dataset_version": "v0.1.10",
+  "feedback_tests": "base_input",
+  "hidden_tests": "plus_input",
+  "evalplus_source_url": "https://github.com/evalplus/evalplus",
+  "evalplus_source_archive_sha256": "b6efc7e69b9e8568606b711f626afb3b35326da5b83998029ec988bcc88cf199"
+}
