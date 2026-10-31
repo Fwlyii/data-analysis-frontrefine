@@ -1,0 +1,23 @@
+[
+  {
+    "name": "editable-design",
+    "url": "https://arxiv.org/pdf/2609.04034",
+    "pages": 14,
+    "sha256": "378819da2818e302db80abb7cd915112854f2797cf2719e42b16c30b862a4aaf",
+    "read_scope": "full-text extraction; method and limitations inspected"
+  },
+  {
+    "name": "ui-remix",
+    "url": "https://arxiv.org/pdf/2601.18759v2",
+    "pages": 17,
+    "sha256": "a218180942935d15b4da1f7d359c5575be6b18b0cc4d521b136f62fd1ca77a14",
+    "read_scope": "full-text extraction; method and limitations inspected"
+  },
+  {
+    "name": "ui2code-n",
+    "url": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/yang26v/yang26v.pdf",
+    "pages": 27,
+    "sha256": "d780ec05de7b3ec3f30545fb39aded56e8dd13016bb9fe873dfd38dd7106928d",
+    "read_scope": "full-text extraction; method and limitations inspected"
+  }
+]

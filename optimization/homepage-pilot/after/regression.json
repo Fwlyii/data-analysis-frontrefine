@@ -1,0 +1,357 @@
+{
+  "results": [
+    {
+      "name": "1440px concise: native SVG",
+      "passed": true
+    },
+    {
+      "name": "1440px concise: no page overflow",
+      "passed": true,
+      "detail": 1440
+    },
+    {
+      "name": "1440px concise: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "1440px language: native SVG",
+      "passed": true
+    },
+    {
+      "name": "1440px language: no page overflow",
+      "passed": true,
+      "detail": 1440
+    },
+    {
+      "name": "1440px language: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "1440px limits: native SVG",
+      "passed": true
+    },
+    {
+      "name": "1440px limits: no page overflow",
+      "passed": true,
+      "detail": 1440
+    },
+    {
+      "name": "1440px limits: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "1440px position: native SVG",
+      "passed": true
+    },
+    {
+      "name": "1440px position: no page overflow",
+      "passed": true,
+      "detail": 1440
+    },
+    {
+      "name": "1440px position: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "1440px repair: native SVG",
+      "passed": true
+    },
+    {
+      "name": "1440px repair: no page overflow",
+      "passed": true,
+      "detail": 1440
+    },
+    {
+      "name": "1440px repair: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "390px concise: native SVG",
+      "passed": true
+    },
+    {
+      "name": "390px concise: no page overflow",
+      "passed": true,
+      "detail": 390
+    },
+    {
+      "name": "390px concise: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "390px language: native SVG",
+      "passed": true
+    },
+    {
+      "name": "390px language: no page overflow",
+      "passed": true,
+      "detail": 390
+    },
+    {
+      "name": "390px language: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "390px limits: native SVG",
+      "passed": true
+    },
+    {
+      "name": "390px limits: no page overflow",
+      "passed": true,
+      "detail": 390
+    },
+    {
+      "name": "390px limits: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "390px position: native SVG",
+      "passed": true
+    },
+    {
+      "name": "390px position: no page overflow",
+      "passed": true,
+      "detail": 390
+    },
+    {
+      "name": "390px position: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "390px repair: native SVG",
+      "passed": true
+    },
+    {
+      "name": "390px repair: no page overflow",
+      "passed": true,
+      "detail": 390
+    },
+    {
+      "name": "390px repair: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "320px concise: native SVG",
+      "passed": true
+    },
+    {
+      "name": "320px concise: no page overflow",
+      "passed": true,
+      "detail": 320
+    },
+    {
+      "name": "320px concise: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "320px language: native SVG",
+      "passed": true
+    },
+    {
+      "name": "320px language: no page overflow",
+      "passed": true,
+      "detail": 320
+    },
+    {
+      "name": "320px language: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "320px limits: native SVG",
+      "passed": true
+    },
+    {
+      "name": "320px limits: no page overflow",
+      "passed": true,
+      "detail": 320
+    },
+    {
+      "name": "320px limits: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "320px position: native SVG",
+      "passed": true
+    },
+    {
+      "name": "320px position: no page overflow",
+      "passed": true,
+      "detail": 320
+    },
+    {
+      "name": "320px position: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "320px repair: native SVG",
+      "passed": true
+    },
+    {
+      "name": "320px repair: no page overflow",
+      "passed": true,
+      "detail": 320
+    },
+    {
+      "name": "320px repair: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "768px concise: native SVG",
+      "passed": true
+    },
+    {
+      "name": "768px concise: no page overflow",
+      "passed": true,
+      "detail": 768
+    },
+    {
+      "name": "768px concise: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "768px language: native SVG",
+      "passed": true
+    },
+    {
+      "name": "768px language: no page overflow",
+      "passed": true,
+      "detail": 768
+    },
+    {
+      "name": "768px language: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "768px limits: native SVG",
+      "passed": true
+    },
+    {
+      "name": "768px limits: no page overflow",
+      "passed": true,
+      "detail": 768
+    },
+    {
+      "name": "768px limits: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "768px position: native SVG",
+      "passed": true
+    },
+    {
+      "name": "768px position: no page overflow",
+      "passed": true,
+      "detail": 768
+    },
+    {
+      "name": "768px position: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "768px repair: native SVG",
+      "passed": true
+    },
+    {
+      "name": "768px repair: no page overflow",
+      "passed": true,
+      "detail": 768
+    },
+    {
+      "name": "768px repair: export button unobstructed",
+      "passed": true
+    },
+    {
+      "name": "Cross-task control changes URL",
+      "passed": true
+    },
+    {
+      "name": "Cross-task control displays 17 real rows",
+      "passed": true
+    },
+    {
+      "name": "Cross-task state survives reload",
+      "passed": true
+    },
+    {
+      "name": "Baseline data preserved on return",
+      "passed": true
+    },
+    {
+      "name": "CSV download works",
+      "passed": true
+    },
+    {
+      "name": "SVG download works",
+      "passed": true
+    },
+    {
+      "name": "Native data disclosure opens",
+      "passed": true
+    },
+    {
+      "name": "Method disclosure opens",
+      "passed": true
+    },
+    {
+      "name": "Language task selection",
+      "passed": true
+    },
+    {
+      "name": "Limit controls update state",
+      "passed": true
+    },
+    {
+      "name": "Position slider reaches position 20",
+      "passed": true
+    },
+    {
+      "name": "Position CI toggle",
+      "passed": true
+    },
+    {
+      "name": "Position and CI survive reload",
+      "passed": true
+    },
+    {
+      "name": "Repair initial version",
+      "passed": true
+    },
+    {
+      "name": "Playback reaches revision 4",
+      "passed": true
+    },
+    {
+      "name": "Repair model switching",
+      "passed": true
+    },
+    {
+      "name": "Fullscreen control remains available",
+      "passed": true
+    },
+    {
+      "name": "Chart library navigation",
+      "passed": true
+    },
+    {
+      "name": "Return from chart library",
+      "passed": true
+    },
+    {
+      "name": "No serious or critical accessibility violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "No uncaught browser errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "No failed resource requests",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "failedRequests": []
+}

@@ -1,0 +1,16 @@
+{
+  "baseline_commit": "069033c721090e8f467f705aecf751a2e7490f2d",
+  "branch": "visual/homepage-pilot-20261031",
+  "target_route": "/",
+  "desktop": {
+    "width": 1440,
+    "height": 900
+  },
+  "mobile": {
+    "width": 390,
+    "height": 844
+  },
+  "production_deployment_authorized": false,
+  "request_source_sha256": "5f35569674173732eb125a664b55339d843455bb851771bb1d90539f0d46d947",
+  "request_archive_newlines": "LF; original attachment unchanged"
+}

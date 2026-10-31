@@ -1,0 +1,209 @@
+{
+  "checks": [
+    {
+      "name": "320px all chapter entries visible",
+      "passed": true,
+      "navigation": [
+        {
+          "text": "简洁作答",
+          "left": 10,
+          "right": 70,
+          "visible": true
+        },
+        {
+          "text": "中文数学",
+          "left": 70,
+          "right": 130,
+          "visible": true
+        },
+        {
+          "text": "限长反弹",
+          "left": 130,
+          "right": 190,
+          "visible": true
+        },
+        {
+          "text": "资料位置",
+          "left": 190,
+          "right": 250,
+          "visible": true
+        },
+        {
+          "text": "反馈修复",
+          "left": 250,
+          "right": 310,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "name": "320px decorative image media selection",
+      "passed": true,
+      "hasArt": false
+    },
+    {
+      "name": "390px all chapter entries visible",
+      "passed": true,
+      "navigation": [
+        {
+          "text": "简洁作答",
+          "left": 10,
+          "right": 84,
+          "visible": true
+        },
+        {
+          "text": "中文数学",
+          "left": 84,
+          "right": 158,
+          "visible": true
+        },
+        {
+          "text": "限长反弹",
+          "left": 158,
+          "right": 232,
+          "visible": true
+        },
+        {
+          "text": "资料位置",
+          "left": 232,
+          "right": 306,
+          "visible": true
+        },
+        {
+          "text": "反馈修复",
+          "left": 306,
+          "right": 380,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "name": "390px decorative image media selection",
+      "passed": true,
+      "hasArt": false
+    },
+    {
+      "name": "768px all chapter entries visible",
+      "passed": true,
+      "navigation": [
+        {
+          "text": "简洁作答",
+          "left": 14,
+          "right": 120.015625,
+          "visible": true
+        },
+        {
+          "text": "中文数学",
+          "left": 120.015625,
+          "right": 226.03125,
+          "visible": true
+        },
+        {
+          "text": "限长反弹",
+          "left": 226.03125,
+          "right": 332.046875,
+          "visible": true
+        },
+        {
+          "text": "资料位置",
+          "left": 332.046875,
+          "right": 438.0625,
+          "visible": true
+        },
+        {
+          "text": "反馈修复",
+          "left": 438.0625,
+          "right": 544.078125,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "name": "768px decorative image media selection",
+      "passed": true,
+      "hasArt": false
+    },
+    {
+      "name": "1440px all chapter entries visible",
+      "passed": true,
+      "navigation": [
+        {
+          "text": "简洁作答",
+          "left": 405.953125,
+          "right": 521.96875,
+          "visible": true
+        },
+        {
+          "text": "中文数学",
+          "left": 533.96875,
+          "right": 649.984375,
+          "visible": true
+        },
+        {
+          "text": "限长反弹",
+          "left": 661.984375,
+          "right": 778,
+          "visible": true
+        },
+        {
+          "text": "资料位置",
+          "left": 790,
+          "right": 906.015625,
+          "visible": true
+        },
+        {
+          "text": "反馈修复",
+          "left": 918.015625,
+          "right": 1034.03125,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "name": "1440px decorative image media selection",
+      "passed": true,
+      "hasArt": true
+    },
+    {
+      "name": "Actual screenshot fonts recorded",
+      "passed": true,
+      "fonts": {
+        ".finding h1": [
+          {
+            "familyName": "Noto Serif CJK SC",
+            "postScriptName": "NotoSerifCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 12
+          }
+        ],
+        ".finding .premise": [
+          {
+            "familyName": "Noto Sans CJK SC",
+            "postScriptName": "NotoSansCJKsc-Regular",
+            "isCustomFont": false,
+            "glyphCount": 55
+          }
+        ]
+      }
+    },
+    {
+      "name": "Independent asset retains real alpha",
+      "passed": true,
+      "width": 480,
+      "height": 240,
+      "transparentPixels": 57904,
+      "partialAlphaPixels": 56992,
+      "pixels": 115200
+    },
+    {
+      "name": "No console errors in homepage states and chart-library smoke check",
+      "passed": true,
+      "consoleErrors": []
+    },
+    {
+      "name": "No HTTP 4xx/5xx resources in checked pages",
+      "passed": true,
+      "httpErrors": []
+    }
+  ]
+}

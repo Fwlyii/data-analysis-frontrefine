@@ -1,0 +1,308 @@
+{
+  "results": [
+    {
+      "name": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "pageWidth": 1440,
+      "horizontalOverflow": false,
+      "sections": [
+        {
+          "className": "masthead",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 88,
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+          "fontSize": "16px",
+          "color": "rgb(36, 60, 82)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "className": "chapter-nav",
+          "x": 0,
+          "y": 88,
+          "width": 1440,
+          "height": 62,
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+          "fontSize": "16px",
+          "color": "rgb(36, 60, 82)",
+          "background": "rgb(244, 247, 249)"
+        },
+        {
+          "className": "finding",
+          "x": 48,
+          "y": 198,
+          "width": 338,
+          "height": 426.6875,
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+          "fontSize": "16px",
+          "color": "rgb(36, 60, 82)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "className": "figure-sheet",
+          "x": 430,
+          "y": 198,
+          "width": 962,
+          "height": 607.25,
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+          "fontSize": "16px",
+          "color": "rgb(36, 60, 82)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "className": "evidence-section",
+          "x": 48,
+          "y": 869.25,
+          "width": 1344,
+          "height": 323.1875,
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+          "fontSize": "16px",
+          "color": "rgb(36, 60, 82)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "className": "support-section",
+          "x": 48,
+          "y": 1234.4375,
+          "width": 1344,
+          "height": 64.09375,
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+          "fontSize": "16px",
+          "color": "rgb(36, 60, 82)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "className": "page-footer",
+          "x": 40,
+          "y": 1409.28125,
+          "width": 1360,
+          "height": 74.796875,
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+          "fontSize": "12px",
+          "color": "rgb(82, 103, 121)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "heading": "把推理留下，\n把冗余删掉。",
+      "navigation": [
+        {
+          "text": "简洁作答",
+          "href": "#concise"
+        },
+        {
+          "text": "中文数学",
+          "href": "#language"
+        },
+        {
+          "text": "限长反弹",
+          "href": "#limits"
+        },
+        {
+          "text": "资料位置",
+          "href": "#position"
+        },
+        {
+          "text": "反馈修复",
+          "href": "#repair"
+        }
+      ],
+      "buttonLabels": [
+        "全屏演示",
+        "同题对照",
+        "跨任务复现",
+        "下载当前 SVG 图表",
+        "下载当前图表数据 CSV"
+      ],
+      "tableText": "策略\t得分百分比\t平均Token\nNoCoT\t22\t6.46\nDefaultCoT\t91.5\t236.74\nBeConcise\t92\t185.84",
+      "images": [],
+      "plotSVGCount": 1,
+      "resources": [
+        {
+          "name": "/story.css",
+          "bytes": 13993,
+          "duration": 3.799999952316284
+        },
+        {
+          "name": "/runtime/story-data.js",
+          "bytes": 716341,
+          "duration": 11.299999952316284
+        },
+        {
+          "name": "/runtime/story.js",
+          "bytes": 21735,
+          "duration": 8
+        },
+        {
+          "name": "/assets/lens.svg",
+          "bytes": 521,
+          "duration": 3.700000047683716
+        }
+      ],
+      "domNodes": 242,
+      "navigationTiming": [
+        {
+          "domContentLoaded": 88.40000009536743,
+          "load": 91.60000014305115,
+          "bytes": 2404
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "pageWidth": 390,
+      "horizontalOverflow": false,
+      "sections": [
+        {
+          "className": "masthead",
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 72,
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+          "fontSize": "16px",
+          "color": "rgb(36, 60, 82)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "className": "chapter-nav",
+          "x": 0,
+          "y": 72,
+          "width": 390,
+          "height": 54,
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+          "fontSize": "16px",
+          "color": "rgb(36, 60, 82)",
+          "background": "rgb(244, 247, 249)"
+        },
+        {
+          "className": "finding",
+          "x": 20,
+          "y": 154,
+          "width": 350,
+          "height": 300.984375,
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+          "fontSize": "16px",
+          "color": "rgb(36, 60, 82)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "className": "figure-sheet",
+          "x": 12,
+          "y": 478.984375,
+          "width": 366,
+          "height": 480.09375,
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+          "fontSize": "16px",
+          "color": "rgb(36, 60, 82)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "className": "evidence-section",
+          "x": 20,
+          "y": 997.078125,
+          "width": 350,
+          "height": 323.4375,
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+          "fontSize": "16px",
+          "color": "rgb(36, 60, 82)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "className": "support-section",
+          "x": 20,
+          "y": 1350.515625,
+          "width": 350,
+          "height": 101.1875,
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+          "fontSize": "16px",
+          "color": "rgb(36, 60, 82)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "className": "page-footer",
+          "x": 20,
+          "y": 1537.140625,
+          "width": 350,
+          "height": 95.59375,
+          "font": "\"PingFang SC\", \"Microsoft YaHei\", sans-serif",
+          "fontSize": "12px",
+          "color": "rgb(82, 103, 121)",
+          "background": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "heading": "把推理留下，把冗余删掉。",
+      "navigation": [
+        {
+          "text": "简洁作答",
+          "href": "#concise"
+        },
+        {
+          "text": "中文数学",
+          "href": "#language"
+        },
+        {
+          "text": "限长反弹",
+          "href": "#limits"
+        },
+        {
+          "text": "资料位置",
+          "href": "#position"
+        },
+        {
+          "text": "反馈修复",
+          "href": "#repair"
+        }
+      ],
+      "buttonLabels": [
+        "全屏演示",
+        "同题对照",
+        "跨任务复现",
+        "下载当前 SVG 图表",
+        "下载当前图表数据 CSV"
+      ],
+      "tableText": "策略\t得分百分比\t平均Token\nNoCoT\t22\t6.46\nDefaultCoT\t91.5\t236.74\nBeConcise\t92\t185.84",
+      "images": [],
+      "plotSVGCount": 1,
+      "resources": [
+        {
+          "name": "/story.css",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "name": "/runtime/story-data.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "name": "/runtime/story.js",
+          "bytes": 0,
+          "duration": 0
+        },
+        {
+          "name": "/assets/lens.svg",
+          "bytes": 0,
+          "duration": 1.2999999523162842
+        }
+      ],
+      "domNodes": 242,
+      "navigationTiming": [
+        {
+          "domContentLoaded": 35.89999985694885,
+          "load": 36.59999990463257,
+          "bytes": 0
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "failedRequests": []
+}

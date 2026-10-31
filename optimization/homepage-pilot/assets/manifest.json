@@ -1,0 +1,17 @@
+{
+  "generator": "built-in image_gen",
+  "reference": "designs/variant-a.png",
+  "prompt": "assets/prompt-optical-study.txt",
+  "original": "assets/optical-study-original.png",
+  "runtime_path": "app/assets/visual/optical-study.webp",
+  "dimensions": [
+    480,
+    240
+  ],
+  "alpha": true,
+  "bytes": 30888,
+  "sha256": "efc3d4003fa8b3c486f5714afd6938c4b615ae15238b3286b0598085e4209509",
+  "delivery_optimization": "FFmpeg WebP quality 72, 480 px width; alpha retained",
+  "mobile_policy": "Decorative CSS pseudo-element only above 850px; absent on smaller layouts",
+  "preload": "Desktop-only media-conditioned preload; no mobile request"
+}

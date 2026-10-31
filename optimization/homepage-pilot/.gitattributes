@@ -1,0 +1,2 @@
+# Preserve and validate the browser's real BOM/CRLF CSV export.
+after/export-baseline.csv whitespace=cr-at-eol
