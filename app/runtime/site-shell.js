@@ -11,7 +11,7 @@
     previous.cancel(); running.delete(previous); byElement.delete(element);
   }
   function play(element, frames, options = {}) {
-    if (!element || preference.matches || document.hidden || !window.LensMotion?.animate) return;
+    if (!element || preference.matches || document.hidden || document.documentElement.matches('.intro-pending,.intro-active') || !window.LensMotion?.animate) return;
     cancel(element);
     const controls = window.LensMotion.animate(element, frames, {duration: .4, ease: [.16, 1, .3, 1], ...options});
     byElement.set(element, controls); running.set(controls, element); metrics.played++;

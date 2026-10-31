@@ -1,0 +1,52 @@
+{
+  "results": [
+    {
+      "name": "Forced intro preserves example anchor, evidence position and CI",
+      "passed": true,
+      "detail": {
+        "hash": "#position/example",
+        "query": "?intro=1&position=20&ci=1",
+        "scroll": 843,
+        "exampleTop": 132.078125,
+        "position": "8",
+        "ci": true,
+        "inert": 0,
+        "history": [
+          {
+            "reason": "complete",
+            "startedBy": "forced",
+            "elapsed": 5964,
+            "draws": 336,
+            "averageFPS": 56.14776079377848,
+            "p95Frame": 16.800000000000182,
+            "p95Draw": 2.299999952316284,
+            "particles": 176,
+            "canvasPixels": 1296000,
+            "error": null,
+            "first": {
+              "x": 536.28125,
+              "y": 305.09375,
+              "width": 367.421875,
+              "height": 127.796875,
+              "top": 305.09375,
+              "right": 903.703125,
+              "bottom": 432.890625,
+              "left": 536.28125
+            },
+            "last": {
+              "x": 60.9375,
+              "y": -816.09375,
+              "width": 102.125,
+              "height": 34.1875,
+              "top": -816.09375,
+              "right": 163.0625,
+              "bottom": -781.90625,
+              "left": 60.9375
+            },
+            "driver": "motion-mini"
+          }
+        ]
+      }
+    }
+  ]
+}

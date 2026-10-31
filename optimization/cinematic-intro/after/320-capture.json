@@ -1,0 +1,90 @@
+{
+  "state": {
+    "intro": {
+      "running": false,
+      "raf": 0,
+      "elapsed": 5963.6,
+      "duration": 5950,
+      "phase": "transfer",
+      "particles": 92,
+      "dpr": 1,
+      "canvasPixels": 1,
+      "seed": 1279610451,
+      "signature": "[{\"x\":45.473331585526466,\"y\":57.47773435572162,\"z\":1.7011921383440496,\"side\":1,\"angle\":0,\"phase\":1.084962378135129,\"size\":0.8285880503710359,\"delay\":0.027261529341340067},{\"x\":2.107701301574707,\"y\":-286.59263412328437,\"z\":2.9002188882557673,\"side\":-1,\"angle\":0.06829549246934333,\"phase\":5.898657080846928,\"size\":1.5774274236755446,\"delay\":0.2180463194847107},{\"x\":-26.125221237540245,\"y\":289.1044099391438,\"z\":2.1906072719022633,\"side\":1,\"angle\":0.13659098493868665,\"phase\":5.039838651977863,\"size\":1.687075730378274,\"delay\":0.027972687482833863}]",
+      "points": [
+        {
+          "x": 160,
+          "y": 318.2
+        },
+        {
+          "x": 160,
+          "y": 318.2
+        },
+        {
+          "x": 160,
+          "y": 318.2
+        }
+      ],
+      "first": null,
+      "last": null,
+      "driver": "native-timeline",
+      "history": [
+        {
+          "reason": "complete",
+          "startedBy": "forced",
+          "elapsed": 5967,
+          "draws": 178,
+          "averageFPS": 30.001525501296676,
+          "p95Frame": 33.40000000000009,
+          "p95Draw": 1.4000000953674316,
+          "particles": 92,
+          "canvasPixels": 236800,
+          "error": null,
+          "first": {
+            "x": 53.90625,
+            "y": 266.5,
+            "width": 212.171875,
+            "height": 73.796875,
+            "top": 266.5,
+            "right": 266.078125,
+            "bottom": 340.296875,
+            "left": 53.90625
+          },
+          "last": {
+            "x": 14.6875,
+            "y": 22.5,
+            "width": 80.625,
+            "height": 27,
+            "top": 22.5,
+            "right": 95.3125,
+            "bottom": 49.5,
+            "left": 14.6875
+          },
+          "driver": "motion-mini"
+        }
+      ],
+      "error": null
+    },
+    "svg": true,
+    "scrollLocked": false,
+    "inert": 0,
+    "overflow": false,
+    "focus": "research",
+    "resources": [
+      "/assets/fonts/lens-editorial-site-semibold.woff2",
+      "/story.css",
+      "/site.css",
+      "/intro.css",
+      "/assets/fonts/lens-intro-semibold.woff2",
+      "/runtime/intro.js",
+      "/runtime/story-data.js",
+      "/assets/vendor/motion-mini-14.9.0.min.js",
+      "/runtime/site-shell.js",
+      "/runtime/story-motion.js",
+      "/runtime/story.js",
+      "/assets/visual/lens-wordmark.webp",
+      "/assets/lens.svg"
+    ]
+  },
+  "errors": []
+}

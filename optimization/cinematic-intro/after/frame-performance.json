@@ -1,0 +1,277 @@
+{
+  "method": "Six sequential real-time browser playbacks, no screenshots or screencast during measurement. Headless Chromium on this host; viewport/DPR/CPU emulation does not establish real hardware GPU performance. FPS is measured draw intervals; draw cost is JavaScript scene work and excludes GPU/compositor cost.",
+  "runs": [
+    {
+      "profile": {
+        "width": 1440,
+        "height": 900
+      },
+      "dataReady": {
+        "elapsed": 98.70000004768372,
+        "introRunning": true
+      },
+      "run": {
+        "reason": "complete",
+        "startedBy": "forced",
+        "elapsed": 5971,
+        "draws": 335,
+        "averageFPS": 56.773754886962436,
+        "p95Frame": 16.800000000000182,
+        "p95Draw": 2.299999952316284,
+        "particles": 176,
+        "canvasPixels": 1296000,
+        "error": null,
+        "first": {
+          "x": 536.28125,
+          "y": 305.09375,
+          "width": 367.421875,
+          "height": 127.796875,
+          "top": 305.09375,
+          "right": 903.703125,
+          "bottom": 432.890625,
+          "left": 536.28125
+        },
+        "last": {
+          "x": 60.9375,
+          "y": 26.90625,
+          "width": 102.125,
+          "height": 34.1875,
+          "top": 26.90625,
+          "right": 163.0625,
+          "bottom": 61.09375,
+          "left": 60.9375
+        },
+        "driver": "motion-mini"
+      },
+      "idlePixels": 1,
+      "idleRAF": 0
+    },
+    {
+      "profile": {
+        "width": 768,
+        "height": 1024
+      },
+      "dataReady": {
+        "elapsed": 73.79999985694886,
+        "introRunning": true
+      },
+      "run": {
+        "reason": "complete",
+        "startedBy": "forced",
+        "elapsed": 5964,
+        "draws": 347,
+        "averageFPS": 58.31690010281304,
+        "p95Frame": 16.700000000000273,
+        "p95Draw": 2.299999952316284,
+        "particles": 176,
+        "canvasPixels": 786432,
+        "error": null,
+        "first": {
+          "x": 277.90625,
+          "y": 382.9375,
+          "width": 212.171875,
+          "height": 73.796875,
+          "top": 382.9375,
+          "right": 490.078125,
+          "bottom": 456.734375,
+          "left": 277.90625
+        },
+        "last": {
+          "x": 42.9375,
+          "y": 26.90625,
+          "width": 102.125,
+          "height": 34.1875,
+          "top": 26.90625,
+          "right": 145.0625,
+          "bottom": 61.09375,
+          "left": 42.9375
+        },
+        "driver": "motion-mini"
+      },
+      "idlePixels": 1,
+      "idleRAF": 0
+    },
+    {
+      "profile": {
+        "width": 390,
+        "height": 844
+      },
+      "dataReady": {
+        "elapsed": 72.39999995231628,
+        "introRunning": true
+      },
+      "run": {
+        "reason": "complete",
+        "startedBy": "forced",
+        "elapsed": 5960,
+        "draws": 178,
+        "averageFPS": 30.000508483194633,
+        "p95Frame": 33.400000000000546,
+        "p95Draw": 1.6000001430511475,
+        "particles": 92,
+        "canvasPixels": 329160,
+        "error": null,
+        "first": {
+          "x": 88.90625,
+          "y": 309.125,
+          "width": 212.171875,
+          "height": 73.796875,
+          "top": 309.125,
+          "right": 301.078125,
+          "bottom": 382.921875,
+          "left": 88.90625
+        },
+        "last": {
+          "x": 27.6875,
+          "y": 22.5,
+          "width": 80.625,
+          "height": 27,
+          "top": 22.5,
+          "right": 108.3125,
+          "bottom": 49.5,
+          "left": 27.6875
+        },
+        "driver": "motion-mini"
+      },
+      "idlePixels": 1,
+      "idleRAF": 0
+    },
+    {
+      "profile": {
+        "width": 320,
+        "height": 740
+      },
+      "dataReady": {
+        "elapsed": 58.80000004768371,
+        "introRunning": true
+      },
+      "run": {
+        "reason": "complete",
+        "startedBy": "forced",
+        "elapsed": 5962,
+        "draws": 179,
+        "averageFPS": 29.917132903333375,
+        "p95Frame": 33.400000000000546,
+        "p95Draw": 1.5,
+        "particles": 92,
+        "canvasPixels": 236800,
+        "error": null,
+        "first": {
+          "x": 53.90625,
+          "y": 266.5,
+          "width": 212.171875,
+          "height": 73.796875,
+          "top": 266.5,
+          "right": 266.078125,
+          "bottom": 340.296875,
+          "left": 53.90625
+        },
+        "last": {
+          "x": 14.6875,
+          "y": 22.5,
+          "width": 80.625,
+          "height": 27,
+          "top": 22.5,
+          "right": 95.3125,
+          "bottom": 49.5,
+          "left": 14.6875
+        },
+        "driver": "motion-mini"
+      },
+      "idlePixels": 1,
+      "idleRAF": 0
+    },
+    {
+      "profile": {
+        "width": 390,
+        "height": 844,
+        "dpr": 3
+      },
+      "dataReady": {
+        "elapsed": 83.80000004768371,
+        "introRunning": true
+      },
+      "run": {
+        "reason": "complete",
+        "startedBy": "forced",
+        "elapsed": 5953,
+        "draws": 178,
+        "averageFPS": 29.833136693072646,
+        "p95Frame": 33.40000000000009,
+        "p95Draw": 1.5,
+        "particles": 92,
+        "canvasPixels": 740610,
+        "error": null,
+        "first": {
+          "x": 88.90625,
+          "y": 309.125,
+          "width": 212.171875,
+          "height": 73.796875,
+          "top": 309.125,
+          "right": 301.078125,
+          "bottom": 382.921875,
+          "left": 88.90625
+        },
+        "last": {
+          "x": 27.6875,
+          "y": 22.5,
+          "width": 80.625,
+          "height": 27,
+          "top": 22.5,
+          "right": 108.3125,
+          "bottom": 49.5,
+          "left": 27.6875
+        },
+        "driver": "motion-mini"
+      },
+      "idlePixels": 1,
+      "idleRAF": 0
+    },
+    {
+      "profile": {
+        "width": 390,
+        "height": 844,
+        "cpu": 4
+      },
+      "dataReady": {
+        "elapsed": 251.79999990463256,
+        "introRunning": true
+      },
+      "run": {
+        "reason": "complete",
+        "startedBy": "forced",
+        "elapsed": 5958,
+        "draws": 175,
+        "averageFPS": 29.081427998395505,
+        "p95Frame": 33.400000000000546,
+        "p95Draw": 3.5999999046325684,
+        "particles": 92,
+        "canvasPixels": 329160,
+        "error": null,
+        "first": {
+          "x": 88.90625,
+          "y": 309.125,
+          "width": 212.171875,
+          "height": 73.796875,
+          "top": 309.125,
+          "right": 301.078125,
+          "bottom": 382.921875,
+          "left": 88.90625
+        },
+        "last": {
+          "x": 27.6875,
+          "y": 22.5,
+          "width": 80.625,
+          "height": 27,
+          "top": 22.5,
+          "right": 108.3125,
+          "bottom": 49.5,
+          "left": 27.6875
+        },
+        "driver": "motion-mini"
+      },
+      "idlePixels": 1,
+      "idleRAF": 0
+    }
+  ]
+}

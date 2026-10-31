@@ -1,0 +1,28 @@
+{
+  "source": "Actual Chromium CDP screencast; no generated/interpolated frames",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "reducedMotion": "no-preference",
+  "frameCount": 400,
+  "seconds": 9.732944011688232,
+  "actions": [
+    {
+      "label": "Click real replay control",
+      "at": 1793439876894
+    },
+    {
+      "label": "Use the live chapter navigation",
+      "at": 1793439883662
+    },
+    {
+      "label": "Operate the real evidence position slider",
+      "at": 1793439884629
+    },
+    {
+      "label": "Replay and skip",
+      "at": 1793439885576
+    }
+  ]
+}

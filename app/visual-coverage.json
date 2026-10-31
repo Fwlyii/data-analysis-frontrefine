@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "entryDocuments": [
     "explore.html",
     "index.html"
@@ -196,21 +196,31 @@
     768,
     1440
   ],
-  "screenshots": "optimization/site-consistency-v3/after/page-audit.json",
-  "browserChecks": "optimization/site-consistency-v3/after/site-checks.json",
+  "screenshots": "optimization/cinematic-intro/after/page-audit.json",
+  "browserChecks": "optimization/cinematic-intro/after/site-checks.json",
   "additionalBrowserChecks": [
-    "optimization/site-consistency-v3/after/home-regression/regression.json",
-    "optimization/site-consistency-v3/after/home-regression/motion-checks.json"
+    "optimization/cinematic-intro/after/home-regression/regression.json",
+    "optimization/cinematic-intro/after/home-regression/motion-checks.json",
+    "optimization/cinematic-intro/after/intro-checks.json",
+    "optimization/cinematic-intro/after/deep-link-check.json"
   ],
-  "performance": "optimization/site-consistency-v3/after/performance-summary.json",
+  "performance": "optimization/cinematic-intro/after/performance-summary.json",
+  "introReview": {
+    "frames": "optimization/cinematic-intro/after/frame-performance.json",
+    "recording": "optimization/cinematic-intro/after/intro-demo-desktop.mp4",
+    "duration": 5950,
+    "runtimeMedia": false
+  },
   "fingerprints": {
-    "app/index.html": "5c9555acada1a98b5525bd1bc4900a393eb0c5f4cd64c87f54cbbee1a7ad68c1",
+    "app/index.html": "c9bfaa0b1795bd30a685dbf78ee8aacc65e4fd1a2140a5e9c1813a6e18dc88a2",
     "app/explore.html": "4504d4570c2b26054e60d07811779c13c8756da92cc69503e85f3f93bffa422c",
     "app/site.css": "a3250e5e4c3b32d17233afd7684663cdcf965f3689188982ac6db4c18552d147",
     "app/story.css": "e492ef34d99b4251b66c8c87f3d315591b8bd82df2824d5f0106e1e9b75fbcaf",
     "app/styles.css": "602bf7a98163c171ff7c1c33bdf2cd0e08294141acebfc5a9c1adee5bcf523c0",
+    "app/intro.css": "9adb557d787dda25ece3cb287e673a82dc325b1a33358b0a4bc92f90fd5d3d32",
+    "app/assets/fonts/lens-intro-semibold.woff2": "2483a4e262eaa7f47762b86d5ed233c2e6199c446202bc6b433ff30c33d5b5ba",
     "app/templates/site-header.html": "d39ec21f6449bba956f0f6e9f337acdde8cf9efc952233072dc61b6335639367",
-    "app/pipeline/scripts/system/build_web_app.py": "e5618cafe57a52a1845fc9f18e95bdb7d2534f3e2e9dcb1524c5bcc7b96c746c",
+    "app/pipeline/scripts/system/build_web_app.py": "0b713dcc590989d4b8d0c0ceb61cb91bd227be2ec6135a9b44dbb446861d6e9c",
     "app/assets/fonts/lens-editorial-site-semibold.woff2": "551f93dd92d0f778415410499939aa0505f4aaaa6439e8eaf1a08cd207b768d1",
     "app/assets/visual/lens-wordmark.webp": "7a6b1fb73946f0310605543c5416331683a74b329469215b31a224db72f074cf",
     "app/assets/vendor/motion-mini-14.9.0.min.js": "4bafd0d178299b2d0370a279fb28b2c3553855890f2b1dc9a8b09ece46e16c4a",
@@ -218,10 +228,11 @@
     "app/src/charts.js": "d63665664ff2de933632a220bdbb88e4c266b3461f8ec5d35182651e82d53c03",
     "app/src/code-interactions.js": "c5c6c669a14a07fb735dbf273fee4baa9809f824343102548fe8ea3e49ffc964",
     "app/src/code-study.js": "b6e3c034e9fcc04938e76a1f813042df917259be6c1d8dcba0d3ed7e9bd2becf",
+    "app/src/intro.js": "7c5a3ca7f5f32d8829d90b2c93b93eb8ff9991664fae577752b6f9da94629c2c",
     "app/src/libraries.js": "21d8609b778724334167ebda135da0e02f97d16fa80f592ab7d54be9d575b71a",
     "app/src/model.js": "dca681c4300f088cb1a4890bea8451240e94ea527dae998f8a85cfdc5b6f633f",
-    "app/src/site-shell.js": "4a67ba09eff834d45b6e145811ebf308e51ccadcd4af7df1a162ba60c3ad2e0e",
-    "app/src/story-motion.js": "5764e0f488075ee3844d3cb9c6e935b39d481e92fd9237451212c2deccd64818",
+    "app/src/site-shell.js": "358f1b20019a92bd03236e65d3b2f88307483cf8a9631d9b936d35a61a8eb5ba",
+    "app/src/story-motion.js": "20ec6e20a704fad691326409c0aaef87a1361c565bf9e2aff0cd1477179c3cf5",
     "app/src/story.js": "ce0bfdc49ead6dbfa5445f4425d79a7d78d55abc398cd791b3299eb09717488b"
   }
 }

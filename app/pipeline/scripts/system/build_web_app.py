@@ -17,7 +17,7 @@ def _shared_shell():
     arrow='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>'
     fullscreen='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg>'
     for filename,home_href,actions in [
-        ('index.html','#concise','<a href="explore.html?mode=explore#case-1">图表库 '+arrow+'</a><button id="present" class="icon-button" aria-label="全屏演示" title="全屏演示">'+fullscreen+'</button>'),
+        ('index.html','#concise','<a href="explore.html?mode=explore#case-1">图表库 '+arrow+'</a><button id="intro-replay" class="icon-button" aria-label="重播开场" title="重播开场"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8a8 8 0 1 1-1 7M4 3v5h5m1 0 6 4-6 4z"/></svg></button><button id="present" class="icon-button" aria-label="全屏演示" title="全屏演示">'+fullscreen+'</button>'),
         ('explore.html','#budget','<a class="story-home" href="index.html">返回研究展页 '+arrow+'</a><button id="fullscreen" class="icon-button" aria-label="全屏演示" title="全屏演示">'+fullscreen+'</button>')]:
         path=APP/filename
         header=template.replace('{{home_href}}',home_href).replace('{{actions}}',actions).replace('{{brand_class}}',' brand' if filename=='explore.html' else '').replace('{{home_label}}','LENS 图表库首页' if filename=='explore.html' else 'LENS 模型行为研究首页')
@@ -57,6 +57,11 @@ def build():
         for asset in json.loads(site_manifest.read_text())['assets']:
             if hashlib.sha256((APP/asset['file']).read_bytes()).hexdigest()!=asset['sha256']:
                 raise ValueError('Shared site asset changed: '+asset['file'])
+    intro_manifest=APP/'assets/visual/intro-manifest.json'
+    if intro_manifest.exists():
+        for asset in json.loads(intro_manifest.read_text())['assets']:
+            if hashlib.sha256((APP/asset['file']).read_bytes()).hexdigest()!=asset['sha256']:
+                raise ValueError('Intro asset changed: '+asset['file'])
     runtime=APP/'runtime'
     runtime.mkdir(exist_ok=True)
     summary=json.loads((APP/'data/summary.json').read_text())
@@ -111,6 +116,7 @@ def build():
     shutil.copy2(APP/'src/story.js',runtime/'story.js')
     if (APP/'src/story-motion.js').exists():shutil.copy2(APP/'src/story-motion.js',runtime/'story-motion.js')
     shutil.copy2(APP/'src/site-shell.js',runtime/'site-shell.js')
+    shutil.copy2(APP/'src/intro.js',runtime/'intro.js')
     index=APP/'explore.html'
     markup=index.read_text()
     for asset in ['styles.css','site.css','runtime/site-shell.js','runtime/summary.js','runtime/publication.js','runtime/code-data.js','runtime/app.js']:
@@ -119,14 +125,14 @@ def build():
     index.write_text(markup)
     story_index=APP/'index.html'
     markup=story_index.read_text()
-    for asset in ['story.css','site.css','runtime/site-shell.js','runtime/story-data.js','runtime/story.js','runtime/story-motion.js']:
+    for asset in ['story.css','site.css','intro.css','runtime/intro.js','runtime/site-shell.js','runtime/story-data.js','runtime/story.js','runtime/story-motion.js']:
         digest=hashlib.sha256((APP/asset).read_bytes()).hexdigest()[:12]
         markup=re.sub(r'([\"\"])'+re.escape(asset)+r'(?:\?v=[a-f0-9]+)?([\"\"])',lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)
     story_index.write_text(markup)
     dist=APP/'dist'
     if dist.exists():shutil.rmtree(dist)
     dist.mkdir()
-    for name in ['index.html','explore.html','styles.css','story.css','site.css']:
+    for name in ['index.html','explore.html','styles.css','story.css','site.css','intro.css']:
         shutil.copy2(APP/name,dist/name)
     for name in ['assets','runtime']:
         shutil.copytree(APP/name,dist/name,dirs_exist_ok=True)

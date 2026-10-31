@@ -1,0 +1,13 @@
+{
+  "assets": [
+    {
+      "file": "assets/fonts/lens-intro-semibold.woff2",
+      "bytes": 3008,
+      "sha256": "2483a4e262eaa7f47762b86d5ed233c2e6199c446202bc6b433ff30c33d5b5ba"
+    }
+  ],
+  "source": "https://github.com/notofonts/noto-cjk/tree/main/Serif",
+  "license": "SIL OFL 1.1, app/assets/fonts/Noto-CJK-OFL.txt",
+  "scope": "native Chinese brand \u77e5\u5fae; other copy reuses the system UI font; no rendered scene assets",
+  "codepoints": 2
+}

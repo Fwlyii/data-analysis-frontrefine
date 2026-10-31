@@ -1,0 +1,559 @@
+{
+  "base": "http://127.0.0.1:8785/",
+  "rows": [
+    {
+      "key": "story-concise",
+      "device": "desktop",
+      "url": "index.html#concise",
+      "selectedViewMatches": true,
+      "title": "把推理留下，\n把冗余删掉。",
+      "width": 1440,
+      "pageWidth": 1440,
+      "overflow": false,
+      "svg": 5,
+      "controls": 4,
+      "bodyFont": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif",
+      "background": "rgb(244, 248, 250)",
+      "accent": "#147b7b",
+      "header": "88px",
+      "resources": [
+        {
+          "path": "/assets/fonts/lens-editorial-site-semibold.woff2",
+          "bytes": 79596
+        },
+        {
+          "path": "/assets/visual/optical-study.webp",
+          "bytes": 31188
+        },
+        {
+          "path": "/story.css",
+          "bytes": 15549
+        },
+        {
+          "path": "/site.css",
+          "bytes": 5483
+        },
+        {
+          "path": "/assets/vendor/motion-mini-14.9.0.min.js",
+          "bytes": 9071
+        },
+        {
+          "path": "/runtime/story-data.js",
+          "bytes": 716341
+        },
+        {
+          "path": "/runtime/site-shell.js",
+          "bytes": 4708
+        },
+        {
+          "path": "/runtime/story-motion.js",
+          "bytes": 4980
+        },
+        {
+          "path": "/assets/visual/lens-wordmark.webp",
+          "bytes": 13386
+        },
+        {
+          "path": "/runtime/story.js",
+          "bytes": 21776
+        },
+        {
+          "path": "/assets/lens.svg",
+          "bytes": 521
+        }
+      ],
+      "text": "把推理留下，\n把冗余删掉。\n\n分步解题有效，但每一步都需要长篇解释吗？在分步提示后加一句 “but be concise”，看表现能保留多少。\n\n17 组模型与任务对照，全部缩短输出；15 组得分点估计持平或提高。\n\n查看结果对照\n同题对照\n跨任务复现\n0\n50\n100\nScore (%)\nNoCoT\nDefaultCoT\nBeConcise\n22.0\n91"
+    },
+    {
+      "key": "story-concise",
+      "device": "mobile",
+      "url": "index.html#concise",
+      "selectedViewMatches": true,
+      "title": "把推理留下，把冗余删掉。",
+      "width": 390,
+      "pageWidth": 390,
+      "overflow": false,
+      "svg": 5,
+      "controls": 4,
+      "bodyFont": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif",
+      "background": "rgb(244, 248, 250)",
+      "accent": "#147b7b",
+      "header": "72px",
+      "resources": [
+        {
+          "path": "/assets/fonts/lens-editorial-site-semibold.woff2",
+          "bytes": 0
+        },
+        {
+          "path": "/story.css",
+          "bytes": 0
+        },
+        {
+          "path": "/site.css",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/story-data.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/vendor/motion-mini-14.9.0.min.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/site-shell.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/story-motion.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/story.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/visual/lens-wordmark.webp",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/lens.svg",
+          "bytes": 0
+        }
+      ],
+      "text": "把推理留下，把冗余删掉。\n\n分步解题有效，但每一步都需要长篇解释吗？在分步提示后加一句 “but be concise”，看表现能保留多少。\n\n17 组模型与任务对照，全部缩短输出；15 组得分点估计持平或提高。\n\n查看结果对照\n同题对照\n跨任务复现\n0\n50\n100\nScore (%)\nNoCoT\nDefaultCoT\nBeConcise\n22.0\n91."
+    },
+    {
+      "key": "story-position",
+      "device": "desktop",
+      "url": "index.html#position",
+      "selectedViewMatches": true,
+      "title": "资料位置一变，\n模型差距也变了。",
+      "width": 1440,
+      "pageWidth": 1440,
+      "overflow": false,
+      "svg": 6,
+      "controls": 4,
+      "bodyFont": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif",
+      "background": "rgb(244, 248, 250)",
+      "accent": "#147b7b",
+      "header": "88px",
+      "resources": [
+        {
+          "path": "/assets/fonts/lens-editorial-site-semibold.woff2",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/visual/optical-study.webp",
+          "bytes": 0
+        },
+        {
+          "path": "/story.css",
+          "bytes": 0
+        },
+        {
+          "path": "/site.css",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/story-data.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/vendor/motion-mini-14.9.0.min.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/site-shell.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/story-motion.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/story.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/visual/lens-wordmark.webp",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/lens.svg",
+          "bytes": 0
+        }
+      ],
+      "text": "资料位置一变，\n模型差距也变了。\n\n同样的问题、同样的 20 篇资料，只移动相关文档。九个实测位置揭示了不同模型利用资料的差别。\n\n证据从第 1 位移至第 20 位，两模型的命中率差距从 16.5 pp 缩至 2.5 pp。\n\n查看结果对照\nNoCoT / 20 篇资料 / 200 题\n1\n3\n5\n8\n10\n13\n15\n18\n20\nEvidence docu"
+    },
+    {
+      "key": "story-position",
+      "device": "mobile",
+      "url": "index.html#position",
+      "selectedViewMatches": true,
+      "title": "资料位置一变，模型差距也变了。",
+      "width": 390,
+      "pageWidth": 390,
+      "overflow": false,
+      "svg": 6,
+      "controls": 4,
+      "bodyFont": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif",
+      "background": "rgb(244, 248, 250)",
+      "accent": "#147b7b",
+      "header": "72px",
+      "resources": [
+        {
+          "path": "/assets/fonts/lens-editorial-site-semibold.woff2",
+          "bytes": 0
+        },
+        {
+          "path": "/story.css",
+          "bytes": 0
+        },
+        {
+          "path": "/site.css",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/story-data.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/vendor/motion-mini-14.9.0.min.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/site-shell.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/story-motion.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/story.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/visual/lens-wordmark.webp",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/lens.svg",
+          "bytes": 0
+        }
+      ],
+      "text": "资料位置一变，模型差距也变了。\n\n同样的问题、同样的 20 篇资料，只移动相关文档。九个实测位置揭示了不同模型利用资料的差别。\n\n证据从第 1 位移至第 20 位，两模型的命中率差距从 16.5 pp 缩至 2.5 pp。\n\n查看结果对照\nNoCoT / 20 篇资料 / 200 题\n1\n3\n5\n8\n10\n13\n15\n18\n20\nEvidence docum"
+    },
+    {
+      "key": "code-tokens",
+      "device": "desktop",
+      "url": "explore.html?codeView=tokens#code",
+      "selectedViewMatches": true,
+      "title": "输出开销与测试表现",
+      "width": 1440,
+      "pageWidth": 1440,
+      "overflow": false,
+      "svg": 2,
+      "controls": 21,
+      "bodyFont": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif",
+      "background": "rgb(244, 248, 250)",
+      "accent": "#147b7b",
+      "header": "88px",
+      "resources": [
+        {
+          "path": "/assets/vendor/tabler.min.css",
+          "bytes": 683970
+        },
+        {
+          "path": "/styles.css",
+          "bytes": 29372
+        },
+        {
+          "path": "/site.css",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/fonts/lens-editorial-site-semibold.woff2",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/vendor/motion-mini-14.9.0.min.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/site-shell.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/vendor/echarts.min.js",
+          "bytes": 1118239
+        },
+        {
+          "path": "/runtime/summary.js",
+          "bytes": 524924
+        },
+        {
+          "path": "/runtime/code-data.js",
+          "bytes": 9999113
+        },
+        {
+          "path": "/runtime/publication.js",
+          "bytes": 2041169
+        },
+        {
+          "path": "/assets/visual/lens-wordmark.webp",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/app.js",
+          "bytes": 197354
+        },
+        {
+          "path": "/assets/vendor/vega-5.30.0.min.js",
+          "bytes": 514836
+        },
+        {
+          "path": "/assets/ui/download.svg",
+          "bytes": 745
+        },
+        {
+          "path": "/assets/vendor/vega-lite-5.23.0.min.js",
+          "bytes": 252498
+        },
+        {
+          "path": "/assets/lens.svg",
+          "bytes": 0
+        }
+      ],
+      "text": "输出开销与测试表现\n\n193 道共同可评题 / 31 种提示 / 每条件 5 次独立生成\n\n方法\n SVG\n采样收益\n提示差异\n错误类型\n输出开销\n通过指标\nPass@1\nPass@3\nPass@5\n拖动框选条件 · 双击清除\nOutput length and test performance\n0\n100\n200\n300\n400\n500\n600\n700\nM"
+    },
+    {
+      "key": "code-tokens",
+      "device": "mobile",
+      "url": "explore.html?codeView=tokens#code",
+      "selectedViewMatches": true,
+      "title": "输出开销与测试表现",
+      "width": 390,
+      "pageWidth": 390,
+      "overflow": false,
+      "svg": 2,
+      "controls": 21,
+      "bodyFont": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif",
+      "background": "rgb(244, 248, 250)",
+      "accent": "#147b7b",
+      "header": "72px",
+      "resources": [
+        {
+          "path": "/assets/vendor/tabler.min.css",
+          "bytes": 0
+        },
+        {
+          "path": "/styles.css",
+          "bytes": 0
+        },
+        {
+          "path": "/site.css",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/fonts/lens-editorial-site-semibold.woff2",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/vendor/motion-mini-14.9.0.min.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/site-shell.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/vendor/echarts.min.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/summary.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/code-data.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/publication.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/visual/lens-wordmark.webp",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/app.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/ui/download.svg",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/vendor/vega-5.30.0.min.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/vendor/vega-lite-5.23.0.min.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/lens.svg",
+          "bytes": 0
+        }
+      ],
+      "text": "输出开销与测试表现\n\n193 道共同可评题 / 31 种提示 / 每条件 5 次独立生成\n\n方法\n SVG\n采样收益\n提示差异\n错误类型\n输出开销\n通过指标\nPass@1\nPass@3\nPass@5\n拖动框选条件 · 双击清除\nOutput length and test performance\n0\n100\n200\n300\n400\n500\n600\n700\nM"
+    },
+    {
+      "key": "chart-model",
+      "device": "desktop",
+      "url": "explore.html?mode=explore&chart=model#case-1",
+      "selectedViewMatches": true,
+      "title": "模型柱图",
+      "width": 1440,
+      "pageWidth": 1440,
+      "overflow": false,
+      "svg": 1,
+      "controls": 6,
+      "bodyFont": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif",
+      "background": "rgb(244, 248, 250)",
+      "accent": "#147b7b",
+      "header": "88px",
+      "resources": [
+        {
+          "path": "/assets/vendor/tabler.min.css",
+          "bytes": 0
+        },
+        {
+          "path": "/styles.css",
+          "bytes": 0
+        },
+        {
+          "path": "/site.css",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/fonts/lens-editorial-site-semibold.woff2",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/vendor/motion-mini-14.9.0.min.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/site-shell.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/vendor/echarts.min.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/summary.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/code-data.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/publication.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/visual/lens-wordmark.webp",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/app.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/lens.svg",
+          "bytes": 0
+        }
+      ],
+      "text": "模型柱图\n导出图 ↗\n数据\n推理与提示\n带资料问答\n代码生成\n图形\n模型柱图\n雷达图\n策略热力图\n规模 / 开销气泡图\n分组环形柱图\n资料位置曲线\n分组箱线图\n平行坐标图\n状态饼图与堆叠图\n输出形态与约束\n请求时间线\n重试路径树\n评分分歧流图\n任务\nGSM8K · 算术推理\nMATH500 · 数学解题\nMMLU-Pro · 选择题\n三类任务等权\n提示\nAb"
+    },
+    {
+      "key": "chart-model",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=model#case-1",
+      "selectedViewMatches": true,
+      "title": "模型柱图",
+      "width": 390,
+      "pageWidth": 390,
+      "overflow": false,
+      "svg": 1,
+      "controls": 6,
+      "bodyFont": "\"PingFang SC\", \"Microsoft YaHei\", \"Noto Sans CJK SC\", sans-serif",
+      "background": "rgb(244, 248, 250)",
+      "accent": "#147b7b",
+      "header": "72px",
+      "resources": [
+        {
+          "path": "/assets/vendor/tabler.min.css",
+          "bytes": 0
+        },
+        {
+          "path": "/styles.css",
+          "bytes": 0
+        },
+        {
+          "path": "/site.css",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/fonts/lens-editorial-site-semibold.woff2",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/vendor/motion-mini-14.9.0.min.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/site-shell.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/vendor/echarts.min.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/summary.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/code-data.js",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/publication.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/visual/lens-wordmark.webp",
+          "bytes": 0
+        },
+        {
+          "path": "/runtime/app.js",
+          "bytes": 0
+        },
+        {
+          "path": "/assets/lens.svg",
+          "bytes": 0
+        }
+      ],
+      "text": "模型柱图\n导出图 ↗\n数据\n推理与提示\n带资料问答\n代码生成\n图形\n模型柱图\n雷达图\n策略热力图\n规模 / 开销气泡图\n分组环形柱图\n资料位置曲线\n分组箱线图\n平行坐标图\n状态饼图与堆叠图\n输出形态与约束\n请求时间线\n重试路径树\n评分分歧流图\n任务\nGSM8K · 算术推理\nMATH500 · 数学解题\nMMLU-Pro · 选择题\n三类任务等权\n提示\nAb"
+    }
+  ],
+  "errors": [],
+  "failedRequests": []
+}

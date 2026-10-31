@@ -60,6 +60,19 @@ def check():
             after=next(r for r in performance if r['surface']==surface and r['device']==device and r['stage']=='after')
             assert after['scores']['performance']>=before['scores']['performance']-5,'Investigate performance regression'
             assert after['metrics']['cumulative-layout-shift']<=.02,'Investigate layout instability'
+    if proof.get('introReview'):
+        intro=proof['introReview']
+        markup=(APP/'dist/index.html').read_text()
+        assert 'runtime/intro.js?v=' in markup and 'intro.css?v=' in markup and 'id="intro-replay"' in markup,'Intro missing from built homepage'
+        assert 'runtime/intro.js' not in (APP/'dist/explore.html').read_text(),'Intro must remain homepage-only'
+        frame_runs=json.loads((ROOT/intro['frames']).read_text())['runs']
+        assert len(frame_runs)==6,'Missing viewport/DPR/CPU playback diagnostics'
+        for run in frame_runs:
+            assert run['run']['reason']=='complete' and not run['run']['error'],'Intro did not complete'
+            assert 5900<=run['run']['elapsed']<6500 and run['idleRAF']==0 and run['idlePixels']==1,'Intro cleanup or finite duration failed'
+            assert run['run']['canvasPixels']<=2010000,'Intro canvas budget exceeded'
+        for filename,limit in [('src/intro.js',32*1024),('intro.css',8*1024),('assets/fonts/lens-intro-semibold.woff2',8*1024)]:
+            assert (APP/filename).stat().st_size<=limit,'Intro payload exceeds budget: '+filename
     print('Whole-site coverage gate passed:',len(routes),'routes, 4 viewport widths, shared entry documents, current source fingerprints.')
 
 if __name__=='__main__':check()

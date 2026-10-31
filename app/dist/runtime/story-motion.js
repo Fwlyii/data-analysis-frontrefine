@@ -15,7 +15,7 @@
   nav?.append(marker);
 
   function play(element, keyframes, options = {}) {
-    if (!element || preference.matches || document.hidden || !window.LensMotion?.animate) return;
+    if (!element || preference.matches || document.hidden || document.documentElement.matches('.intro-pending,.intro-active') || !window.LensMotion?.animate) return;
     const previous = byElement.get(element);
     if (previous) { previous.stop(); running.delete(previous); }
     const controls = window.LensMotion.animate(element, keyframes, {duration: .45, ease: easing, ...options});
