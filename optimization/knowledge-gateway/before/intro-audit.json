@@ -1,0 +1,53 @@
+{
+  "results": [
+    {
+      "name": "Existing forced intro starts",
+      "passed": true
+    },
+    {
+      "name": "Existing intro completes and cleans up",
+      "passed": true,
+      "detail": {
+        "reason": "complete",
+        "startedBy": "forced",
+        "elapsed": 5976,
+        "draws": 326,
+        "averageFPS": 54.16937513542345,
+        "p95Frame": 33.29999999999927,
+        "p95Draw": 2.5999999046325684,
+        "particles": 176,
+        "canvasPixels": 1296000,
+        "error": null,
+        "first": {
+          "x": 547.5625,
+          "y": 305.09375,
+          "width": 344.859375,
+          "height": 127.796875,
+          "top": 305.09375,
+          "right": 892.421875,
+          "bottom": 432.890625,
+          "left": 547.5625
+        },
+        "last": {
+          "x": 32,
+          "y": 21,
+          "width": 69.71875,
+          "height": 29,
+          "top": 21,
+          "right": 101.71875,
+          "bottom": 50,
+          "left": 32
+        },
+        "driver": "motion-mini"
+      }
+    },
+    {
+      "name": "Existing replay starts",
+      "passed": true
+    },
+    {
+      "name": "Existing skip works",
+      "passed": true
+    }
+  ]
+}

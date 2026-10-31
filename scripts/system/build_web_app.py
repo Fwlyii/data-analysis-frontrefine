@@ -114,7 +114,7 @@ def build():
     narrative['figures']={p.stem:p.read_text() for p in sorted((APP/'assets/narrative').glob('*.svg'))}
     runtime.joinpath('narrative-data.js').write_text('window.LENS_NARRATIVE='+json.dumps(narrative,ensure_ascii=False,separators=(',',':'))+';\n')
     shutil.copy2(APP/'src/narrative.js',runtime/'narrative.js')
-    for name in ['intro.js','refinement.js']:
+    for name in ['intro.js','refinement.js','gateway.js']:
         shutil.copy2(APP/'src'/name,runtime/name)
     index=APP/'explore.html'
     markup=index.read_text()
@@ -124,14 +124,14 @@ def build():
     index.write_text(markup)
     story_index=APP/'index.html'
     markup=story_index.read_text()
-    for asset in ['story.css','refinement.css','intro.css','runtime/intro.js','runtime/refinement.js','runtime/story-data.js','runtime/story.js','runtime/story-charts.js','runtime/narrative-data.js','runtime/narrative.js']:
+    for asset in ['story.css','refinement.css','intro.css','gateway.css','runtime/gateway.js','runtime/intro.js','runtime/refinement.js','runtime/story-data.js','runtime/story.js','runtime/story-charts.js','runtime/narrative-data.js','runtime/narrative.js']:
         digest=hashlib.sha256((APP/asset).read_bytes()).hexdigest()[:12]
         markup=re.sub(r'([\"\"])'+re.escape(asset)+r'(?:\?v=[^\"\']+)?([\"\"])',lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)
     story_index.write_text(markup)
     dist=APP/'dist'
     if dist.exists():shutil.rmtree(dist)
     dist.mkdir()
-    for name in ['index.html','explore.html','styles.css','story.css','refinement.css','intro.css']:
+    for name in ['index.html','explore.html','styles.css','story.css','refinement.css','intro.css','gateway.css']:
         shutil.copy2(APP/name,dist/name)
     for name in ['assets','runtime']:
         shutil.copytree(APP/name,dist/name,dirs_exist_ok=True)

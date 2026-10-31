@@ -277,7 +277,7 @@
 
   const order = Object.keys(sectionNames);
   window.LENS_GO_TO = (section, updateURL = true) => {
-    if (!sectionNames[section]) section = "question";
+    if (!sectionNames[section] && section !== "gateway") section = "gateway";
     document.body.dataset.section = section;
     $$(".deck-panel").forEach((panel) => {
       const active = panel.id === section;
@@ -290,8 +290,8 @@
       else button.removeAttribute("aria-current");
     });
     $("#section-counter").textContent =
-      String(order.indexOf(section) + 1).padStart(2, "0") + " / 05";
-    document.title = `${sectionNames[section]} — LENS`;
+      section === "gateway" ? "NAVIGATION SPACE" : String(order.indexOf(section) + 1).padStart(2, "0") + " / 05";
+    document.title = section === "gateway" ? "LENS · 知微之门" : `${sectionNames[section]} — LENS`;
     if (updateURL && location.hash !== "#" + section)
       history.pushState(null, "", "#" + section);
     const active = $("#" + section);
@@ -315,16 +315,17 @@
   };
   window.addEventListener("hashchange", () => {
     const h = location.hash.slice(1);
-    if (sectionNames[h]) window.LENS_GO_TO(h, false);
+    if (sectionNames[h] || h === "gateway" || !h) window.LENS_GO_TO(h || "gateway", false);
   });
   window.addEventListener("popstate", () => {
     hydrateOverview();
     paintOverview(false);
     const h = location.hash.slice(1);
-    if (sectionNames[h]) window.LENS_GO_TO(h, false);
+    if (sectionNames[h] || h === "gateway" || !h) window.LENS_GO_TO(h || "gateway", false);
   });
   document.addEventListener("keydown", (event) => {
     if (
+      document.body.dataset.section === "gateway" ||
       document.documentElement.classList.contains("intro-active") ||
       event.altKey ||
       event.ctrlKey ||
@@ -360,5 +361,5 @@
     }
   };
   const initial = location.hash.slice(1);
-  window.LENS_GO_TO(sectionNames[initial] ? initial : "question", false);
+  window.LENS_GO_TO(sectionNames[initial] ? initial : "gateway", false);
 })();

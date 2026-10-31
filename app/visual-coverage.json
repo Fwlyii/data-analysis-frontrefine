@@ -1,21 +1,22 @@
 {
-  "version": 7,
-  "baseline": "35f7318e45561da07c75eaf65374e4107004d5ec",
-  "restorationCheckpoint": "73a1e8c",
-  "inventory": "optimization/master-rebuild-v6/site-inventory.json",
-  "screenshots": "optimization/master-rebuild-v6/after/page-audit.json",
-  "browserChecks": "optimization/master-rebuild-v6/after/site-checks.json",
+  "version": 8,
+  "baseline": "aa3116d69ce7c88a6fb03747da14e38655a0d17f",
+  "inventory": "optimization/knowledge-gateway/site-inventory.json",
+  "screenshots": "optimization/knowledge-gateway/after/page-audit.json",
+  "browserChecks": "optimization/knowledge-gateway/after/site-checks.json",
   "additionalBrowserChecks": [
-    "optimization/master-rebuild-v6/after/master-alignment.json",
-    "optimization/master-rebuild-v6/after/source-fidelity.json",
-    "optimization/master-rebuild-v6/after/home-interactions.json",
-    "optimization/master-rebuild-v6/after/library-interactions.json",
-    "optimization/master-rebuild-v6/after/intro-checks.json",
-    "optimization/master-rebuild-v6/after/typography-checks.json"
+    "optimization/knowledge-gateway/after/master-alignment.json",
+    "optimization/knowledge-gateway/after/preservation.json",
+    "optimization/knowledge-gateway/after/home-interactions.json",
+    "optimization/knowledge-gateway/after/library-interactions.json",
+    "optimization/knowledge-gateway/after/gateway-checks.json",
+    "optimization/knowledge-gateway/after/resilience.json",
+    "optimization/knowledge-gateway/after/intro-checks.json"
   ],
   "fingerprints": {
     "app/explore.html": "d96698dadeb24df8959fd63dcabcc69d312189a2e870a79ae09618a1bce06421",
-    "app/index.html": "a06471ba74148843d8c762ef9062e1a12044607db270e6bed28a637a26839aaf",
+    "app/gateway.css": "137b603c14821078aef9255363b1a665956168e82b578e477995aa1685f85aff",
+    "app/index.html": "65bcb0117f0a951ceaf818e227906b6f8b960c1be46d71c1d71758a83f2a7e0b",
     "app/intro.css": "edb0e0b2d7bfefc57909d1af69c4ab4a87cfcd5d3b785474aa5c3fff38f25e09",
     "app/refinement.css": "5769d5271ab7a3d1e94d582affd1b830fea4062bc6aecc3bf517282ef42cff71",
     "app/story.css": "7685e04f3bad32cdcdedee1591b159c6489105f7582b58ef97fbaa146461b669",
@@ -24,13 +25,14 @@
     "app/src/charts.js": "d63665664ff2de933632a220bdbb88e4c266b3461f8ec5d35182651e82d53c03",
     "app/src/code-interactions.js": "c5c6c669a14a07fb735dbf273fee4baa9809f824343102548fe8ea3e49ffc964",
     "app/src/code-study.js": "b6e3c034e9fcc04938e76a1f813042df917259be6c1d8dcba0d3ed7e9bd2becf",
-    "app/src/intro.js": "c5496f8d51b3527585166c5d74390f76a60f3cf51f3ba90129e3d1f653a9d835",
+    "app/src/gateway.js": "11628b32110c3b645da7656a84f714ee053fd22095e7389a3c355b2d326693c2",
+    "app/src/intro.js": "8774300cdd61ea719fc82eb7fa7eb31693c8a4fd9a96b74fd726ff1bafaed0e3",
     "app/src/libraries.js": "21d8609b778724334167ebda135da0e02f97d16fa80f592ab7d54be9d575b71a",
     "app/src/model.js": "dca681c4300f088cb1a4890bea8451240e94ea527dae998f8a85cfdc5b6f633f",
-    "app/src/narrative.js": "2128a376189780cb9f04d36e79d8cdd52c8422024b231f87fc555e18149ef1cb",
+    "app/src/narrative.js": "9010910825307dda3f2a8d2cba8d70435a964910f6e59a4f00927e1f5e53469c",
     "app/src/refinement.js": "6f80ae6bccb8cee7f758c0a975fcfac1c5c0eaeacf2242cd5f35de08a4d95558",
     "app/src/story-charts.js": "4524c21f864df3935d1572d902bca6518b60d2e01a7bcc473d5bb38f2b0905d3",
-    "app/src/story.js": "aabd568acb715c989cb6346a427678c2cd38a5a39e53f0923d6852b995481f1d",
+    "app/src/story.js": "b2941bbd5b1c83174bb489fe36d435b180b566d1ac82909eb1d5338c61583c15",
     "app/assets/blue-field.svg": "7d22833ed74fc780b13c482845859f1f0c785d018fb00fd50258de16dbfc76b8",
     "app/assets/code-test.schema.json": "0c67a63f060d78a9772c33347a81ad77fb98c14603f0ddef69108c4d851d4fb1",
     "app/assets/fonts/Fraunces-Latin-400.ttf": "20c856f8e900aaa2e56cc1d1f56ec70730d6f8e020ac368da73ddfa5b8537e82",
@@ -454,21 +456,25 @@
     "reports/figures/code_generation/code-tokens-3.svg": "8a424bd87da26a5dd4b8c40327dbc00bb43981f5119e5ad45b82a589592cff34",
     "reports/figures/code_generation/code-tokens-5.svg": "dade401e12f2fcbbac72cb55bf205e9c7cf818e8c1b942204651a79434bbb138",
     "reports/figures/code_generation/figure-metadata.json": "cbe1776437bfba53f5d609a80272ff449376cac55caf7c7db4ed5b7e25563ee1",
-    "scripts/system/build_web_app.py": "5b6426ad26ec2437f91c707205e313cecf1ad964e4e1896a271e1a8565fb2bb3",
+    "scripts/system/build_web_app.py": "c1f847b354a2b5dd5ea64ce4a055c6c361068cf4ca70475733533f5f7d21df8b",
     "scripts/system/build_demo_evidence.py": "ff084d587b5590ac6618d133aeb1adea3e5e73a62c0395b6bef71bfd83a97019",
     "reports/code_generation/conditions.csv": "1b34ab7fbddbddb6d32771929a1fc8ca6dc3f2d19787ff0efcc0155c71c719de"
   },
-  "introFrames": "optimization/master-rebuild-v6/after/frame-performance.json",
-  "recording": "optimization/master-rebuild-v6/after/intro-demo-desktop.mp4",
-  "performance": "optimization/master-rebuild-v6/after/performance-summary.json",
-  "designInputs": [
-    "before/home-desktop.png",
-    "before/design-desktop.png",
-    "before/library-desktop.png"
-  ],
-  "designOutputs": [
-    "design/candidates-a-b.png",
-    "design/screenshot-feedback.png"
-  ],
-  "implementationBrief": "optimization/master-rebuild-v6/codex-implementation-brief.md"
+  "introFrames": "optimization/knowledge-gateway/after/frame-performance.json",
+  "recording": "optimization/knowledge-gateway/after/gateway-demo-desktop.mp4",
+  "performance": "optimization/knowledge-gateway/after/performance-summary.json",
+  "sceneContract": {
+    "sameFiveLinkNodes": true,
+    "sameIntroOpticsNode": true,
+    "links": [
+      "question",
+      "collection",
+      "cleaning",
+      "landscape",
+      "findings"
+    ],
+    "defaultRoute": "gateway",
+    "scientificDataUnchanged": true
+  },
+  "publication": "User explicitly authorized pushing this gateway version to main and publishing a Pages preview after local verification."
 }

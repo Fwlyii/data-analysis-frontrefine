@@ -1,6 +1,14 @@
 # LENS 全站视觉优化流程
 
-本流程以 `dataAnalysis-vision` 的 **Master** 为内容基线，覆盖演示首页与图表库。当前执行目录是 [`optimization/master-rebuild-v6`](../optimization/master-rebuild-v6/)。此前各轮的目录保留作为历史证据，当前网页不会加载那些旧样式。
+本流程以 `dataAnalysis-vision` 的 **Master** 为科研内容基线，覆盖演示首页与图表库。Master 视觉重建保存在 [`optimization/master-rebuild-v6`](../optimization/master-rebuild-v6/)；最新「知微之门」导航空间和验收保存在 [`optimization/knowledge-gateway`](../optimization/knowledge-gateway/)。历史参考保留，当前网页不会加载旧版 site/deck 皮肤。
+
+## 知微之门入口改造
+
+默认首页和 `#gateway` 为沉浸导航空间，五个球体分别进入原有 `#question`、`#collection`、`#cleaning`、`#landscape`、`#findings`。原研究问题内容继续通过第一个球体访问，图表库与辅助入口仍保留。当前共93个受检状态。
+
+此轮复用已经完成的5.95秒开场，只改变最后的共享场景交接：同一组五个链接节点从微光变为球体，同一个光学 SVG 留在首页。内页深链接继续使用原品牌落入页眉的路径。没有引入生图位图、视频或新的大型依赖；这是纯代码交互场景，素材与布局方法依任务选择，不强制为已有可编辑光学 SVG 另造位图。
+
+新检查需额外验证 DOM 身份连续、无重复透镜、早期跳过、重播、鼠标聚焦暂停漂移、点击后真实路由、触摸输入、手机独立布局、可访问性、后台暂停及窗口变化。测帧与 Lighthouse 独立顺序运行。最初仅授权本地开发；用户随后明确要求推送本版预览。发布以最新用户授权为准，仍需等待工作流成功并核对线上产物。
 
 ## 方法来源与工程改造
 

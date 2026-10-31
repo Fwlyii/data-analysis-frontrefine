@@ -11,13 +11,14 @@ def digest(path):
 def check():
     proof=json.loads((APP/'visual-coverage.json').read_text())
     inventory=json.loads((ROOT/proof['inventory']).read_text());routes=inventory['routes'];keys={r['key'] for r in routes}
-    assert len(keys)==len(routes)==92,'Regenerate route inventory and classify new routes'
+    assert len(keys)==len(routes)==93 and 'deck-gateway' in keys,'Regenerate route inventory and classify new routes'
     assert sorted(p.name for p in (APP/'dist').glob('*.html'))==sorted(inventory['entryDocuments'])
     # Re-derive inventory from actual source, so a new view cannot silently escape review.
     source=(APP/'src/app.js').read_text();charts=re.findall(r'(\w+): "[^"]+"',re.search(r'const library = \{(.*?)\n\};',source,re.S)[1])
     views=re.findall(r'(\w+):',re.search(r'const VIEWS = \{(.*?)\};',(APP/'src/code-study.js').read_text(),re.S)[1])
     data=json.loads((APP/'data/narrative-evidence.json').read_text())
     expected={'deck-'+s for s in ['question','collection','cleaning']}|{f'landscape-{d}-{m}-{v}' for d,c in data['directions'].items() for m in c['models'] for v in ['curve','heatmap']}|{'story-concise-baseline','story-concise-cross','story-position','story-repair-qwen','story-repair-qwen3'}|{'story-language-'+t for t in ['math500','gsm8k','mmlu']}|{f'story-limits-{m}-{t}-{f}' for m in ['deepseek','hy4','qwen','qwen3'] for t in ['math500','gsm8k','mmlu'] for f in ['WordLimit','CharLimit','TokenLimit']}|{'chart-'+c for c in charts}|{'code-'+v for v in views}|{'discovery-'+str(i+1) for i in range(len(re.findall(r'"[^"]+"',re.search(r'const chapters = \[(.*?)\];',source)[1])))}|{'efficiency','efficiency-prompts','position-matrix','position-profile','chart-flow-empty'}
+    expected.add('deck-gateway')
     assert keys==expected,'Source route graph changed'
     audit=json.loads((ROOT/proof['screenshots']).read_text());rows=audit['rows']
     assert len(rows)==len(routes)*2
@@ -27,7 +28,7 @@ def check():
             assert row['selectedViewMatches'] and not row['overflow'] and row['brandVisible'],r['key']
             assert (ROOT/proof['screenshots']).parent.joinpath(r['key']+'-'+device+'.png').stat().st_size>1000
             assert all(i['complete'] and i['naturalWidth']>0 and i['width']>0 and i['height']>0 for i in row['images'])
-            assert all((s['painted']>=3 or s.get('interactionLayer')) and s['opacity']>.95 and not s['unresolved'] and not s['invalid'] for s in row['svgs'])
+            assert all((s['painted']>=3 or s.get('interactionLayer')) and s['opacity']>(.1 if s.get('decorative') else .95) and not s['unresolved'] and not s['invalid'] for s in row['svgs'])
             assert all(i['passed'] for i in row['embeddedImages'])
     checks=json.loads((ROOT/proof['browserChecks']).read_text())
     assert set(checks['matrix']['routes'])==keys and sorted(checks['matrix']['viewports'])==[320,390,768,1366,1440]
@@ -42,8 +43,13 @@ def check():
         assert 'refinement.css?v=' in markup and 'runtime/refinement.js?v=' in markup
         assert not any(old in markup for old in ['site.css','deck.css','lens-masthead','site-shell.js','story-motion.js'])
     assert 'runtime/intro.js?v=' in home and 'intro.css?v=' in home and 'id="intro-replay"' in home
+    assert 'runtime/gateway.js?v=' in home and 'gateway.css?v=' in home and 'id="gateway"' in home
+    assert len(re.findall(r'data-gate-route=',home))==5 and 'runtime/gateway.js' not in library
+    contract=proof['sceneContract'];assert contract['sameFiveLinkNodes'] and contract['sameIntroOpticsNode'] and set(contract['links'])=={'question','collection','cleaning','landscape','findings'}
+    scene=json.loads((ROOT/proof['browserChecks']).parent.joinpath('gateway-checks.json').read_text());assert {row['width']for row in scene['layouts']}=={320,390,768,1366,1440}
+    assert (APP/'src/gateway.js').stat().st_size<20*1024 and (APP/'gateway.css').stat().st_size<16*1024
     assert 'runtime/intro.js' not in library
-    assert {p.name for p in (APP/'dist/runtime').glob('*.js')}=={'summary.js','publication.js','features.js','code-features.js','code-data.js','app.js','story-data.js','story.js','story-charts.js','narrative-data.js','narrative.js','intro.js','refinement.js'},'Stale or unclassified generated runtime script; clean runtime and rebuild'
+    assert {p.name for p in (APP/'dist/runtime').glob('*.js')}=={'summary.js','publication.js','features.js','code-features.js','code-data.js','app.js','story-data.js','story.js','story-charts.js','narrative-data.js','narrative.js','intro.js','refinement.js','gateway.js'},'Stale or unclassified generated runtime script; clean runtime and rebuild'
     frames=json.loads((ROOT/proof['introFrames']).read_text())['runs'];assert len(frames)==6
     assert all(r['run']['reason']=='complete' and not r['run']['error'] and 5900<=r['run']['elapsed']<6500 and r['idleRAF']==0 and r['idlePixels']==1 and r['run']['canvasPixels']<=2010000 for r in frames)
     assert (ROOT/proof['recording']).stat().st_size>10000

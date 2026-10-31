@@ -186,13 +186,14 @@
     constructor(root,word) { this.root=root;this.word=word;this.atmosphere=$('.intro-atmosphere',root);this.reset(); }
     reset() { this.first=null;this.last=null;this.targets=[];this.saved=[];this.controls=[];this.landing=null;this.driver='native-timeline';this.atmosphere.style.maskImage='';this.atmosphere.style.webkitMaskImage=''; }
     prepare() {
-      const target=$('.wordmark-logo strong');if(!target)throw new Error('Header brand unavailable');
+      this.gateway=window.LensGateway?.active()||false;
+      const target=$(this.gateway?'.gate-brand-mark':'.wordmark-logo strong');if(!target)throw new Error('Header brand unavailable');
       this.first=this.word.getBoundingClientRect();this.last=target.getBoundingClientRect();
       if(!this.first.width||!this.last.width)throw new Error('Brand geometry unavailable');
-      this.landing=$('.wordmark-logo');this.landing.classList.add('intro-target-hidden');
+      this.landing=$(this.gateway?'#gate-brand':'.wordmark-logo');this.landing.classList.add('intro-target-hidden');
       this.saved.push([this.word,this.word.getAttribute('style')]);
       Object.assign(this.word.style,{position:'fixed',left:'0',top:'0',transformOrigin:'0 0',clipPath:'none',opacity:'1',letterSpacing:'-.055em'});
-      this.targets=[...document.querySelectorAll('.chapter-rail,.deck-panel.is-active .panel-inner')].filter(el=>el.getClientRects().length);
+      this.targets=[...document.querySelectorAll(this.gateway?'.topbar,.gate-heading,.gate-foot':'.chapter-rail,.deck-panel.is-active .panel-inner')].filter(el=>el.getClientRects().length);
       for(const el of this.targets){
         this.saved.push([el,el.getAttribute('style')]);el.classList.add('intro-arrival');
         if(window.LensMotion?.animate){this.controls.push(window.LensMotion.animate(el,{opacity:[0,1],transform:['translateY(10px)','translateY(0px)']},{duration:1,autoplay:false,ease:[.16,1,.3,1]}));this.driver='motion-mini';}
@@ -212,7 +213,7 @@
       this.word.style.opacity=1-ramp(t,5.84,5.94);
       if(t>=5.84)this.landing.classList.remove('intro-target-hidden');
       this.targets.forEach((el,i)=>{const p=ramp(t,5.28+i*.075,5.75+i*.055);if(this.controls[i])this.controls[i].time=p;else{const a=out(p);el.style.opacity=a;el.style.transform=`translateY(${(1-a)*10}px)`;}});
-      return Math.max(1,radius/base);
+      return this.gateway?1:Math.max(1,radius/base);
     }
     clean() { this.controls.forEach(control=>control.cancel());this.landing?.classList.remove('intro-target-hidden');for(const [el,style] of this.saved){if(style===null)el.removeAttribute('style');else el.setAttribute('style',style);el.classList.remove('intro-arrival');}this.reset(); }
   }
@@ -234,19 +235,21 @@
       addEventListener('resize',()=>{if(this.running&&this.elapsed>=5060)this.finish('resize-transfer');else this.resizePending=true;},{passive:true});
     }
     play(reason='replay') {
-      try{return this.begin(reason);}catch(error){this.error=String(error?.message||error);this.finish('error');this.root.hidden=true;document.documentElement.classList.remove('intro-pending','intro-active');return false;}
+      try{return this.begin(reason);}catch(error){this.error=String(error?.message||error);this.finish('error');window.LensGateway?.endIntro('error');this.root.hidden=true;document.documentElement.classList.remove('intro-pending','intro-active');return false;}
     }
     begin(reason) {
       if(this.preference.matches||document.hidden)return false;
       if(!CSS.supports('mask-image','radial-gradient(black,transparent)')&&!CSS.supports('-webkit-mask-image','radial-gradient(black,transparent)'))return false;
       if(this.running)this.finish('restart',false);
       this.error=null;
+      window.LensGateway?.prepareIntro(this.root);
       if(!this.particles){this.particles=new ParticleSystem($('.intro-canvas',this.root));this.lens=new LensScene(this.root);this.title=new TitleReveal(this.root);this.transition=new PageTransition(this.root,this.title.word);}
       else this.particles.resize();
       this.resizePending=false;this.title.reset();this.transition.reset();this.savedFocus=document.activeElement;
       this.frames=[];this.drawCosts=[];this.lastDraw=0;this.elapsed=0;this.start=performance.now();this.reason=reason;
       document.documentElement.classList.add('intro-active');document.documentElement.classList.remove('intro-pending');
       this.root.hidden=false;this.running=true;this.inerted=[];
+      window.LensGateway?.beginIntro(this.root);
       window.LensMotionUI?.settle();
       for(const el of document.body.children){if(el===this.root||['SCRIPT','STYLE','LINK'].includes(el.tagName)||el.inert)continue;el.inert=true;el.setAttribute('data-intro-inert','');this.inerted.push(el);}
       this.root.focus({preventScroll:true});this.render(0);
@@ -275,6 +278,7 @@
       const signals=$('.intro-signals',this.root),appear=out(ramp(t,3.02,3.34)),fold=smooth(ramp(t,3.66,4.08));
       signals.style.opacity=appear*(1-fold);signals.style.transform=`translateY(${-fold*this.particles.h*.19}px) scale(${1-fold*.91})`;
       this.root.querySelectorAll('.intro-signal').forEach((el,i)=>{el.style.opacity=out(ramp(t,3.02+i*.045,3.28+i*.045));el.style.transform=`translateY(${(1-appear)*8}px)`;});
+      window.LensGateway?.drawIntro(t,this.particles.size);
       $('.intro-progress i',this.root).style.transform=`scaleX(${clamp(t/(DURATION/1000))})`;
       $('.intro-progress',this.root).style.opacity=1-ramp(t,5.1,5.5);
       this.root.dataset.phase=t<.8?'awakening':t<1.8?'flow':t<3?'lens':t<4?'insights':t<5.06?'brand':'transfer';
@@ -283,7 +287,7 @@
       if(!this.running)return;
       this.running=false;cancelAnimationFrame(this.raf);this.raf=0;clearTimeout(this.watchdog);this.watchdog=0;
       const first=this.transition.first?.toJSON(),last=this.transition.last?.toJSON(),driver=this.transition.driver,pixels=this.particles.canvas.width*this.particles.canvas.height;
-      this.transition.clean();this.root.hidden=true;this.particles.clear();
+      this.transition.clean();window.LensGateway?.endIntro(reason);this.root.hidden=true;this.particles.clear();
       for(const el of this.inerted){el.inert=false;el.removeAttribute('data-intro-inert');}this.inerted=[];
       document.documentElement.classList.remove('intro-active','intro-pending');
       const sorted=[...this.drawCosts].sort((a,b)=>a-b),intervals=[...this.frames].sort((a,b)=>a-b);
