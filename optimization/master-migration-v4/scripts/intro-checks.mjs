@@ -71,6 +71,13 @@ try{
  {
   const {context,page}=await fresh();await context.route('**/runtime/intro.js*',route=>route.abort());await page.goto(base+'?intro=1',{waitUntil:'domcontentloaded'});await page.waitForTimeout(1900);check('Missing intro script bootstrap watchdog reveals system',await page.evaluate(()=>!document.documentElement.classList.contains('intro-pending')&&!!document.querySelector('#plot svg')&&getComputedStyle(document.querySelector('main')).visibility==='visible'));await context.close();
  }
+ {
+  const {context,page}=await fresh();await context.route('**/runtime/intro.js*',async route=>{await new Promise(r=>setTimeout(r,2200));await route.continue();});await open(page,'?intro=1#question');
+  check('Explicit force still starts when module arrives after bootstrap watchdog',await page.evaluate(()=>LensIntro.inspect().running));await page.waitForFunction(()=>LensIntro.inspect().history.length>0&&!LensIntro.inspect().running);check('Late forced intro completes into latest native deck',(await clean(page)).state.history.at(-1).reason==='complete'&&await page.locator('#question-title').isVisible());await context.close();
+ }
+ {
+  const {context,page}=await fresh();await context.route('**/runtime/intro.js*',async route=>{await new Promise(r=>setTimeout(r,2200));await route.continue();});await open(page,'#question');check('Late ordinary visit keeps graceful watchdog fallback',await page.evaluate(()=>!LensIntro.inspect().running&&!document.documentElement.classList.contains('intro-pending')&&LensIntro.inspect().canvasPixels===0));await context.close();
+ }
  check('No uncaught browser errors',!errors.length,errors);
 }catch(error){check('Unexpected test exception',false,error.stack);}
 finally{await writeFile(resolve(out,'intro-checks.json'),JSON.stringify({results,states,errors},null,2)+'\n');await browser.close();}

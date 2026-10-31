@@ -6,5 +6,7 @@
     "python3 scripts/system/check_web_snapshot.py --skip-build",
     "python3 scripts/system/check_visual_coverage.py"
   ],
-  "conditions": "Extracted staged tree into an empty directory; no existing runtime/dist, local git metadata, or research LFS downloads required."
+  "conditions": "Extracted staged tree into an empty directory; no existing runtime/dist, local git metadata, or research LFS downloads required.",
+  "stagedTreeWithLateForceFix": "d4ad4ccfe1add16e5eb9cd851219e6bc5193376a",
+  "lateForceFixFreshBuildPassed": true
 }

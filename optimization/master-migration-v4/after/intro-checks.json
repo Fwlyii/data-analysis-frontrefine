@@ -14,16 +14,16 @@
       "passed": true,
       "detail": [
         {
-          "x": 1021.8,
-          "y": 522.52
+          "x": 1021.83,
+          "y": 522.56
         },
         {
-          "x": 509.53,
-          "y": 226.36
+          "x": 509.63,
+          "y": 226.38
         },
         {
-          "x": 938.77,
-          "y": 280.55
+          "x": 938.73,
+          "y": 280.65
         }
       ]
     },
@@ -31,7 +31,7 @@
       "name": "1440 optical rings form continuously",
       "passed": true,
       "detail": {
-        "opacity": 0.993468,
+        "opacity": 0.993446,
         "rings": 5,
         "drawn": true
       }
@@ -61,8 +61,8 @@
       "passed": true,
       "detail": {
         "running": true,
-        "raf": 611,
-        "elapsed": 5454.800000047684,
+        "raf": 614,
+        "elapsed": 5471.299999904632,
         "duration": 5950,
         "phase": "transfer",
         "particles": 176,
@@ -120,7 +120,7 @@
         "state": {
           "running": false,
           "raf": 0,
-          "elapsed": 5954.800000047684,
+          "elapsed": 5954.599999904633,
           "duration": 5950,
           "phase": "transfer",
           "particles": 176,
@@ -149,11 +149,11 @@
             {
               "reason": "complete",
               "startedBy": "forced",
-              "elapsed": 5969,
+              "elapsed": 5975,
               "draws": 333,
-              "averageFPS": 56.753999447503226,
+              "averageFPS": 56.593423639618536,
               "p95Frame": 16.800000000000182,
-              "p95Draw": 2.6000001430511475,
+              "p95Draw": 2.4000000953674316,
               "particles": 176,
               "canvasPixels": 1296000,
               "error": null,
@@ -199,11 +199,11 @@
       "detail": {
         "reason": "complete",
         "startedBy": "forced",
-        "elapsed": 5969,
+        "elapsed": 5975,
         "draws": 333,
-        "averageFPS": 56.753999447503226,
+        "averageFPS": 56.593423639618536,
         "p95Frame": 16.800000000000182,
-        "p95Draw": 2.6000001430511475,
+        "p95Draw": 2.4000000953674316,
         "particles": 176,
         "canvasPixels": 1296000,
         "error": null,
@@ -256,16 +256,16 @@
       "passed": true,
       "detail": [
         {
-          "x": 545.84,
-          "y": 598.04
+          "x": 546.37,
+          "y": 598.85
         },
         {
-          "x": 275.33,
-          "y": 259.92
+          "x": 276.42,
+          "y": 260.16
         },
         {
-          "x": 494.54,
-          "y": 320.47
+          "x": 493.93,
+          "y": 323.02
         }
       ]
     },
@@ -273,7 +273,7 @@
       "name": "768 optical rings form continuously",
       "passed": true,
       "detail": {
-        "opacity": 0.992346,
+        "opacity": 0.991758,
         "rings": 5,
         "drawn": true
       }
@@ -303,8 +303,8 @@
       "passed": true,
       "detail": {
         "running": true,
-        "raf": 623,
-        "elapsed": 5457.4000000476835,
+        "raf": 630,
+        "elapsed": 5450.499999809265,
         "duration": 5950,
         "phase": "transfer",
         "particles": 176,
@@ -362,7 +362,7 @@
         "state": {
           "running": false,
           "raf": 0,
-          "elapsed": 5957.4000000476835,
+          "elapsed": 5950.399999809265,
           "duration": 5950,
           "phase": "transfer",
           "particles": 176,
@@ -391,11 +391,11 @@
             {
               "reason": "complete",
               "startedBy": "forced",
-              "elapsed": 5961,
-              "draws": 348,
-              "averageFPS": 58.98250922132889,
-              "p95Frame": 16.799999999999272,
-              "p95Draw": 2.3000001907348633,
+              "elapsed": 5954,
+              "draws": 351,
+              "averageFPS": 58.660856448504155,
+              "p95Frame": 16.799999999999955,
+              "p95Draw": 2.3999998569488525,
               "particles": 176,
               "canvasPixels": 786432,
               "error": null,
@@ -441,11 +441,11 @@
       "detail": {
         "reason": "complete",
         "startedBy": "forced",
-        "elapsed": 5961,
-        "draws": 348,
-        "averageFPS": 58.98250922132889,
-        "p95Frame": 16.799999999999272,
-        "p95Draw": 2.3000001907348633,
+        "elapsed": 5954,
+        "draws": 351,
+        "averageFPS": 58.660856448504155,
+        "p95Frame": 16.799999999999955,
+        "p95Draw": 2.3999998569488525,
         "particles": 176,
         "canvasPixels": 786432,
         "error": null,
@@ -498,16 +498,16 @@
       "passed": true,
       "detail": [
         {
-          "x": 281.42,
-          "y": 500.04
+          "x": 280.97,
+          "y": 499.43
         },
         {
-          "x": 142.04,
-          "y": 222.05
+          "x": 141.4,
+          "y": 222.07
         },
         {
-          "x": 246.51,
-          "y": 272.03
+          "x": 246.99,
+          "y": 269.57
         }
       ]
     },
@@ -515,7 +515,7 @@
       "name": "390 optical rings form continuously",
       "passed": true,
       "detail": {
-        "opacity": 0.989922,
+        "opacity": 0.990739,
         "rings": 5,
         "drawn": true
       }
@@ -546,7 +546,7 @@
       "detail": {
         "running": true,
         "raf": 642,
-        "elapsed": 5464.200000047684,
+        "elapsed": 5455.900000143051,
         "duration": 5950,
         "phase": "transfer",
         "particles": 92,
@@ -604,7 +604,7 @@
         "state": {
           "running": false,
           "raf": 0,
-          "elapsed": 5964.100000047683,
+          "elapsed": 5955.900000143051,
           "duration": 5950,
           "phase": "transfer",
           "particles": 92,
@@ -633,11 +633,11 @@
             {
               "reason": "complete",
               "startedBy": "forced",
-              "elapsed": 5969,
-              "draws": 178,
-              "averageFPS": 30.00150516025889,
-              "p95Frame": 33.400000000000546,
-              "p95Draw": 1.6000001430511475,
+              "elapsed": 5960,
+              "draws": 177,
+              "averageFPS": 30.001363698349927,
+              "p95Frame": 33.40000000000009,
+              "p95Draw": 1.5,
               "particles": 92,
               "canvasPixels": 329160,
               "error": null,
@@ -683,11 +683,11 @@
       "detail": {
         "reason": "complete",
         "startedBy": "forced",
-        "elapsed": 5969,
-        "draws": 178,
-        "averageFPS": 30.00150516025889,
-        "p95Frame": 33.400000000000546,
-        "p95Draw": 1.6000001430511475,
+        "elapsed": 5960,
+        "draws": 177,
+        "averageFPS": 30.001363698349927,
+        "p95Frame": 33.40000000000009,
+        "p95Draw": 1.5,
         "particles": 92,
         "canvasPixels": 329160,
         "error": null,
@@ -740,16 +740,16 @@
       "passed": true,
       "detail": [
         {
-          "x": 232.91,
-          "y": 439.85
+          "x": 232.72,
+          "y": 439.65
         },
         {
-          "x": 117.37,
-          "y": 196.73
+          "x": 117.1,
+          "y": 196.75
         },
         {
-          "x": 200.54,
-          "y": 241.66
+          "x": 200.77,
+          "y": 240.59
         }
       ]
     },
@@ -757,7 +757,7 @@
       "name": "320 optical rings form continuously",
       "passed": true,
       "detail": {
-        "opacity": 0.992271,
+        "opacity": 0.989538,
         "rings": 5,
         "drawn": true
       }
@@ -788,7 +788,7 @@
       "detail": {
         "running": true,
         "raf": 641,
-        "elapsed": 5456.400000095367,
+        "elapsed": 5460.300000143051,
         "duration": 5950,
         "phase": "transfer",
         "particles": 92,
@@ -846,7 +846,7 @@
         "state": {
           "running": false,
           "raf": 0,
-          "elapsed": 5956.400000095367,
+          "elapsed": 5960.300000143051,
           "duration": 5950,
           "phase": "transfer",
           "particles": 92,
@@ -875,11 +875,11 @@
             {
               "reason": "complete",
               "startedBy": "forced",
-              "elapsed": 5962,
+              "elapsed": 5963,
               "draws": 179,
-              "averageFPS": 29.833235565239253,
-              "p95Frame": 33.40000000000009,
-              "p95Draw": 1.6999998092651367,
+              "averageFPS": 29.833735585947977,
+              "p95Frame": 33.400000000000546,
+              "p95Draw": 1.5,
               "particles": 92,
               "canvasPixels": 236800,
               "error": null,
@@ -925,11 +925,11 @@
       "detail": {
         "reason": "complete",
         "startedBy": "forced",
-        "elapsed": 5962,
+        "elapsed": 5963,
         "draws": 179,
-        "averageFPS": 29.833235565239253,
-        "p95Frame": 33.40000000000009,
-        "p95Draw": 1.6999998092651367,
+        "averageFPS": 29.833735585947977,
+        "p95Frame": 33.400000000000546,
+        "p95Draw": 1.5,
         "particles": 92,
         "canvasPixels": 236800,
         "error": null,
@@ -1075,6 +1075,18 @@
       "passed": true
     },
     {
+      "name": "Explicit force still starts when module arrives after bootstrap watchdog",
+      "passed": true
+    },
+    {
+      "name": "Late forced intro completes into latest native deck",
+      "passed": true
+    },
+    {
+      "name": "Late ordinary visit keeps graceful watchdog fallback",
+      "passed": true
+    },
+    {
       "name": "No uncaught browser errors",
       "passed": true,
       "detail": []
@@ -1087,7 +1099,7 @@
         "state": {
           "running": false,
           "raf": 0,
-          "elapsed": 5954.800000047684,
+          "elapsed": 5954.599999904633,
           "duration": 5950,
           "phase": "transfer",
           "particles": 176,
@@ -1116,11 +1128,11 @@
             {
               "reason": "complete",
               "startedBy": "forced",
-              "elapsed": 5969,
+              "elapsed": 5975,
               "draws": 333,
-              "averageFPS": 56.753999447503226,
+              "averageFPS": 56.593423639618536,
               "p95Frame": 16.800000000000182,
-              "p95Draw": 2.6000001430511475,
+              "p95Draw": 2.4000000953674316,
               "particles": 176,
               "canvasPixels": 1296000,
               "error": null,
@@ -1166,7 +1178,7 @@
         "state": {
           "running": false,
           "raf": 0,
-          "elapsed": 5957.4000000476835,
+          "elapsed": 5950.399999809265,
           "duration": 5950,
           "phase": "transfer",
           "particles": 176,
@@ -1195,11 +1207,11 @@
             {
               "reason": "complete",
               "startedBy": "forced",
-              "elapsed": 5961,
-              "draws": 348,
-              "averageFPS": 58.98250922132889,
-              "p95Frame": 16.799999999999272,
-              "p95Draw": 2.3000001907348633,
+              "elapsed": 5954,
+              "draws": 351,
+              "averageFPS": 58.660856448504155,
+              "p95Frame": 16.799999999999955,
+              "p95Draw": 2.3999998569488525,
               "particles": 176,
               "canvasPixels": 786432,
               "error": null,
@@ -1245,7 +1257,7 @@
         "state": {
           "running": false,
           "raf": 0,
-          "elapsed": 5964.100000047683,
+          "elapsed": 5955.900000143051,
           "duration": 5950,
           "phase": "transfer",
           "particles": 92,
@@ -1274,11 +1286,11 @@
             {
               "reason": "complete",
               "startedBy": "forced",
-              "elapsed": 5969,
-              "draws": 178,
-              "averageFPS": 30.00150516025889,
-              "p95Frame": 33.400000000000546,
-              "p95Draw": 1.6000001430511475,
+              "elapsed": 5960,
+              "draws": 177,
+              "averageFPS": 30.001363698349927,
+              "p95Frame": 33.40000000000009,
+              "p95Draw": 1.5,
               "particles": 92,
               "canvasPixels": 329160,
               "error": null,
@@ -1324,7 +1336,7 @@
         "state": {
           "running": false,
           "raf": 0,
-          "elapsed": 5956.400000095367,
+          "elapsed": 5960.300000143051,
           "duration": 5950,
           "phase": "transfer",
           "particles": 92,
@@ -1353,11 +1365,11 @@
             {
               "reason": "complete",
               "startedBy": "forced",
-              "elapsed": 5962,
+              "elapsed": 5963,
               "draws": 179,
-              "averageFPS": 29.833235565239253,
-              "p95Frame": 33.40000000000009,
-              "p95Draw": 1.6999998092651367,
+              "averageFPS": 29.833735585947977,
+              "p95Frame": 33.400000000000546,
+              "p95Draw": 1.5,
               "particles": 92,
               "canvasPixels": 236800,
               "error": null,

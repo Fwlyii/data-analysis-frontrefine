@@ -21,12 +21,12 @@
       "total": 39
     },
     "intro-checks": {
-      "passed": 83,
-      "total": 83
+      "passed": 86,
+      "total": 86
     }
   },
   "allPassed": true,
-  "totalChecks": 541,
+  "totalChecks": 544,
   "upstreamFiles": 2189,
   "upstreamVerifiedOrExact": 2176,
   "performance": [

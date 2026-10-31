@@ -299,7 +299,7 @@
     clearTimeout(window.__lensIntroBootTimer);
     try{sessionStorage.setItem(SEEN,'1');}catch{}
     const boot=window.__lensIntroRequest;
-    if(boot?.play&&document.documentElement.classList.contains('intro-pending')){if(!controller.play(boot.mode==='1'?'forced':'first-visit'))document.documentElement.classList.remove('intro-pending');}
+    if(boot?.play&&(boot.mode==='1'||document.documentElement.classList.contains('intro-pending'))){if(!controller.play(boot.mode==='1'?'forced':'first-visit'))document.documentElement.classList.remove('intro-pending');}
     else document.documentElement.classList.remove('intro-pending');
   } catch(error) {
     document.documentElement.classList.remove('intro-pending','intro-active');
