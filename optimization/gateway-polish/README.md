@@ -2,6 +2,8 @@
 
 这轮针对用户指出的两个问题：研究页面仍被导航栏占据，以及六球首页的视觉过于生硬。基线为上一版已发布的 `f44a54f93760a8c9a51c1762ace002834c3d670b`，本地备份分支为 `backup/before-gateway-polish-f44a54f`。原研究数据、图表和章节保留。
 
+已推送 main 并部署至 GitHub Pages：[最新预览](https://fwlyii.github.io/data-analysis-frontrefine/?intro=1&v=optical-720f8e1)。222个线上文件逐字节核对和27项线上浏览器检查全部通过。
+
 - [实际检查报告](REPORT.md)
 - [生图调用及来源记录](design/provenance.json)
 - [候选方向 A/B](design/directions.png)、[实现截图反馈](design/feedback.png)

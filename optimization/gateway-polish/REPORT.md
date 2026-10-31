@@ -86,4 +86,11 @@
 
 ## 发布与线上复核
 
-本地检查通过后，按会话中已授权的远端预览流程发布。提交、Actions结果和线上逐文件/交互复核结果在实际完成后追加。
+已按会话中的预览授权推送 main，并由 GitHub Pages 成功发布。生产实现提交为 [`720f8e1`](https://github.com/Fwlyii/data-analysis-frontrefine/commit/720f8e167912c9d4a6f59c23b50e1475c20fdb84)，[对应 Pages 工作流](https://github.com/Fwlyii/data-analysis-frontrefine/actions/runs/41213347616) 已成功。
+
+- [强制观看开场与新版首页](https://fwlyii.github.io/data-analysis-frontrefine/?intro=1&v=optical-720f8e1) · [直接看首页](https://fwlyii.github.io/data-analysis-frontrefine/?intro=0&v=optical-720f8e1)
+- 222/222个线上文件逐字节匹配本地 app/dist，包括新背景、HTML、CSS、脚本、数据与字体；使用禁止缓存请求与查询参数。[完整比对](after/public-assets.json)
+- 27/27项真实线上浏览器检查通过，包含同节点开场、五个真实路由、五页无导航全视口布局、原滑块、图表库与代码视图、实际触摸、减少动态效果和研究深链接；无未捕获异常。[完整结果](after/public-browser.json)
+- [线上桌面截图](after/public-gateway-desktop.png) · [线上手机截图](after/public-gateway-mobile.png) · [线上悬停截图](after/public-hover-desktop.png)
+
+这些线上证据对应生产实现提交。随后归档线上证据的提交仅修改本目录文档与截图，不改变已核对的 app/dist 内容。
