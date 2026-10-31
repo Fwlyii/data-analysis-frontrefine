@@ -53,7 +53,7 @@ Motion mini 沿用已有本地 14.9.0，没有增加大型库。知微两字使�
 - 平板：[品牌](after/768-brand.png)、[穿越](after/768-transfer.png)。
 - 手机：[品牌](after/390-brand.png)、[穿越](after/390-transfer.png)、[完成](after/390-complete.png)。
 - 窄屏：[品牌](after/320-brand.png)、[穿越](after/320-transfer.png)、[完成](after/320-complete.png)。
-- [录屏](after/intro-demo-desktop.mp4)：1440×900，约 10.76 秒、400 个实际 Chromium 帧，未生成/插值视频帧。[录制动作与元数据](after/video-manifest.json)。录屏有采集开销，不作为帧率结论。
+- [录屏](after/intro-demo-desktop.mp4)：1440×900，约 10 秒，采集 400 个实际 Chromium 帧，未生成/插值视频帧。[录制动作与元数据](after/video-manifest.json)。录屏有采集开销，不作为帧率结论。
 
 已逐阶段检查真实截图，并检查录屏中的实际中间帧。未发现整屏闪白/闪黑、转场后封面残留、内容被永久遮挡或停止后仍运行粒子的问题；片头之外的原科学图保持原生。
 
