@@ -25,6 +25,16 @@ presentation/
 
 `python3 app/launch.py --port 8766`。无API调用、无密钥、无npm，使用本地数据与SVG。预构建运行时也支持直接打开app/index.html。
 
+## GitHub Pages 在线访问
+
+仓库已提供 `.github/workflows/pages.yml`。仓库管理员首次在 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**，然后推送到 `main` 或在 **Actions → Deploy visualization to GitHub Pages → Run workflow** 手动运行。
+
+工作流使用 Python 标准库重新构建网页，只发布 `app/dist/`。部署成功后，网址由 Actions 的部署结果给出；对于当前远程仓库，默认网址预计为 `https://fwlyii.github.io/data-analysis-frontrefine/`。此地址在首次部署成功前不代表已上线。
+
+后续修改 `app/src/`、CSS 或网页数据并推送到 `main`，GitHub 会重新构建和发布；等待工作流成功后刷新同一网址。只修改本地文件不会更新线上页面。Pages 托管的是静态网页，Python 数据分析和模型采集程序不在网站上运行。
+
+账号与仓库可见性需要符合 GitHub Pages 的使用条件；部署过程不会修改仓库的公开/私有设置。配置和排查步骤见 [部署说明](app/docs/github-pages.md)。
+
 ## 复算
 
 `python3 app/pipeline/scripts/reproduce_anonymous.py`，从匿名数值表重算五类实验的条件汇总。加`--figures`重绘主图，需安装app/pipeline/requirements/analysis.txt和Times New Roman。文档重绘另需documents.txt。
