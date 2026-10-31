@@ -1,0 +1,2470 @@
+{
+  "states": [
+    {
+      "key": "collection-prompts",
+      "device": "fullhd",
+      "url": "index.html?intro=0#collection",
+      "kind": "expanded",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/collection-prompts-fullhd.png"
+    },
+    {
+      "key": "collection-prompts-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0#collection",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/collection-prompts-bottom-fullhd.png",
+      "scroll": {
+        "max": 1411,
+        "actual": 1411
+      }
+    },
+    {
+      "key": "field-definitions",
+      "device": "fullhd",
+      "url": "index.html?intro=0#cleaning",
+      "kind": "expanded",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/field-definitions-fullhd.png"
+    },
+    {
+      "key": "field-definitions-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0#cleaning",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/field-definitions-bottom-fullhd.png",
+      "scroll": {
+        "max": 379,
+        "actual": 379
+      }
+    },
+    {
+      "key": "landscape-keyboard-cell",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewView=heatmap#landscape",
+      "kind": "expanded",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-keyboard-cell-fullhd.png"
+    },
+    {
+      "key": "landscape-keyboard-cell-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewView=heatmap#landscape",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-keyboard-cell-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "actual": 0
+      }
+    },
+    {
+      "key": "real-example",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/real-example-fullhd.png"
+    },
+    {
+      "key": "real-example-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/real-example-bottom-fullhd.png",
+      "scroll": {
+        "max": 616,
+        "actual": 616
+      }
+    },
+    {
+      "key": "figure-data",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/figure-data-fullhd.png"
+    },
+    {
+      "key": "figure-data-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/figure-data-bottom-fullhd.png",
+      "scroll": {
+        "max": 660,
+        "actual": 660
+      }
+    },
+    {
+      "key": "method-scope",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/method-scope-fullhd.png"
+    },
+    {
+      "key": "method-scope-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/method-scope-bottom-fullhd.png",
+      "scroll": {
+        "max": 465,
+        "actual": 465
+      }
+    },
+    {
+      "key": "export-menu",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/export-menu-fullhd.png"
+    },
+    {
+      "key": "export-menu-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/export-menu-bottom-fullhd.png",
+      "scroll": {
+        "max": 240,
+        "actual": 240
+      }
+    },
+    {
+      "key": "publication-method",
+      "device": "fullhd",
+      "url": "explore.html#budget",
+      "kind": "expanded",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/publication-method-fullhd.png"
+    },
+    {
+      "key": "publication-method-bottom",
+      "device": "fullhd",
+      "url": "explore.html#budget",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/publication-method-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "actual": 0
+      }
+    },
+    {
+      "key": "condition-records",
+      "device": "fullhd",
+      "url": "explore.html#position",
+      "kind": "expanded",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/condition-records-fullhd.png"
+    },
+    {
+      "key": "condition-records-bottom",
+      "device": "fullhd",
+      "url": "explore.html#position",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/condition-records-bottom-fullhd.png",
+      "scroll": {
+        "max": 323,
+        "actual": 323
+      }
+    },
+    {
+      "key": "anonymous-record-detail",
+      "device": "fullhd",
+      "url": "explore.html#position",
+      "kind": "expanded",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/anonymous-record-detail-fullhd.png"
+    },
+    {
+      "key": "anonymous-record-detail-bottom",
+      "device": "fullhd",
+      "url": "explore.html#position",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/anonymous-record-detail-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "actual": 0
+      }
+    },
+    {
+      "key": "code-method",
+      "device": "fullhd",
+      "url": "explore.html?codeView=sampling#code",
+      "kind": "expanded",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/code-method-fullhd.png"
+    },
+    {
+      "key": "code-method-bottom",
+      "device": "fullhd",
+      "url": "explore.html?codeView=sampling#code",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/code-method-bottom-fullhd.png",
+      "scroll": {
+        "max": 6,
+        "actual": 6
+      }
+    },
+    {
+      "key": "code-scoring-detail",
+      "device": "fullhd",
+      "url": "explore.html?codeView=errors#code",
+      "kind": "expanded",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/code-scoring-detail-fullhd.png"
+    },
+    {
+      "key": "code-scoring-detail-bottom",
+      "device": "fullhd",
+      "url": "explore.html?codeView=errors#code",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/code-scoring-detail-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "actual": 0
+      }
+    },
+    {
+      "key": "code-numeric-filter",
+      "device": "fullhd",
+      "url": "explore.html?codeView=tokens#code",
+      "kind": "expanded",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/code-numeric-filter-fullhd.png"
+    },
+    {
+      "key": "code-numeric-filter-bottom",
+      "device": "fullhd",
+      "url": "explore.html?codeView=tokens#code",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/code-numeric-filter-bottom-fullhd.png",
+      "scroll": {
+        "max": 0
+      }
+    },
+    {
+      "key": "deck-gateway-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0#gateway",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/deck-gateway-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1008,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "deck-gateway-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0#gateway",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/deck-gateway-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1008,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "deck-question-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0#question",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/deck-question-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "deck-question-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0#question",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/deck-question-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "deck-collection-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0#collection",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/deck-collection-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "deck-collection-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0#collection",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/deck-collection-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "deck-cleaning-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0#cleaning",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/deck-cleaning-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "deck-cleaning-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0#cleaning",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/deck-cleaning-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-reasoning-deepseek-curve-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=deepseek&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-deepseek-curve-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-reasoning-deepseek-curve-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=deepseek&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-deepseek-curve-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-reasoning-deepseek-heatmap-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=deepseek&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-deepseek-heatmap-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-reasoning-deepseek-heatmap-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=deepseek&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-deepseek-heatmap-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-reasoning-hy4-curve-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=hy4&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-hy4-curve-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-reasoning-hy4-curve-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=hy4&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-hy4-curve-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-reasoning-hy4-heatmap-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=hy4&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-hy4-heatmap-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-reasoning-hy4-heatmap-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=hy4&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-hy4-heatmap-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-reasoning-qwen-curve-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=qwen&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-qwen-curve-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-reasoning-qwen-curve-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=qwen&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-qwen-curve-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-reasoning-qwen-heatmap-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=qwen&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-qwen-heatmap-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-reasoning-qwen-heatmap-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=qwen&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-qwen-heatmap-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-reasoning-qwen3-curve-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=qwen3&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-qwen3-curve-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-reasoning-qwen3-curve-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=qwen3&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-qwen3-curve-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-reasoning-qwen3-heatmap-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=qwen3&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-qwen3-heatmap-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-reasoning-qwen3-heatmap-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=reasoning&overviewModel=qwen3&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-reasoning-qwen3-heatmap-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-document_qa-qwen-curve-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=document_qa&overviewModel=qwen&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-document_qa-qwen-curve-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-document_qa-qwen-curve-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=document_qa&overviewModel=qwen&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-document_qa-qwen-curve-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-document_qa-qwen-heatmap-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=document_qa&overviewModel=qwen&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-document_qa-qwen-heatmap-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-document_qa-qwen-heatmap-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=document_qa&overviewModel=qwen&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-document_qa-qwen-heatmap-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-document_qa-qwen3-curve-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=document_qa&overviewModel=qwen3&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-document_qa-qwen3-curve-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-document_qa-qwen3-curve-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=document_qa&overviewModel=qwen3&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-document_qa-qwen3-curve-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-document_qa-qwen3-heatmap-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=document_qa&overviewModel=qwen3&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-document_qa-qwen3-heatmap-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-document_qa-qwen3-heatmap-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=document_qa&overviewModel=qwen3&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-document_qa-qwen3-heatmap-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-code_generation-deepseek-curve-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=deepseek&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-code_generation-deepseek-curve-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-code_generation-deepseek-curve-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=deepseek&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-code_generation-deepseek-curve-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-code_generation-deepseek-heatmap-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=deepseek&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-code_generation-deepseek-heatmap-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-code_generation-deepseek-heatmap-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=deepseek&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-code_generation-deepseek-heatmap-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-code_generation-qwen-curve-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=qwen&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-code_generation-qwen-curve-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-code_generation-qwen-curve-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=qwen&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-code_generation-qwen-curve-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-code_generation-qwen-heatmap-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=qwen&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-code_generation-qwen-heatmap-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-code_generation-qwen-heatmap-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=qwen&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-code_generation-qwen-heatmap-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-code_generation-qwen3-curve-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=qwen3&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-code_generation-qwen3-curve-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-code_generation-qwen3-curve-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=qwen3&overviewView=curve#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-code_generation-qwen3-curve-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "landscape-code_generation-qwen3-heatmap-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=qwen3&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-code_generation-qwen3-heatmap-middle-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "landscape-code_generation-qwen3-heatmap-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&overviewTask=code_generation&overviewModel=qwen3&overviewView=heatmap#landscape",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/landscape-code_generation-qwen3-heatmap-bottom-fullhd.png",
+      "scroll": {
+        "max": 0,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-concise-baseline-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=concise&view=baseline#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-concise-baseline-middle-fullhd.png",
+      "scroll": {
+        "max": 150,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-concise-baseline-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=concise&view=baseline#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-concise-baseline-bottom-fullhd.png",
+      "scroll": {
+        "max": 150,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-concise-cross-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=concise&view=cross#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-concise-cross-middle-fullhd.png",
+      "scroll": {
+        "max": 185,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-concise-cross-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=concise&view=cross#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-concise-cross-bottom-fullhd.png",
+      "scroll": {
+        "max": 185,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-language-math500-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=language&task=math500#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-language-math500-middle-fullhd.png",
+      "scroll": {
+        "max": 142,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-language-math500-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=language&task=math500#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-language-math500-bottom-fullhd.png",
+      "scroll": {
+        "max": 142,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-language-gsm8k-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=language&task=gsm8k#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-language-gsm8k-middle-fullhd.png",
+      "scroll": {
+        "max": 142,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-language-gsm8k-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=language&task=gsm8k#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-language-gsm8k-bottom-fullhd.png",
+      "scroll": {
+        "max": 142,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-language-mmlu-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=language&task=mmlu#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-language-mmlu-middle-fullhd.png",
+      "scroll": {
+        "max": 142,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-language-mmlu-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=language&task=mmlu#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-language-mmlu-bottom-fullhd.png",
+      "scroll": {
+        "max": 142,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-math500-WordLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-math500-WordLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-math500-WordLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-math500-WordLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-math500-CharLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-math500-CharLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-math500-CharLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-math500-CharLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-math500-TokenLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-math500-TokenLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-math500-TokenLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-math500-TokenLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-WordLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-gsm8k-WordLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-WordLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-gsm8k-WordLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-CharLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-gsm8k-CharLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-CharLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-gsm8k-CharLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-TokenLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-gsm8k-TokenLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-TokenLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-gsm8k-TokenLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-WordLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-mmlu-WordLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-WordLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-mmlu-WordLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-CharLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-mmlu-CharLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-CharLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-mmlu-CharLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-TokenLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-mmlu-TokenLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-TokenLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-deepseek-mmlu-TokenLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-math500-WordLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-math500-WordLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-hy4-math500-WordLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-math500-WordLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-math500-CharLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-math500-CharLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-hy4-math500-CharLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-math500-CharLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-math500-TokenLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-math500-TokenLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-hy4-math500-TokenLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-math500-TokenLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-WordLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-gsm8k-WordLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-WordLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-gsm8k-WordLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-CharLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-gsm8k-CharLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-CharLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-gsm8k-CharLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-TokenLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-gsm8k-TokenLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-TokenLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-gsm8k-TokenLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-mmlu-WordLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-mmlu-WordLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-hy4-mmlu-WordLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-mmlu-WordLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-mmlu-CharLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-mmlu-CharLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-hy4-mmlu-CharLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-mmlu-CharLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-mmlu-TokenLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-mmlu-TokenLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-hy4-mmlu-TokenLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-hy4-mmlu-TokenLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-math500-WordLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-math500-WordLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen-math500-WordLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-math500-WordLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-math500-CharLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-math500-CharLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen-math500-CharLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-math500-CharLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-math500-TokenLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-math500-TokenLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen-math500-TokenLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-math500-TokenLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-WordLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-gsm8k-WordLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-WordLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-gsm8k-WordLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-CharLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-gsm8k-CharLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-CharLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-gsm8k-CharLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-TokenLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-gsm8k-TokenLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-TokenLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-gsm8k-TokenLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-mmlu-WordLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-mmlu-WordLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen-mmlu-WordLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-mmlu-WordLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-mmlu-CharLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-mmlu-CharLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen-mmlu-CharLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-mmlu-CharLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-mmlu-TokenLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-mmlu-TokenLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen-mmlu-TokenLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen-mmlu-TokenLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-math500-WordLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-math500-WordLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-math500-WordLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-math500-WordLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-math500-CharLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-math500-CharLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-math500-CharLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-math500-CharLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-math500-TokenLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-math500-TokenLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-math500-TokenLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-math500-TokenLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-WordLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-gsm8k-WordLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-WordLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-gsm8k-WordLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-CharLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-gsm8k-CharLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-CharLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-gsm8k-CharLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-TokenLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-gsm8k-TokenLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-TokenLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-gsm8k-TokenLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-WordLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-mmlu-WordLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-WordLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-mmlu-WordLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-CharLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-mmlu-CharLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-CharLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-mmlu-CharLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-TokenLimit-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-mmlu-TokenLimit-middle-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-TokenLimit-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-limits-qwen3-mmlu-TokenLimit-bottom-fullhd.png",
+      "scroll": {
+        "max": 172,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-position-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-position-middle-fullhd.png",
+      "scroll": {
+        "max": 240,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-position-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-position-bottom-fullhd.png",
+      "scroll": {
+        "max": 240,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-repair-qwen-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=repair&repairModel=qwen#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-repair-qwen-middle-fullhd.png",
+      "scroll": {
+        "max": 262,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-repair-qwen-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=repair&repairModel=qwen#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-repair-qwen-bottom-fullhd.png",
+      "scroll": {
+        "max": 262,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-repair-qwen3-middle",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=repair&repairModel=qwen3#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-repair-qwen3-middle-fullhd.png",
+      "scroll": {
+        "max": 262,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "story-repair-qwen3-bottom",
+      "device": "fullhd",
+      "url": "index.html?intro=0&finding=repair&repairModel=qwen3#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/story-repair-qwen3-bottom-fullhd.png",
+      "scroll": {
+        "max": 262,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "efficiency-middle",
+      "device": "fullhd",
+      "url": "explore.html#budget",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/efficiency-middle-fullhd.png",
+      "scroll": {
+        "max": 132,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "efficiency-bottom",
+      "device": "fullhd",
+      "url": "explore.html#budget",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/efficiency-bottom-fullhd.png",
+      "scroll": {
+        "max": 132,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "efficiency-prompts-middle",
+      "device": "fullhd",
+      "url": "explore.html?view=prompts#budget",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/efficiency-prompts-middle-fullhd.png",
+      "scroll": {
+        "max": 62,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "efficiency-prompts-bottom",
+      "device": "fullhd",
+      "url": "explore.html?view=prompts#budget",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/efficiency-prompts-bottom-fullhd.png",
+      "scroll": {
+        "max": 62,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "position-matrix-middle",
+      "device": "fullhd",
+      "url": "explore.html#position",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/position-matrix-middle-fullhd.png",
+      "scroll": {
+        "max": 97,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "position-matrix-bottom",
+      "device": "fullhd",
+      "url": "explore.html#position",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/position-matrix-bottom-fullhd.png",
+      "scroll": {
+        "max": 97,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "position-profile-middle",
+      "device": "fullhd",
+      "url": "explore.html?figure=profile#position",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/position-profile-middle-fullhd.png",
+      "scroll": {
+        "max": 37,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "position-profile-bottom",
+      "device": "fullhd",
+      "url": "explore.html?figure=profile#position",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/position-profile-bottom-fullhd.png",
+      "scroll": {
+        "max": 37,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "code-sampling-middle",
+      "device": "fullhd",
+      "url": "explore.html?codeView=sampling#code",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/code-sampling-middle-fullhd.png",
+      "scroll": {
+        "max": 262,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "code-sampling-bottom",
+      "device": "fullhd",
+      "url": "explore.html?codeView=sampling#code",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/code-sampling-bottom-fullhd.png",
+      "scroll": {
+        "max": 262,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "code-prompts-middle",
+      "device": "fullhd",
+      "url": "explore.html?codeView=prompts#code",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/code-prompts-middle-fullhd.png",
+      "scroll": {
+        "max": 267,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "code-prompts-bottom",
+      "device": "fullhd",
+      "url": "explore.html?codeView=prompts#code",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/code-prompts-bottom-fullhd.png",
+      "scroll": {
+        "max": 267,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "code-errors-middle",
+      "device": "fullhd",
+      "url": "explore.html?codeView=errors#code",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/code-errors-middle-fullhd.png",
+      "scroll": {
+        "max": 335,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "code-errors-bottom",
+      "device": "fullhd",
+      "url": "explore.html?codeView=errors#code",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/code-errors-bottom-fullhd.png",
+      "scroll": {
+        "max": 335,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "code-tokens-middle",
+      "device": "fullhd",
+      "url": "explore.html?codeView=tokens#code",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/code-tokens-middle-fullhd.png",
+      "scroll": {
+        "max": 271,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "code-tokens-bottom",
+      "device": "fullhd",
+      "url": "explore.html?codeView=tokens#code",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/code-tokens-bottom-fullhd.png",
+      "scroll": {
+        "max": 271,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "discovery-1-middle",
+      "device": "fullhd",
+      "url": "explore.html#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/discovery-1-middle-fullhd.png",
+      "scroll": {
+        "max": 59,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "discovery-1-bottom",
+      "device": "fullhd",
+      "url": "explore.html#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/discovery-1-bottom-fullhd.png",
+      "scroll": {
+        "max": 59,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "discovery-2-middle",
+      "device": "fullhd",
+      "url": "explore.html#case-2",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/discovery-2-middle-fullhd.png",
+      "scroll": {
+        "max": 59,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "discovery-2-bottom",
+      "device": "fullhd",
+      "url": "explore.html#case-2",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/discovery-2-bottom-fullhd.png",
+      "scroll": {
+        "max": 59,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "discovery-3-middle",
+      "device": "fullhd",
+      "url": "explore.html#case-3",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/discovery-3-middle-fullhd.png",
+      "scroll": {
+        "max": 59,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "discovery-3-bottom",
+      "device": "fullhd",
+      "url": "explore.html#case-3",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/discovery-3-bottom-fullhd.png",
+      "scroll": {
+        "max": 59,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "discovery-4-middle",
+      "device": "fullhd",
+      "url": "explore.html#case-4",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/discovery-4-middle-fullhd.png",
+      "scroll": {
+        "max": 93,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "discovery-4-bottom",
+      "device": "fullhd",
+      "url": "explore.html#case-4",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/discovery-4-bottom-fullhd.png",
+      "scroll": {
+        "max": 93,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "discovery-5-middle",
+      "device": "fullhd",
+      "url": "explore.html#case-5",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/discovery-5-middle-fullhd.png",
+      "scroll": {
+        "max": 124,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "discovery-5-bottom",
+      "device": "fullhd",
+      "url": "explore.html#case-5",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/discovery-5-bottom-fullhd.png",
+      "scroll": {
+        "max": 124,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-model-middle",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=model#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-model-middle-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "chart-model-bottom",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=model#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-model-bottom-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-radar-middle",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=radar#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-radar-middle-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "chart-radar-bottom",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=radar#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-radar-bottom-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-heatmap-middle",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=heatmap#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-heatmap-middle-fullhd.png",
+      "scroll": {
+        "max": 74,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "chart-heatmap-bottom",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=heatmap#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-heatmap-bottom-fullhd.png",
+      "scroll": {
+        "max": 74,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-bubble-middle",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=bubble#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-bubble-middle-fullhd.png",
+      "scroll": {
+        "max": 74,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "chart-bubble-bottom",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=bubble#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-bubble-bottom-fullhd.png",
+      "scroll": {
+        "max": 74,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-radial-middle",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=radial#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-radial-middle-fullhd.png",
+      "scroll": {
+        "max": 74,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "chart-radial-bottom",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=radial#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-radial-bottom-fullhd.png",
+      "scroll": {
+        "max": 74,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-position-middle",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=position&dataset=document_qa#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-position-middle-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "chart-position-bottom",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=position&dataset=document_qa#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-position-bottom-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-box-middle",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=box#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-box-middle-fullhd.png",
+      "scroll": {
+        "max": 57,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "chart-box-bottom",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=box#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-box-bottom-fullhd.png",
+      "scroll": {
+        "max": 57,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-parallel-middle",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=parallel#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-parallel-middle-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "chart-parallel-bottom",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=parallel#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-parallel-bottom-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-distribution-middle",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=distribution#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-distribution-middle-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "chart-distribution-bottom",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=distribution#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-distribution-bottom-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-behavior-middle",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=behavior#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-behavior-middle-fullhd.png",
+      "scroll": {
+        "max": 54,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "chart-behavior-bottom",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=behavior#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-behavior-bottom-fullhd.png",
+      "scroll": {
+        "max": 54,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-timeline-middle",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=timeline&dataset=document_qa#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-timeline-middle-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "chart-timeline-bottom",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=timeline&dataset=document_qa#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-timeline-bottom-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-tree-middle",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=tree&dataset=document_qa#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-tree-middle-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "chart-tree-bottom",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=tree&dataset=document_qa#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-tree-bottom-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-flow-middle",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=flow&dataset=document_qa#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-flow-middle-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "chart-flow-bottom",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=flow&dataset=document_qa#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-flow-bottom-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-flow-empty-middle",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=flow&dataset=reasoning#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-flow-empty-middle-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "middle"
+      }
+    },
+    {
+      "key": "chart-flow-empty-bottom",
+      "device": "fullhd",
+      "url": "explore.html?mode=explore&chart=flow&dataset=reasoning#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/content-layout-20261101/after/overlays/chart-flow-empty-bottom-fullhd.png",
+      "scroll": {
+        "max": 30,
+        "client": 1080,
+        "position": "bottom"
+      }
+    }
+  ],
+  "errors": []
+}

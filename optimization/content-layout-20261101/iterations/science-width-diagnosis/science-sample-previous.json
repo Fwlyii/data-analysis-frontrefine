@@ -1,0 +1,347 @@
+{
+  "method": "Same actual Chromium viewport, reduced motion, fonts/images decoded, frozen baseline8829 vs current8828. Scientific SVG serialized shapes with deterministic IDs, computed paint/fonts, and actual visible chart crops recorded plus exact canonical chart-only PNG equality, rendered at the same integer origin/size with captured computed scientific paint/fonts. Canonical rendering removes intentional surrounding-layout relocation, clipping and subpixel position differences; SVG DOM/styles must still remain identical. No chart bitmap replacement.",
+  "results": [
+    {
+      "name": "story-concise-baseline desktop scientific SVG DOM/styles/canonical pixel preservation",
+      "passed": true,
+      "graphs": [
+        {
+          "sameCanonicalPixels": true,
+          "canonicalSHA256": [
+            "5a81d36cb45dba9dcc993022dc5c5cfdfd49f599767972023955e0786857cbc2",
+            "5a81d36cb45dba9dcc993022dc5c5cfdfd49f599767972023955e0786857cbc2"
+          ],
+          "canonicalDimensions": [
+            1100,
+            355
+          ],
+          "captureMode": "Native scrollIntoView then actual visible chart-only viewport intersection, excluding surrounding UI",
+          "visibleClips": [
+            {
+              "x": 170,
+              "y": 345,
+              "width": 1100,
+              "height": 354
+            },
+            {
+              "x": 170,
+              "y": 316,
+              "width": 1100,
+              "height": 354
+            }
+          ],
+          "beforeScreenshot": "optimization/content-layout-20261101/before/science/story-concise-baseline-desktop-0.png",
+          "afterScreenshot": "optimization/content-layout-20261101/after/science/story-concise-baseline-desktop-0.png",
+          "domSHA256": [
+            "c4cd4eebbd99556cd39d60fd90d783bef5c78a30cca76f564e7d6db792c47de4",
+            "c4cd4eebbd99556cd39d60fd90d783bef5c78a30cca76f564e7d6db792c47de4"
+          ],
+          "computedStylesSHA256": [
+            "d9711820bfb03fd2e35496bf486c09a6ee1226a9e09a15ea0d7bb6eef0a91807",
+            "d9711820bfb03fd2e35496bf486c09a6ee1226a9e09a15ea0d7bb6eef0a91807"
+          ],
+          "screenshotSHA256": [
+            "d26ad09a9ee60c416466e612ecc6ab69580d7566499964ce4e2b881c00f2749d",
+            "42686c9c522ff9bd7b96263252b94c57327e697d84925a11dd6de8a8f481550e"
+          ],
+          "sameMarkup": true,
+          "sameStyles": true,
+          "samePixels": false,
+          "dimensions": [
+            1100,
+            355,
+            1100,
+            355
+          ]
+        }
+      ],
+      "expectedGraphs": 1,
+      "actualGraphs": 1
+    },
+    {
+      "name": "code-sampling desktop scientific SVG DOM/styles/canonical pixel preservation",
+      "passed": true,
+      "graphs": [
+        {
+          "sameCanonicalPixels": true,
+          "canonicalSHA256": [
+            "b7ba25dc4784e0568a712ea520cca6083db473253e65605815686548b1c1df15",
+            "b7ba25dc4784e0568a712ea520cca6083db473253e65605815686548b1c1df15"
+          ],
+          "canonicalDimensions": [
+            1340,
+            485
+          ],
+          "captureMode": "Native scrollIntoView then actual visible chart-only viewport intersection, excluding surrounding UI",
+          "visibleClips": [
+            {
+              "x": 51,
+              "y": 259,
+              "width": 1338,
+              "height": 484
+            },
+            {
+              "x": 51,
+              "y": 208,
+              "width": 1338,
+              "height": 484
+            }
+          ],
+          "beforeScreenshot": "optimization/content-layout-20261101/before/science/code-sampling-desktop-0.png",
+          "afterScreenshot": "optimization/content-layout-20261101/after/science/code-sampling-desktop-0.png",
+          "domSHA256": [
+            "8250b151cc0b1c558e4fa3b08bc610933232596da8276b41f5e163fd0a7213f6",
+            "8250b151cc0b1c558e4fa3b08bc610933232596da8276b41f5e163fd0a7213f6"
+          ],
+          "computedStylesSHA256": [
+            "59272d61697d6f96bd1083a90c94f0b33e52f0921715d6c1244458a08a521412",
+            "59272d61697d6f96bd1083a90c94f0b33e52f0921715d6c1244458a08a521412"
+          ],
+          "screenshotSHA256": [
+            "fd0fd56de5c21a4f2ff4393abca09790d08f2cb3edd3f930e43d7e747e6374e3",
+            "71aaf3fbfb1c0bee96f40feb89975f609b78dad8f2122bb07f4f16d2a6fb6215"
+          ],
+          "sameMarkup": true,
+          "sameStyles": true,
+          "samePixels": false,
+          "dimensions": [
+            1339.21875,
+            484.578125,
+            1339.21875,
+            484.578125
+          ]
+        }
+      ],
+      "expectedGraphs": 1,
+      "actualGraphs": 1
+    },
+    {
+      "name": "chart-model desktop scientific SVG DOM/styles/canonical pixel preservation",
+      "passed": true,
+      "graphs": [
+        {
+          "sameCanonicalPixels": true,
+          "canonicalSHA256": [
+            "730bfa69b9814ce1de27f77c8f79ad56359e51f3b8e0790e24073ce876448b5f",
+            "730bfa69b9814ce1de27f77c8f79ad56359e51f3b8e0790e24073ce876448b5f"
+          ],
+          "canonicalDimensions": [
+            1339,
+            540
+          ],
+          "captureMode": "Native scrollIntoView then actual visible chart-only viewport intersection, excluding surrounding UI",
+          "visibleClips": [
+            {
+              "x": 51,
+              "y": 243,
+              "width": 1338,
+              "height": 539
+            },
+            {
+              "x": 51,
+              "y": 272,
+              "width": 1338,
+              "height": 539
+            }
+          ],
+          "beforeScreenshot": "optimization/content-layout-20261101/before/science/chart-model-desktop-0.png",
+          "afterScreenshot": "optimization/content-layout-20261101/after/science/chart-model-desktop-0.png",
+          "domSHA256": [
+            "36751d6b8d6287dde0d0c30f587d272ea48541fb18f5e80c4132ee15cc0a5ee1",
+            "36751d6b8d6287dde0d0c30f587d272ea48541fb18f5e80c4132ee15cc0a5ee1"
+          ],
+          "computedStylesSHA256": [
+            "fc8f3695fb7d9f5ad118e5ac4150cbfb45b70c3d8b23e83dfbfb6cf514a48bad",
+            "fc8f3695fb7d9f5ad118e5ac4150cbfb45b70c3d8b23e83dfbfb6cf514a48bad"
+          ],
+          "screenshotSHA256": [
+            "771882018099885fb37482d72bad6e52b4375951127147d5fa5889c71ff24338",
+            "5629b79c9991118bd5d2a1afd34f52f24dfb98b89ef026e7dff856a037cb4e2c"
+          ],
+          "sameMarkup": true,
+          "sameStyles": true,
+          "samePixels": false,
+          "dimensions": [
+            1339,
+            540,
+            1339,
+            540
+          ]
+        }
+      ],
+      "expectedGraphs": 1,
+      "actualGraphs": 1
+    },
+    {
+      "name": "story-concise-baseline mobile scientific SVG DOM/styles/canonical pixel preservation",
+      "passed": true,
+      "graphs": [
+        {
+          "sameCanonicalPixels": true,
+          "canonicalSHA256": [
+            "8724b154cb026a3af72ed33e4c943b56cc405601660f4b529a8688fb8a7d41e8",
+            "8724b154cb026a3af72ed33e4c943b56cc405601660f4b529a8688fb8a7d41e8"
+          ],
+          "canonicalDimensions": [
+            760,
+            246
+          ],
+          "captureMode": "Native scrollIntoView then actual visible chart-only viewport intersection, excluding surrounding UI",
+          "visibleClips": [
+            {
+              "x": 22,
+              "y": 360,
+              "width": 346,
+              "height": 244
+            },
+            {
+              "x": 22,
+              "y": 308,
+              "width": 346,
+              "height": 244
+            }
+          ],
+          "beforeScreenshot": "optimization/content-layout-20261101/before/science/story-concise-baseline-mobile-0.png",
+          "afterScreenshot": "optimization/content-layout-20261101/after/science/story-concise-baseline-mobile-0.png",
+          "domSHA256": [
+            "c4cd4eebbd99556cd39d60fd90d783bef5c78a30cca76f564e7d6db792c47de4",
+            "c4cd4eebbd99556cd39d60fd90d783bef5c78a30cca76f564e7d6db792c47de4"
+          ],
+          "computedStylesSHA256": [
+            "d9711820bfb03fd2e35496bf486c09a6ee1226a9e09a15ea0d7bb6eef0a91807",
+            "d9711820bfb03fd2e35496bf486c09a6ee1226a9e09a15ea0d7bb6eef0a91807"
+          ],
+          "screenshotSHA256": [
+            "84d455b1282c879dfea7b8e30afa89e066d6110d6970cc6c41b9a8d88edd848e",
+            "1d0199bd2cfe449975c8e22bb1e4fd4d9791b3a7d839ebb0b9a05a1fadf36d53"
+          ],
+          "sameMarkup": true,
+          "sameStyles": true,
+          "samePixels": false,
+          "dimensions": [
+            760,
+            245.265625,
+            760,
+            245.265625
+          ]
+        }
+      ],
+      "expectedGraphs": 1,
+      "actualGraphs": 1
+    },
+    {
+      "name": "code-sampling mobile scientific SVG DOM/styles/canonical pixel preservation",
+      "passed": true,
+      "graphs": [
+        {
+          "sameCanonicalPixels": true,
+          "canonicalSHA256": [
+            "9aba66839a6109d29184a2ac698109d668f7055b80696453bb98395a69f60405",
+            "9aba66839a6109d29184a2ac698109d668f7055b80696453bb98395a69f60405"
+          ],
+          "canonicalDimensions": [
+            1200,
+            435
+          ],
+          "captureMode": "Native scrollIntoView then actual visible chart-only viewport intersection, excluding surrounding UI",
+          "visibleClips": [
+            {
+              "x": 16,
+              "y": 205,
+              "width": 358,
+              "height": 433
+            },
+            {
+              "x": 20,
+              "y": 205,
+              "width": 350,
+              "height": 433
+            }
+          ],
+          "beforeScreenshot": "optimization/content-layout-20261101/before/science/code-sampling-mobile-0.png",
+          "afterScreenshot": "optimization/content-layout-20261101/after/science/code-sampling-mobile-0.png",
+          "domSHA256": [
+            "8250b151cc0b1c558e4fa3b08bc610933232596da8276b41f5e163fd0a7213f6",
+            "8250b151cc0b1c558e4fa3b08bc610933232596da8276b41f5e163fd0a7213f6"
+          ],
+          "computedStylesSHA256": [
+            "59272d61697d6f96bd1083a90c94f0b33e52f0921715d6c1244458a08a521412",
+            "59272d61697d6f96bd1083a90c94f0b33e52f0921715d6c1244458a08a521412"
+          ],
+          "screenshotSHA256": [
+            "14a0bd9d17faf9cf7106d56c7f25271575dfe47c91d04e5e2d0e6d24c59e5b8b",
+            "5286983817f1044146a7f7f1299b84ab9d7159c2fbafc1e7f8d83757c1ea0c6e"
+          ],
+          "sameMarkup": true,
+          "sameStyles": true,
+          "samePixels": false,
+          "dimensions": [
+            1200,
+            434.203125,
+            1200,
+            434.203125
+          ]
+        }
+      ],
+      "expectedGraphs": 1,
+      "actualGraphs": 1
+    },
+    {
+      "name": "chart-model mobile scientific SVG DOM/styles/canonical pixel preservation",
+      "passed": false,
+      "graphs": [
+        {
+          "sameCanonicalPixels": false,
+          "canonicalSHA256": [
+            "f7dc132060576cc254ed37c6a3c00aa9d38e7834eb55c0accf84e4bc87a423ec",
+            "c7809d25e8616e40103fe7eb38862709ba0548f4c64b8b983e2ef98e5a110a6c"
+          ],
+          "canonicalDimensions": [
+            358,
+            506
+          ],
+          "captureMode": "Native scrollIntoView then actual visible chart-only viewport intersection, excluding surrounding UI",
+          "visibleClips": [
+            {
+              "x": 16,
+              "y": 251,
+              "width": 358,
+              "height": 505
+            },
+            {
+              "x": 20,
+              "y": 225,
+              "width": 350,
+              "height": 505
+            }
+          ],
+          "beforeScreenshot": "optimization/content-layout-20261101/before/science/chart-model-mobile-0.png",
+          "afterScreenshot": "optimization/content-layout-20261101/after/science/chart-model-mobile-0.png",
+          "domSHA256": [
+            "0aabf3ce48c9e77307f512b88ea797877a073a2aed928077b932082639e43c6b",
+            "afb5ee02ae7f4b7e23eca4a2e2b837541a095709cec6348662fbd4954027ae10"
+          ],
+          "computedStylesSHA256": [
+            "fc8f3695fb7d9f5ad118e5ac4150cbfb45b70c3d8b23e83dfbfb6cf514a48bad",
+            "fc8f3695fb7d9f5ad118e5ac4150cbfb45b70c3d8b23e83dfbfb6cf514a48bad"
+          ],
+          "screenshotSHA256": [
+            "ccf7f0670a0a9e79c57a44f13eb7447db62efc69c0ac4cb6652dac051bb21ea2",
+            "d2ebe120650327a879c90b5352364690711eb2bea15ff48bb9bd109fa8f00ff7"
+          ],
+          "sameMarkup": false,
+          "sameStyles": true,
+          "samePixels": false,
+          "dimensions": [
+            358,
+            506,
+            350,
+            506
+          ]
+        }
+      ],
+      "expectedGraphs": 1,
+      "actualGraphs": 1
+    }
+  ]
+}

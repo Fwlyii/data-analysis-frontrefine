@@ -1,0 +1,114 @@
+{
+  "results": [
+    {
+      "name": "question transparent static decorative asset",
+      "passed": true,
+      "source": {
+        "path": "optimization/fullsite-closed-loop-20261031/design/planet-question.png",
+        "bytes": 1722166,
+        "sha256": "ed8bbfb118fbed010f4e66b4a5510feff54ef3e655d43e7347b8225435968c64"
+      },
+      "runtime": {
+        "path": "app/assets/visual/planet-question.webp",
+        "bytes": 68892,
+        "sha256": "31650735adf1d4a423c610d20322fc5c86848d6cc47ceee37a66ff5e490a4a4d"
+      },
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "clearPixels": 121514,
+        "opaquePixels": 861,
+        "pixels": 262144
+      },
+      "conversion": "FFmpeg Lanczos resize to512px and WebP quality88; preserves generated alpha; no recoloring, painted mask or replacement imagery"
+    },
+    {
+      "name": "collection transparent static decorative asset",
+      "passed": true,
+      "source": {
+        "path": "optimization/fullsite-closed-loop-20261031/design/planet-collection.png",
+        "bytes": 1994017,
+        "sha256": "b4eda7c8b5af8cfa9d77e6c350f4138dc9bf68e29c253a9f6e2e9f1a3da207ac"
+      },
+      "runtime": {
+        "path": "app/assets/visual/planet-collection.webp",
+        "bytes": 74340,
+        "sha256": "6d29ae0fa4f175c2882109e2a42c366d0780f0bcf4c88c40f2f08db22162aa7c"
+      },
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "clearPixels": 111512,
+        "opaquePixels": 897,
+        "pixels": 262144
+      },
+      "conversion": "FFmpeg Lanczos resize to512px and WebP quality88; preserves generated alpha; no recoloring, painted mask or replacement imagery"
+    },
+    {
+      "name": "cleaning transparent static decorative asset",
+      "passed": true,
+      "source": {
+        "path": "optimization/fullsite-closed-loop-20261031/design/planet-cleaning.png",
+        "bytes": 1772266,
+        "sha256": "c9d40a51802b15b322b333b191cb4919f5e7ebb707bc95225be2b12a15c9cc5f"
+      },
+      "runtime": {
+        "path": "app/assets/visual/planet-cleaning.webp",
+        "bytes": 60904,
+        "sha256": "4a921ed71a03747f0adbb6f606488e286fa13019f90cb6c705456a6880aeed4a"
+      },
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "clearPixels": 120475,
+        "opaquePixels": 2585,
+        "pixels": 262144
+      },
+      "conversion": "FFmpeg Lanczos resize to512px and WebP quality88; preserves generated alpha; no recoloring, painted mask or replacement imagery"
+    },
+    {
+      "name": "landscape transparent static decorative asset",
+      "passed": true,
+      "source": {
+        "path": "optimization/fullsite-closed-loop-20261031/design/planet-landscape.png",
+        "bytes": 1733834,
+        "sha256": "552970d936872f00c2c75fefc41dc3586aa1b93645304c4b31a8893bc52070be"
+      },
+      "runtime": {
+        "path": "app/assets/visual/planet-landscape.webp",
+        "bytes": 68706,
+        "sha256": "ed142c9d404681c14d581242e0a2e75369dd314a0726c240e2a8698a44e49776"
+      },
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "clearPixels": 121358,
+        "opaquePixels": 954,
+        "pixels": 262144
+      },
+      "conversion": "FFmpeg Lanczos resize to512px and WebP quality88; preserves generated alpha; no recoloring, painted mask or replacement imagery"
+    },
+    {
+      "name": "findings transparent static decorative asset",
+      "passed": true,
+      "source": {
+        "path": "optimization/fullsite-closed-loop-20261031/design/planet-findings.png",
+        "bytes": 1749496,
+        "sha256": "7dc05671820cd937ed83aebdb57f41a459604739e80d878ed49022c35a9e8167"
+      },
+      "runtime": {
+        "path": "app/assets/visual/planet-findings.webp",
+        "bytes": 62924,
+        "sha256": "29b7f77a34059a7554c0eb8172a27dd9324cf8de3360e591dbf3999d727ca860"
+      },
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "clearPixels": 122790,
+        "opaquePixels": 2271,
+        "pixels": 262144
+      },
+      "conversion": "FFmpeg Lanczos resize to512px and WebP quality88; preserves generated alpha; no recoloring, painted mask or replacement imagery"
+    }
+  ]
+}

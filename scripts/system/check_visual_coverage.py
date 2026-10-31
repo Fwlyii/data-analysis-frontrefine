@@ -23,7 +23,7 @@ def check():
     audit=json.loads((ROOT/proof['screenshots']).read_text());rows=audit['rows']
     assert len(rows)==len(routes)*2
     for r in routes:
-        for device in ['desktop','mobile']:
+        for device in ['desktop','fullhd']:
             row=next(x for x in rows if x['key']==r['key'] and x['device']==device)
             assert row['selectedViewMatches'] and not row['overflow'] and row['brandVisible'],r['key']
             assert (ROOT/proof['screenshots']).parent.joinpath(r['key']+'-'+device+'.png').stat().st_size>1000
@@ -31,7 +31,7 @@ def check():
             assert all((s['painted']>=(1 if s.get('decorative') else 3) or s.get('interactionLayer')) and s['opacity']>(.1 if s.get('decorative') else .95) and not s['unresolved'] and not s['invalid'] for s in row['svgs'])
             assert all(i['passed'] for i in row['embeddedImages'])
     checks=json.loads((ROOT/proof['browserChecks']).read_text())
-    assert set(checks['matrix']['routes'])==keys and sorted(checks['matrix']['viewports'])==[320,390,768,1366,1440]
+    assert set(checks['matrix']['routes'])==keys and sorted(checks['matrix']['viewports'])==[1366,1440,1600,1920,2560]
     assert len([r for r in checks['results'] if 'decoded/painted/layout' in r['name']])==len(routes)*5
     for name in [proof['browserChecks'],*proof['additionalBrowserChecks']]:
         report=json.loads((ROOT/name).read_text());assert report['results'] and all(r['passed'] for r in report['results']),'Failed browser/fidelity check: '+name
@@ -40,7 +40,7 @@ def check():
     for name,sha in proof['fingerprints'].items():assert digest(ROOT/name)==sha,'Stale browser evidence: '+name
     home=(APP/'dist/index.html').read_text();library=(APP/'dist/explore.html').read_text()
     for markup in [home,library]:
-        assert 'refinement.css?v=' in markup and 'runtime/refinement.js?v=' in markup
+        assert 'refinement.css?v=' in markup and 'content-layout.css?v=' in markup and 'runtime/refinement.js?v=' in markup
         assert not any(old in markup for old in ['site.css','deck.css','lens-masthead','site-shell.js','story-motion.js'])
     assert 'runtime/intro.js?v=' in home and 'intro.css?v=' in home and 'id="intro-replay"' in home
     assert 'runtime/gateway.js?v=' in home and 'gateway.css?v=' in home and 'id="gateway"' in home
@@ -50,8 +50,8 @@ def check():
     assert 'class="chapter-rail"' not in home and 'class="research-home"' in home
     assert 'assets/visual/gateway-atmosphere.webp' in home
     provenance=json.loads((ROOT/proof['designProvenance']).read_text())
-    assert provenance['tool']=='image_gen.imagegen' and len(provenance['calls'])>=14
-    assert len([c for c in provenance['calls'] if c.get('kind')=='transparent-planet'])==5
+    assert provenance['tool']=='image_gen.imagegen' and len(provenance['calls'])>=5
+    assert {'question-layout','content-layouts','analytics-layouts','publication-discovery-layouts','implementation-feedback'}<={c.get('kind')for c in provenance['calls']}
     assert any(c.get('kind')=='implementation-feedback' for c in provenance['calls'])
     for call in provenance['calls']:
         for item in [call['prompt'],call['output'],*call['inputs'],*([call['runtime']] if 'runtime' in call else [])]:
@@ -75,39 +75,49 @@ def check():
     for r in performance:
         assert r['metrics']['cumulative-layout-shift']<=.02,'Layout shift needs investigation'
     for surface in ['home','library']:
-        for device in ['mobile','desktop']:
+        for device in ['desktop','fullhd']:
             before=next(r for r in performance if r['surface']==surface and r['device']==device and r['stage']=='before')
             after=next(r for r in performance if r['surface']==surface and r['device']==device and r['stage']=='after')
             assert after['scores']['performance']>=before['scores']['performance']-5,'Investigate paired performance regression'
     # This round explicitly authorizes five STATIC alpha decorations, while
     # keeping native links/text, the same optical SVG, and all scientific bytes.
-    job=ROOT/'optimization/fullsite-closed-loop-20261031'
-    assert proof['version']>=10 and proof['baseline']=='f751c3fe2db5a977f63d394ca185d09bc3ef8132'
+    job=ROOT/'optimization/content-layout-20261101'
+    assert proof['version']>=11 and proof['baseline']=='860eb9c2a56a0c5051988efee3c76d9a77d2a899'
     protected=job/'protected-files.json'
-    assert hashlib.sha256(protected.read_bytes()).hexdigest()=='29181b4d163b48c098ea5269eed624684abbc1bbf222ad66cefd2345870d914c'
-    protection=json.loads(protected.read_text());assert len(protection['files'])==519
+    assert hashlib.sha256(protected.read_bytes()).hexdigest()=='d63528ddc60f4433ef1ddea1b5cda22d839b7aee0565277799f88ee5af288505'
+    protection=json.loads(protected.read_text());assert len(protection['files'])==527
     for name,sha in protection['files'].items():assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==sha,'Protected bytes changed: '+name
     planets=['app/assets/visual/planet-'+k+'.webp' for k in contract['links']]
     assert set(proof['planetAssets'])==set(planets)
     assert len(re.findall(r'class="orb-planet"',home))==5
     for path in planets:
         assert home.count('src="'+path.removeprefix('app/')+'"')==1
-    asset_report=json.loads((job/'assets/planet-validation.json').read_text())
+    asset_report=json.loads((ROOT/'optimization/fullsite-closed-loop-20261031/assets/planet-validation.json').read_text())
     assert len(asset_report['results'])==5 and all(r['passed'] and r['alpha']['min']==0 and r['alpha']['max']==255 for r in asset_report['results'])
     for row in asset_report['results']:
         asset=ROOT/row['runtime']['path'];assert hashlib.sha256(asset.read_bytes()).hexdigest()==row['runtime']['sha256']
     ledger=json.loads((ROOT/proof['coverageLedger']).read_text())['rows']
-    assert len(ledger)==len(keys)*2 and {(r['routeKey'],r['device']) for r in ledger}=={(k,d)for k in keys for d in ['desktop','mobile']}
+    assert len(ledger)==len(keys)*2 and {(r['routeKey'],r['device']) for r in ledger}=={(k,d)for k in keys for d in ['desktop','fullhd']}
     for row in ledger:
-        assert row['reason'].strip() and row['decision'] in ['improved','kept_with_reason']
+        assert row['reason'].strip() and row['decision'] in ['redesigned','entrance_preserved']
         for key in ['beforeScreenshot','referenceImage','afterScreenshot']:assert (ROOT/row[key]).stat().st_size>1000
-        for key in ['beforeScore','referenceScore','afterScore','fidelityScore']:assert 0<=row[key]<=100
-        if row['decision']=='improved':assert row['referenceScore']>=row['beforeScore']+5 and row['fidelityScore']>=90 and row['afterScore']>=row['referenceScore']-5
-    overlays=json.loads((ROOT/proof['overlays']).read_text())['states'];assert len(overlays)>=26
+        if row['routeKey']!='deck-gateway':assert row['decision']=='redesigned' and row['measuredTypeImprovement']>=1.15
+    reading=json.loads((job/'after/readability-checks.json').read_text())
+    assert len(reading['rows'])==184 and all(r['passed']for r in reading['results'])
+    assert all(r['liveView']['selectedViewMatches']for r in reading['rows']),'Reading audit missed actual route identity'
+    expanded=json.loads((job/'after/expanded-reading-checks.json').read_text())
+    assert len(expanded['results'])==8 and all(r['passed']and r['detail']['samples']and all(s['size']>=16 for s in r['detail']['samples'])for r in expanded['results'])
+    science=json.loads((job/'after/chart-render-preservation.json').read_text())['results']
+    assert len(science)==184 and sum(r['actualGraphs']for r in science)==188
+    assert all(r['passed']and r['actualGraphs']==r['expectedGraphs']and all(g['sameMarkup']and g['sameStyles']and g['sameCanonicalPixels']for g in r['graphs'])for r in science)
+    assert (APP/'content-layout.css').stat().st_size<40*1024
+    assert proof['recordingViewport']=={'width':1920,'height':1080}
+    assert all(r['detail']['chartStartsInFirstScreen'] for r in checks['results'] if isinstance(r.get('detail'),dict)and r['detail'].get('width')==1920 and r['detail'].get('section')=='findings')
+    overlays=json.loads((ROOT/proof['overlays']).read_text())['states'];assert len(overlays)==212
     for state in overlays:
         for key in ['beforeScreenshot','afterScreenshot']:assert (ROOT/state[key]).stat().st_size>1000
-    assert json.loads((job/'design/visual-scores.json').read_text())['assessmentType']=='AI subjective visual judgment'
-    for report in ['functional-checks','chart-preservation','planet-checks']:
+    assert json.loads((job/'design/visual-review.json').read_text())['assessmentType']=='Human-readable AI design review with actual measured typography; no automatic aesthetic veto'
+    for report in ['functional-checks','chart-preservation','planet-checks','readability-checks']:
         report=json.loads((job/'after'/f'{report}.json').read_text());assert report['results'] and all(r['passed'] for r in report['results'])
     return {'routes':len(routes),'screenshots':len(rows),'viewports':checks['matrix']['viewports'],'fingerprintedSources':len(proof['fingerprints']),'verified':True}
 if __name__=='__main__':print(json.dumps(check()))

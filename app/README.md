@@ -8,7 +8,7 @@ python3 app/launch.py --port 8770
 
 启动器用Python标准库构建本地快照并提供HTTP服务。构建后也可直接打开app/index.html或app/dist/index.html离线演示。
 
-默认主页是“知微之门”，五个入口分别进入Research Question、Collection Design、Data Pipeline、Data Landscape、Core Findings。研究页全屏展示，仅保留角落返回入口；图表库、重播开场和全屏按钮位于首页。主展示使用英文；图表库保留中文研究内容。五发现覆盖两低维、两多维和一异常，支持条件切换、九位置选择、五版本播放、实际案例及SVG/CSV导出。全貌页覆盖推理372、文档问答186、代码生成93个提示条件。最新视觉流程与证据见 `../optimization/gateway-polish/`。
+默认主页是“知微之门”，五个入口分别进入Research Question、Collection Design、Data Pipeline、Data Landscape、Core Findings。研究页全屏展示，仅保留角落返回入口；图表库、重播开场和全屏按钮位于首页。主展示使用英文；图表库保留中文研究内容。五发现覆盖两低维、两多维和一异常，支持条件切换、九位置选择、五版本播放、实际案例及SVG/CSV导出。全貌页覆盖推理372、文档问答186、代码生成93个提示条件。最新电脑端布局流程与证据见 `../optimization/content-layout-20261101/`。
 
 | 文件 | 用途 |
 |---|---|
@@ -30,4 +30,4 @@ python3 scripts/system/check_web_snapshot.py
 
 检查会重建快照、验证本地资源与三个任务31提示的数据接入。系统启动只需Python；若已安装Node，还会检查JS语法和SVG数值绑定。设计来源和许可证见../docs/design-sources.md。
 
-本轮全站视觉闭环与逐页评审见 `../optimization/fullsite-closed-loop-20261031/RESULT.md` 与 `gallery.html`。 原图表、数据及科研绘制源码保持；首页采用五个真实生成的静态透明装饰资产，原生链接、文字和开场交接连续性保留。
+最新电脑录制版详细布局重设计见 `../optimization/content-layout-20261101/REPORT.md` 与该目录 `gallery.html`。 原图表、数据及科研绘制源码保持；首页采用五个真实生成的静态透明装饰资产，原生链接、文字和开场交接连续性保留。

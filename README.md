@@ -2,7 +2,7 @@
 
 研究输出表达、资料位置与执行反馈如何影响大模型的任务表现。实验覆盖推理/选择题、文档问答与Python代码，共248,586条物理响应。项目采用课设题目二的**可视交互系统**形式。
 
-[线上预览](https://fwlyii.github.io/data-analysis-frontrefine/) · [知微之门最新视觉与全屏研究页](optimization/gateway-polish/README.md) · [全站优化流程](docs/visual-refinement-workflow.md)
+[线上预览](https://fwlyii.github.io/data-analysis-frontrefine/) · [电脑录制版布局与截图](optimization/content-layout-20261101/README.md) · [全站优化流程](docs/visual-refinement-workflow.md)
 
 ## 运行
 
@@ -69,4 +69,4 @@ python3 scripts/delivery/build_submission.py
 
 生成`submission/AI对话行为分析_系统/`：顶层为README、app、data、report、presentation，与课设系统组示例一致。提交版只含匿名特征、统计、图稿和代码；完整原始数据保留在本项目。提交版由同一套脚本生成，作为独立提交目录一并收录。
 
-本轮全站视觉闭环与逐页评审见 `optimization/fullsite-closed-loop-20261031/RESULT.md`、`optimization/fullsite-closed-loop-20261031/gallery.html`。 原图表、数据及科研绘制源码保持；首页采用五个真实生成的静态透明装饰资产，原生链接、文字和开场交接连续性保留。
+最新电脑录制版的详细布局重设计、逐页截图和测量见 `optimization/content-layout-20261101/REPORT.md`、`optimization/content-layout-20261101/gallery.html`。 原图表、数据及科研绘制源码保持；首页采用五个真实生成的静态透明装饰资产，原生链接、文字和开场交接连续性保留。

@@ -1,0 +1,76 @@
+{
+  "source": "Actual Chromium CDP screencast; no generated/interpolated frames",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "reducedMotion": "no-preference",
+  "frameCount": 571,
+  "seconds": 34.70279502868652,
+  "actions": [
+    {
+      "label": "Replay the actual opening",
+      "at": 1793467312146
+    },
+    {
+      "label": "Read the redesigned research-question composition",
+      "at": 1793467319268
+    },
+    {
+      "label": "Show principles, experiment flow and task cohorts",
+      "at": 1793467322824
+    },
+    {
+      "label": "Show the code specimen, process and quality summary",
+      "at": 1793467326234
+    },
+    {
+      "label": "Compare actual task and model evidence",
+      "at": 1793467329402
+    },
+    {
+      "label": "Switch the original scientific matrix",
+      "at": 1793467331968
+    },
+    {
+      "label": "Read the conclusion and evidence callout",
+      "at": 1793467333284
+    },
+    {
+      "label": "Open the original evidence-position finding",
+      "at": 1793467335775
+    },
+    {
+      "label": "Use the actual evidence-position slider",
+      "at": 1793467336717
+    },
+    {
+      "label": "Read the expanded real example",
+      "at": 1793467337646
+    },
+    {
+      "label": "Read the large chart-library filters with the original scientific graph",
+      "at": 1793467341297
+    },
+    {
+      "label": "Open code-generation research",
+      "at": 1793467341297
+    },
+    {
+      "label": "Switch to the actual output-cost view",
+      "at": 1793467342351
+    },
+    {
+      "label": "Open the original output-efficiency publication",
+      "at": 1793467343363
+    },
+    {
+      "label": "Show the redesigned discovery KPI layout",
+      "at": 1793467344342
+    },
+    {
+      "label": "Return to the entrance without replaying automatically",
+      "at": 1793467345367
+    }
+  ]
+}

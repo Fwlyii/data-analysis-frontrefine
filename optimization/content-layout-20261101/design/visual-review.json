@@ -1,0 +1,53 @@
+{
+  "assessmentType": "Human-readable AI design review with actual measured typography; no automatic aesthetic veto",
+  "reasonForChangingMethod": "The prior high group-level baseline scores masked tiny text and wasted space. This round requires actual layout changes and live measured type improvements for every content state. Subjective appearance is described with reasons, not prefilled numeric scores.",
+  "referenceAdoption": "Native layout hierarchy, text sizes, panel architecture and material adopted. Invented navigation, data, graph colors and changed scientific marks in generated drafts rejected.",
+  "groups": [
+    {
+      "group": "question",
+      "review": "原巨幅标题和小号三维度提示失衡。现在将原三维度做成清晰的宽屏信息模块，说明字号增大，统计信息移至主叙事区域，并补充解释性文案。",
+      "reference": "implementation-feedback.png"
+    },
+    {
+      "group": "collection",
+      "review": "从窄侧栏加细小台账，重排为三项研究原则、三步实验流程、三类任务样本和特殊研究分区，给实际内容清晰的层次和可读字号。",
+      "reference": "implementation-feedback.png"
+    },
+    {
+      "group": "cleaning",
+      "review": "从小字号代码与细步骤，重排为代码样例、独立处理时间线、质量总量和贯穿底部的两项数据规则；代码自然换行，说明随主页面滚动。",
+      "reference": "implementation-feedback.png"
+    },
+    {
+      "group": "landscape",
+      "review": "将极小内联条件重排为清晰的任务/模型/视图控制区，放大说明与模型名称，图形保持原始科学几何，解释区用独立底部条承载。",
+      "reference": "analytics-layouts.png"
+    },
+    {
+      "group": "story",
+      "review": "用可读章节条、主要结论与证据说明双区、明确条件和导出操作区重建层级，展开案例、方法与数据表字号同步增加。",
+      "reference": "analytics-layouts.png"
+    },
+    {
+      "group": "publication",
+      "review": "建立标题/背景/导出、研究条件、原始科学图形、可读结论说明的独立阅读区，增加正文、说明与操作尺寸。",
+      "reference": "publication-discovery-layouts.png"
+    },
+    {
+      "group": "code",
+      "review": "四种代码研究视图使用明确的选择条和模型条件分区，放大背景、播放与导出操作，保留原始绘图与全部条件语义。",
+      "reference": "analytics-layouts.png"
+    },
+    {
+      "group": "discovery",
+      "review": "将细小统计行变成有层次的实际KPI分区，放大上下文、图形外围标题和解释，保留所有发现章节与真实图形。",
+      "reference": "publication-discovery-layouts.png"
+    },
+    {
+      "group": "library",
+      "review": "将极小的一排筛选重排为分组筛选区，放大页面标题、条件标签、选择器、图例和说明；原13类图形的绘制逻辑和科学配色保持。",
+      "reference": "implementation-feedback.png"
+    }
+  ],
+  "knownDifference": "Chart internals are retained from actual scientific rendering. Generated image redraws of charts are never adopted; native line materials and existing SVG icons approximate decorative textures."
+}

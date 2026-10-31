@@ -1,0 +1,11 @@
+import{readFile,readdir,writeFile,mkdir}from'node:fs/promises';import{createRequire}from'node:module';import{resolve}from'node:path';
+const require=createRequire(resolve('optimization/homepage-pilot/tools/package.json')),{chromium}=require('playwright-core');
+const root='optimization/content-layout-20261101',stage=process.argv[2]||'before';
+const inventory=JSON.parse(await readFile(root+'/site-inventory.json','utf8'));
+const groups={gateway:['deck-gateway'],question:['deck-question'],collection:['deck-collection'],cleaning:['deck-cleaning'],landscape:inventory.routes.filter(r=>r.family==='landscape').map(r=>r.key),story:inventory.routes.filter(r=>r.family==='story').map(r=>r.key),publication:inventory.routes.filter(r=>r.family==='publication').map(r=>r.key),code:inventory.routes.filter(r=>r.family==='code').map(r=>r.key),discovery:inventory.routes.filter(r=>r.family==='discovery').map(r=>r.key),library:inventory.routes.filter(r=>r.family==='library').map(r=>r.key)};
+const browser=await chromium.launch({executablePath:'/snap/bin/chromium',args:['--no-sandbox']});const page=await browser.newPage({viewport:{width:1600,height:1100}});
+await mkdir(root+'/'+stage+'/contacts',{recursive:true});
+for(const[group,keys]of Object.entries(groups)){
+ for(let start=0;start<keys.length;start+=8){const part=keys.slice(start,start+8);let cells='';for(const key of part)for(const device of['desktop','mobile']){const path=root+'/'+stage+'/'+key+'-'+device+'.png';const data=(await readFile(path)).toString('base64');cells+=`<figure><figcaption>${key} · ${device}</figcaption><img src="data:image/png;base64,${data}"></figure>`;}
+ await page.setContent(`<style>body{margin:0;background:#ded9d0;font:13px Arial;color:#142c3b}.grid{display:grid;grid-template-columns:600px 184px 600px 184px;gap:8px}figure{margin:0}figcaption{height:28px;padding:6px;box-sizing:border-box;font-size:11px}img{width:100%;display:block}</style><div class="grid">${cells}</div>`);await page.evaluate(()=>Promise.all([...document.images].map(i=>i.decode())));await page.locator('.grid').screenshot({path:root+'/'+stage+'/contacts/'+group+'-'+Math.floor(start/8)+'.jpg'});
+ }}await browser.close();await writeFile(root+'/design/groups.json',JSON.stringify(groups,null,2)+'\n');console.log('Contact sheets saved: '+stage);
