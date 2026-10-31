@@ -186,7 +186,7 @@
       this.landing=$('.wordmark-logo');this.landing.classList.add('intro-target-hidden');
       this.saved.push([this.word,this.word.getAttribute('style')]);
       Object.assign(this.word.style,{position:'fixed',left:'0',top:'0',transformOrigin:'0 0',clipPath:'none',opacity:'1',letterSpacing:'-.055em'});
-      this.targets=[...document.querySelectorAll('.lens-primary-nav,.finding,.figure-sheet')];
+      this.targets=[...document.querySelectorAll('.chapter-rail,.deck-panel.is-active .panel-inner')].filter(el=>el.getClientRects().length);
       for(const el of this.targets){
         this.saved.push([el,el.getAttribute('style')]);el.classList.add('intro-arrival');
         if(window.LensMotion?.animate){this.controls.push(window.LensMotion.animate(el,{opacity:[0,1],transform:['translateY(10px)','translateY(0px)']},{duration:1,autoplay:false,ease:[.16,1,.3,1]}));this.driver='motion-mini';}
@@ -287,7 +287,7 @@
       // Release the backing store after the finite animation, including skipped runs.
       this.particles.canvas.width=1;this.particles.canvas.height=1;
       if(this.history.length>12)this.history.shift();
-      if(focus&&!document.hidden){const target=this.reason==='replay'&&this.savedFocus?.isConnected?this.savedFocus:$('#research');target?.focus({preventScroll:true});}
+      if(focus&&!document.hidden){const target=this.reason==='replay'&&this.savedFocus?.isConnected?this.savedFocus:($('#presentation')||$('#research'));target?.focus({preventScroll:true});}
       document.dispatchEvent(new CustomEvent('lens:intro-finished',{detail:{reason}}));
     }
     inspect() { return {running:this.running,raf:this.raf,elapsed:this.elapsed,duration:DURATION,phase:this.root.dataset.phase||'idle',particles:this.particles?.count||0,dpr:this.particles?.dpr||0,canvasPixels:this.particles?this.particles.canvas.width*this.particles.canvas.height:0,seed:SEED,signature:this.particles?.signature||null,points:this.particles?.lastPoints||[],first:this.transition?.first?.toJSON()||null,last:this.transition?.last?.toJSON()||null,driver:this.transition?.driver||null,history:[...this.history],error:this.error||null}; }

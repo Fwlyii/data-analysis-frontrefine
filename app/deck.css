@@ -1,0 +1,105 @@
+/* The latest presentation layout, using the established shared optical palette. */
+.deck-site{--paper:var(--ground);--surface:#fff;--faint:#597084;--navy:var(--ink);--serif:"Times New Roman","LENS Editorial",serif;--sans:Geist,"PingFang SC","Microsoft YaHei",sans-serif}
+.deck-site .topbar{max-width:none;width:100%;height:var(--top);margin:0;padding:0 30px;background:var(--ground);color:var(--ink);border-bottom:1px solid var(--line)}
+.deck-site .topbar button.wordmark{width:auto;height:auto;display:flex;border-radius:0;gap:16px;text-align:left}
+.deck-site .topbar button.wordmark:hover{background:transparent}
+.deck-site .wordmark-logo{width:112px;height:40px}
+.deck-site .wordmark strong{font:700 36px/.9 var(--plot);letter-spacing:-.035em}
+.deck-site .wordmark .lens-period{color:var(--teal)}
+.deck-site .wordmark .brand-description{font-size:10px;padding-left:16px;letter-spacing:.09em}
+.deck-site .topbar-meta{margin-left:auto;color:var(--subtle);gap:22px;font-size:11px}
+.deck-site .topbar-meta span:first-child{color:var(--teal);font-variant-numeric:tabular-nums}
+.deck-site .header-actions{gap:20px;font-size:12px}
+.deck-site .header-actions button{width:34px}
+.deck-site .chapter-rail{background:var(--ground);border-color:var(--line);color:var(--subtle)}
+.deck-site .chapter-rail-nav button{color:var(--subtle);border-radius:8px}
+.deck-site .chapter-rail-nav button>span{font-family:var(--sans);font-size:10px;font-variant-numeric:tabular-nums}
+.deck-site .chapter-rail-nav button strong{font-size:12px;line-height:1.6}
+.deck-site .chapter-rail-nav button:hover{color:var(--teal);background:#e7f3f2}
+.deck-site .chapter-rail-nav button[aria-current]{background:#fff;color:var(--ink);box-shadow:0 3px 16px -10px #25465a30}
+.deck-site .chapter-rail-nav button[aria-current]::before{background:var(--teal)}
+.deck-site .chapter-rail-nav button[aria-current]>span{color:var(--teal)}
+.deck-site .rail-resources a,.deck-site .rail-resources button{color:var(--subtle)}
+.deck-site .rail-resources a:hover,.deck-site .rail-resources button:hover{color:var(--teal)}
+.deck-site .deck-panel{background:var(--ground);scrollbar-gutter:stable}
+.deck-site .deck-panel.is-active{animation:none}
+.deck-site .question-panel{background:radial-gradient(ellipse at 82% 54%,#e0f0f35c,transparent 64%),var(--ground);color:var(--ink);overflow-y:auto}
+.deck-site .question-inner{min-height:100%;padding-top:56px}
+.deck-site .question-copy{position:relative;z-index:1}
+.deck-site .question-art{right:-9%;top:13%;width:65%;height:72%;object-fit:contain;opacity:.82;pointer-events:none;mask-image:linear-gradient(90deg,transparent,#000 30%);z-index:-1}
+.deck-site .question-panel .section-index{color:var(--teal);margin-bottom:26px}
+.deck-site .question-panel h1{font-size:clamp(68px,6.4vw,102px);line-height:1.02;letter-spacing:-.045em;max-width:920px;margin-bottom:28px}
+.deck-site .question-lead{color:var(--subtle);font-size:18px;line-height:1.6}
+.deck-site .question-points{margin-top:40px;gap:30px}
+.deck-site .question-points .point-icon{border-color:#c5d8de;color:var(--teal);background:#ffffff80}
+.deck-site .question-points strong{color:var(--ink)}
+.deck-site .question-points li>div>span{color:var(--subtle)}
+.deck-site .question-scale{border-color:var(--line);padding-top:26px;gap:22px}
+.deck-site .question-scale strong{color:var(--teal);font-variant-numeric:tabular-nums}
+.deck-site .question-scale span{color:var(--subtle);line-height:1.6}
+.deck-site .panel-header h2{font-size:clamp(40px,3.8vw,54px);font-weight:400;line-height:1.08;letter-spacing:-.035em}
+.deck-site .panel-header{margin-bottom:34px}
+.deck-site .section-index{color:var(--teal);font-size:10px;letter-spacing:.14em}
+.deck-site .collection-visual{min-width:0;padding:26px 28px 20px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sheet-shadow)}
+.deck-site .collection-layout{gap:36px;grid-template-columns:230px minmax(0,1fr)}
+.deck-site .flow-node.focus{border-color:var(--teal)}
+.deck-site .flow-node.focus>span{color:var(--teal)}
+.deck-site .special-studies .mini-icon{background:var(--ground);border-color:var(--line);color:var(--teal)}
+.deck-site .schema-block{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--sheet-shadow);min-width:0}
+.deck-site .schema-label{border-color:var(--line);background:#edf4f7;color:var(--subtle)}
+.deck-site .schema-preview{background:#fff;color:var(--ink);font-size:12px;line-height:1.9}
+.deck-site .schema-key{color:#315c6b}.deck-site .schema-string{color:#116e70}.deck-site .schema-number{color:#72551d}.deck-site .schema-null{color:#795766}
+.deck-site .quality-ledger{background:var(--tint);border-color:var(--line);border-radius:10px}
+.deck-site .cleaning-steps li::before{background:#fff;border-color:var(--line);color:var(--teal)}
+.deck-site .landscape-controls{gap:16px;margin-bottom:24px}
+.deck-site .overview-plot{padding:22px 18px 16px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--sheet-shadow)}
+.deck-site .model-switch button[aria-pressed="true"],.deck-site .task-switch button[aria-pressed="true"],.deck-site .choice-switch button[aria-pressed="true"],.deck-site .segmented button[aria-pressed="true"]{background:var(--tint);border-color:#96c8c8;color:var(--teal-ink)}
+.deck-site .model-switch button:hover,.deck-site .task-switch button:hover,.deck-site .choice-switch button:hover,.deck-site .segmented button:hover{border-color:#a3c5cf}
+.deck-site .finding-nav{border-color:var(--line)}
+.deck-site .finding-nav button[aria-current]{color:var(--teal);border-color:var(--teal)}
+.deck-site .finding-nav button>span{color:var(--subtle)}
+.deck-site .finding-nav button[aria-current]>span{color:var(--teal)}
+.deck-site .finding-intro h3{font-weight:400;letter-spacing:-.035em}
+.deck-site .evidence-line{border-left:2px solid var(--teal);padding:12px 16px;background:var(--tint);border-radius:0 8px 8px 0;color:var(--ink)}
+.deck-site .figure-sheet{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 26px 20px;box-shadow:var(--sheet-shadow)}
+.deck-site .figure-toolbar{padding-bottom:18px;border-color:var(--line)}
+.deck-site .export-options{background:#fff;border-color:var(--line);box-shadow:0 12px 30px #25465a20}
+.deck-site .plot-scroll{border-radius:4px}
+.deck-site .figure-caption,.deck-site .point-readout{color:var(--subtle);line-height:1.7}
+.deck-site .feedback-strip{background:var(--tint);border-radius:8px}
+.deck-site .answer.full{border-color:#96c8c8}.deck-site .answer .prompt-text{background:var(--ground)}
+.deck-site .data-scroll{background:#fff}.deck-site th{background:var(--ground)}
+.deck-site .support-section{gap:28px}
+.deck-site .point-control{flex-wrap:wrap}
+@media(min-width:1600px){.deck-site .question-panel h1{font-size:112px}}
+@media(max-width:1240px){.deck-site .topbar-meta span:last-child{display:none}.deck-site .collection-layout{grid-template-columns:200px minmax(0,1fr);gap:24px}.deck-site .collection-visual{padding:22px}.deck-site .question-panel h1{font-size:76px}}
+@media(max-width:1000px){.deck-site .collection-layout{grid-template-columns:1fr}.deck-site .question-points{gap:20px}.deck-site .figure-sheet{padding:20px}.deck-site .topbar .brand-description{display:none}}
+@media(max-width:900px){.deck-site .topbar{height:var(--top);padding:0 22px}.deck-site .chapter-rail{border-top-color:var(--line);background:#f4f8faf5;backdrop-filter:blur(14px)}.deck-site .chapter-rail-nav button[aria-current]::before{bottom:-7px}.deck-site .chapter-rail-nav button strong{font-size:10px;line-height:1.25}.deck-site .question-art{right:-20%;width:90%;top:24%;opacity:.58}.deck-site .question-inner{padding-top:42px}.deck-site .question-panel h1{font-size:74px}.deck-site .question-scale{margin-top:auto}.deck-site .question-points{margin-bottom:34px}.deck-site .collection-layout{grid-template-columns:1fr}}
+@media(max-width:600px){.deck-site .topbar{padding:0 18px;gap:12px}.deck-site .wordmark-logo{width:96px;height:34px}.deck-site .wordmark strong{font-size:30px}.deck-site .header-actions{gap:12px;font-size:12px}.deck-site .topbar-meta{display:none}.deck-site .question-inner{padding-top:32px}.deck-site .question-panel h1{font-size:52px;line-height:1.02;margin-bottom:22px}.deck-site .question-panel .section-index{margin-bottom:22px}.deck-site .question-lead{font-size:15px;max-width:280px}.deck-site .question-points{margin-top:28px;margin-bottom:30px;gap:16px}.deck-site .question-art{top:26%;right:-34%;width:100%;height:54%;opacity:.35}.deck-site .question-scale{padding-top:20px}.deck-site .question-scale strong{font-size:34px}.deck-site .question-scale span{font-size:11px;max-width:270px}.deck-site .collection-visual{padding:20px 16px;border-radius:12px}.deck-site .panel-header h2{font-size:38px}.deck-site .panel-header{margin-bottom:26px}.deck-site .overview-plot{padding:16px 8px}.deck-site .figure-sheet{padding:18px 14px 16px;border-radius:12px}.deck-site .finding-intro h3{font-size:36px}.deck-site .finding-nav{gap:12px}.deck-site .landscape-controls{gap:16px}.deck-site .schema-preview{font-size:10px}.deck-site .interval-control{margin-left:auto}.deck-site .point-control input[type="range"]{min-width:100px}.deck-site .point-control{gap:10px}.deck-site .model-switch{max-width:100%}.deck-site .support-section{gap:0}}
+@media(max-width:360px){.deck-site .topbar{padding:0 14px}.deck-site .question-panel h1{font-size:44px}.deck-site .panel-header h2{font-size:34px}.deck-site .chapter-rail{padding-left:7px;padding-right:7px}.deck-site .chapter-rail-nav button strong{font-size:9px}.deck-site .finding-intro h3{font-size:32px}.deck-site .question-points{margin-top:24px;gap:13px}.deck-site .question-scale{padding-top:16px}.deck-site .point-control output{min-width:46px}}
+@media(prefers-reduced-motion:reduce){.deck-site *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* Second pass: genuine scroll regions keep controls and captions within reach. */
+.deck-site .deck-panel:focus-visible{outline:2px solid var(--line);outline-offset:-2px}
+.deck-site .cleaning-steps{list-style:none;padding:0}
+.deck-site .schema-label{padding:13px 20px;margin:0;border-bottom:1px solid var(--line);border-radius:14px 14px 0 0;font-size:10px}
+.deck-site .schema-block>.inline-details{padding:0 20px;border-bottom:0}
+.deck-site .schema-preview{margin-bottom:0}
+.deck-site .quality-ledger{padding:18px 20px}
+.deck-site .task-switch,.deck-site .choice-switch,.deck-site .segmented{background:#edf3f6}
+.deck-site .figure-sheet{min-width:0}
+.deck-site .figure-caption,.deck-site .point-control,.deck-site .point-readout{min-width:0;max-width:100%}
+.deck-site .figure-caption{overflow-wrap:anywhere}
+.deck-site .point-control input[type="range"]{min-width:80px}
+@media(max-width:600px){.deck-site .experiment-flow{grid-template-columns:minmax(0,1fr) 14px minmax(0,1.3fr) 14px minmax(0,1fr);gap:5px;margin-bottom:26px}.deck-site .experiment-flow>.flow-node{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:12px 0;min-width:0}.deck-site .experiment-flow>.flow-node>span{font-size:12px;line-height:1.2}.deck-site .experiment-flow>.flow-node.focus>span{font-size:24px;line-height:.65;margin-top:3px}.deck-site .experiment-flow>.flow-node>strong{font-size:16px;line-height:1.3;font-weight:400}.deck-site .experiment-flow>i{transform:none;height:auto;align-self:center}.deck-site .point-control{column-gap:10px;row-gap:12px}.deck-site .point-control>label:first-child{flex-basis:100%}.deck-site .interval-control{margin-left:0}.deck-site .task-row{grid-template-columns:16px minmax(0,1fr) auto}.deck-site .schema-preview{font-size:10px}.deck-site .schema-label{padding:12px 16px;font-size:9px;letter-spacing:.03em}.deck-site .cleaning-steps li{padding-left:32px}}
+
+.deck-site .question-visual{position:absolute;inset:0;overflow:clip;z-index:-1;pointer-events:none}
+
+.deck-site .evidence-line strong{color:var(--teal-ink)}
+/* The previous moving navigation indicator, adapted to the vertical deck rail. */
+.deck-site .chapter-rail-nav,.deck-site .finding-nav{position:relative}
+.deck-site .deck-nav-marker{position:absolute;left:0;bottom:0;background:var(--teal);pointer-events:none;border-radius:2px}
+.deck-site .deck-nav-marker.is-vertical{left:-20px;top:0;bottom:auto}
+.deck-site .chapter-rail-nav.has-deck-marker button[aria-current]::before{display:none}
+.deck-site .finding-nav.has-deck-marker button[aria-current]{border-bottom-color:transparent}
+@media(max-width:900px){.deck-site .chapter-rail-nav .deck-nav-marker{bottom:-7px}}

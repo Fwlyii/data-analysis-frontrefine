@@ -30,10 +30,10 @@ jobs:
       - name: Build static visualization
         env:
           PYTHONDONTWRITEBYTECODE: "1"
-        run: python3 app/pipeline/scripts/system/build_web_app.py
+        run: python3 scripts/system/build_web_app.py
 
       - name: Verify whole-site visual coverage
-        run: python3 app/pipeline/scripts/system/check_visual_coverage.py
+        run: python3 scripts/system/check_visual_coverage.py
 
       - name: Upload website
         uses: actions/upload-pages-artifact@v4

@@ -1,0 +1,132 @@
+[
+  {
+    "key": "question",
+    "device": "desktop",
+    "section": "question",
+    "title": "Research Question — LENS",
+    "background": "rgb(244, 248, 250)",
+    "overflow": false,
+    "headings": [
+      "What shapesa model’s answer?"
+    ]
+  },
+  {
+    "key": "collection",
+    "device": "desktop",
+    "section": "collection",
+    "title": "Collection Design — LENS",
+    "background": "rgb(244, 248, 250)",
+    "overflow": false,
+    "headings": [
+      "How can we isolate each effect?"
+    ]
+  },
+  {
+    "key": "cleaning",
+    "device": "desktop",
+    "section": "cleaning",
+    "title": "Data Pipeline — LENS",
+    "background": "rgb(244, 248, 250)",
+    "overflow": false,
+    "headings": [
+      "What can we trust?"
+    ]
+  },
+  {
+    "key": "landscape",
+    "device": "desktop",
+    "section": "landscape",
+    "title": "Data Landscape — LENS",
+    "background": "rgb(244, 248, 250)",
+    "overflow": false,
+    "headings": [
+      "What repeats across tasks?"
+    ]
+  },
+  {
+    "key": "findings",
+    "device": "desktop",
+    "section": "findings",
+    "title": "Core Findings — LENS",
+    "background": "rgb(244, 248, 250)",
+    "overflow": false,
+    "headings": [
+      "Where do patterns turn?"
+    ]
+  },
+  {
+    "key": "library",
+    "device": "desktop",
+    "title": "LENS · Chart Library",
+    "background": "rgb(244, 248, 250)",
+    "overflow": false,
+    "headings": [
+      "模型柱图"
+    ]
+  },
+  {
+    "key": "question",
+    "device": "mobile",
+    "section": "question",
+    "title": "Research Question — LENS",
+    "background": "rgb(244, 248, 250)",
+    "overflow": false,
+    "headings": [
+      "What shapesa model’s answer?"
+    ]
+  },
+  {
+    "key": "collection",
+    "device": "mobile",
+    "section": "collection",
+    "title": "Collection Design — LENS",
+    "background": "rgb(244, 248, 250)",
+    "overflow": false,
+    "headings": [
+      "How can we isolate each effect?"
+    ]
+  },
+  {
+    "key": "cleaning",
+    "device": "mobile",
+    "section": "cleaning",
+    "title": "Data Pipeline — LENS",
+    "background": "rgb(244, 248, 250)",
+    "overflow": false,
+    "headings": [
+      "What can we trust?"
+    ]
+  },
+  {
+    "key": "landscape",
+    "device": "mobile",
+    "section": "landscape",
+    "title": "Data Landscape — LENS",
+    "background": "rgb(244, 248, 250)",
+    "overflow": false,
+    "headings": [
+      "What repeats across tasks?"
+    ]
+  },
+  {
+    "key": "findings",
+    "device": "mobile",
+    "section": "findings",
+    "title": "Core Findings — LENS",
+    "background": "rgb(244, 248, 250)",
+    "overflow": false,
+    "headings": [
+      "Where do patterns turn?"
+    ]
+  },
+  {
+    "key": "library",
+    "device": "mobile",
+    "title": "LENS · Chart Library",
+    "background": "rgb(244, 248, 250)",
+    "overflow": true,
+    "headings": [
+      "模型柱图"
+    ]
+  }
+]

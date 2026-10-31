@@ -1,5 +1,5 @@
 {
-  "purpose": "Locally hosted visualization and presentation libraries; no runtime CDN requests",
+  "purpose": "Local, on-demand visualization libraries; no runtime CDN requests",
   "packages": [
     {
       "package": "d3",
@@ -48,14 +48,14 @@
       "peer_dependencies": {}
     },
     {
-      "package": "motion/mini",
-      "version": "14.9.0",
+      "package": "scrollama",
+      "version": "3.2.0",
       "license": "MIT",
-      "source": "https://github.com/motiondivision/motion",
-      "file": "motion-mini-14.9.0.min.js",
-      "bytes": 8771,
-      "sha256": "4bafd0d178299b2d0370a279fb28b2c3553855890f2b1dc9a8b09ece46e16c4a",
-      "license_file": "motion-mini-14.9.0-LICENSE.txt",
+      "source": "https://github.com/russellsamora/scrollama/blob/main/docs/scrollama.min.js",
+      "file": "scrollama.min.js",
+      "bytes": 4768,
+      "sha256": "17d8c6db877708006d0f22a42d030b192fa68a721292253ce70a7d85301e7433",
+      "license_file": "scrollama-LICENSE.txt",
       "peer_dependencies": {}
     }
   ]

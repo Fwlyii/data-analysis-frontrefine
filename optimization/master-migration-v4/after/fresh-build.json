@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "stagedTree": "edcc9cbd54b59f2541bb7c62171f96d22f667396",
+  "commands": [
+    "python3 scripts/system/build_web_app.py",
+    "python3 scripts/system/check_web_snapshot.py --skip-build",
+    "python3 scripts/system/check_visual_coverage.py"
+  ],
+  "conditions": "Extracted staged tree into an empty directory; no existing runtime/dist, local git metadata, or research LFS downloads required."
+}

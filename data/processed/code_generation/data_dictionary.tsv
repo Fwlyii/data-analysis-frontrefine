@@ -1,0 +1,15 @@
+field	meaning	missing_count	source	policy
+id	匿名回答ID	0	saved scores.csv.gz; identity anonymized	preserve source; do not fill missing as zero
+question	匿名共同题目ID	0	saved scores.csv.gz; identity anonymized	preserve source; do not fill missing as zero
+model	统一模型键	0	saved scores.csv.gz; identity anonymized	preserve source; do not fill missing as zero
+prompt	代码适配提示ID	0	saved scores.csv.gz; identity anonymized	preserve source; do not fill missing as zero
+sample	独立采样次序1–5	0	saved scores.csv.gz; identity anonymized	preserve source; do not fill missing as zero
+passed	源测试结果；环境排除为null	465	saved scores.csv.gz; identity anonymized	preserve source; do not fill missing as zero
+error	源错误类别；环境记录独立排除	0	saved scores.csv.gz; identity anonymized	preserve source; do not fill missing as zero
+output_tokens	返回token数	0	saved scores.csv.gz; identity anonymized	preserve source; do not fill missing as zero
+input_tokens	输入token数	0	saved scores.csv.gz; identity anonymized	preserve source; do not fill missing as zero
+total_tokens	总token数	0	saved scores.csv.gz; identity anonymized	preserve source; do not fill missing as zero
+latency_seconds	生成延迟秒	0	saved scores.csv.gz; identity anonymized	preserve source; do not fill missing as zero
+finish	源结束原因	0	saved scores.csv.gz; identity anonymized	preserve source; do not fill missing as zero
+environment_excluded	共同环境排除标记	0	saved scores.csv.gz; identity anonymized	preserve source; do not fill missing as zero
+level	源题目依赖层级	0	saved scores.csv.gz; identity anonymized	preserve source; do not fill missing as zero

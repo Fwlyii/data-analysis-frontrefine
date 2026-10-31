@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="theme-color" content="#f4f8fa" />
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f4f8fa" />
 <style>html.intro-pending{background:#05121e}html.intro-pending body{background:#05121e}html.intro-pending body>:not(#lens-intro){visibility:hidden}</style>
 <script>
 (() => {
@@ -19,37 +19,245 @@
   }, 1800);
 })();
 </script>
-<title>LENS — 模型行为研究</title>
-<link rel="icon" href="assets/lens.svg" type="image/svg+xml" />
-<link rel="preload" as="font" type="font/woff2" href="assets/fonts/lens-editorial-site-semibold.woff2" crossorigin />
-<link rel="preload" as="image" href="assets/visual/optical-study.webp" media="(min-width: 851px)" fetchpriority="high" />
-<link rel="stylesheet" href="story.css?v=e492ef34d99b" />
-<link rel="stylesheet" href="site.css?v=a3250e5e4c3b" />
-<link rel="stylesheet" href="intro.css?v=9adb557d787d" />
-<link rel="preload" as="font" type="font/woff2" href="assets/fonts/lens-intro-semibold.woff2" crossorigin />
-<script defer src="runtime/intro.js?v=7c5a3ca7f5f3"></script>
-<script defer src="runtime/story-data.js?v=4e9add390e4f"></script>
-<script defer src="assets/vendor/motion-mini-14.9.0.min.js"></script>
-<script defer src="runtime/site-shell.js?v=358f1b20019a"></script>
-<script defer src="runtime/story-motion.js?v=20ec6e20a704"></script>
-<script defer src="runtime/story.js?v=ce0bfdc49ead"></script>
-</head>
-<body>
-<a class="skip" href="#research">跳到研究发现</a>
-<header class="lens-masthead masthead">
-  <a class="wordmark" href="#concise" aria-label="LENS 模型行为研究首页"><span class="wordmark-logo"><strong>LENS<span class="lens-period">.</span></strong><img class="wordmark-art" src="assets/visual/lens-wordmark.webp" alt="" aria-hidden="true" width="600" height="200" decoding="async" /></span><span class="brand-description">模型行为研究</span></a>
-  <div class="header-actions"><a href="explore.html?mode=explore#case-1">图表库 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a><button id="intro-replay" class="icon-button" aria-label="重播开场" title="重播开场"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8a8 8 0 1 1-1 7M4 3v5h5m1 0 6 4-6 4z"/></svg></button><button id="present" class="icon-button" aria-label="全屏演示" title="全屏演示"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div>
+    <meta
+      name="description"
+      content="Evidence from 248,586 anonymized model responses on expression, evidence position, and feedback."
+    />
+    <title>LENS — Research Question</title>
+    <link rel="icon" href="assets/lens.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="story.css?v=7685e04f3bad" />
+    <link rel="stylesheet" href="site.css?v=53d1209d6bfa" />
+    <link rel="stylesheet" href="deck.css?v=7db1d051559e" />
+    <link rel="stylesheet" href="intro.css?v=9adb557d787d" />
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/lens-editorial-site-semibold.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/lens-intro-semibold.woff2" crossorigin />
+    <script defer src="runtime/intro.js?v=41f8731cfbdf"></script>
+    <script defer src="assets/vendor/motion-mini-14.9.0.min.js"></script>
+    <script defer src="runtime/site-shell.js?v=358f1b20019a"></script>
+    <script defer src="runtime/story-motion.js?v=bb9b2edb820f"></script>
+    <script defer src="runtime/story-data.js?v=89546c5aec0c"></script>
+    <script defer src="runtime/narrative-data.js?v=2f0fbfe3dab7"></script>
+    <script defer src="runtime/story-charts.js?v=0cb0ec15e37f"></script>
+    <script defer src="runtime/narrative.js?v=47f1e5014998"></script>
+    <script defer src="runtime/story.js?v=ac8674c554da"></script>
+  </head>
+  <body class="deck-site" data-section="question">
+    <a class="skip" href="#question">Skip to research</a>
+    <header class="topbar lens-masthead">
+  <button class="wordmark" data-section="question" aria-label="LENS home"><span class="wordmark-logo"><strong>LENS<span class="lens-period">.</span></strong><img class="wordmark-art" src="assets/visual/lens-wordmark.webp" alt="" aria-hidden="true" width="600" height="200" decoding="async" /></span><span class="brand-description">MODEL BEHAVIOR</span></button>
+  <div class="topbar-meta"><span id="section-counter">01 / 05</span><span>248,586 anonymized responses</span></div>
+  <div class="header-actions"><a href="explore.html?mode=explore#case-1">Charts <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a><button id="intro-replay" class="icon-button" aria-label="Replay opening" title="Replay opening"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8a8 8 0 1 1-1 7M4 3v5h5m1 0 6 4-6 4z"/></svg></button></div>
 </header>
-<nav class="chapter-nav lens-primary-nav" aria-label="研究主题">
-  <a href="#concise" data-chapter="concise">简洁作答</a>
-  <a href="#language" data-chapter="language">中文数学</a>
-  <a href="#limits" data-chapter="limits">限长反弹</a>
-  <a href="#position" data-chapter="position">资料位置</a>
-  <a href="#repair" data-chapter="repair">反馈修复</a>
-</nav>
-<main id="research" tabindex="-1"><p class="boot-message">正在打开研究图表…</p></main>
-<noscript><p class="boot-message">请启用 JavaScript 以切换研究图表。也可直接打开 <a href="assets/story/concise-baseline.svg">SVG 主图</a>。</p></noscript>
-<footer class="page-footer"><span>LENS / 模型行为研究</span><a href="data/course-assignment.pdf" target="_blank" rel="noopener">课程要求 PDF</a><a href="explore.html?mode=explore#case-1">进入完整图表库</a></footer>
-<div id="notice" role="status" aria-live="polite" class="notice" hidden></div>
-</body>
+
+    <aside class="chapter-rail">
+      <nav class="chapter-rail-nav" aria-label="Presentation sections">
+        <button
+          data-section="question"
+          data-short="Question"
+          aria-current="page"
+        >
+          <span>01</span><strong>Research<br />Question</strong>
+        </button>
+        <button data-section="collection" data-short="Design">
+          <span>02</span><strong>Collection<br />Design</strong>
+        </button>
+        <button data-section="cleaning" data-short="Pipeline">
+          <span>03</span><strong>Data<br />Pipeline</strong>
+        </button>
+        <button data-section="landscape" data-short="Landscape">
+          <span>04</span><strong>Data<br />Landscape</strong>
+        </button>
+        <button data-section="findings" data-short="Findings">
+          <span>05</span><strong>Core<br />Findings</strong>
+        </button>
+      </nav>
+      <div class="rail-resources">
+        <a href="explore.html?mode=explore#case-1"
+          >Chart library <span>↗</span></a
+        >
+        <button
+          id="present"
+          aria-label="Fullscreen presentation"
+          title="Fullscreen presentation"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5" /></svg
+          >Fullscreen
+        </button>
+      </div>
+    </aside>
+
+    <main id="presentation" class="deck" tabindex="-1" aria-label="LENS research presentation">
+      <section
+        id="question"
+        class="deck-panel question-panel is-active"
+        aria-labelledby="question-title"
+      >
+        <div class="question-visual" aria-hidden="true"><img
+          class="question-art"
+          src="assets/visual/optical-study.webp"
+          alt=""
+          aria-hidden="true"
+        /></div>
+        <div class="panel-inner question-inner">
+          <div class="question-copy">
+            <p class="section-index">01 — RESEARCH QUESTION</p>
+            <h1 id="question-title">What shapes<br />a model’s answer?</h1>
+            <p class="question-lead">
+              The task stays fixed. The conditions do not.
+            </p>
+            <ul class="key-points question-points">
+              <li>
+                <span class="point-icon"
+                  ><svg viewBox="0 0 20 20">
+                    <path d="M3 5h14M3 10h9M3 15h6" /></svg
+                ></span>
+                <div>
+                  <strong>Expression</strong
+                  ><span>How the answer is formed</span>
+                </div>
+              </li>
+              <li>
+                <span class="point-icon"
+                  ><svg viewBox="0 0 20 20">
+                    <circle cx="10" cy="10" r="6" />
+                    <circle cx="10" cy="10" r="2" /></svg
+                ></span>
+                <div>
+                  <strong>Evidence</strong
+                  ><span>Where the answer is found</span>
+                </div>
+              </li>
+              <li>
+                <span class="point-icon"
+                  ><svg viewBox="0 0 20 20">
+                    <path d="M4 12a6 6 0 1 0 1-6M4 3v5h5" /></svg
+                ></span>
+                <div>
+                  <strong>Feedback</strong><span>How a draft is repaired</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="question-scale">
+            <strong>248,586</strong
+            ><span>real responses. One connected research space.</span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="collection"
+        class="deck-panel"
+        aria-labelledby="collection-title"
+        hidden
+      >
+        <div class="panel-inner">
+          <header class="panel-header">
+            <div>
+              <p class="section-index">02 — COLLECTION DESIGN</p>
+              <h2 id="collection-title">How can we isolate each effect?</h2>
+            </div>
+            <p class="panel-aside">One condition at a time.</p>
+          </header>
+          <div id="collection-scene"></div>
+        </div>
+      </section>
+
+      <section
+        id="cleaning"
+        class="deck-panel"
+        aria-labelledby="cleaning-title"
+        hidden
+      >
+        <div class="panel-inner">
+          <header class="panel-header">
+            <div>
+              <p class="section-index">03 — DATA PIPELINE</p>
+              <h2 id="cleaning-title">What can we trust?</h2>
+            </div>
+            <p class="panel-aside">Keep the record. Keep the distinction.</p>
+          </header>
+          <div id="cleaning-scene"></div>
+        </div>
+      </section>
+
+      <section
+        id="landscape"
+        class="deck-panel"
+        aria-labelledby="landscape-title"
+        hidden
+      >
+        <div class="panel-inner landscape-inner">
+          <header class="panel-header">
+            <div>
+              <p class="section-index">04 — DATA LANDSCAPE</p>
+              <h2 id="landscape-title">What repeats across tasks?</h2>
+            </div>
+            <p id="landscape-takeaway" class="panel-aside">
+              31 prompts. No single prompt tells the whole story.
+            </p>
+          </header>
+          <div id="landscape-scene"></div>
+        </div>
+      </section>
+
+      <section
+        id="findings"
+        class="deck-panel"
+        aria-labelledby="findings-title"
+        hidden
+      >
+        <div class="panel-inner findings-inner">
+          <header class="panel-header findings-heading">
+            <div>
+              <p class="section-index">05 — CORE FINDINGS</p>
+              <h2 id="findings-title">Where do patterns turn?</h2>
+            </div>
+            <p class="panel-aside">
+              2 low-dimensional · 2 multidimensional · 1 anomaly
+            </p>
+          </header>
+          <nav class="finding-nav" aria-label="Research findings">
+            <button
+              data-chapter="concise"
+              data-short="Concise"
+              aria-current="page"
+            >
+              <span>01</span>Concise
+            </button>
+            <button data-chapter="language" data-short="Chinese">
+              <span>02</span>Chinese math
+            </button>
+            <button data-chapter="position" data-short="Position">
+              <span>03</span>Evidence position
+            </button>
+            <button data-chapter="repair" data-short="Repair">
+              <span>04</span>Feedback repair
+            </button>
+            <button data-chapter="limits" data-short="Limits">
+              <span>05</span>Length rebound
+            </button>
+          </nav>
+          <div id="research" tabindex="-1">
+            <p class="boot-message">Loading findings…</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <noscript
+      ><p class="boot-message">
+        Enable JavaScript to explore the figures, or open the
+        <a href="assets/story/concise-baseline.svg">main SVG</a>.
+      </p></noscript
+    >
+    <div
+      id="notice"
+      role="status"
+      aria-live="polite"
+      class="notice"
+      hidden
+    ></div>
+  </body>
 </html>

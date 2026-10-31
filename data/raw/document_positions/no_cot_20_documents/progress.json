@@ -1,0 +1,38 @@
+{
+  "batch_id": "position-extension-20261025-nocot",
+  "state": "complete",
+  "updated_at": "2026-10-26T04:26:52+00:00",
+  "successful": 3600,
+  "expected": 3600,
+  "active_models": [
+    "Qwen/Qwen3-8B"
+  ],
+  "active_successful": 1800,
+  "active_expected": 1800,
+  "by_model": {
+    "Qwen/Qwen2.5-7B-Instruct": 1800,
+    "Qwen/Qwen3-8B": 1800
+  },
+  "http_attempts_this_process": {
+    "200": 1730,
+    "429": 1,
+    "None": 2
+  },
+  "usage_this_process": {
+    "prompt_tokens": 5402054,
+    "completion_tokens": 90229,
+    "total_tokens": 5492283
+  },
+  "elapsed_s": 1234.2,
+  "max_concurrency": 64,
+  "credential_slots": 3,
+  "mean_request_latency_s": 3.334,
+  "lanes": [
+    {
+      "model": "Qwen/Qwen3-8B",
+      "tpm_budget": 288000,
+      "rpm_budget": 2000,
+      "rate_limits": 1
+    }
+  ]
+}

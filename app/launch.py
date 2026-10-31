@@ -7,7 +7,7 @@ import webbrowser
 from http.server import SimpleHTTPRequestHandler,ThreadingHTTPServer
 from pathlib import Path
 
-ROOT = __import__('runpy').run_path(str(next(p for p in Path(__file__).resolve().parents if (p / 'project.json').is_file()) / 'project_layout.py'))['ROOT']
+ROOT = next(p for p in Path(__file__).resolve().parents if (p / 'project.json').is_file())
 
 
 def main():

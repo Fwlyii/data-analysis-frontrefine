@@ -1,0 +1,26 @@
+# Credentials and machine state
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+.ipynb_checkpoints/
+# Generated and independently reproducible work
+/build/
+/app/dist/
+/app/runtime/
+*.tmp
+# Full frozen raw/processed datasets ARE included in this repository profile.
+# Large binary/data files are stored through .gitattributes / Git LFS.
+
+.collection.lock
+.run.lock
+
+# Raw CDP frames are temporary; keep the real encoded review recording.
+/optimization/master-migration-v4/after/video-frames/

@@ -1,0 +1,33 @@
+{
+  "tool": "built-in image_gen",
+  "productionUse": "Design references only. Existing independently generated brand and optical assets reused; all live UI and real-time intro remain native code.",
+  "calls": [
+    {
+      "output": "direction-a.png",
+      "references": [
+        "before/question-desktop.png",
+        "before/collection-desktop.png",
+        "previous visual a1cd05a public-home-desktop screenshot"
+      ],
+      "prompt": "Use case: ui-mockup. Create ONE polished 1440x900 desktop website concept for the LENS Research Question page (reference 1). Reference 2 is the same latest app's collection section showing its fixed left navigation and information architecture. Reference 3 is the APPROVED existing style to migrate faithfully. Direction A: airy optical research editorial. Retain latest site's fixed left rail with exactly five entries Research Question, Collection Design, Data Pipeline, Data Landscape, Core Findings, top masthead, title 'What shapes a model’s answer?', subheading 'The task stays fixed. The conditions do not.', Expression / Evidence / Feedback three points, and exact existing 248,586 response count. Preserve relative positions. Migrate approved light cool background #f4f8fa, white surfaces, deep ink #203b50, teal #147b7b, fine blue-gray rules, beautiful editorial serif title and LENS. wordmark, refined spacing. NO dark navy page areas; cinematic dark belongs only to separate intro. Right half can contain restrained transparent optical glass loop from approved style as a non-information decoration, fading into pale background. Native implementation feasible, strong contrast, elegant restrained research site. No fake data or new navigation, do not turn content into huge cards, do not replace text with ornaments."
+    },
+    {
+      "output": "direction-b.png",
+      "references": [
+        "before/question-desktop.png",
+        "before/collection-desktop.png",
+        "previous visual a1cd05a public-home-desktop screenshot"
+      ],
+      "prompt": "Use case: ui-mockup. Generate Direction B, an alternative 1440x900 polished desktop LENS Research Question interface using the latest actual structure of screenshot 1 and same app screenshot 2, retaining the APPROVED pale blue / white / navy ink / teal style from reference 3. Keep fixed five-entry left rail and topbar, exact existing heading 'What shapes a model’s answer?', subtitle 'The task stays fixed. The conditions do not.', three Expression / Evidence / Feedback points, and 248,586 response count. B is quieter and architectural: a white editorial sheet inside a pale blue-gray canvas, fine grid hairlines, serif headline, generous rhythm, discreet cropped optical glass arc in right whitespace. Keep all main blocks in their original relative positions. Preserve all content and navigation, no invented UI or data. All interface elements must be feasible in native HTML/CSS; reference image is design only, not a production bitmap. Unlike A's full-bleed airy lens, B emphasizes a restrained bounded paper composition. Avoid dark rail, warm terracotta, badges, excessive cards, strong shadows, illegible tiny text."
+    },
+    {
+      "output": "mobile-revision.png",
+      "references": [
+        "iterations/round-1/collection-mobile.png",
+        "iterations/round-1/question-mobile.png",
+        "design/direction-a.png"
+      ],
+      "prompt": "Use case: ui-mockup. Targeted second-iteration design feedback on the ACTUAL implemented mobile LENS collection page, image 1. Image 2 is implemented mobile question for consistency; image 3 is selected desktop direction A. Generate ONE refined 390x844 mobile collection reference preserving all original information, fixed top LENS./Charts/replay, fixed five-button bottom navigation, section title, three explanatory points, experimental fixed-items →31 prompts→task-scores flow and actual counts 74,400 /74,800 /90,210 (may continue below viewport using honest scroll). Improve vertical rhythm: current single-column flow consumes too much vertical space before the task rows. Show compact three-step flow on mobile without reducing labels to illegible type, align icons and text, sensible 16–20px padding, same light cool #f4f8fa / white / ink #203b50 / teal #147b7b palette, hairline borders and restrained shadows. No new data or controls, no removal of content, don't hide the below-fold content behind fixed navigation. Remove accidental black focus border. Only localized refinement, preserve latest layout and content. Header and all texts must remain native editable code in implementation; this image is design reference only."
+    }
+  ]
+}
