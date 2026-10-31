@@ -1,6 +1,6 @@
 # LENS · 知微：实时电影开场本地验收
 
-基线 `f353a18`，工作分支 `feat/cinematic-intro-20261031`。按本次任务要求只在本地实现、测试和留存提交，不合并、不推送、不修改线上部署。原任务保存在 [REQUEST.txt](REQUEST.txt)。
+基线 `f353a18`，工作分支 `feat/cinematic-intro-20261031`。初始任务仅在本地实现、测试和留存提交；用户在交付后明确授权推送远端并预览，随后通过现有 main → GitHub Actions → GitHub Pages 流程发布。原任务保存在 [REQUEST.txt](REQUEST.txt)。
 
 ## 本地预览与操作
 
@@ -113,3 +113,7 @@ python3 app/pipeline/scripts/system/check_visual_coverage.py
 实际修改：`app/index.html`、`app/src/intro.js`、`app/intro.css`、两个旧展示控制器、构建器、覆盖检查、`app/visual-coverage.json`、新增字体/元数据、流程说明，以及对应 runtime/dist 构建产物。没有改科学数据、评分、统计、实验结论或原业务路由代码。
 
 实现依据核对了 [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame)、[inert](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert)、[CSS mask-image](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/mask-image) 的浏览器文档。真实样例和脚本留存在本目录，原优化成果不覆盖。
+
+## 后续授权的在线预览
+
+用户已在本地交付后明确要求推送远端。在线入口：[含开场的完整系统](https://fwlyii.github.io/data-analysis-frontrefine/?intro=1)、[直接进入系统](https://fwlyii.github.io/data-analysis-frontrefine/?intro=0)、[图表库](https://fwlyii.github.io/data-analysis-frontrefine/explore.html?mode=explore#case-1)。线上片头仍由代码实时渲染，验收 MP4 不进入部署包。
