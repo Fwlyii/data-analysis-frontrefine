@@ -11,19 +11,25 @@
   const bezier = (a, b, c, d, p) => (1-p)**3*a + 3*(1-p)**2*p*b + 3*(1-p)*p*p*c + p**3*d;
   const svgNS = 'http://www.w3.org/2000/svg';
   const $ = (selector, root = document) => root.querySelector(selector);
+  // The page frame and live intro share the same reviewed CSS palette.
+  const paletteStyle=getComputedStyle(document.documentElement);
+  const token=(name,fallback)=>paletteStyle.getPropertyValue(name).trim()||fallback;
+  const rgb=hex=>[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)).join(',');
+  const theme={bg:rgb(token('--ground','#0b1f33')),ink:token('--chrome-ink','#e8f0f7'),ice:rgb(token('--intro-ice','#d7eee9')),accent:rgb(token('--chrome-accent','#6dd1c4')),muted:rgb(token('--chrome-muted','#a7c4d6'))};
+
 
   function sceneMarkup() {
     const symbols = [
-      ['简洁作答','<path d="M13 9h66M13 19h54M13 29h36M13 39h24"/><path d="m69 27 7 7 14-17" stroke="#66d9cc"/>'],
+      ['简洁作答','<path d="M13 9h66M13 19h54M13 29h36M13 39h24"/><path d="m69 27 7 7 14-17" stroke="var(--chrome-accent)"/>'],
       ['中文数学','<path d="M16 15h27M29 9v29M17 28l12-13 13 13M58 12l23 23M81 12 58 35M58 39h25"/>'],
       ['限长反弹','<path d="m11 33 16-6 16 3 15-19 15 4 15-9"/><path d="M11 43h77M11 7v36" opacity=".4"/>'],
       ['资料位置','<path d="M13 13h74M13 26h74M13 39h74" opacity=".4"/><circle cx="29" cy="13" r="4"/><circle cx="50" cy="26" r="4"/><circle cx="72" cy="39" r="4"/>'],
-      ['反馈修复','<path d="m25 13-11 13 11 13m50-26 11 13-11 13M56 9 44 42"/><path d="m78 5 8 0 0 8" stroke="#66d9cc"/>']
+      ['反馈修复','<path d="m25 13-11 13 11 13m50-26 11 13-11 13M56 9 44 42"/><path d="m78 5 8 0 0 8" stroke="var(--chrome-accent)"/>']
     ];
     return `<div class="intro-atmosphere"><canvas class="intro-canvas" aria-hidden="true"></canvas></div>
       <div class="intro-optics" aria-hidden="true"><svg viewBox="0 0 600 600">
-        <defs><radialGradient id="intro-glass"><stop offset="0" stop-color="#87e1e7" stop-opacity=".02"/><stop offset=".8" stop-color="#62c5d7" stop-opacity=".03"/><stop offset="1" stop-color="#a2edf1" stop-opacity=".12"/></radialGradient></defs>
-        <circle cx="300" cy="300" r="222" fill="url(#intro-glass)" stroke="#72cfdd" stroke-opacity=".12"/>
+        <defs><radialGradient id="intro-glass"><stop offset="0" stop-color="var(--intro-ice)" stop-opacity=".02"/><stop offset=".8" stop-color="var(--chrome-accent)" stop-opacity=".03"/><stop offset="1" stop-color="var(--intro-ice)" stop-opacity=".12"/></radialGradient></defs>
+        <circle cx="300" cy="300" r="222" fill="url(#intro-glass)" stroke="var(--chrome-accent)" stroke-opacity=".12"/>
         <g class="intro-ticks"></g>
         <circle class="intro-ring fine" cx="300" cy="300" r="270" pathLength="1"/>
         <circle class="intro-ring" cx="300" cy="300" r="245" pathLength="1"/>
@@ -31,8 +37,8 @@
         <circle class="intro-ring" cx="300" cy="300" r="218" pathLength="1"/>
         <circle class="intro-ring fine" cx="300" cy="300" r="184" pathLength="1"/>
         <g class="intro-arcs"><path class="intro-arc" d="M65 300a235 235 0 0 1 161-223" pathLength="1"/><path class="intro-arc" d="M535 300a235 235 0 0 1-161 223" pathLength="1"/><path class="intro-arc" d="M162 439a196 196 0 0 1-51-101" pathLength="1"/></g>
-        <path d="M282 300h12m12 0h12m-18-18v12m0 12v12" stroke="#c2f3f5" stroke-width=".7" opacity=".55"/>
-        <line class="intro-scan" x1="116" x2="484" y1="300" y2="300" stroke="#b3eff3" stroke-width=".8" opacity=".2"/>
+        <path d="M282 300h12m12 0h12m-18-18v12m0 12v12" stroke="var(--intro-ice)" stroke-width=".7" opacity=".55"/>
+        <line class="intro-scan" x1="116" x2="484" y1="300" y2="300" stroke="var(--chrome-accent)" stroke-width=".8" opacity=".2"/>
       </svg></div>
       <div class="intro-signals" aria-hidden="true">${symbols.map(([label, drawing]) => `<div class="intro-signal"><svg viewBox="0 0 100 52">${drawing}</svg><span>${label}</span></div>`).join('')}</div>
       <div class="intro-titles" aria-hidden="true"><span class="intro-mark">LENS<span class="intro-period">.</span></span><span class="intro-name">知微</span><span class="intro-subtitle">大模型行为洞察与可视交互分析系统</span><span class="intro-tagline">从数据中，发现智能的行为规律。</span></div>
@@ -81,9 +87,9 @@
     draw(t) {
       const c = this.ctx, wake = smooth(ramp(t, 0, .8));
       c.clearRect(0, 0, this.w, this.h);
-      c.fillStyle = `rgba(1,6,11,${(1-wake)*.96})`; c.fillRect(0, 0, this.w, this.h);
+      c.fillStyle = `rgba(${theme.bg},${(1-wake)*.96})`; c.fillRect(0, 0, this.w, this.h);
       const grid = smooth(ramp(t, .3, 1.5)) * (1 - ramp(t, 4.5, 5.2));
-      c.strokeStyle = `rgba(101,170,191,${grid*.10})`; c.lineWidth = .6;
+      c.strokeStyle = `rgba(${theme.muted},${grid*.10})`; c.lineWidth = .6;
       c.beginPath();
       for (let i = -6; i <= 6; i++) { c.moveTo(this.cx + i * 16, this.cy); c.lineTo(this.cx + i * this.w * .22, this.h); }
       for (let i = 1; i <= 8; i++) { const y = this.cy + (i/8)**2 * (this.h-this.cy); c.moveTo(0,y); c.lineTo(this.w,y); }
@@ -96,7 +102,7 @@
         const b=[this.cx+side*this.w*.28,this.cy+(lane%2?1:-1)*this.size*.7];
         const d=[this.cx+side*Math.cos((lane-1.5)*.48)*this.size*.365,this.cy+Math.sin((lane-1.5)*.48)*this.size*.365];
         const e=[this.cx-side*this.size*.12,this.cy+(lane-1.5)*this.size*.32];
-        c.strokeStyle=`rgba(112,213,225,${streams*.13})`;c.lineWidth=.65;c.beginPath();
+        c.strokeStyle=`rgba(${theme.accent},${streams*.13})`;c.lineWidth=.65;c.beginPath();
         for(let step=0;step<=28;step++){const u=tip*step/28,x=bezier(a[0],b[0],e[0],d[0],u),y=bezier(a[1],b[1],e[1],d[1],u);if(!step)c.moveTo(x,y);else c.lineTo(x,y);}
         c.stroke();
       }
@@ -106,20 +112,20 @@
         const alpha = Math.min(.85, (.22 + q.depth*.42) * visibility);
         if (t > .75 && t < 3.65) {
           const tail = this.point(p, Math.max(0,t-.065));
-          c.strokeStyle = `rgba(113,211,224,${alpha*.5})`; c.lineWidth = Math.max(.35,radius*.4);
+          c.strokeStyle = `rgba(${theme.accent},${alpha*.5})`; c.lineWidth = Math.max(.35,radius*.4);
           c.beginPath(); c.moveTo(tail.x,tail.y); c.lineTo(q.x,q.y); c.stroke();
         }
         if (i % 8 === 0) {
           const glow = c.createRadialGradient(q.x,q.y,0,q.x,q.y,radius*9);
-          glow.addColorStop(0,`rgba(108,221,231,${alpha*.24})`); glow.addColorStop(1,'rgba(108,221,231,0)');
+          glow.addColorStop(0,`rgba(${theme.accent},${alpha*.24})`); glow.addColorStop(1,`rgba(${theme.accent},0)`);
           c.fillStyle = glow; c.fillRect(q.x-radius*9,q.y-radius*9,radius*18,radius*18);
         }
-        c.fillStyle = `rgba(${i%3===0?'176,230,242':'94,204,204'},${alpha})`;
+        c.fillStyle = `rgba(${i%3===0?theme.ice:theme.accent},${alpha})`;
         c.beginPath(); c.arc(q.x,q.y,Math.max(.4,radius),0,Math.PI*2); c.fill();
         points.push(q);
       }
       const network = Math.sin(ramp(t,1.1,3.0)*Math.PI) * .16;
-      c.strokeStyle = `rgba(129,208,222,${network})`; c.lineWidth = .5; c.beginPath();
+      c.strokeStyle = `rgba(${theme.muted},${network})`; c.lineWidth = .5; c.beginPath();
       for (let i=0;i<points.length-1;i+=4) {
         const a=points[i],b=points[i+1]; if (Math.hypot(a.x-b.x,a.y-b.y)>this.size*.3) continue;
         c.moveTo(a.x,a.y);c.lineTo(b.x,b.y);
@@ -128,14 +134,14 @@
       const focus = Math.sin(ramp(t,2.45,3.35)*Math.PI)*.35 + Math.sin(ramp(t,3.8,4.5)*Math.PI)*.22;
       if (focus>0) {
         const glow=c.createRadialGradient(this.cx,this.cy,0,this.cx,this.cy,this.size*.55);
-        glow.addColorStop(0,`rgba(178,244,246,${focus})`);glow.addColorStop(.08,`rgba(109,222,225,${focus*.42})`);glow.addColorStop(1,'rgba(71,179,210,0)');
+        glow.addColorStop(0,`rgba(${theme.ice},${focus})`);glow.addColorStop(.08,`rgba(${theme.accent},${focus*.42})`);glow.addColorStop(1,`rgba(${theme.accent},0)`);
         c.fillStyle=glow;c.fillRect(this.cx-this.size,this.cy-this.size,this.size*2,this.size*2);
       }
       const beam=Math.sin(ramp(t,2.67,3.34)*Math.PI);
       if (beam>0) {
         c.save();c.translate(this.cx,this.cy);c.rotate(-.12);
         const length=this.w*.6, g=c.createLinearGradient(-length,0,length,0);
-        g.addColorStop(0,'rgba(94,220,223,0)');g.addColorStop(.5,`rgba(192,247,248,${beam*.65})`);g.addColorStop(1,'rgba(94,220,223,0)');
+        g.addColorStop(0,`rgba(${theme.accent},0)`);g.addColorStop(.5,`rgba(${theme.ice},${beam*.65})`);g.addColorStop(1,`rgba(${theme.accent},0)`);
         c.strokeStyle=g;c.lineWidth=1;c.beginPath();c.moveTo(-length,0);c.lineTo(length,0);c.stroke();c.restore();
       }
     }
@@ -202,9 +208,7 @@
       const k=smooth(ramp(t,5.12,5.82)),x=mix(this.first.left,this.last.left,k),y=mix(this.first.top,this.last.top,k);
       const scale=mix(1,this.last.width/this.first.width,k);
       this.word.style.transform=`translate3d(${x}px,${y}px,0) scale(${scale})`;
-      const distance=Math.hypot(x+this.first.width*scale*.5-innerWidth*.5,y+this.first.height*scale*.5-innerHeight*.43);
-      const paper=smooth((radius-distance-this.first.width*scale*.35)/50);
-      this.word.style.color=`rgb(${mix(240,32,paper)},${mix(251,59,paper)},${mix(255,80,paper)})`;
+      this.word.style.color=theme.ink;
       this.word.style.opacity=1-ramp(t,5.84,5.94);
       if(t>=5.84)this.landing.classList.remove('intro-target-hidden');
       this.targets.forEach((el,i)=>{const p=ramp(t,5.28+i*.075,5.75+i*.055);if(this.controls[i])this.controls[i].time=p;else{const a=out(p);el.style.opacity=a;el.style.transform=`translateY(${(1-a)*10}px)`;}});

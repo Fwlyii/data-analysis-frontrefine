@@ -35,9 +35,21 @@ def check():
             assert row and not row['overflow'] and row['selectedViewMatches'],'Missing/failed screenshot: '+route['key']+' '+device
             assert (ROOT/proof['screenshots']).parent.joinpath(route['key']+'-'+device+'.png').is_file(),'Screenshot bytes missing'
     checks=json.loads((ROOT/proof['browserChecks']).read_text());assert checks['results'] and all(r['passed'] for r in checks['results']),'Browser matrix failed'
-    assert set(checks['matrix']['routes'])==keys and sorted(checks['matrix']['viewports'])==[320,390,768,1440],'Incomplete viewport matrix'
+    expected_widths=[320,390,768,1366,1440] if proof['version']>=6 else [320,390,768,1440]
+    assert set(checks['matrix']['routes'])==keys and sorted(checks['matrix']['viewports'])==expected_widths,'Incomplete viewport matrix'
     for name in proof['additionalBrowserChecks']:
         report=json.loads((ROOT/name).read_text());assert report['results'] and all(r['passed'] for r in report['results']),'Interaction/intro checks failed: '+name
+    if proof['version']>=6:
+        assert proof.get('renderContract') and proof['renderContract']['actualPaint'],'Missing actual-paint review contract'
+        assert len([r for r in checks['results'] if 'decoded/painted/layout' in r['name']])==len(routes)*5,'Incomplete five-profile render matrix'
+        for row in audit['rows']:
+            expected_route=next(r for r in routes if r['key']==row['key'])
+            assert not expected_route.get('empty') or row['empty'],'Expected explicit empty state missing'
+            assert row['brandVisible'] and all(i['complete'] and i['naturalWidth']>0 and i['width']>0 and i['height']>0 for i in row['images']),'Image/brand rendering failed'
+            assert all(i['passed'] for i in row['embeddedImages']),'Embedded SVG image decode failed'
+            assert all((s['painted']>=3 or s.get('interactionLayer')) and s['opacity']>.95 and not s['unresolved'] and not s['invalid'] for s in row['svgs']),'SVG actual painting/reference check failed'
+        alignment=json.loads((ROOT/proof['renderContract']['masterAlignment']).read_text())
+        assert len(alignment['results'])==65 and all(r['passed'] for r in alignment['results']),'Master actual content/figure alignment failed'
     assert proof['fingerprints']==checks['fingerprints'],'Evidence fingerprints disagree'
     for filename,expected in proof['fingerprints'].items():assert digest(ROOT/filename)==expected,'Browser review predates current source: '+filename
     for name,limit in [('assets/fonts/lens-editorial-site-semibold.woff2',90*1024),('site.css',8*1024),('deck.css',16*1024),('src/site-shell.js',8*1024),('src/story-motion.js',8*1024),('src/intro.js',32*1024),('intro.css',8*1024),('assets/fonts/lens-intro-semibold.woff2',8*1024)]:assert (APP/name).stat().st_size<=limit,'Presentation asset budget exceeded: '+name
@@ -58,5 +70,5 @@ def check():
     assert not list((APP/'dist').rglob('*.mp4')) and not list((APP/'dist').rglob('*.webm')),'Review recording must not become runtime media'
     fidelity=json.loads((ROOT/proof['contentFidelity']).read_text());assert all(row['passed'] for row in fidelity['files']),'Upstream content fidelity failed'
     assert fidelity['chartGeometryAndNumericCodeUnchanged'] and fidelity['findingLogicUnchangedBeyondDisplayHooks'],'Unreviewed research logic changes'
-    print('Whole-site coverage gate passed:',len(routes),'actual states × 4 viewport widths; shared shell, latest Master fidelity, finite intro, current source fingerprints.')
+    print('Whole-site coverage gate passed:',len(routes),'states; viewport profiles:',expected_widths,'; actual-paint review:',proof['version']>=6,'; current source fingerprints.')
 if __name__=='__main__':check()

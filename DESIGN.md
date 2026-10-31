@@ -1,6 +1,6 @@
 # LENS 视觉与交互
 
-当前版本沿用已发布 LENS 浅蓝青视觉：全站背景 #f4f8fa、白色图纸、深蓝正文 #203b50、青色强调 #147b7b；深海蓝仅用于约 5.95 秒纯代码电影开场。UI 使用本地 Geist，英文标题和科学图采用 Times New Roman，中文展示标题提供本地 LENS Editorial 字体，代码使用系统等宽字体。独立生成的品牌艺术字与透明光学装饰保持为非信息素材；控件、文案和数据图全部原生可编辑。
+当前视觉由 v5 生图参考与真实网页反馈共同确定：统一深蓝框架 #0b1f33、浅色主文字 #e8f0f7、辅助文字 #a7c4d6 与青色 #6dd1c4；数据图纸为 #f8fbff，文字为深蓝 #1e3a56、纸面强调 #0e7c7b。开场、页眉、导航及内容背景使用同组变量，科学模型/策略编码保持区分。UI 使用本地 Geist，英文展示和科学图采用 Times New Roman，中文标题使用已有 LENS Editorial 字体。品牌采用 Master 原生文字，保留可访问名称。首页恢复 Master 路径/地形插画关系，仅改装饰色，不更改研究内容。
 
 五部分共用章节导航，桌面为左侧栏，窄屏为底栏。章节通过导航切换，长内容在当前面板内滚动。发现部分用结论、关键数字、主图和必要控件组织；完整案例、数据表及方法按需展开。
 
@@ -8,4 +8,4 @@
 
 URL保存发现和全貌筛选，支持刷新恢复。播放可暂停，SVG/CSV导出同当前条件。键盘焦点可见，动效遵循减少动态效果偏好。完整课程图形与匿名记录联动集中在explore.html。来源和实现说明见docs/design-sources.md。
 
-共享视觉基础为 `app/site.css`；新版五部分展示用 `app/deck.css` 适配侧栏/底栏布局，图表库用 `app/styles.css`。两个页眉由模板生成，`app/src/story-motion.js`、`site-shell.js` 分别负责展示与图表库有限动效，`intro.js` 负责可重播/跳过的实时开场。迁移流程和完整验收见 `docs/visual-refinement-workflow.md`、`optimization/master-migration-v4/REPORT.md`。
+共享视觉基础为 `app/site.css`；新版五部分展示用 `app/deck.css` 适配侧栏/底栏布局，图表库用 `app/styles.css`。两个页眉由模板生成，`app/src/story-motion.js`、`site-shell.js` 分别负责展示与图表库有限动效，`intro.js` 负责可重播/跳过的实时开场。迁移流程和完整验收见 `docs/visual-refinement-workflow.md`、`optimization/render-unification-v5/REPORT.md`。

@@ -1,0 +1,234 @@
+{
+  "results": [
+    {
+      "name": "Native section navigation question",
+      "passed": true
+    },
+    {
+      "name": "question desktop accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Native section navigation collection",
+      "passed": true
+    },
+    {
+      "name": "collection desktop accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Native section navigation cleaning",
+      "passed": true
+    },
+    {
+      "name": "cleaning desktop accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Native section navigation landscape",
+      "passed": true
+    },
+    {
+      "name": "landscape desktop accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Native section navigation findings",
+      "passed": true
+    },
+    {
+      "name": "findings desktop accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Collection retains 31 real prompts",
+      "passed": true
+    },
+    {
+      "name": "Content clicks retain panel scroll (body listener regression)",
+      "passed": true
+    },
+    {
+      "name": "Field definitions remain accessible",
+      "passed": true
+    },
+    {
+      "name": "cleaning phone accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "reasoning matrix keyboard selection uses real values",
+      "passed": true
+    },
+    {
+      "name": "reasoning matrix contains all 31 prompts",
+      "passed": true
+    },
+    {
+      "name": "document_qa matrix keyboard selection uses real values",
+      "passed": true
+    },
+    {
+      "name": "document_qa matrix contains all 31 prompts",
+      "passed": true
+    },
+    {
+      "name": "code_generation matrix keyboard selection uses real values",
+      "passed": true
+    },
+    {
+      "name": "code_generation matrix contains all 31 prompts",
+      "passed": true
+    },
+    {
+      "name": "Landscape query survives refresh",
+      "passed": true
+    },
+    {
+      "name": "landscape phone matrix accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Latest position deep link restores measured position and CI",
+      "passed": true
+    },
+    {
+      "name": "Position slider updates native SVG and URL",
+      "passed": true
+    },
+    {
+      "name": "Interval control restores band",
+      "passed": true
+    },
+    {
+      "name": "Native CSV export retains 18 position records",
+      "passed": true
+    },
+    {
+      "name": "Native SVG export contains data and accessible image",
+      "passed": true
+    },
+    {
+      "name": "Real examples remain native expanded content",
+      "passed": true
+    },
+    {
+      "name": "Figure table retains 18 measured rows",
+      "passed": true
+    },
+    {
+      "name": "position phone expanded accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Live five-version repair playback reaches final results",
+      "passed": true
+    },
+    {
+      "name": "Repair model retains actual 141/164 final evidence",
+      "passed": true
+    },
+    {
+      "name": "Task-specific language conclusion stays current",
+      "passed": true
+    },
+    {
+      "name": "Finding + benchmark refresh restoration",
+      "passed": true
+    },
+    {
+      "name": "Length family and model retain URL + real figure",
+      "passed": true
+    },
+    {
+      "name": "limits phone accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "concise phone native drawers accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "language phone native drawers accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "position phone native drawers accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "repair phone native drawers accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "limits phone native drawers accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Latest sections have real finite motion",
+      "passed": true,
+      "detail": {
+        "actual": 9,
+        "played": 3,
+        "chapterTransitions": 1,
+        "plotUpdates": 1,
+        "sectionTransitions": 2,
+        "reduced": false,
+        "running": 3
+      }
+    },
+    {
+      "name": "Section animations release controls",
+      "passed": true
+    },
+    {
+      "name": "Finding changes animate native figures",
+      "passed": true,
+      "detail": {
+        "actual": 6,
+        "played": 11,
+        "chapterTransitions": 2,
+        "plotUpdates": 1,
+        "sectionTransitions": 3,
+        "reduced": false,
+        "running": 0
+      }
+    },
+    {
+      "name": "Preference change settles section and figure effects",
+      "passed": true
+    },
+    {
+      "name": "Rapid section navigation leaves no stale animation",
+      "passed": true
+    },
+    {
+      "name": "Original keyboard deck navigation still works",
+      "passed": true
+    },
+    {
+      "name": "Original browser section history still works",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "errors": []
+}

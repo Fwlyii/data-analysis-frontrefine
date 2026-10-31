@@ -24,7 +24,7 @@ def _shared_shell():
     actions='<a class="story-home" href="index.html" aria-label="Back to presentation">Research '+arrow+'</a><button id="fullscreen" class="icon-button" aria-label="Fullscreen presentation" title="Fullscreen presentation">'+fullscreen+'</button>'
     header=template.replace('{{home_href}}','#budget').replace('{{actions}}',actions).replace('{{brand_class}}',' brand').replace('{{home_label}}','LENS chart library').replace('模型行为研究','MODEL BEHAVIOR')
     page.write_text(re.sub(r'<header\b[\s\S]*?</header>',lambda m:header,page.read_text(),count=1))
-    for name in ['type-motion-manifest.json','site-manifest.json','intro-manifest.json']:
+    for name in ['type-motion-manifest.json','site-manifest.json','intro-manifest.json','v5-manifest.json']:
         for asset in json.loads((APP/'assets/visual'/name).read_text())['assets']:
             if hashlib.sha256((APP/asset['file']).read_bytes()).hexdigest()!=asset['sha256']:
                 raise ValueError('Presentation asset changed: '+asset['file'])

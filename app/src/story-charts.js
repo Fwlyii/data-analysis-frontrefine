@@ -1,14 +1,14 @@
 (() => {
   "use strict";
   const C = {
-    ink: "#203b50",
-    muted: "#4d6579",
-    faint: "#708694",
+    ink: "#1e3a56",
+    muted: "#526b80",
+    faint: "#526b80",
     grid: "#d8e4ea",
-    accent: "#147b7b",
+    accent: "#0e7c7b",
     blue: "#315c6b",
     gold: "#a2763c",
-    pale: "#e7f3f2",
+    pale: "#e8f2f5",
   };
   const esc = (x) =>
     String(x ?? "").replace(

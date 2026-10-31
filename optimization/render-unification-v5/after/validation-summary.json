@@ -1,0 +1,280 @@
+{
+  "routeStates": 92,
+  "viewports": [
+    320,
+    390,
+    768,
+    1366,
+    1440
+  ],
+  "screenshots": 184,
+  "checks": {
+    "site-checks": {
+      "passed": 462,
+      "total": 462
+    },
+    "home-interactions": {
+      "passed": 49,
+      "total": 49
+    },
+    "library-interactions": {
+      "passed": 39,
+      "total": 39
+    },
+    "intro-checks": {
+      "passed": 86,
+      "total": 86
+    },
+    "master-alignment": {
+      "passed": 65,
+      "total": 65
+    },
+    "resilience": {
+      "passed": 6,
+      "total": 6
+    }
+  },
+  "allPassed": true,
+  "totalChecks": 707,
+  "masterAlignmentChecks": 65,
+  "upstreamFiles": 2189,
+  "upstreamVerifiedOrExact": 2176,
+  "performance": [
+    {
+      "surface": "home",
+      "device": "mobile",
+      "stage": "before",
+      "report": "before/lighthouse-home-mobile.json",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 167.663,
+        "largest-contentful-paint": 167.663,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 174,
+        "total-byte-weight": 3146683
+      },
+      "warnings": []
+    },
+    {
+      "surface": "home",
+      "device": "mobile",
+      "stage": "after",
+      "report": "after/lighthouse-home-mobile.json",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 167.492,
+        "largest-contentful-paint": 167.492,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 168,
+        "total-byte-weight": 3127420
+      },
+      "warnings": []
+    },
+    {
+      "surface": "home",
+      "device": "desktop",
+      "stage": "before",
+      "report": "before/lighthouse-home-desktop.json",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 184.892,
+        "largest-contentful-paint": 184.892,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 8.816249517746914e-05,
+        "speed-index": 190,
+        "total-byte-weight": 3146683
+      },
+      "warnings": []
+    },
+    {
+      "surface": "home",
+      "device": "desktop",
+      "stage": "after",
+      "report": "after/lighthouse-home-desktop.json",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 180.453,
+        "largest-contentful-paint": 180.453,
+        "total-blocking-time": 27.516999999999996,
+        "cumulative-layout-shift": 8.64357277199074e-05,
+        "speed-index": 335,
+        "total-byte-weight": 3127420
+      },
+      "warnings": []
+    },
+    {
+      "surface": "library",
+      "device": "mobile",
+      "stage": "before",
+      "report": "before/lighthouse-library-mobile.json",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 854.46,
+        "largest-contentful-paint": 854.46,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 4.005060418045302e-05,
+        "speed-index": 818,
+        "total-byte-weight": 15440481
+      },
+      "warnings": []
+    },
+    {
+      "surface": "library",
+      "device": "mobile",
+      "stage": "after",
+      "report": "after/lighthouse-library-mobile.json",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 865.024,
+        "largest-contentful-paint": 865.024,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 4.005060418045302e-05,
+        "speed-index": 877,
+        "total-byte-weight": 15441649
+      },
+      "warnings": []
+    },
+    {
+      "surface": "library",
+      "device": "desktop",
+      "stage": "before",
+      "report": "before/lighthouse-library-desktop.json",
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 861.214,
+        "largest-contentful-paint": 861.214,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 7.126038781163434e-06,
+        "speed-index": 793,
+        "total-byte-weight": 15440481
+      },
+      "warnings": []
+    },
+    {
+      "surface": "library",
+      "device": "desktop",
+      "stage": "after",
+      "report": "after/lighthouse-library-desktop.json",
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 839.793,
+        "largest-contentful-paint": 839.793,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 7.126038781163434e-06,
+        "speed-index": 821,
+        "total-byte-weight": 15441649
+      },
+      "warnings": []
+    }
+  ],
+  "introFrames": [
+    {
+      "profile": {
+        "width": 1440,
+        "height": 900
+      },
+      "elapsed": 5970,
+      "averageFPS": 54.917115834435066,
+      "p95Draw": 2.5,
+      "idleRAF": 0,
+      "idlePixels": 1
+    },
+    {
+      "profile": {
+        "width": 768,
+        "height": 1024
+      },
+      "elapsed": 5967,
+      "averageFPS": 57.64996554448123,
+      "p95Draw": 2.4000000953674316,
+      "idleRAF": 0,
+      "idlePixels": 1
+    },
+    {
+      "profile": {
+        "width": 390,
+        "height": 844
+      },
+      "elapsed": 5966,
+      "averageFPS": 30.001363698349923,
+      "p95Draw": 1.5,
+      "idleRAF": 0,
+      "idlePixels": 1
+    },
+    {
+      "profile": {
+        "width": 320,
+        "height": 740
+      },
+      "elapsed": 5964,
+      "averageFPS": 29.916971999058795,
+      "p95Draw": 1.5,
+      "idleRAF": 0,
+      "idlePixels": 1
+    },
+    {
+      "profile": {
+        "width": 390,
+        "height": 844,
+        "dpr": 3
+      },
+      "elapsed": 5967,
+      "averageFPS": 29.583326369273454,
+      "p95Draw": 1.7000000476837158,
+      "idleRAF": 0,
+      "idlePixels": 1
+    },
+    {
+      "profile": {
+        "width": 390,
+        "height": 844,
+        "cpu": 4
+      },
+      "elapsed": 5970,
+      "averageFPS": 28.430691923699957,
+      "p95Draw": 4.200000047683716,
+      "idleRAF": 0,
+      "idlePixels": 1
+    }
+  ],
+  "limitations": [
+    "Local Chromium plus viewport/DPR/CPU emulation; not real device or weak-network validation",
+    "Generated references are visual guidance only; original Master copy and scientific SVG geometry compared directly",
+    "Upstream research archives keep original LFS endpoint; production snapshot builds without those archives",
+    "Historical submission archive preserved, not part of current production navigation"
+  ]
+}

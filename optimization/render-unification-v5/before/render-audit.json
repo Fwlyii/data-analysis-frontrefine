@@ -1,0 +1,5665 @@
+{
+  "rows": [
+    {
+      "key": "deck-question",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 30,
+          "y": 15.5,
+          "w": 112,
+          "h": 40,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 699.671875,
+          "y": 162.46875,
+          "w": 761.796875,
+          "h": 501.109375,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [],
+      "root": {
+        "x": 184,
+        "y": 72,
+        "w": 1182,
+        "h": 696
+      },
+      "scrollHeight": 696,
+      "clientHeight": 696,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "deck-collection",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 30,
+          "y": 15.5,
+          "w": 112,
+          "h": 40,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [],
+      "root": {
+        "x": 184,
+        "y": 72,
+        "w": 1182,
+        "h": 696
+      },
+      "scrollHeight": 716,
+      "clientHeight": 696,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "deck-cleaning",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 30,
+          "y": 15.5,
+          "w": 112,
+          "h": 40,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [],
+      "root": {
+        "x": 184,
+        "y": 72,
+        "w": 1182,
+        "h": 696
+      },
+      "scrollHeight": 696,
+      "clientHeight": 696,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-concise-baseline",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 30,
+          "y": 15.5,
+          "w": 112,
+          "h": 40,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 257,
+          "y": 507.828125,
+          "w": 1026,
+          "h": 331.109375,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 355",
+              "x": 257,
+              "y": 507.828125,
+              "w": 1026,
+              "h": 331.109375,
+              "shapes": 26,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "200 paired itemsScore (%)Mean output tokens050100NoCoT22.0%DefaultCoT9"
+        }
+      ],
+      "root": {
+        "x": 184,
+        "y": 72,
+        "w": 1182,
+        "h": 696
+      },
+      "scrollHeight": 991,
+      "clientHeight": 696,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-concise-cross",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 30,
+          "y": 15.5,
+          "w": 112,
+          "h": 40,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 257,
+          "y": 507.828125,
+          "w": 1026,
+          "h": 363.75,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 390",
+              "x": 257,
+              "y": 507.828125,
+              "w": 1026,
+              "h": 363.75,
+              "shapes": 29,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "Token saving →Score change ↑Reasoning / MCQADocument QACode-20+7+140%1"
+        }
+      ],
+      "root": {
+        "x": 184,
+        "y": 72,
+        "w": 1182,
+        "h": 696
+      },
+      "scrollHeight": 1023,
+      "clientHeight": 696,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-language-math500",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 30,
+          "y": 15.5,
+          "w": 112,
+          "h": 40,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 257,
+          "y": 486.203125,
+          "w": 1026,
+          "h": 335.78125,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 360",
+              "x": 257,
+              "y": 486.203125,
+              "w": 1026,
+              "h": 335.78125,
+              "shapes": 31,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "Score: DefaultCoT → Chinese templateOutput token reductionDefaultChine"
+        }
+      ],
+      "root": {
+        "x": 184,
+        "y": 72,
+        "w": 1182,
+        "h": 696
+      },
+      "scrollHeight": 974,
+      "clientHeight": 696,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-language-gsm8k",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 30,
+          "y": 15.5,
+          "w": 112,
+          "h": 40,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 257,
+          "y": 486.203125,
+          "w": 1026,
+          "h": 335.78125,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 360",
+              "x": 257,
+              "y": 486.203125,
+              "w": 1026,
+              "h": 335.78125,
+              "shapes": 28,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "Score: DefaultCoT → Chinese templateOutput token reductionDefaultChine"
+        }
+      ],
+      "root": {
+        "x": 184,
+        "y": 72,
+        "w": 1182,
+        "h": 696
+      },
+      "scrollHeight": 974,
+      "clientHeight": 696,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-language-mmlu",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 30,
+          "y": 15.5,
+          "w": 112,
+          "h": 40,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 257,
+          "y": 537.078125,
+          "w": 1026,
+          "h": 335.78125,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 360",
+              "x": 257,
+              "y": 537.078125,
+              "w": 1026,
+              "h": 335.78125,
+              "shapes": 31,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "Score: DefaultCoT → Chinese templateOutput token reductionDefaultChine"
+        }
+      ],
+      "root": {
+        "x": 184,
+        "y": 72,
+        "w": 1182,
+        "h": 696
+      },
+      "scrollHeight": 1025,
+      "clientHeight": 696,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-limits-deepseek-math500-WordLimit",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 30,
+          "y": 15.5,
+          "w": 112,
+          "h": 40,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 314.53125,
+          "y": 539.59375,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 420.796875,
+          "y": 539.59375,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 537.609375,
+          "y": 539.59375,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 652.59375,
+          "y": 539.59375,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 257,
+          "y": 690.21875,
+          "w": 1026,
+          "h": 363.75,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 390",
+              "x": 257,
+              "y": 690.21875,
+              "w": 1026,
+              "h": 363.75,
+              "shapes": 37,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "Actual output tokensScore & truncation0100200170WordLimit(1) · 170.0 t"
+        }
+      ],
+      "root": {
+        "x": 184,
+        "y": 72,
+        "w": 1182,
+        "h": 696
+      },
+      "scrollHeight": 1206,
+      "clientHeight": 696,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-position",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 30,
+          "y": 15.5,
+          "w": 112,
+          "h": 40,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 257,
+          "y": 486.203125,
+          "w": 1026,
+          "h": 377.75,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 405",
+              "x": 257,
+              "y": 486.203125,
+              "w": 1026,
+              "h": 377.75,
+              "shapes": 31,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "4050607080Position 1Qwen3 8B · position 1 · 71.0% [64.5, 77.0]Qwen3 8B"
+        }
+      ],
+      "root": {
+        "x": 184,
+        "y": 72,
+        "w": 1182,
+        "h": 696
+      },
+      "scrollHeight": 1064,
+      "clientHeight": 696,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-repair-qwen",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 30,
+          "y": 15.5,
+          "w": 112,
+          "h": 40,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 782.265625,
+          "y": 455.828125,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 888.96875,
+          "y": 455.828125,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 257,
+          "y": 507.828125,
+          "w": 1026,
+          "h": 377.75,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 405",
+              "x": 257,
+              "y": 507.828125,
+              "w": 1026,
+              "h": 377.75,
+              "shapes": 35,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "7075808590Revision 4Counterexample · version 1 · 132/164Counterexample"
+        }
+      ],
+      "root": {
+        "x": 184,
+        "y": 72,
+        "w": 1182,
+        "h": 696
+      },
+      "scrollHeight": 1085,
+      "clientHeight": 696,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-repair-qwen3",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 30,
+          "y": 15.5,
+          "w": 112,
+          "h": 40,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 782.265625,
+          "y": 455.828125,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 888.96875,
+          "y": 455.828125,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 257,
+          "y": 507.828125,
+          "w": 1026,
+          "h": 377.75,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 405",
+              "x": 257,
+              "y": 507.828125,
+              "w": 1026,
+              "h": 377.75,
+              "shapes": 37,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "65707580859095Revision 4Counterexample · version 1 · 126/164Counterexa"
+        }
+      ],
+      "root": {
+        "x": 184,
+        "y": 72,
+        "w": 1182,
+        "h": 696
+      },
+      "scrollHeight": 1085,
+      "clientHeight": 696,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "efficiency",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 1254.4375,
+          "y": 216.609375,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 48,
+          "y": 370.09375,
+          "w": 1270,
+          "h": 529.15625,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1094.4 432",
+              "x": 71,
+              "y": 393.09375,
+              "w": 1224,
+              "h": 483.15625,
+              "shapes": 47,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "\n \n  \n   \n    \n    image/svg+xml\n    \n     \n      LENS · Matplotlib pu"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 946.828125
+      },
+      "scrollHeight": 947,
+      "clientHeight": 947,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "efficiency-prompts",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 1254.4375,
+          "y": 216.609375,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 753.09375,
+          "y": 306.59375,
+          "w": 18,
+          "h": 18,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 918.265625,
+          "y": 306.59375,
+          "w": 18,
+          "h": 18,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 1060.484375,
+          "y": 306.59375,
+          "w": 18,
+          "h": 18,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 1201.71875,
+          "y": 306.59375,
+          "w": 18,
+          "h": 18,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 48,
+          "y": 370.59375,
+          "w": 1270,
+          "h": 472.78125,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1094.4 381.6",
+              "x": 71,
+              "y": 393.59375,
+              "w": 1224,
+              "h": 426.78125,
+              "shapes": 48,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "\n \n  \n   \n    \n    image/svg+xml\n    \n     \n      LENS · Matplotlib pu"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 890.953125
+      },
+      "scrollHeight": 891,
+      "clientHeight": 891,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "position-matrix",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 1254.4375,
+          "y": 216.609375,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 48,
+          "y": 374.59375,
+          "w": 1270,
+          "h": 505,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1094.4 410.4",
+              "x": 71,
+              "y": 397.59375,
+              "w": 1224,
+              "h": 459,
+              "shapes": 193,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "\n \n  \n   \n    \n    image/svg+xml\n    \n     \n      LENS · Matplotlib pu"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 930.890625
+      },
+      "scrollHeight": 931,
+      "clientHeight": 931,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "position-profile",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 1254.4375,
+          "y": 216.609375,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 48,
+          "y": 374.59375,
+          "w": 1270,
+          "h": 456.671875,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1094.4 367.2",
+              "x": 71,
+              "y": 397.59375,
+              "w": 1224,
+              "h": 410.671875,
+              "shapes": 68,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "\n \n  \n   \n    \n    image/svg+xml\n    \n     \n      LENS · Matplotlib pu"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 882.5625
+      },
+      "scrollHeight": 883,
+      "clientHeight": 883,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "code-sampling",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 1259.4375,
+          "y": 216.609375,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 170.015625,
+          "y": 389.59375,
+          "w": 18,
+          "h": 18,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 335.1875,
+          "y": 389.59375,
+          "w": 18,
+          "h": 18,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 475.25,
+          "y": 389.59375,
+          "w": 18,
+          "h": 18,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 48,
+          "y": 535.59375,
+          "w": 1270,
+          "h": 488.890625,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1094.4 396",
+              "x": 71,
+              "y": 558.59375,
+              "w": 1224,
+              "h": 442.890625,
+              "shapes": 51,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "\n \n  \n   \n    \n    image/svg+xml\n    \n     \n      Matplotlib v3.11.2, "
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 1086.671875
+      },
+      "scrollHeight": 1087,
+      "clientHeight": 1087,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "code-prompts",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 1259.4375,
+          "y": 216.609375,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 48,
+          "y": 455.59375,
+          "w": 1270,
+          "h": 529.15625,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1094.4 432",
+              "x": 71,
+              "y": 478.59375,
+              "w": 1224,
+              "h": 483.15625,
+              "shapes": 329,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "\n \n  \n   \n    \n    image/svg+xml\n    \n     \n      Matplotlib v3.11.2, "
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 1046.9375
+      },
+      "scrollHeight": 1047,
+      "clientHeight": 1047,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "code-errors",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 1259.4375,
+          "y": 216.609375,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 48,
+          "y": 455.59375,
+          "w": 1270,
+          "h": 609.671875,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1094.4 504",
+              "x": 71,
+              "y": 478.59375,
+              "w": 1224,
+              "h": 563.671875,
+              "shapes": 396,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "\n \n  \n   \n    \n    image/svg+xml\n    \n     \n      Matplotlib v3.11.2, "
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 1127.453125
+      },
+      "scrollHeight": 1127,
+      "clientHeight": 1127,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "code-tokens",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 1259.4375,
+          "y": 216.609375,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 48,
+          "y": 455.59375,
+          "w": 1270,
+          "h": 521.6875,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 767 380",
+              "x": 71,
+              "y": 537.09375,
+              "w": 765,
+              "h": 379,
+              "shapes": 140,
+              "invalid": false
+            },
+            {
+              "viewBox": null,
+              "x": 860,
+              "y": 537.09375,
+              "w": 425,
+              "h": 355,
+              "shapes": 21,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "Output length and test performance0100200300400500600700Mean returned "
+        },
+        {
+          "selector": "code-vega-scatter",
+          "x": 71,
+          "y": 537.09375,
+          "w": 765,
+          "h": 379,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 767 380",
+              "x": 71,
+              "y": 537.09375,
+              "w": 765,
+              "h": 379,
+              "shapes": 140,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "0100200300400500600700Mean returned output tokens / response0102030405"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 1110.65625
+      },
+      "scrollHeight": 1111,
+      "clientHeight": 1111,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "discovery-1",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/circle-check.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 71,
+          "y": 957.203125,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content",
+          "x": 73,
+          "y": 512.6875,
+          "w": 1220,
+          "h": 353.265625,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 512.6875,
+              "w": 1220,
+              "h": 353,
+              "shapes": 30,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "响应数（次）返回 token / 条0100200300400500050100150170中位数 13"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 203.796875,
+        "w": 1366,
+        "h": 847.9375
+      },
+      "scrollHeight": 848,
+      "clientHeight": 848,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "discovery-2",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/circle-check.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 71,
+          "y": 957.203125,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content",
+          "x": 73,
+          "y": 512.6875,
+          "w": 1220,
+          "h": 353.265625,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 512.6875,
+              "w": 1220,
+              "h": 353,
+              "shapes": 10,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "当前规则评分（%）0%25%50%75%100%直接回答逐步推理简洁推理22.0%91.5%92.0%"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 203.796875,
+        "w": 1366,
+        "h": 847.9375
+      },
+      "scrollHeight": 848,
+      "clientHeight": 848,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "discovery-3",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/circle-check.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 71,
+          "y": 957.203125,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content",
+          "x": 73,
+          "y": 512.6875,
+          "w": 1220,
+          "h": 353.265625,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 512.6875,
+              "w": 1220,
+              "h": 353,
+              "shapes": 25,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "规则评分变化（pp）平均返回 token 减少（%）-505101501020304050Qwen3 · MATH500评分不变"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 203.796875,
+        "w": 1366,
+        "h": 847.9375
+      },
+      "scrollHeight": 848,
+      "clientHeight": 848,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "discovery-4",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/circle-check.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 71,
+          "y": 1002.390625,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content dual",
+          "x": 73,
+          "y": 557.875,
+          "w": 1220,
+          "h": 353.265625,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 575.875,
+              "w": 595,
+              "h": 335,
+              "shapes": 17,
+              "invalid": false
+            },
+            {
+              "viewBox": null,
+              "x": 698,
+              "y": 575.875,
+              "w": 595,
+              "h": 335,
+              "shapes": 17,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "Qwen2.5 7B命中 / 匹配率（%）4050607080前部中部尾部10 篇20 篇Qwen3 8B命中 / 匹配率（%）405060"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 203.796875,
+        "w": 1366,
+        "h": 893.125
+      },
+      "scrollHeight": 893,
+      "clientHeight": 893,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "discovery-5",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/arrow-up-right.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 1258,
+          "y": 480.6875,
+          "w": 16,
+          "h": 16,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/circle-check.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 71,
+          "y": 1029.1875,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content",
+          "x": 73,
+          "y": 553.484375,
+          "w": 1220,
+          "h": 353.265625,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 740 260",
+              "x": 73,
+              "y": 553.484375,
+              "w": 1220,
+              "h": 353.265625,
+              "shapes": 1200,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "F000201 · 完整 · 首行命中F000324 · 完整 · 首行命中F000333 · 完整 · 首行命中F000441 · 完整 "
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 203.796875,
+        "w": 1366,
+        "h": 919.921875
+      },
+      "scrollHeight": 920,
+      "clientHeight": 920,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-model",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 73,
+          "y": 433.171875,
+          "w": 1220,
+          "h": 420,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 433.171875,
+              "w": 1220,
+              "h": 420,
+              "shapes": 11,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "规则评分（%）0%25%50%75%100%DeepSeek FlashHY4 previewQwen2.5 7BQwen3 8B97.59"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 788.359375
+      },
+      "scrollHeight": 788,
+      "clientHeight": 788,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-radar",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 73,
+          "y": 433.171875,
+          "w": 1220,
+          "h": 420,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 433.171875,
+              "w": 1220,
+              "h": 420,
+              "shapes": 37,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "GSM8K 评分MATH500 评分MMLU-Pro 评分输出完整率提取可用率"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 788.359375
+      },
+      "scrollHeight": 788,
+      "clientHeight": 788,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-heatmap",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 73,
+          "y": 483.171875,
+          "w": 1220,
+          "h": 420,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 483.171875,
+              "w": 1220,
+              "h": 420,
+              "shapes": 43,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "直接回答逐步推理简洁推理项目符号25 词限制100 词限制100 token 限制2 步限制DeepSeekHY4Qwen2.5Qwen39"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 838.359375
+      },
+      "scrollHeight": 838,
+      "clientHeight": 838,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-bubble",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 73,
+          "y": 483.171875,
+          "w": 1220,
+          "h": 420,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 483.171875,
+              "w": 1220,
+              "h": 420,
+              "shapes": 138,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "评分 / 命中率（%）平均返回 token / 条020406080100050100150200250300"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 838.359375
+      },
+      "scrollHeight": 838,
+      "clientHeight": 838,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-radial",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 73,
+          "y": 483.171875,
+          "w": 1220,
+          "h": 420,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 540 485",
+              "x": 449.1875,
+              "y": 483.171875,
+              "w": 467.625,
+              "h": 420,
+              "shapes": 45,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "25%50%75%100%直接回答逐步推理简洁推理项目符号25 词限制100 词限制100 token2 步限制STRATEGY8 策略 ×"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 838.359375
+      },
+      "scrollHeight": 838,
+      "clientHeight": 838,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-position",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 73,
+          "y": 433.171875,
+          "w": 1220,
+          "h": 420,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 433.171875,
+              "w": 1220,
+              "h": 420,
+              "shapes": 41,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "命中率（%）020406080100前部中部尾部Qwen2.5 7B · 10 篇Qwen2.5 7B · 20 篇Qwen3 8B · 1"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 788.359375
+      },
+      "scrollHeight": 788,
+      "clientHeight": 788,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-box",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 73,
+          "y": 449.484375,
+          "w": 1220,
+          "h": 420,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 449.484375,
+              "w": 1220,
+              "h": 420,
+              "shapes": 27,
+              "invalid": false
+            },
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 449.484375,
+              "w": 1220,
+              "h": 420,
+              "shapes": 11,
+              "invalid": false
+            },
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 449.484375,
+              "w": 1220,
+              "h": 420,
+              "shapes": 0,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "GSM8K0100200300400DeepSeek FlashHY4 previewQwen2.5 7BQwen3 8BReturned "
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 804.671875
+      },
+      "scrollHeight": 805,
+      "clientHeight": 805,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-parallel",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 73,
+          "y": 433.171875,
+          "w": 1220,
+          "h": 420,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 433.171875,
+              "w": 1220,
+              "h": 420,
+              "shapes": 46,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "DeepSeek FlashHY4 previewQwen2.5 7BQwen3 8B当前评分（%）平均返回 token截断（%）需复核（%"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 788.359375
+      },
+      "scrollHeight": 788,
+      "clientHeight": 788,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-distribution",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content dual  ",
+          "x": 73,
+          "y": 440.8533935546875,
+          "w": 1220,
+          "h": 460.796875,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 440.8533935546875,
+              "w": 595,
+              "h": 461,
+              "shapes": 14,
+              "invalid": false
+            },
+            {
+              "viewBox": null,
+              "x": 698,
+              "y": 440.8533935546875,
+              "w": 595,
+              "h": 461,
+              "shapes": 19,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "94.38%5.37%0.25%完整且命中完整但未命中输出截断响应占比（%）020406080100DeepSeek FlashHY4 pr"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 829.15625
+      },
+      "scrollHeight": 829,
+      "clientHeight": 829,
+      "overflow": false,
+      "animations": 5
+    },
+    {
+      "key": "chart-behavior",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content dual behavior-plot ",
+          "x": 73,
+          "y": 433.171875,
+          "w": 1220,
+          "h": 664.5,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 433.171875,
+              "w": 595,
+              "h": 570,
+              "shapes": 11,
+              "invalid": false
+            },
+            {
+              "viewBox": null,
+              "x": 698,
+              "y": 433.171875,
+              "w": 595,
+              "h": 570,
+              "shapes": 12,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "分步要求空输出显式步骤标记列表标记多行未标记单行输出0%65%17%18%0%0%100%提示约束与实际输出形态响应占比 (%)请求失败输出"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 1032.859375
+      },
+      "scrollHeight": 1033,
+      "clientHeight": 1033,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-timeline",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 73,
+          "y": 433.17230224609375,
+          "w": 1220,
+          "h": 420,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 433.17230224609375,
+              "w": 1220,
+              "h": 420,
+              "shapes": 30,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "按匿名编号取前 12 个重试运行 · 蓝灰：成功，杏色：失败 / 状态未记录距首次请求开始（秒）F009538F027420F036023F"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 788.359375
+      },
+      "scrollHeight": 788,
+      "clientHeight": 788,
+      "overflow": false,
+      "animations": 2
+    },
+    {
+      "key": "chart-tree",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 73,
+          "y": 433.171875,
+          "w": 1220,
+          "h": 420,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 433.171875,
+              "w": 1220,
+              "h": 420,
+              "shapes": 9,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "运行 · 10状态未记录 · 10HTTP 200 · 9状态未记录 · 1HTTP 200 · 1"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 788.359375
+      },
+      "scrollHeight": 788,
+      "clientHeight": 788,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-flow",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 73,
+          "y": 433.171875,
+          "w": 1220,
+          "h": 420,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 73,
+              "y": 433.171875,
+              "w": 1220,
+              "h": 420,
+              "shapes": 9,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "首行未命中首行命中最终答案未命中最终答案命中"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 788.359375
+      },
+      "scrollHeight": 788,
+      "clientHeight": 788,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-flow-empty",
+      "width": 1366,
+      "height": 768,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 48,
+          "y": 22,
+          "w": 128,
+          "h": 44,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 73,
+          "y": 433.171875,
+          "w": 1220,
+          "h": 420,
+          "opacity": "1",
+          "svgs": [],
+          "canvas": [],
+          "text": "请选择带资料问答"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 150,
+        "w": 1366,
+        "h": 788.359375
+      },
+      "scrollHeight": 788,
+      "clientHeight": 788,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "deck-question",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 18,
+          "y": 12.5,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 129.1875,
+          "y": 245.109375,
+          "w": 380,
+          "h": 384.46875,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [],
+      "root": {
+        "x": 0,
+        "y": 60,
+        "w": 390,
+        "h": 712
+      },
+      "scrollHeight": 712,
+      "clientHeight": 712,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "deck-collection",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 18,
+          "y": 12.5,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [],
+      "root": {
+        "x": 0,
+        "y": 60,
+        "w": 390,
+        "h": 712
+      },
+      "scrollHeight": 1000,
+      "clientHeight": 712,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "deck-cleaning",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 18,
+          "y": 12.5,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [],
+      "root": {
+        "x": 0,
+        "y": 60,
+        "w": 390,
+        "h": 712
+      },
+      "scrollHeight": 1008,
+      "clientHeight": 712,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-concise-baseline",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 18,
+          "y": 12.5,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 35,
+          "y": 691.34375,
+          "w": 760,
+          "h": 245.265625,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 355",
+              "x": 35,
+              "y": 691.34375,
+              "w": 760,
+              "h": 245.265625,
+              "shapes": 26,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "200 paired itemsScore (%)Mean output tokens050100NoCoT22.0%DefaultCoT9"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 60,
+        "w": 390,
+        "h": 712
+      },
+      "scrollHeight": 1151,
+      "clientHeight": 712,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-concise-cross",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 18,
+          "y": 12.5,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 35,
+          "y": 691.34375,
+          "w": 760,
+          "h": 269.453125,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 390",
+              "x": 35,
+              "y": 691.34375,
+              "w": 760,
+              "h": 269.453125,
+              "shapes": 29,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "Token saving →Score change ↑Reasoning / MCQADocument QACode-20+7+140%1"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 60,
+        "w": 390,
+        "h": 712
+      },
+      "scrollHeight": 1158,
+      "clientHeight": 712,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-language-math500",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 18,
+          "y": 12.5,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 35,
+          "y": 691.34375,
+          "w": 760,
+          "h": 248.71875,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 360",
+              "x": 35,
+              "y": 691.34375,
+              "w": 760,
+              "h": 248.71875,
+              "shapes": 31,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "Score: DefaultCoT → Chinese templateOutput token reductionDefaultChine"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 60,
+        "w": 390,
+        "h": 712
+      },
+      "scrollHeight": 1154,
+      "clientHeight": 712,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-language-gsm8k",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 18,
+          "y": 12.5,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 35,
+          "y": 691.34375,
+          "w": 760,
+          "h": 248.71875,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 360",
+              "x": 35,
+              "y": 691.34375,
+              "w": 760,
+              "h": 248.71875,
+              "shapes": 28,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "Score: DefaultCoT → Chinese templateOutput token reductionDefaultChine"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 60,
+        "w": 390,
+        "h": 712
+      },
+      "scrollHeight": 1137,
+      "clientHeight": 712,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-language-mmlu",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 18,
+          "y": 12.5,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 35,
+          "y": 668.953125,
+          "w": 760,
+          "h": 248.71875,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 360",
+              "x": 35,
+              "y": 668.953125,
+              "w": 760,
+              "h": 248.71875,
+              "shapes": 31,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "Score: DefaultCoT → Chinese templateOutput token reductionDefaultChine"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 60,
+        "w": 390,
+        "h": 712
+      },
+      "scrollHeight": 1115,
+      "clientHeight": 712,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-limits-deepseek-math500-WordLimit",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 18,
+          "y": 12.5,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 45,
+          "y": 638.296875,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 149.265625,
+          "y": 638.296875,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 264.078125,
+          "y": 638.296875,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 377.0625,
+          "y": 638.296875,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 35,
+          "y": 834.390625,
+          "w": 760,
+          "h": 269.453125,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 390",
+              "x": 35,
+              "y": 834.390625,
+              "w": 760,
+              "h": 269.453125,
+              "shapes": 37,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "Actual output tokensScore & truncation0100200170WordLimit(1) · 170.0 t"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 60,
+        "w": 390,
+        "h": 712
+      },
+      "scrollHeight": 1301,
+      "clientHeight": 712,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-position",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 18,
+          "y": 12.5,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 35,
+          "y": 627.453125,
+          "w": 760,
+          "h": 279.8125,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 405",
+              "x": 35,
+              "y": 627.453125,
+              "w": 760,
+              "h": 279.8125,
+              "shapes": 31,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "4050607080Position 1Qwen3 8B · position 1 · 71.0% [64.5, 77.0]Qwen3 8B"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 60,
+        "w": 390,
+        "h": 712
+      },
+      "scrollHeight": 1183,
+      "clientHeight": 712,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-repair-qwen",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 18,
+          "y": 12.5,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 45,
+          "y": 638.296875,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 149.703125,
+          "y": 638.296875,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 35,
+          "y": 693.296875,
+          "w": 760,
+          "h": 279.8125,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 405",
+              "x": 35,
+              "y": 693.296875,
+              "w": 760,
+              "h": 279.8125,
+              "shapes": 35,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "7075808590Revision 4Counterexample · version 1 · 132/164Counterexample"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 60,
+        "w": 390,
+        "h": 712
+      },
+      "scrollHeight": 1266,
+      "clientHeight": 712,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "story-repair-qwen3",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 18,
+          "y": 12.5,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/optical-study.webp",
+          "complete": true,
+          "naturalWidth": 480,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "visible": false
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 45,
+          "y": 638.296875,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 149.703125,
+          "y": 638.296875,
+          "w": 20,
+          "h": 20,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot",
+          "x": 35,
+          "y": 693.296875,
+          "w": 760,
+          "h": 279.8125,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1100 405",
+              "x": 35,
+              "y": 693.296875,
+              "w": 760,
+              "h": 279.8125,
+              "shapes": 37,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "65707580859095Revision 4Counterexample · version 1 · 126/164Counterexa"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 60,
+        "w": 390,
+        "h": 712
+      },
+      "scrollHeight": 1266,
+      "clientHeight": 712,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "efficiency",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 117.015625,
+          "y": 306.46875,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 20,
+          "y": 458.65625,
+          "w": 350,
+          "h": 485.1875,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 720 432",
+              "x": 37,
+              "y": 506.84375,
+              "w": 700,
+              "h": 420,
+              "shapes": 47,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "\n \n  \n   \n    \n    image/svg+xml\n    \n     \n      LENS · Matplotlib pu"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 1096.203125
+      },
+      "scrollHeight": 1096,
+      "clientHeight": 1096,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "efficiency-prompts",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 117.015625,
+          "y": 306.46875,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 43,
+          "y": 415.46875,
+          "w": 18,
+          "h": 18,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/hunyuan.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 194.171875,
+          "y": 415.46875,
+          "w": 18,
+          "h": 18,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 43,
+          "y": 459.46875,
+          "w": 18,
+          "h": 18,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 170.234375,
+          "y": 459.46875,
+          "w": 18,
+          "h": 18,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 20,
+          "y": 517.46875,
+          "w": 350,
+          "h": 483.59375,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1094.4 381.6",
+              "x": 37,
+              "y": 565.65625,
+              "w": 1200,
+              "h": 418.40625,
+              "shapes": 48,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "\n \n  \n   \n    \n    image/svg+xml\n    \n     \n      LENS · Matplotlib pu"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 1130.03125
+      },
+      "scrollHeight": 1130,
+      "clientHeight": 1130,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "position-matrix",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 93.015625,
+          "y": 243.890625,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 20,
+          "y": 448.890625,
+          "w": 350,
+          "h": 515.1875,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1094.4 410.4",
+              "x": 37,
+              "y": 497.078125,
+              "w": 1200,
+              "h": 450,
+              "shapes": 193,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "\n \n  \n   \n    \n    image/svg+xml\n    \n     \n      LENS · Matplotlib pu"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 1117.046875
+      },
+      "scrollHeight": 1117,
+      "clientHeight": 1117,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "position-profile",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 93.015625,
+          "y": 267.28125,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 20,
+          "y": 522.28125,
+          "w": 350,
+          "h": 467.8125,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1094.4 367.2",
+              "x": 37,
+              "y": 570.46875,
+              "w": 1200,
+              "h": 402.625,
+              "shapes": 68,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "\n \n  \n   \n    \n    image/svg+xml\n    \n     \n      LENS · Matplotlib pu"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 1145.375
+      },
+      "scrollHeight": 1145,
+      "clientHeight": 1145,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "code-sampling",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 93.015625,
+          "y": 243.890625,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/deepseek.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 133.015625,
+          "y": 380.890625,
+          "w": 18,
+          "h": 18,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 43,
+          "y": 424.890625,
+          "w": 18,
+          "h": 18,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/logos/qwen.svg",
+          "complete": true,
+          "naturalWidth": 16,
+          "x": 179.0625,
+          "y": 424.890625,
+          "w": 18,
+          "h": 18,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 20,
+          "y": 663.078125,
+          "w": 350,
+          "h": 499.390625,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1094.4 396",
+              "x": 37,
+              "y": 711.265625,
+              "w": 1200,
+              "h": 434.203125,
+              "shapes": 51,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "\n \n  \n   \n    \n    image/svg+xml\n    \n     \n      Matplotlib v3.11.2, "
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 1356.125
+      },
+      "scrollHeight": 1356,
+      "clientHeight": 1356,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "code-prompts",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 93.015625,
+          "y": 243.890625,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 20,
+          "y": 492.890625,
+          "w": 350,
+          "h": 538.859375,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1094.4 432",
+              "x": 37,
+              "y": 541.078125,
+              "w": 1200,
+              "h": 473.671875,
+              "shapes": 329,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "\n \n  \n   \n    \n    image/svg+xml\n    \n     \n      Matplotlib v3.11.2, "
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 1250.09375
+      },
+      "scrollHeight": 1250,
+      "clientHeight": 1250,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "code-errors",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 93.015625,
+          "y": 243.890625,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 20,
+          "y": 492.890625,
+          "w": 350,
+          "h": 617.8125,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 1094.4 504",
+              "x": 37,
+              "y": 541.078125,
+              "w": 1200,
+              "h": 552.625,
+              "shapes": 396,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "\n \n  \n   \n    \n    image/svg+xml\n    \n     \n      Matplotlib v3.11.2, "
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 1304.359375
+      },
+      "scrollHeight": 1304,
+      "clientHeight": 1304,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "code-tokens",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/download.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 93.015625,
+          "y": 243.890625,
+          "w": 17,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "publication-frame",
+          "x": 20,
+          "y": 442.890625,
+          "w": 350,
+          "h": 516.875,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 767 380",
+              "x": 37,
+              "y": 549.578125,
+              "w": 694.28125,
+              "h": 343.96875,
+              "shapes": 140,
+              "invalid": false
+            },
+            {
+              "viewBox": null,
+              "x": 751.28125,
+              "y": 549.578125,
+              "w": 386,
+              "h": 355,
+              "shapes": 21,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "Output length and test performance0100200300400500600700Mean returned "
+        },
+        {
+          "selector": "code-vega-scatter",
+          "x": 37,
+          "y": 549.578125,
+          "w": 694.28125,
+          "h": 355,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 767 380",
+              "x": 37,
+              "y": 549.578125,
+              "w": 694.28125,
+              "h": 343.96875,
+              "shapes": 140,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "0100200300400500600700Mean returned output tokens / response0102030405"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 1220.609375
+      },
+      "scrollHeight": 1221,
+      "clientHeight": 1221,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "discovery-1",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/circle-check.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 43,
+          "y": 1182.703125,
+          "w": 13.15625,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content",
+          "x": 37,
+          "y": 648.265625,
+          "w": 316,
+          "h": 422,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 648.265625,
+              "w": 316,
+              "h": 422,
+              "shapes": 30,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "响应数（次）返回 token / 条0100200300400500050100150170中位数 13"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 179.796875,
+        "w": 390,
+        "h": 1112.234375
+      },
+      "scrollHeight": 1112,
+      "clientHeight": 1112,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "discovery-2",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/circle-check.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 43,
+          "y": 1252.28125,
+          "w": 14.71875,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content",
+          "x": 37,
+          "y": 717.84375,
+          "w": 316,
+          "h": 422,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 717.84375,
+              "w": 316,
+              "h": 422,
+              "shapes": 10,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "当前规则评分（%）0%25%50%75%100%直接回答简洁推理22.0%91.5%92.0%"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 179.796875,
+        "w": 390,
+        "h": 1181.8125
+      },
+      "scrollHeight": 1182,
+      "clientHeight": 1182,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "discovery-3",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/circle-check.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 43,
+          "y": 1306.484375,
+          "w": 14.125,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content",
+          "x": 37,
+          "y": 772.046875,
+          "w": 316,
+          "h": 422,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 772.046875,
+              "w": 316,
+              "h": 422,
+              "shapes": 25,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "规则评分变化（pp）平均返回 token 减少（%）-505101501020304050Qwen3 · MATH500评分不变"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 179.796875,
+        "w": 390,
+        "h": 1236.015625
+      },
+      "scrollHeight": 1236,
+      "clientHeight": 1236,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "discovery-4",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/circle-check.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 43,
+          "y": 2155.84375,
+          "w": 15.125,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content dual",
+          "x": 37,
+          "y": 1393.40625,
+          "w": 316,
+          "h": 650,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 1411.40625,
+              "w": 316,
+              "h": 342,
+              "shapes": 17,
+              "invalid": false
+            },
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 1701.40625,
+              "w": 316,
+              "h": 342,
+              "shapes": 17,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "Qwen2.5 7B命中 / 匹配率（%）4050607080前部中部尾部10 篇20 篇Qwen3 8B命中 / 匹配率（%）405060"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 179.796875,
+        "w": 390,
+        "h": 2085.375
+      },
+      "scrollHeight": 2085,
+      "clientHeight": 2085,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "discovery-5",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/arrow-up-right.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 318,
+          "y": 639.0625,
+          "w": 16,
+          "h": 16,
+          "visible": true
+        },
+        {
+          "src": "http://127.0.0.1:8788/assets/ui/circle-check.svg",
+          "complete": true,
+          "naturalWidth": 24,
+          "x": 43,
+          "y": 1305.671875,
+          "w": 11.265625,
+          "h": 17,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content",
+          "x": 37,
+          "y": 711.859375,
+          "w": 316,
+          "h": 422,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 500 380",
+              "x": 37,
+              "y": 711.859375,
+              "w": 316,
+              "h": 422,
+              "shapes": 1200,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "F000201 · 完整 · 首行命中F000324 · 完整 · 首行命中F000333 · 完整 · 首行命中F000441 · 完整 "
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 179.796875,
+        "w": 390,
+        "h": 1235.203125
+      },
+      "scrollHeight": 1235,
+      "clientHeight": 1235,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-model",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 37,
+          "y": 567.75,
+          "w": 316,
+          "h": 430,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 567.75,
+              "w": 640,
+              "h": 430,
+              "shapes": 11,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "规则评分（%）0%25%50%75%100%DeepSeek FlashHY4 previewQwen2.5 7BQwen3 8B97.59"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 976.125
+      },
+      "scrollHeight": 976,
+      "clientHeight": 976,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-radar",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 37,
+          "y": 567.75,
+          "w": 316,
+          "h": 430,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 567.75,
+              "w": 640,
+              "h": 430,
+              "shapes": 37,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "GSM8K 评分MATH500 评分MMLU-Pro 评分输出完整率提取可用率"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 976.125
+      },
+      "scrollHeight": 976,
+      "clientHeight": 976,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-heatmap",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 37,
+          "y": 617.75,
+          "w": 316,
+          "h": 430,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 617.75,
+              "w": 640,
+              "h": 430,
+              "shapes": 43,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "直接回答逐步推理简洁推理项目符号25 词限制100 词限制100 token 限制2 步限制DeepSeekHY4Qwen2.5Qwen39"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 1026.125
+      },
+      "scrollHeight": 1026,
+      "clientHeight": 1026,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-bubble",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 37,
+          "y": 617.75,
+          "w": 316,
+          "h": 430,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 617.75,
+              "w": 640,
+              "h": 430,
+              "shapes": 138,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "评分 / 命中率（%）平均返回 token / 条020406080100050100150200250300"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 1026.125
+      },
+      "scrollHeight": 1026,
+      "clientHeight": 1026,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-radial",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 37,
+          "y": 617.75,
+          "w": 316,
+          "h": 430,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": "0 0 540 485",
+              "x": 117.625,
+              "y": 617.75,
+              "w": 478.75,
+              "h": 430,
+              "shapes": 45,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "25%50%75%100%直接回答逐步推理简洁推理项目符号25 词限制100 词限制100 token2 步限制STRATEGY8 策略 ×"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 1026.125
+      },
+      "scrollHeight": 1026,
+      "clientHeight": 1026,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-position",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 37,
+          "y": 539.5625,
+          "w": 316,
+          "h": 430,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 539.5625,
+              "w": 640,
+              "h": 430,
+              "shapes": 41,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "命中率（%）020406080100前部中部尾部Qwen2.5 7B · 10 篇Qwen2.5 7B · 20 篇Qwen3 8B · 1"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 967.125
+      },
+      "scrollHeight": 967,
+      "clientHeight": 967,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-box",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 37,
+          "y": 566.375,
+          "w": 316,
+          "h": 430,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 566.375,
+              "w": 640,
+              "h": 430,
+              "shapes": 22,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "返回 token / 条0100200300400500GSM8KDeepSeek FlashHY4 previewQwen2.5 7BQw"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 981.9375
+      },
+      "scrollHeight": 982,
+      "clientHeight": 982,
+      "overflow": false,
+      "animations": 5
+    },
+    {
+      "key": "chart-parallel",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 37,
+          "y": 567.75,
+          "w": 316,
+          "h": 430,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 567.75,
+              "w": 640,
+              "h": 430,
+              "shapes": 46,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "DeepSeek FlashHY4 previewQwen2.5 7BQwen3 8B当前评分（%）平均返回 token截断（%）需复核（%"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 976.125
+      },
+      "scrollHeight": 976,
+      "clientHeight": 976,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-distribution",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content dual  ",
+          "x": 37,
+          "y": 567.75,
+          "w": 316,
+          "h": 750,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 567.75,
+              "w": 640,
+              "h": 360,
+              "shapes": 14,
+              "invalid": false
+            },
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 957.75,
+              "w": 640,
+              "h": 360,
+              "shapes": 19,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "94.38%5.37%0.25%完整且命中完整但未命中输出截断响应占比（%）020406080100DeepSeek FlashHY4 pr"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 1296.125
+      },
+      "scrollHeight": 1296,
+      "clientHeight": 1296,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-behavior",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content dual behavior-plot ",
+          "x": 37,
+          "y": 579.75,
+          "w": 316,
+          "h": 1053,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 579.75,
+              "w": 640,
+              "h": 570,
+              "shapes": 11,
+              "invalid": false
+            },
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 1179.75,
+              "w": 640,
+              "h": 360,
+              "shapes": 12,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "分步要求空输出显式步骤标记列表标记多行未标记单行输出0%65%17%18%0%0%100%提示约束与实际输出形态响应占比 (%)请求失败输出"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 1618.3125
+      },
+      "scrollHeight": 1618,
+      "clientHeight": 1618,
+      "overflow": false,
+      "animations": 4
+    },
+    {
+      "key": "chart-timeline",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 37,
+          "y": 539.5625,
+          "w": 316,
+          "h": 430,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 539.5625,
+              "w": 640,
+              "h": 430,
+              "shapes": 30,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "按匿名编号取前 12 个重试运行 · 蓝灰：成功，杏色：失败 / 状态未记录距首次请求开始（秒）F009538F027420F036023F"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 967.125
+      },
+      "scrollHeight": 967,
+      "clientHeight": 967,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-tree",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 37,
+          "y": 539.5625,
+          "w": 316,
+          "h": 430,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 539.5625,
+              "w": 640,
+              "h": 430,
+              "shapes": 9,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "运行 · 10状态未记录 · 10HTTP 200 · 9状态未记录 · 1HTTP 200 · 1"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 967.125
+      },
+      "scrollHeight": 967,
+      "clientHeight": 967,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-flow",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 37,
+          "y": 539.5625,
+          "w": 316,
+          "h": 430,
+          "opacity": "1",
+          "svgs": [
+            {
+              "viewBox": null,
+              "x": 37,
+              "y": 539.5625,
+              "w": 640,
+              "h": 430,
+              "shapes": 9,
+              "invalid": false
+            }
+          ],
+          "canvas": [],
+          "text": "首行未命中首行命中最终答案未命中最终答案命中"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 967.125
+      },
+      "scrollHeight": 967,
+      "clientHeight": 967,
+      "overflow": false,
+      "animations": 0
+    },
+    {
+      "key": "chart-flow-empty",
+      "width": 390,
+      "height": 844,
+      "images": [
+        {
+          "src": "http://127.0.0.1:8788/assets/visual/lens-wordmark.webp",
+          "complete": true,
+          "naturalWidth": 600,
+          "x": 20,
+          "y": 19,
+          "w": 96,
+          "h": 34,
+          "visible": true
+        }
+      ],
+      "plots": [
+        {
+          "selector": "plot-content   ",
+          "x": 37,
+          "y": 567.75,
+          "w": 316,
+          "h": 430,
+          "opacity": "1",
+          "svgs": [],
+          "canvas": [],
+          "text": "请选择带资料问答"
+        }
+      ],
+      "root": {
+        "x": 0,
+        "y": 126,
+        "w": 390,
+        "h": 976.125
+      },
+      "scrollHeight": 976,
+      "clientHeight": 976,
+      "overflow": false,
+      "animations": 0
+    }
+  ],
+  "errors": []
+}

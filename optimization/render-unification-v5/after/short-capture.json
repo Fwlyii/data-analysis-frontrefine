@@ -1,0 +1,140 @@
+{
+  "rows": [
+    {
+      "key": "question",
+      "actual": {
+        "section": "question",
+        "title": "Research Question — LENS",
+        "plot": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      }
+    },
+    {
+      "key": "collection",
+      "actual": {
+        "section": "collection",
+        "title": "Collection Design — LENS",
+        "plot": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      }
+    },
+    {
+      "key": "cleaning",
+      "actual": {
+        "section": "cleaning",
+        "title": "Data Pipeline — LENS",
+        "plot": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      }
+    },
+    {
+      "key": "landscape",
+      "actual": {
+        "section": "landscape",
+        "title": "Data Landscape — LENS",
+        "plot": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      }
+    },
+    {
+      "key": "concise",
+      "actual": {
+        "section": "findings",
+        "title": "Core Findings — LENS",
+        "plot": {
+          "x": 245,
+          "y": 404.578125,
+          "width": 1050,
+          "height": 308,
+          "top": 404.578125,
+          "right": 1295,
+          "bottom": 712.578125,
+          "left": 245
+        }
+      }
+    },
+    {
+      "key": "position",
+      "actual": {
+        "section": "findings",
+        "title": "Core Findings — LENS",
+        "plot": {
+          "x": 245,
+          "y": 383.78125,
+          "width": 1050,
+          "height": 308,
+          "top": 383.78125,
+          "right": 1295,
+          "bottom": 691.78125,
+          "left": 245
+        }
+      }
+    },
+    {
+      "key": "limits",
+      "actual": {
+        "section": "findings",
+        "title": "Core Findings — LENS",
+        "plot": {
+          "x": 245,
+          "y": 430.828125,
+          "width": 1050,
+          "height": 308,
+          "top": 430.828125,
+          "right": 1295,
+          "bottom": 738.828125,
+          "left": 245
+        }
+      }
+    },
+    {
+      "key": "repair",
+      "actual": {
+        "section": "findings",
+        "title": "Core Findings — LENS",
+        "plot": {
+          "x": 245,
+          "y": 383.78125,
+          "width": 1050,
+          "height": 308,
+          "top": 383.78125,
+          "right": 1295,
+          "bottom": 691.78125,
+          "left": 245
+        }
+      }
+    }
+  ]
+}

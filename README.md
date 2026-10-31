@@ -80,3 +80,5 @@ python3 scripts/delivery/build_submission.py
 - 公网：<https://fwlyii.github.io/data-analysis-frontrefine/>；每次推送 `main` 后由 Actions 构建发布。`?intro=1` 重播开场，`?intro=0` 直接进入系统，遵循减少动态效果偏好。
 
 `app/runtime` 和 `app/dist` 可重复构建，无需提交。原始研究档案继续通过 `.lfsconfig` 引用源仓库的 Git LFS；页面所需的三个冻结 `.gz` 快照已按上游哈希校验，直接包含在 Git 中，因此 Pages 构建不依赖完整科研档案下载。需要完整档案时安装 Git LFS 后执行 `git lfs pull --include="data/**,reports/**,presentation/**,submission/**" --exclude=""`。
+
+当前渲染修复与统一视觉版本见 `optimization/render-unification-v5/REPORT.md`：与 Master 实际内容/图形逐项比较，采用统一深蓝框架、青色与浅色数据图纸；开场与页面共享颜色。

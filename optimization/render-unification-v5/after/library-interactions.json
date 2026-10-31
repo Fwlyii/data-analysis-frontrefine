@@ -1,0 +1,312 @@
+{
+  "matrix": {
+    "routes": [
+      "deck-question",
+      "deck-collection",
+      "deck-cleaning",
+      "landscape-reasoning-deepseek-curve",
+      "landscape-reasoning-deepseek-heatmap",
+      "landscape-reasoning-hy4-curve",
+      "landscape-reasoning-hy4-heatmap",
+      "landscape-reasoning-qwen-curve",
+      "landscape-reasoning-qwen-heatmap",
+      "landscape-reasoning-qwen3-curve",
+      "landscape-reasoning-qwen3-heatmap",
+      "landscape-document_qa-qwen-curve",
+      "landscape-document_qa-qwen-heatmap",
+      "landscape-document_qa-qwen3-curve",
+      "landscape-document_qa-qwen3-heatmap",
+      "landscape-code_generation-deepseek-curve",
+      "landscape-code_generation-deepseek-heatmap",
+      "landscape-code_generation-qwen-curve",
+      "landscape-code_generation-qwen-heatmap",
+      "landscape-code_generation-qwen3-curve",
+      "landscape-code_generation-qwen3-heatmap",
+      "story-concise-baseline",
+      "story-concise-cross",
+      "story-language-math500",
+      "story-language-gsm8k",
+      "story-language-mmlu",
+      "story-limits-deepseek-math500-WordLimit",
+      "story-limits-deepseek-math500-CharLimit",
+      "story-limits-deepseek-math500-TokenLimit",
+      "story-limits-deepseek-gsm8k-WordLimit",
+      "story-limits-deepseek-gsm8k-CharLimit",
+      "story-limits-deepseek-gsm8k-TokenLimit",
+      "story-limits-deepseek-mmlu-WordLimit",
+      "story-limits-deepseek-mmlu-CharLimit",
+      "story-limits-deepseek-mmlu-TokenLimit",
+      "story-limits-hy4-math500-WordLimit",
+      "story-limits-hy4-math500-CharLimit",
+      "story-limits-hy4-math500-TokenLimit",
+      "story-limits-hy4-gsm8k-WordLimit",
+      "story-limits-hy4-gsm8k-CharLimit",
+      "story-limits-hy4-gsm8k-TokenLimit",
+      "story-limits-hy4-mmlu-WordLimit",
+      "story-limits-hy4-mmlu-CharLimit",
+      "story-limits-hy4-mmlu-TokenLimit",
+      "story-limits-qwen-math500-WordLimit",
+      "story-limits-qwen-math500-CharLimit",
+      "story-limits-qwen-math500-TokenLimit",
+      "story-limits-qwen-gsm8k-WordLimit",
+      "story-limits-qwen-gsm8k-CharLimit",
+      "story-limits-qwen-gsm8k-TokenLimit",
+      "story-limits-qwen-mmlu-WordLimit",
+      "story-limits-qwen-mmlu-CharLimit",
+      "story-limits-qwen-mmlu-TokenLimit",
+      "story-limits-qwen3-math500-WordLimit",
+      "story-limits-qwen3-math500-CharLimit",
+      "story-limits-qwen3-math500-TokenLimit",
+      "story-limits-qwen3-gsm8k-WordLimit",
+      "story-limits-qwen3-gsm8k-CharLimit",
+      "story-limits-qwen3-gsm8k-TokenLimit",
+      "story-limits-qwen3-mmlu-WordLimit",
+      "story-limits-qwen3-mmlu-CharLimit",
+      "story-limits-qwen3-mmlu-TokenLimit",
+      "story-position",
+      "story-repair-qwen",
+      "story-repair-qwen3",
+      "efficiency",
+      "efficiency-prompts",
+      "position-matrix",
+      "position-profile",
+      "code-sampling",
+      "code-prompts",
+      "code-errors",
+      "code-tokens",
+      "discovery-1",
+      "discovery-2",
+      "discovery-3",
+      "discovery-4",
+      "discovery-5",
+      "chart-model",
+      "chart-radar",
+      "chart-heatmap",
+      "chart-bubble",
+      "chart-radial",
+      "chart-position",
+      "chart-box",
+      "chart-parallel",
+      "chart-distribution",
+      "chart-behavior",
+      "chart-timeline",
+      "chart-tree",
+      "chart-flow",
+      "chart-flow-empty"
+    ],
+    "viewports": [
+      320,
+      390,
+      768,
+      1440
+    ]
+  },
+  "fingerprints": {
+    "app/index.html": "27ebe1593c3e7bac297c46948ed2e57379e7480f5e290e525df12af82c8de414",
+    "app/explore.html": "e53146627e0ed7ba3d8dce7ead25721fc13224b891bf239cafcca7b32844d8df",
+    "app/site.css": "b6b6cca47c00b3d9df70128ca8ba0b2489a116e71464eb2a6a7a5232a8fb6fe0",
+    "app/story.css": "7685e04f3bad32cdcdedee1591b159c6489105f7582b58ef97fbaa146461b669",
+    "app/styles.css": "264ac5d719fafef7890d4ac064175335918c78c93f9a9c0985b96b136b411ef7",
+    "app/intro.css": "1a81cc2d4cd3ec83879c876d3c0cdb348e3f74cd78289433e01c08a0e2d1a817",
+    "app/deck.css": "17b4fc0d3c15fa9be993a9207887562e4fd13484515eaa6d755bc95fa03be4ed",
+    "app/templates/deck-header.html": "c5310a775955d84ac4d3b664f87d91d2581b55c8957a023ff4174b5e5cd26620",
+    "app/assets/fonts/lens-intro-semibold.woff2": "2483a4e262eaa7f47762b86d5ed233c2e6199c446202bc6b433ff30c33d5b5ba",
+    "app/templates/site-header.html": "d39ec21f6449bba956f0f6e9f337acdde8cf9efc952233072dc61b6335639367",
+    "scripts/system/build_web_app.py": "b0f43dfb75f3b9e5829ff2d48223aa332e374df2a70cc49bbd0d9bc2d17a3479",
+    "app/assets/fonts/lens-editorial-site-semibold.woff2": "551f93dd92d0f778415410499939aa0505f4aaaa6439e8eaf1a08cd207b768d1",
+    "app/assets/visual/lens-wordmark.webp": "7a6b1fb73946f0310605543c5416331683a74b329469215b31a224db72f074cf",
+    "app/assets/vendor/motion-mini-14.9.0.min.js": "4bafd0d178299b2d0370a279fb28b2c3553855890f2b1dc9a8b09ece46e16c4a",
+    "app/src/app.js": "fdad676e751607158818eddf501655f9c8fd551d4f0a2ea0487ed175b7bc97b1",
+    "app/src/charts.js": "d63665664ff2de933632a220bdbb88e4c266b3461f8ec5d35182651e82d53c03",
+    "app/src/code-interactions.js": "c5c6c669a14a07fb735dbf273fee4baa9809f824343102548fe8ea3e49ffc964",
+    "app/src/code-study.js": "b6e3c034e9fcc04938e76a1f813042df917259be6c1d8dcba0d3ed7e9bd2becf",
+    "app/src/intro.js": "14663419046daab6123f1d0f39b6f8f2f35398a76c19c68d8d169e3f02600ebc",
+    "app/src/libraries.js": "21d8609b778724334167ebda135da0e02f97d16fa80f592ab7d54be9d575b71a",
+    "app/src/model.js": "dca681c4300f088cb1a4890bea8451240e94ea527dae998f8a85cfdc5b6f633f",
+    "app/src/narrative.js": "47f1e50149988bd9d075e25d71fbac7008b0d0121a7ffb810c17b5630a286b90",
+    "app/src/site-shell.js": "358f1b20019a92bd03236e65d3b2f88307483cf8a9631d9b936d35a61a8eb5ba",
+    "app/src/story-charts.js": "589088e6f3f37d6ac71ed1447d9284245cae358f0000803a28f050799d0894c3",
+    "app/src/story-motion.js": "bb9b2edb820fb4fe4fa44a24132e617f43c047d0c88eda9eb3c5ad86a0b91a1e",
+    "app/src/story.js": "ac8674c554dae8a6a8d933e694e2e72937027e322923948554c858cc7f1caacb"
+  },
+  "results": [
+    {
+      "name": "Shared filters write URL",
+      "passed": true,
+      "detail": "http://127.0.0.1:8788/explore.html?mode=explore&chart=model&dataset=reasoning&task=math500&prompt=NoCoT&metric=0&models=qwen#case-1"
+    },
+    {
+      "name": "Shared filters survive refresh",
+      "passed": true
+    },
+    {
+      "name": "Interactive chart SVG download",
+      "passed": true
+    },
+    {
+      "name": "model-chart desktop accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Primary mode overview-mode",
+      "passed": true
+    },
+    {
+      "name": "Primary mode position-mode",
+      "passed": true
+    },
+    {
+      "name": "Primary mode code-mode",
+      "passed": true
+    },
+    {
+      "name": "Primary mode demo-mode",
+      "passed": true
+    },
+    {
+      "name": "Primary mode explore-mode",
+      "passed": true
+    },
+    {
+      "name": "Statistics dialog opens and receives focus",
+      "passed": true
+    },
+    {
+      "name": "method dialog accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Escape closes dialog and restores focus",
+      "passed": true
+    },
+    {
+      "name": "Position cell opens exactly 400 matching responses",
+      "passed": true
+    },
+    {
+      "name": "Selected cohort CSV retains 400 rows",
+      "passed": true
+    },
+    {
+      "name": "Anonymous record detail remains available",
+      "passed": true
+    },
+    {
+      "name": "record detail phone accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Position-to-exploration preserves cohort",
+      "passed": true,
+      "detail": "http://127.0.0.1:8788/explore.html?mode=explore&chart=behavior&dataset=document_qa&task=document_qa&prompt=AbbreviateWords&metric=0&models=qwen&position=front#case-1"
+    },
+    {
+      "name": "Linked cohort survives refresh",
+      "passed": true
+    },
+    {
+      "name": "Code sample step and URL update",
+      "passed": true
+    },
+    {
+      "name": "Code playback reaches actual fifth sample",
+      "passed": true
+    },
+    {
+      "name": "Code method dialog preserves study scope",
+      "passed": true
+    },
+    {
+      "name": "Code statistics CSV download",
+      "passed": true
+    },
+    {
+      "name": "Numeric brush remains linked to URL",
+      "passed": true,
+      "detail": "http://127.0.0.1:8788/explore.html?codeView=tokens&codeK=1&codeBrush=0%2C250%2C0%2C100#code"
+    },
+    {
+      "name": "Clearing numeric brush restores all conditions",
+      "passed": true
+    },
+    {
+      "name": "code tokens accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Code error selector updates state",
+      "passed": true
+    },
+    {
+      "name": "Code scoring record detail preserved",
+      "passed": true
+    },
+    {
+      "name": "Keyboard cohort controls reveal on focus",
+      "passed": true
+    },
+    {
+      "name": "Behavior cohort records work",
+      "passed": true
+    },
+    {
+      "name": "behavior phone accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Home-library round trip",
+      "passed": true
+    },
+    {
+      "name": "library phone accessibility",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Library has real normal-mode motion",
+      "passed": true,
+      "detail": {
+        "actual": 5,
+        "played": 4,
+        "renders": 2,
+        "dialogs": 0,
+        "reduced": false,
+        "running": 4
+      }
+    },
+    {
+      "name": "Library animations settle",
+      "passed": true
+    },
+    {
+      "name": "Changing motion preference stops animations",
+      "passed": true
+    },
+    {
+      "name": "Reduced-motion library content remains visible",
+      "passed": true
+    },
+    {
+      "name": "Rapid library navigation releases animations",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "No failed resources",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "fonts": [],
+  "errors": [],
+  "failedRequests": []
+}

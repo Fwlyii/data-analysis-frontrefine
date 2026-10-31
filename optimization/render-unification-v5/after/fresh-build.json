@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "stagedTree": "fb9de0a479c919e902dcb43755a2a60479001f55",
+  "conditions": "Fresh staged-tree extraction; no prior runtime/dist or LFS downloads",
+  "checks": [
+    "static build",
+    "resource and frozen-data bindings",
+    "v6 actual-paint deployment gate"
+  ]
+}
