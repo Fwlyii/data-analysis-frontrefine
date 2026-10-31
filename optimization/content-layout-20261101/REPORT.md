@@ -50,4 +50,10 @@
 
 本机无头浏览器的普通1080p开场平均约47fps，2560×1440约27fps，四倍CPU减速约32fps。大画幅在本机的软件渲染诊断中帧率偏低；这轮主要交付1080p内容布局，保留原开场，不把这些数值包装为真实录屏电脑的GPU表现。
 
-最终发布门禁通过：93个状态、186组主要电脑截图、五种电脑宽度、452个当前生产源指纹。线上部署与资源核对在发布后补充。失败及修正记录保留在`iterations/`，包括宽屏代码模型标签和更多发现章节标签的对比度修正。展开检查发现表格本身仍有12px规则覆盖容器字号，因此补充电脑端详情窗口：720px阅读宽度、正文/字段/表格/操作16px、次级标题20px，并增加八项真实展开字号检查。宽屏补充程序使用唯一URL参数，确保各真实视图重新初始化，避免同文档hash跳转导致误拍上一视图。
+最终发布门禁通过：93个状态、186组主要电脑截图、五种电脑宽度、452个当前生产源指纹。产品提交`774baef1c26e0a3ddf848fe28c5158363d1c1748`已正常推送main，[对应Pages工作流](https://github.com/Fwlyii/data-analysis-frontrefine/actions/runs/41224503533)成功，原始结果见`after/deployment.json`。线上核对已全部通过：228个文件与本地构建逐字节一致；336项真实浏览器检查覆盖两种主要电脑尺寸的93个实际路由、原生首页与图表库操作、开场/五球/同节点交接、可读模块和31项实际SVG/CSV导出。没有未捕获浏览器错误或失败的普通资源请求。
+
+原始报告：`after/public-assets.json`、`after/public-browser.json`、`after/public-routes/site-checks.json`、`after/public-ui/`、`after/public-export-checks.json`。线上1920截图见[研究问题](after/public-question-fullhd.png)及`after/public-routes/*-fullhd.png`。本轮源码、截图、录屏和线上证据均已归档。
+
+[直接查看研究问题](https://fwlyii.github.io/data-analysis-frontrefine/?intro=0&v=reading-774baef#question) · [完整开场入口](https://fwlyii.github.io/data-analysis-frontrefine/?intro=1&v=reading-774baef)
+
+归档时同步修正旧辅助画廊程序和基线截图入口，使它们调用本轮电脑版流程；修正一处沿用旧提交号的报告标签，并实际重跑65项内容对照。没有改变产品源文件或静态网页产物。失败及修正记录保留在`iterations/`，包括宽屏代码模型标签和更多发现章节标签的对比度修正。展开检查发现表格本身仍有12px规则覆盖容器字号，因此补充电脑端详情窗口：720px阅读宽度、正文/字段/表格/操作16px、次级标题20px，并增加八项真实展开字号检查。宽屏补充程序使用唯一URL参数，确保各真实视图重新初始化，避免同文档hash跳转导致误拍上一视图。
