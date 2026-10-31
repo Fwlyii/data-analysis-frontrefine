@@ -1,0 +1,152 @@
+{
+  "releaseCommit": "7f8ba0648a1a7811f1d7f6e6c9f5cc021edbc684",
+  "base": "https://fwlyii.github.io/data-analysis-frontrefine/",
+  "results": [
+    {
+      "name": "Published forced opening starts",
+      "passed": true
+    },
+    {
+      "name": "Published opening carries five live navigation points",
+      "passed": true
+    },
+    {
+      "name": "Published handoff keeps the same lens and five link nodes",
+      "passed": true
+    },
+    {
+      "name": "Published opening releases Canvas and focus lock",
+      "passed": true
+    },
+    {
+      "name": "Published all five decorative planets decode with native accessible labels",
+      "passed": true
+    },
+    {
+      "name": "Published default homepage is the gateway without a sidebar",
+      "passed": true
+    },
+    {
+      "name": "Published hover reveals description",
+      "passed": true
+    },
+    {
+      "name": "Published research page fills viewport without navigation question",
+      "passed": true
+    },
+    {
+      "name": "Published sphere enters original question",
+      "passed": true
+    },
+    {
+      "name": "Published desktop question has three readable rebuilt modules",
+      "passed": true
+    },
+    {
+      "name": "Published research page fills viewport without navigation collection",
+      "passed": true
+    },
+    {
+      "name": "Published sphere enters original collection",
+      "passed": true
+    },
+    {
+      "name": "Published palette uses mist reading surface and navy heading",
+      "passed": true
+    },
+    {
+      "name": "Published research page fills viewport without navigation cleaning",
+      "passed": true
+    },
+    {
+      "name": "Published sphere enters original cleaning",
+      "passed": true
+    },
+    {
+      "name": "Published research page fills viewport without navigation landscape",
+      "passed": true
+    },
+    {
+      "name": "Published sphere enters original landscape",
+      "passed": true
+    },
+    {
+      "name": "Published research page fills viewport without navigation findings",
+      "passed": true
+    },
+    {
+      "name": "Published sphere enters original findings",
+      "passed": true
+    },
+    {
+      "name": "Published original position slider remains live",
+      "passed": true
+    },
+    {
+      "name": "Published chart library retains its real SVG",
+      "passed": true
+    },
+    {
+      "name": "Published original code views remain available",
+      "passed": true
+    },
+    {
+      "name": "Published library return restores gateway without replay",
+      "passed": true
+    },
+    {
+      "name": "Published replay and early skip restore all spheres",
+      "passed": true
+    },
+    {
+      "name": "Published mobile layout has five readable targets without horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Published real touch enters original data pipeline",
+      "passed": true
+    },
+    {
+      "name": "Published reduced motion keeps gateway usable without loops",
+      "passed": true
+    },
+    {
+      "name": "Published research deep link does not borrow gateway spheres",
+      "passed": true
+    },
+    {
+      "name": "Published deep-link opening retains its original header landing",
+      "passed": true
+    },
+    {
+      "name": "No uncaught published browser errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "93 real online routes at two desktop recording viewports",
+      "passed": true,
+      "checks": 188,
+      "externalReport": "optimization/color-unification-20261101/after/public-routes/site-checks.json"
+    },
+    {
+      "name": "Original home online interactions",
+      "passed": true,
+      "checks": 49,
+      "externalReport": "optimization/color-unification-20261101/after/public-ui/home-interactions.json"
+    },
+    {
+      "name": "Original library online interactions",
+      "passed": true,
+      "checks": 39,
+      "externalReport": "optimization/color-unification-20261101/after/public-ui/library-interactions.json"
+    },
+    {
+      "name": "All scientific online SVG/CSV exports",
+      "passed": true,
+      "checks": 31,
+      "externalReport": "optimization/color-unification-20261101/after/public-export-checks.json"
+    }
+  ],
+  "errors": []
+}

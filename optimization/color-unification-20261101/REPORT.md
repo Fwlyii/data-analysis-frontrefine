@@ -46,11 +46,19 @@
 
 最终本地发布门禁通过：93个状态、186组主要电脑截图、五种电脑宽度、453个生产源指纹，保留533个原文件和原科学颜色。源码快照校验通过，40个本地绑定资源，无新增后端API调用。
 
-线上发布及核对将在推送后归档。
+产品提交`7f8ba0648a1a7811f1d7f6e6c9f5cc021edbc684`已正常推送main，[对应Pages工作流](https://github.com/Fwlyii/data-analysis-frontrefine/actions/runs/41228034516)成功，原始结果在`after/deployment.json`。
+
+线上核对全部通过：229个文件与本地构建逐字节一致；337项实际浏览器检查覆盖两种主要电脑尺寸的93个路由、原生首页与图表库操作、完整开场/五球/同节点交接、雾蓝灰阅读底与深蓝标题，以及31项实际SVG/CSV导出。没有未捕获浏览器错误或失败的普通资源请求。
+
+原始记录：`after/public-assets.json`、`after/public-browser.json`、`after/public-routes/site-checks.json`、`after/public-ui/`、`after/public-export-checks.json`。线上1920截图见`after/public-collection-fullhd.png`、`after/public-library-fullhd.png`和完整`after/public-routes/`。
+
+[研究页新配色](https://fwlyii.github.io/data-analysis-frontrefine/?intro=0&v=palette-7f8ba06#collection) · [图表库新配色](https://fwlyii.github.io/data-analysis-frontrefine/explore.html?mode=explore&chart=model&v=palette-7f8ba06) · [从完整开场进入](https://fwlyii.github.io/data-analysis-frontrefine/?intro=1&v=palette-7f8ba06)
+
+后续只归档线上证据，不再改变静态网页产物。
 
 
 ## 代表页面实拍
 
-![新版研究页](after/collection-1920.png)
+![线上新版研究页](after/public-collection-fullhd.png)
 
-![新版图表库](after/library-1920.png)
+![线上新版图表库](after/public-library-fullhd.png)
