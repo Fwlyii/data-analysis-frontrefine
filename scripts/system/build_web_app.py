@@ -1,5 +1,6 @@
 """Build a file-openable classroom app using the Python standard library."""
 import base64
+import csv
 import gzip
 import hashlib
 import importlib.util
@@ -86,6 +87,33 @@ def build():
     story['figures']={p.stem:p.read_text() for p in sorted((APP/'assets/story').glob('*.svg'))}
     runtime.joinpath('story-data.js').write_text('window.LENS_STORY='+json.dumps(story,ensure_ascii=False,separators=(',',':'))+';\n')
     shutil.copy2(APP/'src/story.js',runtime/'story.js')
+    shutil.copy2(APP/'src/story-charts.js',runtime/'story-charts.js')
+    narrative=json.loads((APP/'data/narrative-evidence.json').read_text())
+    positions={'begin':'Position 1','start':'Position 1','front':'Position 1','middle':'Position 10','end':'Position 20','last':'Position 20','back':'Position 20'}
+    document_profiles=[]
+    for row in summary['cells']:
+        if row['dataset']=='document_qa' and row['task']=='document_qa' and row['documents']==20:
+            document_profiles.append({'model':row['model'],'task':positions[row['position']],
+                'prompt':row['prompt'],'questions':row['questions'],
+                'score_pct':100*row['scores'][2]/row['n'],
+                'mean_tokens':row['tokens']/row['token_n']})
+    with (ROOT/'reports/code_generation/conditions.csv').open(encoding='utf-8-sig') as stream:
+        code_profiles=[{'model':row['model'],'task':'CodePromptEval','prompt':row['prompt'],
+            'questions':int(row['questions']),'score_pct':100*float(row['pass_1']),
+            'mean_tokens':float(row['mean_output_tokens'])}
+            for row in csv.DictReader(stream) if row['prompt']!='__all']
+    narrative['profiles_by_direction']={'reasoning':narrative['profiles'],
+        'document_qa':document_profiles,'code_generation':code_profiles}
+    for direction,config in narrative['directions'].items():
+        for model in config['models']:
+            for task in config['groups']:
+                rows=[r for r in narrative['profiles_by_direction'][direction] if r['model']==model and r['task']==task]
+                if len(rows)!=31 or len({r['prompt'] for r in rows})!=31:
+                    raise ValueError(f'Incomplete narrative profiles: {direction}/{model}/{task}')
+    (APP/'data/narrative-evidence.json').write_text(json.dumps(narrative,ensure_ascii=False,separators=(',',':'))+'\n')
+    narrative['figures']={p.stem:p.read_text() for p in sorted((APP/'assets/narrative').glob('*.svg'))}
+    runtime.joinpath('narrative-data.js').write_text('window.LENS_NARRATIVE='+json.dumps(narrative,ensure_ascii=False,separators=(',',':'))+';\n')
+    shutil.copy2(APP/'src/narrative.js',runtime/'narrative.js')
     index=APP/'explore.html'
     markup=index.read_text()
     for asset in ['styles.css','runtime/summary.js','runtime/publication.js','runtime/code-data.js','runtime/app.js']:
@@ -94,9 +122,9 @@ def build():
     index.write_text(markup)
     story_index=APP/'index.html'
     markup=story_index.read_text()
-    for asset in ['story.css','runtime/story-data.js','runtime/story.js']:
+    for asset in ['story.css','runtime/story-data.js','runtime/story.js','runtime/story-charts.js','runtime/narrative-data.js','runtime/narrative.js']:
         digest=hashlib.sha256((APP/asset).read_bytes()).hexdigest()[:12]
-        markup=re.sub(r'([\"\"])'+re.escape(asset)+r'(?:\?v=[a-f0-9]+)?([\"\"])',lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)
+        markup=re.sub(r'([\"\"])'+re.escape(asset)+r'(?:\?v=[^\"\']+)?([\"\"])',lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)
     story_index.write_text(markup)
     dist=APP/'dist'
     if dist.exists():shutil.rmtree(dist)

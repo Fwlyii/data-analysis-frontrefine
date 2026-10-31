@@ -1,15 +1,16 @@
+@font-face{font-family:Geist;src:url(assets/fonts/Geist-Regular.ttf) format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:Geist;src:url(assets/fonts/Geist-Medium.ttf) format('truetype');font-weight:500;font-display:swap}
+@font-face{font-family:Geist;src:url(assets/fonts/Geist-Semibold.ttf) format('truetype');font-weight:600;font-display:swap}
 :root {
-  --paper: #fff;
-  --ink: #252830;
-  --muted: #65656e;
-  --rule: #e5e3eb;
-  --accent: #8958b4;
+  --paper: #f4f1ea;
+  --ink: #242522;
+  --muted: #696962;
+  --rule: #dcd6cb;
+  --accent: #a24833;
   --figure-font: "Times New Roman", "Songti SC", serif;
-  --ui-font:
-    -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei",
-    sans-serif;
+  --ui-font: Geist, "PingFang SC", "Microsoft YaHei", sans-serif;
   --tblr-font-sans-serif: var(--ui-font);
-  --tblr-body-bg: #fff;
+  --tblr-body-bg: var(--paper);
   --tblr-body-color: var(--ink);
 }
 * {
@@ -23,8 +24,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 ::selection {
-  background: #e8def1;
-  color: #252830;
+  background: #e4cfc3;
+  color: #242522;
 }
 button,
 a,

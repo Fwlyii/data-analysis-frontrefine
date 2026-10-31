@@ -1,57 +1,679 @@
-(()=>{
-'use strict';
-const D=window.LENS_STORY, $=s=>document.querySelector(s);
-if(!D){$('#research').innerHTML='<p class="boot-message">研究数据未能打开，请重新启动本地系统。</p>';return;}
-const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const names={deepseek:'DeepSeek',hy4:'HY4',qwen:'Qwen2.5 7B',qwen3:'Qwen3 8B'}, tasks={gsm8k:'GSM8K',math500:'MATH500',mmlu:'MMLU'};
-const order=['concise','language','limits','position','repair'];
-const titles={concise:'简洁作答',language:'中文数学',limits:'限长反弹',position:'资料位置',repair:'反馈修复'};
-const headings={concise:'把推理留下，<br>把冗余删掉。',language:'同一道数学题，<br>换成中文作答。',limits:'越是极端限长，<br>越可能写得更长。',position:'资料位置一变，<br>模型差距也变了。',repair:'让模型改对代码，<br>先告诉它哪里错。'};
-const premise={concise:'分步解题有效，但每一步都需要长篇解释吗？在分步提示后加一句 “but be concise”，看表现能保留多少。',language:'英文数学题，分别使用默认分步模板与中文作答模板。MATH500 上，四个模型都更省 Token，其中三个模型得分提高。',limits:'“只用几个词”看起来很省。真实回答却显示：约束过紧，模型可能把输出用在反复处理格式上。',position:'同样的问题、同样的 20 篇资料，只移动相关文档。九个实测位置揭示了不同模型利用资料的差别。',repair:'面对测试失败，只说“再检查一次”够不够？把具体失败输入、预期和实际结果交给模型，观察四轮修改。'};
-const finding={concise:'17 组模型与任务对照，<strong>全部缩短输出</strong>；15 组得分点估计持平或提高。',language:'Qwen3 / MATH500：<strong>58.0% → 69.5%</strong>，平均输出同时减少 19.5%。',limits:'把词数从 10 压到 1，<strong>12 组中有 9 组输出反而增加</strong>。',position:'证据从第 1 位移至第 20 位，两模型的命中率差距从 <strong>16.5 pp 缩至 2.5 pp</strong>。',repair:'Qwen3 到第四轮：具体反例修复 <strong>141/164</strong>，自行检查 <strong>129/164</strong>。'};
-const s={chapter:'concise',view:'baseline',task:'math500',model:'deepseek',family:'WordLimit',repairModel:'qwen3',round:4,position:0,ci:false};
-const positions=[1,3,5,8,10,13,15,18,20];let playing=null,noticeTimer=null,lastRoute='';
-function hydrate(){const p=new URLSearchParams(location.search);const rawRound=Number(p.get('round')??4);Object.assign(s,{view:p.get('view')==='cross'?'cross':'baseline',task:Object.hasOwn(tasks,p.get('task'))?p.get('task'):'math500',model:Object.hasOwn(names,p.get('model'))?p.get('model'):'deepseek',family:['WordLimit','CharLimit','TokenLimit'].includes(p.get('family'))?p.get('family'):'WordLimit',repairModel:p.get('repairModel')==='qwen'?'qwen':'qwen3',round:Number.isFinite(rawRound)?Math.max(0,Math.min(4,Math.trunc(rawRound))):4,position:Math.max(0,positions.indexOf(Number(p.get('position')||1))),ci:p.get('ci')==='1'});}
-const icon=(name)=>{const paths={download:'M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5',table:'M4 4h16v16H4zM4 10h16M10 4v16',down:'m6 9 6 6 6-6',left:'m14 6-6 6 6 6',right:'m10 6 6 6-6 6',play:'m8 5 11 7-11 7z',pause:'M8 5v14M16 5v14'};return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${paths[name]}"/></svg>`;};
-const options=(values,value)=>Object.entries(values).map(([k,v])=>`<option value="${esc(k)}" ${k===value?'selected':''}>${esc(v)}</option>`).join('');
-const select=(id,label,values,value)=>`<label class="selector" for="${id}">${label}<select id="${id}">${options(values,value)}</select></label>`;
-const seg=(id,values,value)=>`<div class="segmented" role="group" aria-label="${id==='view'?'对照范围':'限制单位'}">${Object.entries(values).map(([k,v])=>`<button data-${id}="${k}" aria-pressed="${k===value}">${v}</button>`).join('')}</div>`;
-function controls(){switch(s.chapter){case'concise':return seg('view',{baseline:'同题对照',cross:'跨任务复现'},s.view);case'language':return select('task','题库',tasks,s.task);case'limits':return select('model','模型',names,s.model)+select('task','题库',tasks,s.task)+select('family','限制',{WordLimit:'词数',CharLimit:'字母数',TokenLimit:'Token 数'},s.family);case'position':return '<span class="selector">NoCoT / 20 篇资料 / 200 题</span>';case'repair':return select('repair-model','模型',{qwen3:'Qwen3 8B',qwen:'Qwen2.5 7B'},s.repairModel);}}
-function figureKey(){return {concise:s.view==='cross'?'concise-cross':'concise-baseline',language:'language-'+s.task,limits:`limit-${s.model}-${s.task}-${s.family}`,position:'position',repair:`repair-${s.repairModel}-${s.round}`}[s.chapter];}
-function caption(){return {concise:s.view==='cross'?['BeConcise 相对 DefaultCoT / 17 组','各方向按原评分对照，不合并总分。']:['Qwen2.5 7B / GSM8K / 同一批 200 题','得分相近，平均输出减少 21.5%。'],language:[`${tasks[s.task]} / 每个模型 200 题`,'圆点：DefaultCoT；菱形：中文作答模板。'],limits:[`${names[s.model]} / ${tasks[s.task]} / 每档 200 题`,'每根柱对应一个实测档位；连线仅连接实测得分。'],position:['相同问题配对 / 每个位置 200 题','九个位置均为实测；纵轴为 40%–82%。'],repair:['HumanEval+ Mini / 164 题 / 初稿 + 4 轮','当前版本完整测试通过率；纵轴为 72%–90%。']}[s.chapter];}
-function scrubber(){if(s.chapter==='position')return `<div class="point-control"><label for="position">证据位置</label><input id="position" type="range" min="0" max="8" step="1" value="${s.position}" aria-valuetext="第 ${positions[s.position]} 篇"><output for="position" id="position-label">第 ${positions[s.position]} 篇</output><label class="interval-control"><input id="ci" type="checkbox" ${s.ci?'checked':''}>95% 区间</label></div><div id="point-readout" class="point-readout" aria-live="polite"></div>`;
-if(s.chapter==='repair')return `<div class="point-control"><button id="play" class="play-button" aria-label="播放五个代码版本">${icon('play')}<span>播放过程</span></button><label for="round">版本</label><input id="round" type="range" min="0" max="4" step="1" value="${s.round}" aria-valuetext="${s.round===0?'初稿':`修改 ${s.round} 轮后`}"><output id="round-label" for="round">${s.round===0?'初稿':'第 '+s.round+' 轮'}</output></div><div id="point-readout" class="point-readout" aria-live="polite"></div>`;return '';}
-function excerpt(r,max=600){if(r.response.length<=max)return r.response;return r.response.slice(0,max-160)+'\n[…]\n'+r.response.slice(-160);}
-function answer(r,label,prompt,max=650,chosen=false){return `<article class="answer ${chosen?'full':''}"><header><strong>${esc(label)}</strong><span class="answer-meta">${r.tokens} Token / ${r.finish==='length'?'截断':r.score?'得分':'未得分'}</span></header><p class="prompt-text">${esc(prompt)}</p><div class="answer-content">${esc(excerpt(r,max))}</div>${r.response.length>max?`<details><summary>展开完整原文</summary><div class="answer-content">${esc(r.response)}</div></details>`:''}</article>`;}
-function pairedCase(ids,question,labels,prompts,explain,max=650){const [a,b]=ids.map(id=>D.examples.reasoning.find(r=>r.id===id));return `<p class="question">${esc(question)}<small>${esc(a.model==='deepseek'?'DeepSeek':names[a.model])} / ${tasks[a.task]} / 同题回答</small></p><div class="prompt-comparison">${answer(a,labels[0],prompts[0],max)}${answer(b,labels[1],prompts[1],max,true)}</div><p class="example-explanation">${explain}</p>`;}
-function example(){return `<p class="question">本章条件的匿名数值对照</p>${table()}`;}
-function currentRows(){switch(s.chapter){case'concise':return s.view==='cross'?D.concise.map(r=>({模型:names[r.model]||r.model,任务:r.task,省Token百分比:r.saving,得分变化pp:r.delta})):D.baseline.map(r=>({策略:r.prompt,得分百分比:r.score_pct,平均Token:r.mean_tokens}));case'language':return D.chinese.filter(r=>r.task===s.task).map(r=>({模型:names[r.model],默认得分:r.default_score_pct,中文得分:r.chinese_score_pct,省Token百分比:r.token_saving_pct,默认截断:r.default_truncation_pct,中文截断:r.chinese_truncation_pct}));case'limits':return D.limits[`${s.model}-${s.task}-${s.family}`].map(r=>({提示:r.prompt,平均Token:r.mean_tokens,得分百分比:r.score_pct,截断百分比:r.truncated_pct}));case'position':return D.positions.map(r=>({模型:r.model.split('/')[1],证据位置:r.position,命中率百分比:100*r.rate,下界:100*r.ci_low,上界:100*r.ci_high}));case'repair':return D.repair[s.repairModel].filter(r=>r.round<=s.round).map(r=>({反馈组:r.arm,修改轮次:r.round,通过题数:r.success,题数:r.tasks,通过率百分比:100*r.rate,区间下界:100*r.ci_low,区间上界:100*r.ci_high}));}}
-const fmt=x=>typeof x==='number'?Number(x.toFixed(2)):x;
-function table(){const rows=currentRows();return `<div class="data-scroll"><table><thead><tr>${Object.keys(rows[0]).map(k=>`<th scope="col">${esc(k)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${Object.values(r).map(v=>`<td>${esc(fmt(v))}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;}
-function methods(){const text={concise:'固定 Qwen2.5/GSM8K，提示策略 → 得分，作为低维发现之一。200 道同题对照中，DefaultCoT 相对 NoCoT 提高 69.5 pp，配对区间 [63.0, 76.0]。跨任务复现分别使用推理原评分、文档最终答案包含率、代码 Pass@1；15/17 是点估计的方向计数，不代表每组都通过等效性检验。',language:'固定 Qwen3/MATH500，作答模板 → 得分，作为第二条低维发现。ChineseCoT 的真实指令是 “Respond in Chinese.”，同时改变了分步要求的表述。主发现定位在 MATH500：GSM8K 四模型得分下降 0.5–4.5 pp。输出语言与内部思考语言分开理解。',limits:'极端限长是课程要求的异常/特殊现象。图中每档是同一批 200 题的均值；横轴按离散提示档位排列，未插值生成采样点。词数、字母数和 Token 限制是提示文本，不是接口硬上限。返回 Token 由接口统计，不能与词数或字母数直接按数值判断是否超限。',position:'模型 × 证据位置 → 命中率，作为多维发现之一。同一批 200 题、20 篇文档、NoCoT、文档位置配对。Qwen3 第 1 位相对第 10 位 +9.5 pp，配对区间 [4.5, 15.0]；首尾的模型增益相差 14.0 pp，区间 [5.5, 23.0]。阴影为各位置命中率的 95% 区间。两模型采集日期不同，提示与生成设置一致。',repair:'反馈方式 × 修改轮次 → 当前版本完整测试通过率，作为第二条多维发现。164 题、两个模型、共享初稿、最多四轮。独立重采样不含历史，其余三组保留历史；具体反例只使用基础诊断测试反馈，新增测试不进入提示。Qwen3 最终反例组比自行检查高 7.32 pp，配对区间 [3.05, 12.20]；Qwen2.5 差值为 +1.83 pp。图中是当前版本得分，不是历轮累计覆盖率。'};return `<p>${text[s.chapter]}</p><p>课程基础要求：至少两条低维规律、两条三属性及以上关系、一条异常或局限。本页五章按这一结构组织。<a href="data/course-assignment.pdf" target="_blank" rel="noopener">查看课程原文</a></p><p>柱状图、散点图、箱线图、热力图及联动探索等课程图形，集中在<a href="explore.html?mode=explore#case-1">完整图表库</a>。</p>`;}
-function render({top=false}={}){
- if(s.chapter==='language'){if(s.task==='math500'){headings.language='同一道数学题，<br>换成中文作答。';premise.language='英文数学题，分别使用默认分步模板与中文作答模板。MATH500 上，四个模型都更省 Token，其中三个模型得分提高。';finding.language='Qwen3 / MATH500：<strong>58.0% → 69.5%</strong>，平均输出同时减少 19.5%。';}else if(s.task==='gsm8k'){headings.language='中文模板更短，<br>基础算术未提分。';premise.language='换一组题看语言效应：同样是数学，GSM8K 的结果与 MATH500 不同。';finding.language='GSM8K 四模型全部省 Token，但得分下降 <strong>0.5–4.5 pp</strong>。';}else{headings.language='选择题上，<br>更短也能保分。';premise.language='MMLU 选择题中，中文作答模板同样压缩了输出，四个模型的得分点估计均未下降。';finding.language=`Qwen3 / MMLU：<strong>${D.chinese.find(r=>r.model==='qwen3'&&r.task==='mmlu').default_score_pct.toFixed(1)}% → ${D.chinese.find(r=>r.model==='qwen3'&&r.task==='mmlu').chinese_score_pct.toFixed(1)}%</strong>，其他模型得分持平或提高。`;}}
- const active=document.activeElement;const focusId=$('#research').contains(active)?active.id:null;const focusView=active?.dataset?.view;
- stop();const i=order.indexOf(s.chapter),cap=caption();document.title=`${titles[s.chapter]} — LENS 模型行为研究`;
- document.querySelectorAll('[data-chapter]').forEach(a=>{if(a.dataset.chapter===s.chapter)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
- $('#research').innerHTML=`<section class="research-spread" aria-labelledby="finding-title"><div class="finding"><h1 id="finding-title">${headings[s.chapter]}</h1><p class="premise">${premise[s.chapter]}</p><p class="evidence-line">${finding[s.chapter]}</p><a class="case-jump" href="#${s.chapter}/example">查看结果对照 ${icon('down')}</a></div><section class="figure-sheet" aria-label="${titles[s.chapter]}实测图表"><div class="figure-toolbar"><div class="figure-controls">${controls()}</div><div class="export-tools"><button id="download-svg" class="icon-button" aria-label="下载当前 SVG 图表" title="下载 SVG">${icon('download')}</button><button id="download-csv" class="icon-button" aria-label="下载当前图表数据 CSV" title="下载数据 CSV">${icon('table')}</button></div></div><div class="plot-scroll" role="region" tabindex="0" aria-label="图表，可横向滚动"><div id="plot" class="plot"></div></div><span class="mobile-hint">左右滑动查看完整图表</span>${scrubber()}${s.chapter==='concise'&&s.view==='baseline'?'<p class="strategy-key">NoCoT 只给答案 / DefaultCoT 分步回答 / BeConcise 分步且简洁</p>':''}<div class="figure-caption"><span>${cap[0]}</span><span>${cap[1]}</span></div></section></section><section id="actual-example" class="evidence-section" aria-labelledby="example-title"><div class="section-heading"><h2 id="example-title">同一组题，结果改变了什么</h2><span>保留匿名特征与实际评分</span></div>${example()}</section><section class="support-section" aria-label="证据与课程对应"><details id="data-table"><summary>查看本图数据</summary>${table()}</details><details><summary>实验口径与课程对应</summary>${methods()}</details></section><nav class="chapter-footer" aria-label="相邻研究主题">${i>0?`<a href="#${order[i-1]}">${icon('left')} ${titles[order[i-1]]}</a>`:'<span></span>'}${i<4?`<a class="next" href="#${order[i+1]}">接下来：${titles[order[i+1]]} ${icon('right')}</a>`:'<a class="next" href="explore.html?mode=explore#case-1">进入完整图表库 '+icon('right')+'</a>'}</nav>`;
- paintPlot();bind();if(focusId)document.getElementById(focusId)?.focus({preventScroll:true});else if(focusView)document.querySelector(`[data-view="${focusView}"]`)?.focus({preventScroll:true});if(top)window.scrollTo({top:0,behavior:'instant'});
-}
-function paintPlot(){const p=$('#plot'),key=figureKey();p.innerHTML=D.figures[key]||'<p class="boot-message">此图暂不可用，请切换其他条件。</p>';const svg=p.querySelector('svg');if(svg){svg.setAttribute('role','img');svg.setAttribute('aria-label',`${titles[s.chapter]}：${caption().join(' ')}`);svg.removeAttribute('width');svg.removeAttribute('height');}if(s.chapter==='position')positionUpdate();if(s.chapter==='repair')repairUpdate();}
-function positionUpdate(){const p=positions[s.position];$('#position-label').textContent=`第 ${p} 篇`;$('#position').setAttribute('aria-valuetext',`第 ${p} 篇`);$('#plot').classList.toggle('show-intervals',s.ci);$('#plot').querySelectorAll('[id^="position-focus-"]').forEach(x=>x.classList.toggle('active-position',x.id==='position-focus-'+p));const rs=D.positions.filter(r=>r.position===p);const q25=rs.find(r=>r.model.includes('Qwen2.5')),q3=rs.find(r=>r.model.includes('Qwen3'));$('#point-readout').textContent=`第 ${p} 位：Qwen3 ${(q3.rate*100).toFixed(1)}% / Qwen2.5 ${(q25.rate*100).toFixed(1)}% / 相差 ${((q3.rate-q25.rate)*100).toFixed(1)} pp`;}
-function repairUpdate(){const r=D.repair[s.repairModel].filter(r=>r.round===s.round);const a=r.find(r=>r.arm==='counterexample'),b=r.find(r=>r.arm==='self_review');$('#round-label').textContent=s.round===0?'初稿':`第 ${s.round} 轮`;$('#round').value=s.round;$('#round').setAttribute('aria-valuetext',s.round===0?'初稿':`修改 ${s.round} 轮后`);const tableScroll=$('#data-table .data-scroll');if(tableScroll)tableScroll.outerHTML=table();$('#point-readout').textContent=`${s.round===0?'同一份初稿':`修改 ${s.round} 轮后`}：具体反例 ${a.success}/164 / 自行检查 ${b.success}/164`;}
-function url(){const p=new URLSearchParams();if(s.chapter==='concise'&&s.view==='cross')p.set('view',s.view);if(['language','limits'].includes(s.chapter))p.set('task',s.task);if(s.chapter==='limits'){p.set('model',s.model);p.set('family',s.family);}if(s.chapter==='position'){p.set('position',positions[s.position]);if(s.ci)p.set('ci','1');}if(s.chapter==='repair'){p.set('repairModel',s.repairModel);p.set('round',s.round);}history.replaceState(null,'',location.pathname+(p.size?'?'+p:'')+'#'+s.chapter);lastRoute=location.href;}
-function download(text,type,name){const blob=new Blob([text],{type}),a=document.createElement('a'),object=URL.createObjectURL(blob);a.href=object;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(object),1000);notify('已下载 '+name);}
-function notify(t){clearTimeout(noticeTimer);$('#notice').textContent=t;$('#notice').hidden=false;noticeTimer=setTimeout(()=>$('#notice').hidden=true,2600);}
-function bind(){document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{s.view=b.dataset.view;url();render();});
- if($('#task'))$('#task').onchange=e=>{s.task=e.target.value;url();render();};if($('#model'))$('#model').onchange=e=>{s.model=e.target.value;url();render();};if($('#family'))$('#family').onchange=e=>{s.family=e.target.value;url();render();};if($('#repair-model'))$('#repair-model').onchange=e=>{s.repairModel=e.target.value;url();render();};
- if($('#position'))$('#position').oninput=e=>{s.position=Number(e.target.value);positionUpdate();url();};if($('#ci'))$('#ci').onchange=e=>{s.ci=e.target.checked;positionUpdate();url();};
- if($('#round'))$('#round').oninput=e=>{stop();s.round=Number(e.target.value);paintPlot();url();};if($('#play'))$('#play').onclick=()=>{if(playing){stop();return;}s.round=0;paintPlot();url();$('#play').innerHTML=icon('pause')+'<span>暂停</span>';$('#play').setAttribute('aria-label','暂停播放');playing=setInterval(()=>{if(s.round===4){stop();return;}s.round++;paintPlot();url();if(s.round===4)stop();},window.matchMedia('(prefers-reduced-motion: reduce)').matches?1800:1100);};
- $('#download-svg').onclick=()=>{const key=figureKey();const svg=$('#plot svg').cloneNode(true);const box=svg.getAttribute('viewBox').trim().split(/[ ,]+/).map(Number);svg.setAttribute('width',box[2]+'pt');svg.setAttribute('height',box[3]+'pt');if(s.chapter==='position'){svg.querySelectorAll('[id^="position-focus-"],[id^="interval-"]').forEach(g=>g.style.display=(g.id==='position-focus-'+positions[s.position]||(s.ci&&g.id.startsWith('interval-')))?'inline':'none');}download(new XMLSerializer().serializeToString(svg),'image/svg+xml',key+'.svg');};$('#download-csv').onclick=()=>{const a=currentRows(),keys=Object.keys(a[0]),q=x=>'"'+String(x).replaceAll('"','""')+'"';download('\ufeff'+[keys.map(q).join(','),...a.map(r=>keys.map(k=>q(r[k])).join(','))].join('\r\n'),'text/csv;charset=utf-8','lens-'+s.chapter+'.csv');};
-}
-function stop(){if(playing)clearInterval(playing);playing=null;if($('#play')){$('#play').innerHTML=icon('play')+'<span>播放过程</span>';$('#play').setAttribute('aria-label','播放五个代码版本');}}
-function route(){if(lastRoute===location.href)return;lastRoute=location.href;hydrate();const pieces=location.hash.slice(1).split('/');let h=pieces[0];const example=pieces[1]==='example'||h==='actual-example';if(h==='budget'||h==='overview'||!h||h==='actual-example')h='concise';if(h==='context')h='position';if(h==='code')h='repair';if(!order.includes(h))h='concise';s.chapter=h;render({top:!example});if(example)requestAnimationFrame(()=>$('#actual-example')?.scrollIntoView({block:'start',behavior:'instant'}));}
-window.addEventListener('hashchange',route);window.addEventListener('popstate',route);document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
-$('#present').onclick=async()=>{try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen();}catch{notify('当前浏览器不支持全屏，请使用浏览器的全屏菜单。');}};
-route();
+(() => {
+  "use strict";
+  const D = window.LENS_STORY,
+    $ = (s) => document.querySelector(s);
+  if (!D) {
+    $("#research").innerHTML =
+      '<p class="boot-message">Research data could not be loaded.</p>';
+    return;
+  }
+  const esc = (x) =>
+    String(x ?? "").replace(
+      /[&<>"']/g,
+      (c) =>
+        ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        })[c],
+    );
+  const names = {
+    deepseek: "DeepSeek",
+    hy4: "HY4 preview",
+    qwen: "Qwen2.5 7B",
+    qwen3: "Qwen3 8B",
+  };
+  const tasks = { gsm8k: "GSM8K", math500: "MATH500", mmlu: "MMLU-Pro" };
+  const order = ["concise", "language", "position", "repair", "limits"];
+  const titles = {
+    concise: "Concise",
+    language: "Chinese math",
+    position: "Evidence position",
+    repair: "Feedback repair",
+    limits: "Length rebound",
+  };
+  const courseKinds = {
+    concise: "LOW-DIMENSION 01",
+    language: "LOW-DIMENSION 02",
+    position: "MULTIDIMENSIONAL 01",
+    repair: "MULTIDIMENSIONAL 02",
+    limits: "ANOMALY",
+  };
+  const headings = {
+    concise: "Concise preserves the reasoning gain.",
+    language: "Chinese makes complex math finish.",
+    position: "Model advantage moves with evidence.",
+    repair: "Concrete failures repair code better.",
+    limits: "Tighter limits can produce longer outputs.",
+  };
+  const finding = {
+    concise:
+      "Across 17 groups, <strong>all used fewer tokens</strong>; 15 did not lose score. Qwen2.5 / GSM8K saved <strong>21.5%</strong>.",
+    language:
+      "Qwen3 / MATH500: <strong>58.0 → 69.5%</strong>, with <strong>19.5% fewer tokens</strong>.",
+    position:
+      "Qwen3’s lead narrowed from <strong>16.5 pp</strong> to <strong>2.5 pp</strong>.",
+    repair:
+      "Qwen3 / Version 5: counterexamples <strong>141/164</strong>; self-review <strong>129/164</strong>.",
+    limits:
+      "From 10 words to 1, output increased in <strong>9 of 12 groups</strong>.",
+  };
+  const s = {
+    chapter: "concise",
+    view: "baseline",
+    task: "math500",
+    model: "deepseek",
+    family: "WordLimit",
+    repairModel: "qwen3",
+    round: 4,
+    position: 0,
+    ci: true,
+  };
+  const positions = [1, 3, 5, 8, 10, 13, 15, 18, 20];
+  const armLabels = {
+    resample: "Independent resampling",
+    self_review: "Self-review",
+    pass_fail: "Pass / fail",
+    counterexample: "Counterexample",
+  };
+  let playing = null,
+    noticeTimer = null,
+    lastRoute = "";
+  function hydrate() {
+    const p = new URLSearchParams(location.search),
+      rawRound = Number(p.get("round") ?? 4);
+    Object.assign(s, {
+      view: p.get("view") === "cross" ? "cross" : "baseline",
+      task: Object.hasOwn(tasks, p.get("task")) ? p.get("task") : "math500",
+      model: Object.hasOwn(names, p.get("model")) ? p.get("model") : "deepseek",
+      family: ["WordLimit", "CharLimit", "TokenLimit"].includes(p.get("family"))
+        ? p.get("family")
+        : "WordLimit",
+      repairModel: p.get("repairModel") === "qwen" ? "qwen" : "qwen3",
+      round: Number.isFinite(rawRound)
+        ? Math.max(0, Math.min(4, Math.trunc(rawRound)))
+        : 4,
+      position: Math.max(0, positions.indexOf(Number(p.get("position") || 1))),
+      ci: p.get("ci") !== "0",
+    });
+  }
+  const icon = (name) => {
+    const paths = {
+      download: "M12 3v12m-4-4 4 4 4-4M4 16v5h16v-5",
+      down: "m6 9 6 6 6-6",
+      left: "m14 6-6 6 6 6",
+      right: "m10 6 6 6-6 6",
+      play: "m8 5 11 7-11 7z",
+      pause: "M8 5v14M16 5v14",
+    };
+    return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${paths[name]}"/></svg>`;
+  };
+  const choices = (id, values, value) =>
+    `<div class="choice-switch" role="group" aria-label="${id}">${Object.entries(
+      values,
+    )
+      .map(
+        ([k, v]) =>
+          `<button data-${id}="${k}" aria-pressed="${k === value}">${v}</button>`,
+      )
+      .join("")}</div>`;
+  const control = (label, content) =>
+    `<div class="control-block"><span class="control-label">${label}</span>${content}</div>`;
+  const figureTitles = {
+    concise: "Paired output, same item set",
+    language: "Default → Chinese",
+    position: "Model × evidence position",
+    repair: "Feedback × code version",
+    limits: "Requested limit × actual output",
+  };
+  function controls() {
+    switch (s.chapter) {
+      case "concise":
+        return control(
+          "Scope",
+          choices(
+            "view",
+            { baseline: "Paired example", cross: "17 replications" },
+            s.view,
+          ),
+        );
+      case "language":
+        return control("Benchmark", choices("task", tasks, s.task));
+      case "limits":
+        return (
+          control(
+            "Model",
+            window.LENS_MODEL_BUTTONS(
+              Object.keys(names),
+              s.model,
+              "data-model",
+            ),
+          ) +
+          control("Benchmark", choices("task", tasks, s.task)) +
+          control(
+            "Limit",
+            choices(
+              "family",
+              {
+                WordLimit: "Words",
+                CharLimit: "Letters",
+                TokenLimit: "Tokens",
+              },
+              s.family,
+            ),
+          )
+        );
+      case "position":
+        return '<p class="control-note">NoCoT · 20 documents · 200 items / point</p>';
+      case "repair":
+        return control(
+          "Model",
+          window.LENS_MODEL_BUTTONS(
+            ["qwen3", "qwen"],
+            s.repairModel,
+            "data-repair-model",
+          ),
+        );
+    }
+  }
+  function figureKey() {
+    return {
+      concise: s.view === "cross" ? "concise-cross" : "concise-baseline",
+      language: "language-" + s.task,
+      limits: `limit-${s.model}-${s.task}-${s.family}`,
+      position: "position",
+      repair: `repair-${s.repairModel}-${s.round}`,
+    }[s.chapter];
+  }
+  function caption() {
+    return {
+      concise:
+        s.view === "cross"
+          ? [
+              "BeConcise vs DefaultCoT · 17 task groups",
+              "Task-specific metrics; no pooled accuracy.",
+            ]
+          : [
+              "Qwen2.5 7B · GSM8K · 200 paired items",
+              "Same step-by-step requirement. Means only; no stored item-level interval.",
+            ],
+      language: [
+        `${tasks[s.task]} · 4 models · 200 items / model`,
+        s.task === "math500"
+          ? "Four models used fewer tokens; three improved. Gold rings mark remaining truncation."
+          : "Fewer tokens do not imply a score gain on every task.",
+      ],
+      limits: [
+        `${names[s.model]} · ${tasks[s.task]} · 200 items / level`,
+        `Prompted ${s.family === "WordLimit" ? "word" : s.family === "CharLimit" ? "letter" : "token"} limits, not API hard caps.`,
+      ],
+      position: [
+        "Paired questions · 2 models × 9 positions × 200 items",
+        "Nine measured positions. Shaded bands show 95% intervals.",
+      ],
+      repair: [
+        "HumanEval+ Mini · 164 tasks · draft + 4 rounds",
+        "Current-version pass rate; counterexample band shows 95% interval.",
+      ],
+    }[s.chapter];
+  }
+  function scrubber() {
+    if (s.chapter === "position")
+      return `<div class="point-control"><label for="position">Evidence position</label><input id="position" type="range" min="0" max="8" step="1" value="${s.position}" aria-valuetext="Document ${positions[s.position]}"><output for="position" id="position-label">Doc ${positions[s.position]}</output><label class="interval-control"><input id="ci" type="checkbox" ${s.ci ? "checked" : ""}>95% interval</label></div><div id="point-readout" class="point-readout" aria-live="polite"></div>`;
+    if (s.chapter === "repair")
+      return `<div class="point-control"><button id="play" class="play-button" aria-label="Play five code versions">${icon("play")}<span>Play versions</span></button><label for="round">Version</label><input id="round" type="range" min="0" max="4" step="1" value="${s.round}" aria-valuetext="${s.round === 0 ? "Initial draft" : `After revision ${s.round}`}"><output id="round-label" for="round">${s.round === 0 ? "Draft" : "Version " + (s.round + 1)}</output></div><div id="point-readout" class="point-readout" aria-live="polite"></div>`;
+    return "";
+  }
+  function excerpt(r, max = 600) {
+    if (r.response.length <= max) return r.response;
+    return (
+      r.response.slice(0, max - 180) +
+      "\n[… middle omitted; full response below …]\n" +
+      r.response.slice(-180)
+    );
+  }
+  function answer(r, label, prompt, max = 650, chosen = false) {
+    return `<article class="answer ${chosen ? "full" : ""}"><header><strong>${esc(label)}</strong><span class="answer-meta">${r.tokens} tokens · ${r.finish === "length" ? "truncated" : r.score == null ? "unscored" : r.score ? "correct" : "incorrect"}</span></header><p class="prompt-text">${esc(prompt)}</p><div class="answer-content" tabindex="0" role="region" aria-label="Model response">${esc(excerpt(r, max)).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}</div>${r.response.length > max ? `<details><summary>Full original response</summary><div class="answer-content" tabindex="0" role="region" aria-label="Full model response">${esc(r.response)}</div></details>` : ""}</article>`;
+  }
+  function pairedCase(
+    ids,
+    question,
+    labels,
+    prompts,
+    explain,
+    max = 650,
+    context = "",
+  ) {
+    const [a, b] = ids.map((id) =>
+      D.examples.reasoning.find((r) => r.id === id),
+    );
+    return `<p class="question">${esc(question)}<small>${context || `${names[a.model]} · ${tasks[a.task]} · Same item`}</small></p><div class="prompt-comparison">${answer(a, labels[0], prompts[0], max)}${answer(b, labels[1], prompts[1], max, true)}</div><p class="example-explanation">${explain}</p>`;
+  }
+  function example(){return `<p class="question">Anonymous condition results</p>${table()}`;}
+function currentRows() {
+    switch (s.chapter) {
+      case "concise":
+        return s.view === "cross"
+          ? D.concise.map((r) => ({
+              Model: names[r.model] || r.model,
+              Task: r.task,
+              Token_saving_pct: r.saving,
+              Score_delta_pp: r.delta,
+            }))
+          : D.baseline.map((r) => ({
+              Prompt: r.prompt,
+              Score_pct: r.score_pct,
+              Mean_tokens: r.mean_tokens,
+            }));
+      case "language":
+        return D.chinese
+          .filter((r) => r.task === s.task)
+          .map((r) => ({
+            Model: names[r.model],
+            Default_score: r.default_score_pct,
+            Chinese_score: r.chinese_score_pct,
+            Token_saving_pct: r.token_saving_pct,
+            Default_truncation_pct: r.default_truncation_pct,
+            Chinese_truncation_pct: r.chinese_truncation_pct,
+          }));
+      case "limits":
+        return D.limits[`${s.model}-${s.task}-${s.family}`].map((r) => ({
+          Prompt: r.prompt,
+          Mean_tokens: r.mean_tokens,
+          Score_pct: r.score_pct,
+          Truncated_pct: r.truncated_pct,
+        }));
+      case "position":
+        return D.positions.map((r) => ({
+          Model: r.model.split("/")[1],
+          Evidence_position: r.position,
+          Hits: r.successes,
+          Questions: r.questions,
+          Hit_rate_pct: 100 * r.rate,
+          CI_low_pct: 100 * r.ci_low,
+          CI_high_pct: 100 * r.ci_high,
+        }));
+      case "repair":
+        return D.repair[s.repairModel]
+          .filter((r) => r.round <= s.round)
+          .map((r) => ({
+            Feedback: armLabels[r.arm],
+            Revision: r.round,
+            Version: r.round + 1,
+            Passes: r.success,
+            Tasks: r.tasks,
+            Current_pass_rate_pct: 100 * r.rate,
+            Ever_success_pct: 100 * r.ever_success_rate,
+          }));
+    }
+  }
+  const fmt = (x) => (typeof x === "number" ? Number(x.toFixed(2)) : x);
+  function table() {
+    const rows = currentRows();
+    return `<div class="data-scroll"><table><thead><tr>${Object.keys(rows[0])
+      .map((k) => `<th scope="col">${esc(k)}</th>`)
+      .join("")}</tr></thead><tbody>${rows
+      .map(
+        (r) =>
+          `<tr>${Object.values(r)
+            .map((v) => `<td>${esc(fmt(v))}</td>`)
+            .join("")}</tr>`,
+      )
+      .join("")}</tbody></table></div>`;
+  }
+  function methods() {
+    const text = {
+      concise:
+        "Qwen2.5 / GSM8K; prompt strategy → score. Across 200 paired items, DefaultCoT improves on NoCoT by 69.5 pp, paired interval [63.0, 76.0]. Cross-task replication uses each task’s original metric. 15/17 is a point-estimate direction count, not an equivalence test.",
+      language:
+        "Qwen3 / MATH500; response template → score. ChineseCoT uses “Respond in Chinese.” and also changes the step-by-step wording. The main finding is bounded to MATH500: on GSM8K, all four models lose 0.5–4.5 pp. Output language is not internal reasoning language.",
+      position:
+        "Model × evidence position → final-answer inclusion. Same 200 questions, 20 documents, NoCoT, paired positions. Qwen3 position 1 vs 10: +9.5 pp, paired interval [4.5, 15.0]. The model gain differs by 14.0 pp between first and last, interval [5.5, 23.0]. Bands are 95% intervals. Model collection dates differ; prompts and generation settings are identical.",
+      repair:
+        "Feedback strategy × revision → current full-test pass rate. 164 tasks, two models, a shared initial draft, up to four rounds. Independent resampling has no history; the other strategies retain it. Counterexamples use base diagnostics only. Final Qwen3 counterexample vs self-review: +7.32 pp, paired interval [3.05, 12.20]. The shared draft is counted once.",
+      limits:
+        "Extreme length limits form the anomaly. Each level is the mean of the same 200 items; discrete prompted levels are not interpolated. Word, letter, and token limits are prompt text, not API hard caps. Returned tokens cannot be compared numerically with word or letter budgets.",
+    };
+    return `<p>${text[s.chapter]}</p><p>Source: frozen experiment-specific collections and topic statistics. <a href="data/course-assignment.pdf" target="_blank" rel="noopener">Course brief</a> · <a href="explore.html?mode=explore#case-1">Full chart library</a>.</p>`;
+  }
+  function render() {
+    if (s.chapter === "language") {
+      if (s.task === "math500") {
+        headings.language = "Chinese makes complex math finish.";
+        finding.language =
+          "Qwen3 / MATH500: <strong>58.0 → 69.5%</strong>, with <strong>19.5% fewer tokens</strong>.";
+      } else if (s.task === "gsm8k") {
+        headings.language = "The gain does not transfer to GSM8K.";
+        finding.language =
+          "All four models save tokens, but lose <strong>0.5–4.5 pp</strong>.";
+      } else {
+        headings.language = "In multiple choice, Chinese preserves scores.";
+        finding.language = `Qwen3 / MMLU-Pro: <strong>${D.chinese.find((r) => r.model === "qwen3" && r.task === "mmlu").default_score_pct.toFixed(1)} → ${D.chinese.find((r) => r.model === "qwen3" && r.task === "mmlu").chinese_score_pct.toFixed(1)}%</strong>.`;
+      }
+    }
+    if (s.chapter === "repair") {
+      const final = D.repair[s.repairModel].filter((r) => r.round === 4),
+        a = final.find((r) => r.arm === "counterexample"),
+        b = final.find((r) => r.arm === "self_review");
+      finding.repair = `${names[s.repairModel]} / Version 5: counterexamples <strong>${a.success}/164</strong>; self-review <strong>${b.success}/164</strong>.`;
+    }
+    if (s.chapter === "limits") {
+      const cfg = {
+          WordLimit: {
+            loose: "WordLimit(10)",
+            tight: "WordLimit(1)",
+            label: "10 words → 1",
+          },
+          CharLimit: {
+            loose: "CharLimit(100)",
+            tight: "CharLimit(10)",
+            label: "100 letters → 10",
+          },
+          TokenLimit: {
+            loose: "TokenLimit(100)",
+            tight: "TokenLimit(10)",
+            label: "100 tokens → 10",
+          },
+        }[s.family],
+        groups = Object.entries(D.limits).filter(([key]) =>
+          key.endsWith(`-${s.family}`),
+        ),
+        increased = groups.filter(
+          ([, rows]) =>
+            rows.find((r) => r.prompt === cfg.tight).mean_tokens >
+            rows.find((r) => r.prompt === cfg.loose).mean_tokens,
+        ).length;
+      finding.limits = `${cfg.label}: output increased in <strong>${increased} of ${groups.length} groups</strong>.`;
+      headings.limits =
+        s.family === "TokenLimit"
+          ? "The rebound disappears with token limits."
+          : "Tighter limits can produce longer outputs.";
+    }
+    const active = document.activeElement,
+      focusId = $("#research").contains(active) ? active.id : null,
+      focusView = active?.dataset?.view;
+    stop();
+    const cap = caption();
+    document.title = `${titles[s.chapter]} — LENS`;
+    document.querySelectorAll("[data-chapter]").forEach((a) => {
+      if (a.dataset.chapter === s.chapter)
+        a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+    $("#research").innerHTML =
+      `<section class="finding-stage" aria-labelledby="finding-title"><header class="finding-intro"><div><span class="finding-kicker">${courseKinds[s.chapter]}</span><h3 id="finding-title">${headings[s.chapter]}</h3></div><p class="evidence-line">${finding[s.chapter]}</p></header><section class="figure-sheet" aria-label="${titles[s.chapter]} measured results"><div class="figure-toolbar"><div class="figure-heading"><h4>${s.chapter === "concise" && s.view === "cross" ? "17 model–task replications" : figureTitles[s.chapter]}</h4><p>${cap[0]}</p></div><div class="figure-controls">${controls()}</div><details class="export-menu"><summary aria-label="Export figure">Export ${icon("down")}</summary><div class="export-options"><button id="download-svg">SVG figure</button><button id="download-csv">CSV data</button></div></details></div><div class="plot-scroll" role="region" tabindex="0" aria-label="Chart; horizontally scrollable"><div id="plot" class="plot"></div></div>${scrubber()}<div class="figure-caption">${cap[1]}</div></section></section><div class="evidence-drawers"><details id="actual-example" class="evidence-section"><summary><strong>Result comparison</strong><span>Anonymous condition statistics</span></summary><div class="example-body">${example()}</div></details><section class="support-section" aria-label="Evidence and course mapping"><details id="data-table"><summary>Figure data</summary>${table()}</details><details><summary>Method & scope</summary>${methods()}</details></section></div>`;
+    paintPlot();
+    bind();
+    if (focusId)
+      document.getElementById(focusId)?.focus({ preventScroll: true });
+    else if (focusView)
+      document
+        .querySelector(`[data-view="${focusView}"]`)
+        ?.focus({ preventScroll: true });
+  }
+  function paintPlot() {
+    const p = $("#plot");
+    if (s.chapter === "concise")
+      p.innerHTML =
+        s.view === "cross"
+          ? window.LENS_CHARTS.conciseCross(D)
+          : window.LENS_CHARTS.conciseBaseline(D);
+    else if (s.chapter === "language")
+      p.innerHTML = window.LENS_CHARTS.language(D, s);
+    else if (s.chapter === "position")
+      p.innerHTML = window.LENS_CHARTS.position(D, s);
+    else if (s.chapter === "repair")
+      p.innerHTML = window.LENS_CHARTS.repair(D, s);
+    else p.innerHTML = window.LENS_CHARTS.limits(D, s);
+    p.classList.toggle("show-intervals", s.ci);
+    if (s.chapter === "position") positionUpdate();
+    if (s.chapter === "repair") repairUpdate();
+  }
+  function positionUpdate() {
+    const p = positions[s.position];
+    $("#position-label").textContent = `Doc ${p}`;
+    $("#position").setAttribute("aria-valuetext", `Document ${p}`);
+    const rs = D.positions.filter((r) => r.position === p),
+      q25 = rs.find((r) => r.model.includes("Qwen2.5")),
+      q3 = rs.find((r) => r.model.includes("Qwen3"));
+    $("#point-readout").textContent =
+      `Position ${p}: Qwen3 ${(q3.rate * 100).toFixed(1)}% · Qwen2.5 ${(q25.rate * 100).toFixed(1)}% · Δ ${((q3.rate - q25.rate) * 100).toFixed(1)} pp`;
+  }
+  function repairUpdate() {
+    const r = D.repair[s.repairModel].filter((r) => r.round === s.round),
+      a = r.find((r) => r.arm === "counterexample"),
+      b = r.find((r) => r.arm === "self_review");
+    $("#round-label").textContent =
+      s.round === 0 ? "Draft" : `Version ${s.round + 1}`;
+    $("#round").value = s.round;
+    $("#round").setAttribute(
+      "aria-valuetext",
+      s.round === 0 ? "Initial draft" : `After revision ${s.round}`,
+    );
+    const tableScroll = $("#data-table .data-scroll");
+    if (tableScroll) tableScroll.outerHTML = table();
+    $("#point-readout").textContent =
+      `${s.round === 0 ? "Shared draft" : `Revision ${s.round}`}: counterexample ${a.success}/164 · self-review ${b.success}/164`;
+  }
+  function url() {
+    const p = new URLSearchParams();
+    p.set("finding", s.chapter);
+    if (s.chapter === "concise" && s.view === "cross") p.set("view", s.view);
+    if (["language", "limits"].includes(s.chapter)) p.set("task", s.task);
+    if (s.chapter === "limits") {
+      p.set("model", s.model);
+      p.set("family", s.family);
+    }
+    if (s.chapter === "position") {
+      p.set("position", positions[s.position]);
+      if (!s.ci) p.set("ci", "0");
+    }
+    if (s.chapter === "repair") {
+      p.set("repairModel", s.repairModel);
+      p.set("round", s.round);
+    }
+    history.replaceState(
+      null,
+      "",
+      location.pathname + "?" + p.toString() + "#findings",
+    );
+    lastRoute = location.href;
+  }
+  function download(text, type, name) {
+    const blob = new Blob([text], { type }),
+      a = document.createElement("a"),
+      object = URL.createObjectURL(blob);
+    a.href = object;
+    a.download = name;
+    document.body.append(a);
+    a.click();
+    a.remove();
+    document.querySelectorAll(".export-menu").forEach((d) => (d.open = false));
+    setTimeout(() => URL.revokeObjectURL(object), 1000);
+    notify("Downloaded " + name);
+  }
+  function notify(t) {
+    clearTimeout(noticeTimer);
+    $("#notice").textContent = t;
+    $("#notice").hidden = false;
+    noticeTimer = setTimeout(() => ($("#notice").hidden = true), 2600);
+  }
+  function bind() {
+    document.querySelectorAll("[data-view]").forEach(
+      (b) =>
+        (b.onclick = () => {
+          s.view = b.dataset.view;
+          url();
+          render();
+        }),
+    );
+    document.querySelectorAll("[data-task]").forEach(
+      (b) =>
+        (b.onclick = () => {
+          s.task = b.dataset.task;
+          url();
+          render();
+        }),
+    );
+    document.querySelectorAll("[data-model]").forEach(
+      (b) =>
+        (b.onclick = () => {
+          s.model = b.dataset.model;
+          url();
+          render();
+        }),
+    );
+    document.querySelectorAll("[data-family]").forEach(
+      (b) =>
+        (b.onclick = () => {
+          s.family = b.dataset.family;
+          url();
+          render();
+        }),
+    );
+    document.querySelectorAll("[data-repair-model]").forEach(
+      (b) =>
+        (b.onclick = () => {
+          s.repairModel = b.dataset.repairModel;
+          url();
+          render();
+        }),
+    );
+    if ($("#position"))
+      $("#position").oninput = (e) => {
+        s.position = Number(e.target.value);
+        paintPlot();
+        url();
+      };
+    if ($("#ci"))
+      $("#ci").onchange = (e) => {
+        s.ci = e.target.checked;
+        paintPlot();
+        url();
+      };
+    if ($("#round"))
+      $("#round").oninput = (e) => {
+        stop();
+        s.round = Number(e.target.value);
+        paintPlot();
+        url();
+      };
+    if ($("#play"))
+      $("#play").onclick = () => {
+        if (playing) {
+          stop();
+          return;
+        }
+        s.round = 0;
+        paintPlot();
+        url();
+        $("#play").innerHTML = icon("pause") + "<span>Pause</span>";
+        $("#play").setAttribute("aria-label", "Pause playback");
+        playing = setInterval(
+          () => {
+            if (s.round === 4) {
+              stop();
+              return;
+            }
+            s.round++;
+            paintPlot();
+            url();
+            if (s.round === 4) stop();
+          },
+          matchMedia("(prefers-reduced-motion: reduce)").matches ? 1800 : 1100,
+        );
+      };
+    $("#download-svg").onclick = () => {
+      const svg = $("#plot svg").cloneNode(true),
+        box = svg.getAttribute("viewBox").trim().split(/[ ,]+/).map(Number);
+      svg.setAttribute("width", box[2] + "pt");
+      svg.setAttribute("height", box[3] + "pt");
+      download(
+        new XMLSerializer().serializeToString(svg),
+        "image/svg+xml",
+        figureKey() + ".svg",
+      );
+    };
+    $("#download-csv").onclick = () => {
+      const a = currentRows(),
+        keys = Object.keys(a[0]),
+        q = (x) => '"' + String(x).replaceAll('"', '""') + '"';
+      download(
+        "\ufeff" +
+          [
+            keys.map(q).join(","),
+            ...a.map((r) => keys.map((k) => q(r[k])).join(",")),
+          ].join("\r\n"),
+        "text/csv;charset=utf-8",
+        "lens-" + s.chapter + ".csv",
+      );
+    };
+  }
+  function stop() {
+    if (playing) clearInterval(playing);
+    playing = null;
+    if ($("#play")) {
+      $("#play").innerHTML = icon("play") + "<span>Play versions</span>";
+      $("#play").setAttribute("aria-label", "Play five code versions");
+    }
+  }
+  function route() {
+    if (lastRoute === location.href) return;
+    lastRoute = location.href;
+    hydrate();
+    const h = location.hash.slice(1).split("/")[0] || "question";
+    if (
+      [
+        "question",
+        "collection",
+        "cleaning",
+        "landscape",
+        "findings",
+        "discoveries",
+      ].includes(h)
+    ) {
+      const requested = new URLSearchParams(location.search).get("finding");
+      if (order.includes(requested)) s.chapter = requested;
+      if (
+        !$("#plot") ||
+        (["findings", "discoveries"].includes(h) && requested)
+      ) {
+        if (!order.includes(s.chapter)) s.chapter = "concise";
+        render();
+      }
+      window.LENS_GO_TO(
+        ["findings", "discoveries"].includes(h) ? "findings" : h,
+        false,
+      );
+      return;
+    }
+    let chapter = h;
+    if (chapter === "actual-example") chapter = "concise";
+    if (chapter === "budget" || chapter === "overview") chapter = "concise";
+    if (chapter === "context") chapter = "position";
+    if (chapter === "code") chapter = "repair";
+    if (!order.includes(chapter)) chapter = "concise";
+    s.chapter = chapter;
+    render();
+    window.LENS_GO_TO("findings", false);
+    if (h === "actual-example")
+      requestAnimationFrame(() => ($("#actual-example").open = true));
+  }
+  document.querySelectorAll("[data-chapter]").forEach(
+    (button) =>
+      (button.onclick = () => {
+        s.chapter = button.dataset.chapter;
+        url();
+        render();
+        window.LENS_GO_TO("findings", false);
+      }),
+  );
+  window.addEventListener("hashchange", route);
+  window.addEventListener("popstate", route);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stop();
+  });
+  route();
 })();

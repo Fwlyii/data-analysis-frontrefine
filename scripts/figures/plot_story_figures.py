@@ -3,7 +3,8 @@ No network calls and no execution of generated model code. Regeneration uses Mat
 Ordinary app build uses the committed SVG/JSON snapshot without plot dependencies.
 """
 from pathlib import Path
-import csv, json, hashlib
+import csv, json, hashlib, sys
+MOBILE = "--mobile" in sys.argv
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -14,17 +15,45 @@ APP=ROOT/'app'; OUT=APP/'assets/story'; OUT.mkdir(parents=True,exist_ok=True)
 PREVIEW=ROOT/'build/figure_previews'; PREVIEW.mkdir(parents=True,exist_ok=True)
 font_manager.findfont('Times New Roman',fallback_to_default=False)
 INK='#243C52'; TEAL='#167B7B'; GOLD='#AC772E'; RED='#AF5961'; MUTED='#5D6D7C'; GRID='#E7EDF1'
-plt.rcParams.update({'font.family':'Times New Roman','font.size':13,'axes.labelsize':13,'xtick.labelsize':12,'ytick.labelsize':13,'legend.fontsize':12,'svg.fonttype':'none','pdf.fonttype':42,'axes.spines.top':False,'axes.spines.right':False,'axes.spines.left':False,'axes.edgecolor':'#BBC7D0','axes.labelcolor':INK,'text.color':INK,'xtick.color':MUTED,'ytick.color':INK,'axes.linewidth':.7,'savefig.facecolor':'white'})
+plt.rcParams.update({'font.family':'Times New Roman','font.size':13,'axes.labelsize':13,'xtick.labelsize':12,'ytick.labelsize':13,'legend.fontsize':12,'svg.fonttype':'none','svg.hashsalt':'lens-story','pdf.fonttype':42,'axes.spines.top':False,'axes.spines.right':False,'axes.spines.left':False,'axes.edgecolor':'#BBC7D0','axes.labelcolor':INK,'text.color':INK,'xtick.color':MUTED,'ytick.color':INK,'axes.linewidth':.7,'savefig.facecolor':'white'})
 SOURCES={}
 def rows(path):
     p=ROOT/path; SOURCES[str(path)]=hashlib.sha256(p.read_bytes()).hexdigest()
     with p.open(encoding='utf-8-sig') as f:return list(csv.DictReader(f))
 def save(fig,name):
-    fig.savefig(OUT/(name+'.svg'),metadata={'Date':None,'Creator':'Matplotlib / LENS saved evidence'})
-    if name in ['concise-baseline','concise-cross','language-math500','limit-deepseek-math500-WordLimit','position','repair-qwen3-4']:
+    if MOBILE:
+        axs=fig.axes
+        if name=='concise-baseline':
+            fig.set_size_inches(6,6.5)
+            axs[0].set_position([.25,.59,.65,.32]);axs[1].set_position([.25,.13,.65,.32])
+            axs[1].set_yticks(range(3),labels=['NoCoT','DefaultCoT','BeConcise'])
+        elif name=='concise-cross':
+            fig.set_size_inches(6.6,8.6);axs[0].set_position([.33,.10,.47,.82]);axs[0].set_xlim(0,85)
+            axs[1].remove()
+            fig.text(.93,.95,'ΔScore',ha='center',fontsize=13,color=INK)
+            for i,r in enumerate(concise):
+                xy=fig.transFigure.inverted().transform(axs[0].transData.transform((0,i)))
+                fig.text(.93,xy[1],f"{r['delta']:+.1f}",ha='center',va='center',fontsize=13,color=TEAL if r['delta']>=0 else RED)
+        elif name.startswith('language-'):
+            fig.set_size_inches(6,7.4)
+            axs[0].set_position([.25,.58,.65,.30]);axs[1].set_position([.25,.12,.65,.30])
+            axs[1].set_yticks(range(4),labels=axs[0].get_yticklabels())
+            fig.legends[0].set_bbox_to_anchor((.53,1))
+        elif name.startswith('limit-'):
+            fig.set_size_inches(6,5.5)
+            axs[0].set_position([.17,.48,.77,.43]);axs[1].set_position([.17,.16,.77,.22])
+        elif name=='position':
+            fig.set_size_inches(6,4.8);axs[0].set_position([.17,.20,.77,.60])
+        elif name.startswith('repair-'):
+            fig.set_size_inches(6,5.2);axs[0].set_position([.17,.20,.72,.50])
+            axs[0].set_xticks(range(5),labels=['Initial','R1','R2','R3','R4'])
+            axs[0].get_legend().set_bbox_to_anchor((-.12,1.5))
+    target=name+('-mobile' if MOBILE else '')
+    fig.savefig(OUT/(target+'.svg'),metadata={'Date':None,'Creator':'Matplotlib / LENS saved evidence'})
+    if not MOBILE and name in ['concise-baseline','concise-cross','language-math500','limit-deepseek-math500-WordLimit','position','repair-qwen3-4']:
         fig.savefig(PREVIEW/(name+'.png'),dpi=145)
     if name=='position':
-        p=OUT/(name+'.svg'); markup=p.read_text(); marker=markup.index('>',markup.index('<svg'))+1
+        p=OUT/(target+'.svg'); markup=p.read_text(); marker=markup.index('>',markup.index('<svg'))+1
         markup=markup[:marker]+'<style>[id^=position-focus-],[id^=interval-]{display:none}</style>'+markup[marker:];p.write_text(markup)
     plt.close(fig)
 def grid(ax,axis='x'):
@@ -36,8 +65,10 @@ concise=rows('reports/story/concise-cross-task-points.csv')
 chinese=rows('reports/story/chinese-template-comparison.csv')
 positions=rows('reports/document_positions/position-summary.csv')
 curves=rows('reports/code_repair/full/curves.csv')
-examples=json.loads((ROOT/'reports/story/saved-examples.json').read_text())
-repairs=json.loads((ROOT/'reports/code_repair/full/examples.json').read_text())
+example_path=ROOT/'reports/story/saved-examples.json'
+repair_path=ROOT/'reports/code_repair/full/examples.json'
+examples=json.loads(example_path.read_text()) if example_path.is_file() else {'reasoning':[],'positions':[],'prompt_specs':json.loads((APP/'data/story-evidence.json').read_text()).get('prompts',{})}
+repairs=json.loads(repair_path.read_text()) if repair_path.is_file() else []
 for table in [profiles,concise,chinese,positions,curves]:
     for r in table:
         for key,value in list(r.items()):
@@ -45,8 +76,8 @@ for table in [profiles,concise,chinese,positions,curves]:
             except (ValueError,TypeError):pass
 # Three actual discrete strategies; score and output have independent axes.
 base=[next(r for r in profiles if r['model']=='qwen' and r['task']=='gsm8k' and r['prompt']==p) for p in ['NoCoT','DefaultCoT','BeConcise']]
-fig,axs=plt.subplots(1,2,figsize=(9.3,4.5),gridspec_kw={'width_ratios':[1,1]})
-fig.subplots_adjust(left=.19,right=.94,bottom=.16,top=.86,wspace=.28)
+fig,axs=plt.subplots(1,2,figsize=(11.2,4.2),gridspec_kw={'width_ratios':[1,1]})
+fig.subplots_adjust(left=.15,right=.95,bottom=.18,top=.93,wspace=.28)
 for ax,key,title,lim in zip(axs,['score_pct','mean_tokens'],['Score (%)','Mean output tokens'],[108,280]):
     for y,r,c in zip(range(3),base,[MUTED,INK,TEAL]):
         ax.barh(y,r[key],height=.37,color=c,zorder=3)
@@ -56,7 +87,7 @@ for ax,key,title,lim in zip(axs,['score_pct','mean_tokens'],['Score (%)','Mean o
 axs[1].set_yticklabels([])
 save(fig,'concise-baseline')
 # All 17 replications: keep the two negative estimates visible.
-fig,axs=plt.subplots(1,2,figsize=(9.3,6.6),gridspec_kw={'width_ratios':[1,1]})
+fig,axs=plt.subplots(1,2,figsize=(11.2,7.0),gridspec_kw={'width_ratios':[1,1]})
 fig.subplots_adjust(left=.25,right=.94,bottom=.11,top=.94,wspace=.38)
 for i,r in enumerate(concise):
     label=f"{NAMES.get(r['model'],r['model'])} / {TASKS.get(r['task'],r['task'])}"
@@ -73,7 +104,7 @@ save(fig,'concise-cross')
 for task in TASKS:
     a=[r for r in chinese if r['task']==task]
     if not a:continue
-    fig,axs=plt.subplots(1,2,figsize=(9.3,4.5),gridspec_kw={'width_ratios':[1.3,1]})
+    fig,axs=plt.subplots(1,2,figsize=(11.2,4.2),gridspec_kw={'width_ratios':[1.3,1]})
     fig.subplots_adjust(left=.15,right=.94,bottom=.17,top=.85,wspace=.33)
     for i,r in enumerate(a):
         x0,x1=r['default_score_pct'],r['chinese_score_pct']
@@ -97,7 +128,7 @@ for model in NAMES:
             a=sorted([r for r in profiles if r['model']==model and r['task']==task and r['prompt'].startswith(family+'(')],key=lambda r:int(r['prompt'].split('(')[1].rstrip(')')))
             if not a:continue
             key=f'{model}-{task}-{family}'; limits[key]=a
-            fig,axs=plt.subplots(2,1,figsize=(9.3,4.8),sharex=True,gridspec_kw={'height_ratios':[1.6,1]})
+            fig,axs=plt.subplots(2,1,figsize=(11.2,4.8),sharex=True,gridspec_kw={'height_ratios':[1.6,1]})
             fig.subplots_adjust(left=.13,right=.94,bottom=.16,top=.94,hspace=.28)
             x=range(len(a)); ys=[r['mean_tokens'] for r in a]
             axs[0].bar(x,ys,color=[RED if i==0 else INK for i in x],width=.46,zorder=3)
@@ -108,7 +139,7 @@ for model in NAMES:
             save(fig,'limit-'+key)
 # Nine measured evidence positions, two models. Optional intervals are native SVG groups.
 a=[r for r in positions if r['metric']=='final_contains']
-fig,ax=plt.subplots(figsize=(9.3,4.7));fig.subplots_adjust(left=.12,right=.95,bottom=.17,top=.87)
+fig,ax=plt.subplots(figsize=(11.2,4.7));fig.subplots_adjust(left=.12,right=.95,bottom=.17,top=.87)
 for model,c,label in [('Qwen/Qwen3-8B',INK,'Qwen3 8B'),('Qwen/Qwen2.5-7B-Instruct',TEAL,'Qwen2.5 7B')]:
     rs=sorted([r for r in a if r['model']==model],key=lambda r:r['position'])
     if not rs:raise ValueError(model)
@@ -126,7 +157,7 @@ arm_colors={'counterexample':TEAL,'pass_fail':GOLD,'self_review':INK,'resample':
 for model,key in [('Qwen3-8B','qwen3'),('Qwen2.5-7B','qwen')]:
     repair[key]=[r for r in curves if r['model']==model]
     for stage in range(5):
-        fig,ax=plt.subplots(figsize=(9.3,4.7));fig.subplots_adjust(left=.12,right=.8,bottom=.17,top=.79)
+        fig,ax=plt.subplots(figsize=(11.2,4.7));fig.subplots_adjust(left=.12,right=.8,bottom=.17,top=.79)
         for arm in arm_names:
             rs=sorted([r for r in repair[key] if r['arm']==arm and r['round']<=stage],key=lambda r:r['round'])
             ax.plot([r['round'] for r in rs],[r['rate']*100 for r in rs],marker='o',lw=2,ms=5,color=arm_colors[arm],ls='--' if arm=='resample' else '-',label=arm_names[arm])

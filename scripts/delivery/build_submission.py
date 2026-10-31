@@ -44,7 +44,7 @@ class ProjectLayout:
         parts=Path(value).parts
         if parts[0]=='data' and len(parts)>1 and parts[1] in {'quality','inventory'}:
             return self.root.joinpath('data/processed/metadata',*parts[1:])
-        mapping={'app':ANCHOR,'data':self.root/'data','report':self.root/'report','presentation':self.root/'presentation','scripts':ANCHOR/'pipeline/scripts','experiments':ANCHOR/'pipeline/experiments','configs':ANCHOR/'pipeline/configs','requirements':ANCHOR/'pipeline/requirements','reports':ANCHOR/'results','docs':ANCHOR/'docs'}
+        mapping={'app':ANCHOR,'data':self.root/'data','report':self.root/'report','presentation':self.root/'presentation','scripts':ANCHOR/'pipeline/scripts','experiments':ANCHOR/'pipeline/experiments','configs':ANCHOR/'pipeline/configs','requirements':ANCHOR/'pipeline/requirements','reports':ANCHOR/'results','docs':ANCHOR/'docs','build':ANCHOR/'build'}
         if str(value)=='project.json':return ANCHOR/'project.json'
         return mapping.get(parts[0],self.root/parts[0]).joinpath(*parts[1:])
 ROOT=ProjectLayout()
@@ -78,9 +78,10 @@ def main():
  (app/'project_layout.py').write_text(LAYOUT)
  meta=json.loads((app/'project.json').read_text());meta.update({'profile':'anonymous-coursework-submission','raw_payloads_included':False});(app/'project.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'\n')
  evidence=app/'data/story-evidence.json';d=json.loads(evidence.read_text());d['examples']={};d['anonymous_submission']=True;evidence.write_text(json.dumps(d,ensure_ascii=False,separators=(',',':'))+'\n')
- js=app/'src/story.js';text=js.read_text();start=text.index('function example(){');end=text.index('function currentRows(){',start)
- text=text[:start]+'function example(){return `<p class="question">本章条件的匿名数值对照</p>${table()}`;}\n'+text[end:]
- text=text.replace('看一组真实回答','查看结果对照').replace('同一道题，回答改变了什么','同一组题，结果改变了什么').replace('保留原始回答与实际评分','保留匿名特征与实际评分');js.write_text(text)
+ js=app/'src/story.js';text=js.read_text()
+ start=re.search(r'function example\(\)\s*\{',text).start();end=re.search(r'function currentRows\(\)\s*\{',text[start:]).start()+start
+ text=text[:start]+'function example(){return `<p class="question">Anonymous condition results</p>${table()}`;}\n'+text[end:]
+ text=text.replace('Real example','Result comparison').replace('Original prompt and response','Anonymous condition statistics');js.write_text(text)
  data=out/'data';(data/'raw').mkdir(parents=True,exist_ok=True);(data/'processed/metadata').mkdir(parents=True,exist_ok=True)
  (data/'raw/README.md').write_text('# 原始数据说明\n\n按课程匿名化要求，本提交目录只包含特征、统计、图稿和代码。完整原始响应在完整项目data/raw，原始文件SHA-256见source_checksums.json；取得完整原始数据后可按清单核对。\n')
  shutil.copy2(ROOT/'data/inventory/raw_files.json',data/'raw/source_checksums.json')

@@ -1,10 +1,11 @@
 {
   "name": "lens-coursework-visualization",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "python3 launch.py",
+    "start": "python3 launch.py",
     "build": "python3 ../scripts/system/build_web_app.py"
   }
 }

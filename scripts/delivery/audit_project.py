@@ -5,6 +5,7 @@ Credential matches are reported by path/count, never by secret value.
 """
 from pathlib import Path
 import ast,csv,gzip,hashlib,io,json,re,zipfile
+from datetime import datetime, timezone
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'project.json').is_file())
 SKIP={'build','submission','runtime','dist','__pycache__','node_modules','.git','.impeccable'}
 KEY=re.compile(rb'(?:sk-[A-Za-z0-9_-]{24,}|gh[pousr]_[A-Za-z0-9]{30,}|AKIA[A-Z0-9]{16})')
@@ -53,7 +54,7 @@ def main():
  # Exclude self-hashing inventories to avoid a circular digest.
  inventory=[v for v in inventory if v['path'] not in ['data/inventory/current_files.json','data/quality/release_audit.json']]
  inventory.append({'path':'data/quality/release_audit.json','bytes':out.stat().st_size,'sha256':sha(out)})
- (ROOT/'data/inventory/current_files.json').write_text(json.dumps({'schema_version':1,'date':'2026-10-28','files':inventory},ensure_ascii=False,indent=2)+'\n')
+ (ROOT/'data/inventory/current_files.json').write_text(json.dumps({'schema_version':1,'date':datetime.now(timezone.utc).date().isoformat(),'files':inventory},ensure_ascii=False,indent=2)+'\n')
  print(json.dumps({k:v for k,v in report.items() if k!='scope'},ensure_ascii=False))
  if bad_names or secrets or syntax or bad_raw or total!=248586:raise SystemExit('Packaging audit has unresolved findings; see data/quality/release_audit.json')
 if __name__=='__main__':main()

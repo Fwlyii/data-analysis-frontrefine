@@ -23,7 +23,8 @@ def main():
   for key,g in sorted(groups.items()):w.writerow(dict(zip(fields,[*key,g[0],g[1],g[2]/g[1] if g[1] else None,g[4]/g[3] if g[3] else None])))
  (out/'summary.json').write_text(json.dumps({'physical_responses':sum(counts.values()),'experiments':dict(counts),'groups':len(groups),'api_calls':0,'score_policy':'Task-native scores remain separate; repair seed is one physical row, not four independent samples.'},ensure_ascii=False,indent=2)+'\n')
  if a.figures:
-  subprocess.run([sys.executable,str(ROOT/'scripts/figures/plot_story_figures.py')],cwd=ROOT,check=True)
+  for script,args in [('plot_story_figures.py',[]),('plot_story_figures.py',['--mobile']),('plot_narrative_figures.py',[])]:
+   subprocess.run([sys.executable,str(ROOT/'scripts/figures'/script),*args],cwd=ROOT,check=True)
   subprocess.run([sys.executable,str(ROOT/'scripts/system/build_web_app.py')],cwd=ROOT,check=True)
  print(json.dumps({'physical_responses':sum(counts.values()),'condition_groups':len(groups),'api_calls':0},ensure_ascii=False))
 if __name__=='__main__':main()
