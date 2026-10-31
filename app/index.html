@@ -3,22 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#0b1f33" />
-<style>html.intro-pending{background:#0b1f33}html.intro-pending body{background:#0b1f33}html.intro-pending body>:not(#lens-intro){visibility:hidden}</style>
-<script>
-(() => {
-  const mode = new URLSearchParams(location.search).get('intro');
-  let seen = true, storage = false;
-  try { seen = sessionStorage.getItem('lens.intro.seen.v1') === '1'; storage = true; } catch {}
-  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const play = !reduced && mode !== '0' && (mode === '1' || (storage && !seen));
-  window.__lensIntroRequest = {mode, play};
-  if (play) document.documentElement.classList.add('intro-pending');
-  window.__lensIntroBootTimer = setTimeout(() => {
-    if (!window.LensIntro) document.documentElement.classList.remove('intro-pending');
-  }, 1800);
-})();
-</script>
+    <meta name="theme-color" content="#071e30" />
     <meta
       name="description"
       content="Evidence from 248,586 anonymized model responses on expression, evidence position, and feedback."
@@ -26,28 +11,29 @@
     <title>LENS — Research Question</title>
     <link rel="icon" href="assets/lens.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="story.css?v=7685e04f3bad" />
-    <link rel="stylesheet" href="site.css?v=b6b6cca47c00" />
-    <link rel="stylesheet" href="deck.css?v=17b4fc0d3c15" />
-    <link rel="stylesheet" href="intro.css?v=1a81cc2d4cd3" />
-    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/lens-editorial-site-semibold.woff2" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/lens-intro-semibold.woff2" crossorigin />
-    <script defer src="runtime/intro.js?v=14663419046d"></script>
-    <script defer src="assets/vendor/motion-mini-14.9.0.min.js"></script>
-    <script defer src="runtime/site-shell.js?v=358f1b20019a"></script>
-    <script defer src="runtime/story-motion.js?v=bb9b2edb820f"></script>
     <script defer src="runtime/story-data.js?v=89546c5aec0c"></script>
     <script defer src="runtime/narrative-data.js?v=2f0fbfe3dab7"></script>
-    <script defer src="runtime/story-charts.js?v=589088e6f3f3"></script>
-    <script defer src="runtime/narrative.js?v=47f1e5014998"></script>
-    <script defer src="runtime/story.js?v=ac8674c554da"></script>
+    <script defer src="runtime/story-charts.js?v=4524c21f864d"></script>
+    <script defer src="runtime/narrative.js?v=abd752ff2fe0"></script>
+    <script defer src="runtime/story.js?v=aabd568acb71"></script>
   </head>
-  <body class="deck-site" data-section="question">
+  <body data-section="question">
     <a class="skip" href="#question">Skip to research</a>
-    <header class="topbar lens-masthead">
-  <button class="wordmark" data-section="question" aria-label="LENS home"><span class="wordmark-logo"><strong>LENS<span class="lens-period">.</span></strong><img class="wordmark-art" src="assets/visual/lens-wordmark.webp" alt="" aria-hidden="true" width="600" height="200" decoding="async" /></span><span class="brand-description">MODEL BEHAVIOR</span></button>
-  <div class="topbar-meta"><span id="section-counter">01 / 05</span><span>248,586 anonymized responses</span></div>
-  <div class="header-actions"><a href="explore.html?mode=explore#case-1">Charts <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a><button id="intro-replay" class="icon-button" aria-label="Replay opening" title="Replay opening"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8a8 8 0 1 1-1 7M4 3v5h5m1 0 6 4-6 4z"/></svg></button></div>
-</header>
+    <header class="topbar">
+      <button class="wordmark" data-section="question" aria-label="LENS home">
+        LENS<span>.</span>
+      </button>
+      <div class="topbar-meta">
+        <span id="section-counter">01 / 05</span
+        ><span>248,586 anonymized responses</span>
+      </div>
+      <a
+        class="mobile-library"
+        href="explore.html?mode=explore#case-1"
+        aria-label="Open chart library"
+        >Charts ↗</a
+      >
+    </header>
 
     <aside class="chapter-rail">
       <nav class="chapter-rail-nav" aria-label="Presentation sections">
@@ -87,18 +73,18 @@
       </div>
     </aside>
 
-    <main id="presentation" class="deck" tabindex="-1" aria-label="LENS research presentation">
+    <main class="deck" aria-label="LENS research presentation">
       <section
         id="question"
         class="deck-panel question-panel is-active"
         aria-labelledby="question-title"
       >
-        <div class="question-visual" aria-hidden="true"><img
+        <img
           class="question-art"
-          src="assets/visual/hero-master-v5.svg"
+          src="assets/hero-orbit.svg"
           alt=""
           aria-hidden="true"
-        /></div>
+        />
         <div class="panel-inner question-inner">
           <div class="question-copy">
             <p class="section-index">01 — RESEARCH QUESTION</p>

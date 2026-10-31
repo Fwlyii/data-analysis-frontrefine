@@ -3,15 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#0b1f33" />
+    <meta name="theme-color" content="#f4f1ea" />
     <title>LENS · Chart Library</title>
     <link rel="icon" href="assets/lens.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="assets/vendor/tabler.min.css" />
-    <link rel="stylesheet" href="styles.css?v=264ac5d719fa" />
-    <link rel="stylesheet" href="site.css?v=b6b6cca47c00" />
-    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/lens-editorial-site-semibold.woff2" crossorigin />
-    <script defer src="assets/vendor/motion-mini-14.9.0.min.js"></script>
-    <script defer src="runtime/site-shell.js?v=358f1b20019a"></script>
+    <link rel="stylesheet" href="styles.css?v=4cb4aaed3374" />
     <script src="assets/vendor/echarts.min.js"></script>
     <script src="runtime/summary.js?v=0569bf20688c"></script>
     <script src="runtime/code-data.js?v=f8795c17b3b6"></script>
@@ -19,22 +15,24 @@
   </head>
   <body>
     <a class="skip-link" href="#stage">Skip to chart</a>
-    <header class="lens-masthead masthead">
-  <a class="wordmark brand" href="#budget" aria-label="LENS chart library"><span class="wordmark-logo"><strong>LENS<span class="lens-period">.</span></strong><img class="wordmark-art" src="assets/visual/lens-wordmark.webp" alt="" aria-hidden="true" width="600" height="200" decoding="async" /></span><span class="brand-description">MODEL BEHAVIOR</span></a>
-  <div class="header-actions"><a class="story-home" href="index.html" aria-label="Back to presentation">Research <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a><button id="fullscreen" class="icon-button" aria-label="Fullscreen presentation" title="Fullscreen presentation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div>
-</header>
-<nav class="research-nav lens-primary-nav" aria-label="Main navigation">
-        <button id="overview-mode" aria-label="Output efficiency">Efficiency</button><button id="position-mode" aria-label="Evidence position">Evidence</button><button id="code-mode" aria-label="Code generation">Code</button><button id="demo-mode" aria-label="More findings">Findings</button><button id="explore-mode">Explore</button>
+    <header class="research-topbar">
+      <a class="brand" href="#budget"><strong>LENS</strong><span>MODEL BEHAVIOR</span></a>
+      <nav class="research-nav" aria-label="Main navigation">
+        <button id="overview-mode">Output efficiency</button><button id="position-mode">Evidence position</button><button id="code-mode">Code generation</button><button id="demo-mode">More findings</button><button id="explore-mode">Explore</button>
       </nav>
+      <a class="story-home" href="index.html">Back to presentation</a>
+      <button id="fullscreen" class="fullscreen-button" aria-label="Fullscreen presentation" title="Fullscreen presentation">
+        <img src="assets/ui/arrows-maximize.svg" width="18" height="18" alt="" />
+      </button>
+    </header>
     <nav id="chapter-nav" class="chapter-nav" aria-label="More findings" hidden></nav>
     <main id="stage" tabindex="-1"><p class="loading">Loading chart…</p></main>
-    <footer class="lens-library-footer"><span>LENS / MODEL BEHAVIOR</span><a href="index.html">Back to presentation</a></footer>
     <div id="backdrop" class="backdrop" hidden></div>
     <aside id="inspector" class="inspector" role="dialog" aria-modal="true" aria-labelledby="inspector-title" hidden>
       <button id="close-inspector" class="close" aria-label="Close details">×</button>
       <div id="inspector-body"></div>
     </aside>
     <div id="toast" class="lens-toast" role="status" aria-live="polite"></div>
-    <script src="runtime/app.js?v=64c2ad0fc74d"></script>
+    <script src="runtime/app.js?v=86f4d2fe134d"></script>
   </body>
 </html>

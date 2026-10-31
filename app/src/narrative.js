@@ -69,15 +69,15 @@
     code_generation: "m7 5-4 5 4 5m6-10 4 5-4 5",
   };
   const palette = {
-    "#243c52": "#203b50",
-    "#526779": "#4d6579",
-    "#5d6d7c": "#4d6579",
-    "#167b7b": "#147b7b",
-    "#756193": "#203b50",
+    "#243c52": "#202522",
+    "#526779": "#6c706b",
+    "#5d6d7c": "#6c706b",
+    "#167b7b": "#a34f36",
+    "#756193": "#202522",
     "#ac772e": "#a2763c",
-    "#af5961": "#147b7b",
-    "#e7edf1": "#d8e4ea",
-    "#bbc7d0": "#c5d8de",
+    "#af5961": "#a34f36",
+    "#e7edf1": "#e5e0d6",
+    "#bbc7d0": "#d7d0c4",
     "#aab9c2": "#a5abb2",
     "#a9bcc6": "#c8c5bd",
   };
@@ -125,7 +125,7 @@
           <div class="task-row"><span>C</span><h3>Code generation</h3><p>3 models · 194 tasks · 5 samples</p><strong>${number(D.counts.code_generation)}</strong></div>
         </div>
         <div class="special-studies"><div><span class="mini-icon">${icon("target")}</span><strong>Evidence position</strong><span>2 models × 9 positions · ${number(D.counts.document_positions)}</span></div><div><span class="mini-icon">${icon("branch")}</span><strong>Feedback repair</strong><span>2 models × 4 strategies × 4 rounds · ${number(D.counts.code_repair)}</span></div></div>
-        <details class="inline-details"><summary>31 prompts & code adaptation</summary><div role="region" tabindex="0" aria-label="31 prompt definitions"><p>Code prompts constrain only the optional explanation before the code; the Python function itself is not length-limited.</p>${D.prompts.map((p) => `<p><b>${escape(p.prompt_id)}</b> — ${escape(p.prompt_text)}</p>`).join("")}</div></details>
+        <details class="inline-details"><summary>31 prompts & code adaptation</summary><div><p>Code prompts constrain only the optional explanation before the code; the Python function itself is not length-limited.</p>${D.prompts.map((p) => `<p><b>${escape(p.prompt_id)}</b> — ${escape(p.prompt_text)}</p>`).join("")}</div></details>
       </div>
     </div>`;
   }
@@ -138,7 +138,7 @@
       )
       .join(",\n");
     return `<div class="cleaning-layout">
-      <div class="schema-block"><div class="schema-label"><span>ONE ANONYMIZED RESPONSE</span><span>Actual values</span></div><pre tabindex="0" class="schema-preview" aria-label="JSON example of an anonymized response">{\n${lines}\n}</pre><details class="inline-details"><summary>Field definitions</summary><div role="region" tabindex="0" aria-label="Field definitions">${Object.entries(
+      <div class="schema-block"><div class="schema-label"><span>ONE ANONYMIZED RESPONSE</span><span>Actual values</span></div><pre class="schema-preview" aria-label="JSON example of an anonymized response">{\n${lines}\n}</pre><details class="inline-details"><summary>Field definitions</summary><div>${Object.entries(
         {
           record_id: "Anonymous response identifier",
           model_id: "Normalized model name",
@@ -168,7 +168,7 @@
       )
       .join(
         "",
-      )}</div></div><div class="control-block"><span class="control-label">Model</span>${window.LENS_MODEL_BUTTONS(D.directions[state.direction].models, state.model, "data-overview-model")}</div><div class="segmented" role="group" aria-label="Landscape chart"><button data-overview-view="curve" aria-pressed="${state.view === "curve"}">Trend</button><button data-overview-view="heatmap" aria-pressed="${state.view === "heatmap"}">Score matrix</button></div></div><div class="overview-plot" role="region" tabindex="0" aria-label="Landscape chart; horizontally scrollable"></div><div class="landscape-foot"><p class="overview-reading"></p><span id="landscape-scope"></span></div>`;
+      )}</div></div><div class="control-block"><span class="control-label">Model</span>${window.LENS_MODEL_BUTTONS(D.directions[state.direction].models, state.model, "data-overview-model")}</div><div class="segmented" role="group" aria-label="Landscape chart"><button data-overview-view="curve" aria-pressed="${state.view === "curve"}">Trend</button><button data-overview-view="heatmap" aria-pressed="${state.view === "heatmap"}">Score matrix</button></div></div><div class="overview-plot"></div><div class="landscape-foot"><p class="overview-reading"></p><span id="landscape-scope"></span></div>`;
   }
 
   $("#collection-scene").innerHTML = collection();
@@ -278,14 +278,13 @@
   const order = Object.keys(sectionNames);
   window.LENS_GO_TO = (section, updateURL = true) => {
     if (!sectionNames[section]) section = "question";
-    const changed = document.body.dataset.section !== section;
     document.body.dataset.section = section;
     $$(".deck-panel").forEach((panel) => {
       const active = panel.id === section;
       panel.hidden = !active;
       panel.classList.toggle("is-active", active);
     });
-    $$("button[data-section]").forEach((button) => {
+    $$("[data-section]").forEach((button) => {
       if (button.dataset.section === section)
         button.setAttribute("aria-current", "page");
       else button.removeAttribute("aria-current");
@@ -298,9 +297,8 @@
     const active = $("#" + section);
     if (active) active.scrollTop = 0;
     if (section === "landscape" && updateURL) syncOverview();
-    window.LensMotionUI?.onSection(section, changed);
   };
-  $$("button[data-section]").forEach((button) =>
+  $$("[data-section]").forEach((button) =>
     button.addEventListener("click", () =>
       window.LENS_GO_TO(button.dataset.section),
     ),
@@ -326,13 +324,12 @@
     if (sectionNames[h]) window.LENS_GO_TO(h, false);
   });
   document.addEventListener("keydown", (event) => {
-    if (document.documentElement.matches(".intro-pending,.intro-active")) return;
     if (
       event.altKey ||
       event.ctrlKey ||
       event.metaKey ||
       event.target.closest(
-        '.plot-scroll, .answer-content, .schema-preview, [role="region"], [contenteditable="true"]',
+        '.plot-scroll, .answer-content, [contenteditable="true"]',
       )
     )
       return;

@@ -13,23 +13,6 @@ ROOT = next(p for p in Path(__file__).resolve().parents if (p / 'project.json').
 APP=ROOT/'app'
 
 
-def _shared_shell():
-    page=APP/'index.html'
-    header=(APP/'templates/deck-header.html').read_text().rstrip()
-    page.write_text(re.sub(r'<header\b[\s\S]*?</header>',lambda m:header,page.read_text(),count=1))
-    page=APP/'explore.html'
-    template=(APP/'templates/site-header.html').read_text().rstrip()
-    arrow='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>'
-    fullscreen='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg>'
-    actions='<a class="story-home" href="index.html" aria-label="Back to presentation">Research '+arrow+'</a><button id="fullscreen" class="icon-button" aria-label="Fullscreen presentation" title="Fullscreen presentation">'+fullscreen+'</button>'
-    header=template.replace('{{home_href}}','#budget').replace('{{actions}}',actions).replace('{{brand_class}}',' brand').replace('{{home_label}}','LENS chart library').replace('模型行为研究','MODEL BEHAVIOR')
-    page.write_text(re.sub(r'<header\b[\s\S]*?</header>',lambda m:header,page.read_text(),count=1))
-    for name in ['type-motion-manifest.json','site-manifest.json','intro-manifest.json','v5-manifest.json']:
-        for asset in json.loads((APP/'assets/visual'/name).read_text())['assets']:
-            if hashlib.sha256((APP/asset['file']).read_bytes()).hexdigest()!=asset['sha256']:
-                raise ValueError('Presentation asset changed: '+asset['file'])
-
-
 def _module(source, namespace, dependency=None):
     if dependency:
         source=re.sub(r'import\s*\{([\s\S]*?)\}\s*from\s*[\'"]\./model.js[\'"];?',lambda m:'const {'+m.group(1)+'} = '+dependency+';',source,count=1)
@@ -41,7 +24,6 @@ def _module(source, namespace, dependency=None):
 
 
 def build():
-    _shared_shell()
     spec=importlib.util.spec_from_file_location('demo_evidence',ROOT/'scripts/system/build_demo_evidence.py')
     module=importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -105,7 +87,6 @@ def build():
     story['figures']={p.stem:p.read_text() for p in sorted((APP/'assets/story').glob('*.svg'))}
     runtime.joinpath('story-data.js').write_text('window.LENS_STORY='+json.dumps(story,ensure_ascii=False,separators=(',',':'))+';\n')
     shutil.copy2(APP/'src/story.js',runtime/'story.js')
-    for name in ['intro.js','site-shell.js','story-motion.js']:shutil.copy2(APP/'src'/name,runtime/name)
     shutil.copy2(APP/'src/story-charts.js',runtime/'story-charts.js')
     narrative=json.loads((APP/'data/narrative-evidence.json').read_text())
     positions={'begin':'Position 1','start':'Position 1','front':'Position 1','middle':'Position 10','end':'Position 20','last':'Position 20','back':'Position 20'}
@@ -135,20 +116,20 @@ def build():
     shutil.copy2(APP/'src/narrative.js',runtime/'narrative.js')
     index=APP/'explore.html'
     markup=index.read_text()
-    for asset in ['styles.css','site.css','runtime/site-shell.js','runtime/summary.js','runtime/publication.js','runtime/code-data.js','runtime/app.js']:
+    for asset in ['styles.css','runtime/summary.js','runtime/publication.js','runtime/code-data.js','runtime/app.js']:
         digest=hashlib.sha256((APP/asset).read_bytes()).hexdigest()[:12]
         markup=re.sub(r'([\"\"])'+re.escape(asset)+r'(?:\?v=[a-f0-9]+)?([\"\"])',lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)
     index.write_text(markup)
     story_index=APP/'index.html'
     markup=story_index.read_text()
-    for asset in ['story.css','site.css','deck.css','intro.css','runtime/intro.js','runtime/site-shell.js','runtime/story-motion.js','runtime/story-data.js','runtime/story.js','runtime/story-charts.js','runtime/narrative-data.js','runtime/narrative.js']:
+    for asset in ['story.css','runtime/story-data.js','runtime/story.js','runtime/story-charts.js','runtime/narrative-data.js','runtime/narrative.js']:
         digest=hashlib.sha256((APP/asset).read_bytes()).hexdigest()[:12]
         markup=re.sub(r'([\"\"])'+re.escape(asset)+r'(?:\?v=[^\"\']+)?([\"\"])',lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)
     story_index.write_text(markup)
     dist=APP/'dist'
     if dist.exists():shutil.rmtree(dist)
     dist.mkdir()
-    for name in ['index.html','explore.html','styles.css','story.css','site.css','deck.css','intro.css']:
+    for name in ['index.html','explore.html','styles.css','story.css']:
         shutil.copy2(APP/name,dist/name)
     for name in ['assets','runtime']:
         shutil.copytree(APP/name,dist/name,dirs_exist_ok=True)

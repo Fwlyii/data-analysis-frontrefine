@@ -66,19 +66,3 @@ python3 scripts/delivery/build_submission.py
 ```
 
 生成`submission/AI对话行为分析_系统/`：顶层为README、app、data、report、presentation，与课设系统组示例一致。提交版只含匿名特征、统计、图稿和代码；完整原始数据保留在本项目。提交版由同一套脚本生成，作为独立提交目录一并收录。
-
-
-## 当前 GitHub Pages 预览
-
-本分支整合 `Fwlyii/dataAnalysis-vision` 的 `Master`（`35f7318`）与 LENS 前三轮视觉优化和纯代码电影开场。入口仍是 `app/index.html` 与 `app/explore.html`；保留最新英文展示内容、完整课程图表库、冻结研究数据及其交互。
-
-- 构建：`python3 scripts/system/build_web_app.py`
-- 本地预览：`python3 app/launch.py`
-- 资源和数据绑定检查：`python3 scripts/system/check_web_snapshot.py --skip-build`
-- 全站视觉证据门禁：`python3 scripts/system/check_visual_coverage.py`
-- 流程与迁移报告：`docs/visual-refinement-workflow.md`、`optimization/master-migration-v4/REPORT.md`
-- 公网：<https://fwlyii.github.io/data-analysis-frontrefine/>；每次推送 `main` 后由 Actions 构建发布。`?intro=1` 重播开场，`?intro=0` 直接进入系统，遵循减少动态效果偏好。
-
-`app/runtime` 和 `app/dist` 可重复构建，无需提交。原始研究档案继续通过 `.lfsconfig` 引用源仓库的 Git LFS；页面所需的三个冻结 `.gz` 快照已按上游哈希校验，直接包含在 Git 中，因此 Pages 构建不依赖完整科研档案下载。需要完整档案时安装 Git LFS 后执行 `git lfs pull --include="data/**,reports/**,presentation/**,submission/**" --exclude=""`。
-
-当前渲染修复与统一视觉版本见 `optimization/render-unification-v5/REPORT.md`：与 Master 实际内容/图形逐项比较，采用统一深蓝框架、青色与浅色数据图纸；开场与页面共享颜色。

@@ -295,7 +295,7 @@
       }
       case "repair": {
         const r = D.examples.repair[0];
-        return `<p class="question">Implement choose_num(x, y): return the largest even number in [x, y], or −1 for an invalid range.<small>Fixed example · Qwen3 / HumanEval 102 · Counterexample, revision 2</small></p><div class="feedback-strip"><strong>Actual failure</strong><code>Input (13, 12)</code><span>Expected −1; received 12</span></div><div class="prompt-comparison"><article class="answer"><header><strong>Before</strong><span class="answer-meta">base and plus failed</span></header><pre class="answer-content code" tabindex="0" aria-label="Code before revision">${esc(r.before_code)}</pre></article><article class="answer full"><header><strong>After</strong><span class="answer-meta">base and plus passed</span></header><pre class="answer-content code" tabindex="0" aria-label="Code after revision">${esc(r.after_code)}</pre></article></div><details class="inline-details"><summary>Full feedback prompt</summary><pre tabindex="0" class="answer-content code">${esc(r.feedback)}</pre></details><p class="example-explanation">The draft swaps the boundaries. The counterexample exposes that assumption; revision 2 returns −1 directly when <code>x &gt; y</code>.</p>`;
+        return `<p class="question">Implement choose_num(x, y): return the largest even number in [x, y], or −1 for an invalid range.<small>Fixed example · Qwen3 / HumanEval 102 · Counterexample, revision 2</small></p><div class="feedback-strip"><strong>Actual failure</strong><code>Input (13, 12)</code><span>Expected −1; received 12</span></div><div class="prompt-comparison"><article class="answer"><header><strong>Before</strong><span class="answer-meta">base and plus failed</span></header><pre class="answer-content code" tabindex="0" aria-label="Code before revision">${esc(r.before_code)}</pre></article><article class="answer full"><header><strong>After</strong><span class="answer-meta">base and plus passed</span></header><pre class="answer-content code" tabindex="0" aria-label="Code after revision">${esc(r.after_code)}</pre></article></div><details class="inline-details"><summary>Full feedback prompt</summary><pre class="answer-content code">${esc(r.feedback)}</pre></details><p class="example-explanation">The draft swaps the boundaries. The counterexample exposes that assumption; revision 2 returns −1 directly when <code>x &gt; y</code>.</p>`;
       }
     }
   }
@@ -359,7 +359,7 @@
   const fmt = (x) => (typeof x === "number" ? Number(x.toFixed(2)) : x);
   function table() {
     const rows = currentRows();
-    return `<div class="data-scroll" role="region" tabindex="0" aria-label="Figure data; horizontally scrollable"><table><thead><tr>${Object.keys(rows[0])
+    return `<div class="data-scroll"><table><thead><tr>${Object.keys(rows[0])
       .map((k) => `<th scope="col">${esc(k)}</th>`)
       .join("")}</tr></thead><tbody>${rows
       .map(
@@ -453,7 +453,6 @@
       `<section class="finding-stage" aria-labelledby="finding-title"><header class="finding-intro"><div><span class="finding-kicker">${courseKinds[s.chapter]}</span><h3 id="finding-title">${headings[s.chapter]}</h3></div><p class="evidence-line">${finding[s.chapter]}</p></header><section class="figure-sheet" aria-label="${titles[s.chapter]} measured results"><div class="figure-toolbar"><div class="figure-heading"><h4>${s.chapter === "concise" && s.view === "cross" ? "17 model–task replications" : figureTitles[s.chapter]}</h4><p>${cap[0]}</p></div><div class="figure-controls">${controls()}</div><details class="export-menu"><summary aria-label="Export figure">Export ${icon("down")}</summary><div class="export-options"><button id="download-svg">SVG figure</button><button id="download-csv">CSV data</button></div></details></div><div class="plot-scroll" role="region" tabindex="0" aria-label="Chart; horizontally scrollable"><div id="plot" class="plot"></div></div>${scrubber()}<div class="figure-caption">${cap[1]}</div></section></section><div class="evidence-drawers"><details id="actual-example" class="evidence-section"><summary><strong>Real example</strong><span>Original prompt and response</span></summary><div class="example-body">${example()}</div></details><section class="support-section" aria-label="Evidence and course mapping"><details id="data-table"><summary>Figure data</summary>${table()}</details><details><summary>Method & scope</summary>${methods()}</details></section></div>`;
     paintPlot();
     bind();
-    window.LensMotionUI?.onRender(s.chapter);
     if (focusId)
       document.getElementById(focusId)?.focus({ preventScroll: true });
     else if (focusView)

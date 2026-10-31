@@ -1,14 +1,14 @@
 (() => {
   "use strict";
   const C = {
-    ink: "#1e3a56",
-    muted: "#526b80",
-    faint: "#526b80",
-    grid: "#d8e4ea",
-    accent: "#0e7c7b",
+    ink: "#202522",
+    muted: "#6c706b",
+    faint: "#a5a79f",
+    grid: "#ddd8ce",
+    accent: "#a34f36",
     blue: "#315c6b",
     gold: "#a2763c",
-    pale: "#e8f2f5",
+    pale: "#e9e4da",
   };
   const esc = (x) =>
     String(x ?? "").replace(
@@ -131,7 +131,7 @@
           );
           const score = r?.score_pct;
           const color = r
-            ? mix("#e9f3f4", "#294f5d", Math.max(0, Math.min(1, score / 100)))
+            ? mix("#e8e2d7", "#294f5d", Math.max(0, Math.min(1, score / 100)))
             : C.pale;
           const x = left + i * cw,
             y = top + j * rh;

@@ -22,5 +22,6 @@ node_modules/
 .collection.lock
 .run.lock
 
-# Raw CDP frames are temporary; keep the real encoded review recording.
-/optimization/master-migration-v4/after/video-frames/
+# Temporary browser recording frames
+/optimization/**/video-frames/
+/optimization/**/raw-frames/
