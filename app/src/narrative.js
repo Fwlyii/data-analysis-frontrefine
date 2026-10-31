@@ -284,7 +284,7 @@
       panel.hidden = !active;
       panel.classList.toggle("is-active", active);
     });
-    $$("[data-section]").forEach((button) => {
+    $$("button[data-section]").forEach((button) => {
       if (button.dataset.section === section)
         button.setAttribute("aria-current", "page");
       else button.removeAttribute("aria-current");
@@ -298,7 +298,7 @@
     if (active) active.scrollTop = 0;
     if (section === "landscape" && updateURL) syncOverview();
   };
-  $$("[data-section]").forEach((button) =>
+  $$("button[data-section]").forEach((button) =>
     button.addEventListener("click", () =>
       window.LENS_GO_TO(button.dataset.section),
     ),
@@ -325,11 +325,12 @@
   });
   document.addEventListener("keydown", (event) => {
     if (
+      document.documentElement.classList.contains("intro-active") ||
       event.altKey ||
       event.ctrlKey ||
       event.metaKey ||
       event.target.closest(
-        '.plot-scroll, .answer-content, [contenteditable="true"]',
+        '.plot-scroll, .answer-content, .schema-preview, [role="region"], [contenteditable="true"]',
       )
     )
       return;

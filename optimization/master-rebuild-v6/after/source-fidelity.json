@@ -1,0 +1,66 @@
+{
+  "upstream": "35f7318e45561da07c75eaf65374e4107004d5ec",
+  "results": [
+    {
+      "name": "Original non-exempt files and datasets preserved",
+      "passed": true,
+      "detail": {
+        "identical": 2179,
+        "hydratedAndSHA256Verified": [
+          "app/data/code-features.json.gz",
+          "app/data/features.json.gz",
+          "app/data/method-features.json.gz"
+        ],
+        "explicitPresentationExceptions": [
+          ".gitattributes",
+          ".gitignore",
+          "app/explore.html",
+          "app/index.html",
+          "app/src/code-interactions.js",
+          "app/src/narrative.js",
+          "scripts/system/build_web_app.py"
+        ]
+      }
+    },
+    {
+      "name": "Narrative only fixes navigation bubbling and keyboard ownership",
+      "passed": true
+    },
+    {
+      "name": "Scientific code interactions only add brush accessible names",
+      "passed": true
+    },
+    {
+      "name": "Original scientific/presentation source app/story.css",
+      "passed": true
+    },
+    {
+      "name": "Original scientific/presentation source app/styles.css",
+      "passed": true
+    },
+    {
+      "name": "Original scientific/presentation source app/src/story.js",
+      "passed": true
+    },
+    {
+      "name": "Original scientific/presentation source app/src/story-charts.js",
+      "passed": true
+    },
+    {
+      "name": "Original scientific/presentation source app/src/charts.js",
+      "passed": true
+    },
+    {
+      "name": "Original scientific/presentation source app/src/model.js",
+      "passed": true
+    },
+    {
+      "name": "Original scientific/presentation source app/src/app.js",
+      "passed": true
+    },
+    {
+      "name": "Original scientific/presentation source app/src/code-study.js",
+      "passed": true
+    }
+  ]
+}

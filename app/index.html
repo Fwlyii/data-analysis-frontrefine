@@ -4,6 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="theme-color" content="#071e30" />
+<style>html.intro-pending{background:#071e30}html.intro-pending body{background:#071e30}html.intro-pending body>:not(#lens-intro){visibility:hidden}</style>
+<script>
+(() => {
+  const mode = new URLSearchParams(location.search).get('intro');
+  let seen = true, storage = false;
+  try { seen = sessionStorage.getItem('lens.intro.seen.v1') === '1'; storage = true; } catch {}
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const play = !reduced && mode !== '0' && (mode === '1' || (storage && !seen));
+  window.__lensIntroRequest = {mode, play};
+  if (play) document.documentElement.classList.add('intro-pending');
+  window.__lensIntroBootTimer = setTimeout(() => {
+    if (!window.LensIntro) document.documentElement.classList.remove('intro-pending');
+  }, 1800);
+})();
+</script>
     <meta
       name="description"
       content="Evidence from 248,586 anonymized model responses on expression, evidence position, and feedback."
@@ -11,28 +26,30 @@
     <title>LENS — Research Question</title>
     <link rel="icon" href="assets/lens.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="story.css?v=7685e04f3bad" />
+    <link rel="stylesheet" href="refinement.css?v=5769d5271ab7" />
+    <link rel="stylesheet" href="intro.css?v=edb0e0b2d7bf" />
+    <link rel="preload" as="font" type="font/ttf" href="assets/fonts/Fraunces-Latin-400.ttf" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/lens-intro-semibold.woff2" crossorigin />
+    <script defer src="runtime/intro.js?v=c5496f8d51b3"></script>
+    <script defer src="assets/vendor/motion-mini-14.9.0.min.js"></script>
+    <script defer src="runtime/refinement.js?v=6f80ae6bccb8"></script>
     <script defer src="runtime/story-data.js?v=89546c5aec0c"></script>
     <script defer src="runtime/narrative-data.js?v=2f0fbfe3dab7"></script>
     <script defer src="runtime/story-charts.js?v=4524c21f864d"></script>
-    <script defer src="runtime/narrative.js?v=abd752ff2fe0"></script>
+    <script defer src="runtime/narrative.js?v=2128a3761897"></script>
     <script defer src="runtime/story.js?v=aabd568acb71"></script>
   </head>
   <body data-section="question">
     <a class="skip" href="#question">Skip to research</a>
     <header class="topbar">
       <button class="wordmark" data-section="question" aria-label="LENS home">
-        LENS<span>.</span>
+        <span class="wordmark-logo"><strong>LENS<span class="lens-period">.</span></strong></span>
       </button>
       <div class="topbar-meta">
         <span id="section-counter">01 / 05</span
         ><span>248,586 anonymized responses</span>
       </div>
-      <a
-        class="mobile-library"
-        href="explore.html?mode=explore#case-1"
-        aria-label="Open chart library"
-        >Charts ↗</a
-      >
+      <div class="topbar-actions"><a class="mobile-library" href="explore.html?mode=explore#case-1">Chart library ↗</a><button id="intro-replay" class="intro-replay" aria-label="Replay opening" title="Replay opening"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8a8 8 0 1 1-1 7M4 3v5h5m1 0 6 4-6 4z"/></svg></button></div>
     </header>
 
     <aside class="chapter-rail">
@@ -73,7 +90,7 @@
       </div>
     </aside>
 
-    <main class="deck" aria-label="LENS research presentation">
+    <main id="presentation" tabindex="-1" class="deck" aria-label="LENS research presentation">
       <section
         id="question"
         class="deck-panel question-panel is-active"
