@@ -1,8 +1,12 @@
 # LENS · 知微之门
 
-本轮在已完成的开场上开发默认导航首页。本地验收完成后，用户已明确授权将本版推送到 main 并通过 GitHub Pages 预览；发布完成后记录线上复核结果。
+本轮在已完成的开场上开发默认导航首页。本地验收完成后，用户已明确授权将本版推送到 main 并通过 GitHub Pages 预览；Pages 已部署成功，221个线上文件比对和22项线上交互检查全部通过。
 
-## 预览
+## 线上预览
+
+[完整开场与知微之门](https://fwlyii.github.io/data-analysis-frontrefine/?intro=1&v=knowledge-gateway) · [直接看主页](https://fwlyii.github.io/data-analysis-frontrefine/?intro=0&v=knowledge-gateway)。线上截图及验证结果见 [REPORT.md](REPORT.md#发布与线上复核)。
+
+## 本地预览
 
 ```sh
 python3 scripts/system/build_web_app.py

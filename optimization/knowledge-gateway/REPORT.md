@@ -2,7 +2,7 @@
 
 ## 状态与预览
 
-本地开发和检查已完成。用户随后明确授权推送本版到远端并发布预览，当前进入 Pages 发布与线上复核阶段。 Git 工作区开始时干净，原 aa3116d 版本已留在本地备份分支 `backup/before-knowledge-gateway-aa3116d`；本轮源码与验收证据随发布提交保存。
+本地开发和检查已完成。用户随后明确授权推送本版到远端并发布预览，本版已完成 Pages 发布和线上复核。 Git 工作区开始时干净，原 aa3116d 版本已留在本地备份分支 `backup/before-knowledge-gateway-aa3116d`；本轮源码与验收证据随发布提交保存。
 
 预览服务：`http://127.0.0.1:8788/?intro=1`；直接看主页：`http://127.0.0.1:8788/?intro=0`。这是当前开发服务器的本地服务；在自己的电脑访问远程服务器时，需要转发8788端口。系统“减少动态效果”优先于强制片头参数。
 
@@ -137,4 +137,12 @@
 
 ## 发布与线上复核
 
-已获得用户明确授权。等待本次 main 提交的 Pages 工作流成功后，核对线上产物并进行真实浏览器复核，结果另行归档。
+应用提交 `c87126da11ec91caab129798d19b116dc22bcab0` 已通过 [Pages 构建与部署](https://github.com/Fwlyii/data-analysis-frontrefine/actions/runs/41211301683)。
+
+- [线上产物检查](after/public-assets.json)：221/221个文件与本地 app/dist 逐字节一致，包括HTML、运行脚本、样式、字体与科研资源。
+- [线上真实浏览器检查](after/public-browser.json)：22/22项通过，覆盖片头五点与同节点交接、五个实际路由、悬停、位置滑块、图表库和代码视图、会话返回、重播/跳过、实际触摸、减少动态效果及首次研究深链接的原页眉转场；无未捕获错误。
+- [线上桌面首页](after/public-gateway-desktop.png)、[手机首页](after/public-gateway-mobile.png)、[转场过程](after/public-forming-desktop.png)、[悬停效果](after/public-hover-desktop.png)。
+
+[完整开场与知微之门](https://fwlyii.github.io/data-analysis-frontrefine/?intro=1&v=knowledge-gateway) · [直接看主页](https://fwlyii.github.io/data-analysis-frontrefine/?intro=0&v=knowledge-gateway)。
+
+发布后的记录补充仅添加审查结果、截图和文档，不改变页面、数据、样式或动画资源。
