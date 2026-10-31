@@ -1,0 +1,2169 @@
+{
+  "baseline": "d80769de37e4171665bef22d68f1f701b9bf2c3c",
+  "results": [
+    {
+      "name": "app/assets/blue-field.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/code-test.schema.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/fonts/Fraunces-Latin-400.ttf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/fonts/Fraunces-OFL.txt byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/fonts/Geist-Bold.ttf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/fonts/Geist-Medium.ttf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/fonts/Geist-OFL.txt byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/fonts/Geist-Regular.ttf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/fonts/Geist-Semibold.ttf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/fonts/Noto-CJK-OFL.txt byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/fonts/lens-intro-semibold.woff2 byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/hero-orbit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/lens.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/logos/deepseek.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/logos/hunyuan.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/logos/qwen.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/code_generation-heatmap-deepseek-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/code_generation-heatmap-deepseek.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/code_generation-heatmap-qwen-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/code_generation-heatmap-qwen.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/code_generation-heatmap-qwen3-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/code_generation-heatmap-qwen3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/code_generation-overview-deepseek-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/code_generation-overview-deepseek.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/code_generation-overview-qwen-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/code_generation-overview-qwen.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/code_generation-overview-qwen3-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/code_generation-overview-qwen3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/document_qa-heatmap-qwen-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/document_qa-heatmap-qwen.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/document_qa-heatmap-qwen3-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/document_qa-heatmap-qwen3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/document_qa-overview-qwen-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/document_qa-overview-qwen.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/document_qa-overview-qwen3-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/document_qa-overview-qwen3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/heatmap-deepseek-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/heatmap-deepseek.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/heatmap-hy4-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/heatmap-hy4.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/heatmap-qwen-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/heatmap-qwen.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/heatmap-qwen3-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/heatmap-qwen3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/overview-deepseek-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/overview-deepseek.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/overview-hy4-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/overview-hy4.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/overview-qwen-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/overview-qwen.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/overview-qwen3-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/narrative/overview-qwen3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/concise-baseline-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/concise-baseline.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/concise-cross-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/concise-cross.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/language-gsm8k-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/language-gsm8k.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/language-math500-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/language-math500.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/language-mmlu-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/language-mmlu.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-gsm8k-CharLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-gsm8k-CharLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-gsm8k-TokenLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-gsm8k-TokenLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-gsm8k-WordLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-gsm8k-WordLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-math500-CharLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-math500-CharLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-math500-TokenLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-math500-TokenLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-math500-WordLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-math500-WordLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-mmlu-CharLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-mmlu-CharLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-mmlu-TokenLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-mmlu-TokenLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-mmlu-WordLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-deepseek-mmlu-WordLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-gsm8k-CharLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-gsm8k-CharLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-gsm8k-TokenLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-gsm8k-TokenLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-gsm8k-WordLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-gsm8k-WordLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-math500-CharLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-math500-CharLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-math500-TokenLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-math500-TokenLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-math500-WordLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-math500-WordLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-mmlu-CharLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-mmlu-CharLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-mmlu-TokenLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-mmlu-TokenLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-mmlu-WordLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-hy4-mmlu-WordLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-gsm8k-CharLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-gsm8k-CharLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-gsm8k-TokenLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-gsm8k-TokenLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-gsm8k-WordLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-gsm8k-WordLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-math500-CharLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-math500-CharLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-math500-TokenLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-math500-TokenLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-math500-WordLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-math500-WordLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-mmlu-CharLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-mmlu-CharLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-mmlu-TokenLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-mmlu-TokenLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-mmlu-WordLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen-mmlu-WordLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-gsm8k-CharLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-gsm8k-CharLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-gsm8k-TokenLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-gsm8k-TokenLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-gsm8k-WordLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-gsm8k-WordLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-math500-CharLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-math500-CharLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-math500-TokenLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-math500-TokenLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-math500-WordLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-math500-WordLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-mmlu-CharLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-mmlu-CharLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-mmlu-TokenLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-mmlu-TokenLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-mmlu-WordLimit-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/limit-qwen3-mmlu-WordLimit.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/position-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/position.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/provenance.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen-0-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen-0.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen-1-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen-1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen-2-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen-2.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen-3-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen-3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen-4-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen-4.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen3-0-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen3-0.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen3-1-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen3-1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen3-2-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen3-2.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen3-3-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen3-3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen3-4-mobile.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/story/repair-qwen3-4.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/alert-triangle.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/arrow-up-right.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/arrows-maximize.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/chart-bar.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/chart-dots-3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/chart-histogram.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/chart-line.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/chart-scatter.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/chevron-left.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/chevron-right.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/circle-check.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/download.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/layout-dashboard.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/layout-grid.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/ui/menu-2.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/d3-7.9.0-LICENSE.txt byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/d3-7.9.0.min.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/echarts-LICENSE.txt byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/echarts.min.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/icons-LICENSE.txt byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/motion-mini-14.9.0-LICENSE.txt byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/motion-mini-14.9.0.min.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/plotly-cartesian-3.1.1-LICENSE.txt byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/plotly-cartesian-3.1.1.min.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/scrollama-LICENSE.txt byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/scrollama.min.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/tabler-LICENSE.txt byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/tabler-icons-LICENSE.txt byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/tabler.min.css byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/vega-5.30.0-LICENSE.txt byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/vega-5.30.0.min.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/vega-lite-5.23.0-LICENSE.txt byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/vega-lite-5.23.0.min.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/vendor/visualization-libraries.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/visual/gateway-atmosphere.webp byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/visual/planet-cleaning.webp byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/visual/planet-collection.webp byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/visual/planet-findings.webp byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/visual/planet-landscape.webp byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/assets/visual/planet-question.webp byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/content-layout.css byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/data/README.md byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/data/code-evidence.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/data/code-features.json.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/data/code-scatter.vl.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/data/course-assignment.pdf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/data/demo-evidence.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/data/features.json.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/data/method-evidence.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/data/method-features.json.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/data/narrative-evidence.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/data/question-cluster-order.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/data/research-evidence.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/data/story-evidence.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/data/summary.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/gateway.css byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/intro.css byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/refinement.css byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/src/app.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/src/charts.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/src/code-interactions.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/src/code-study.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/src/gateway.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/src/intro.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/src/libraries.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/src/model.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/src/narrative.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/src/refinement.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/src/story-charts.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/src/story.js byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/story.css byte preservation",
+      "passed": true
+    },
+    {
+      "name": "app/styles.css byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/README.md byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/SHA256SUMS.txt byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/all_records.csv.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/baseline_notes.md byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/code_generation/README.md byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/code_generation/data_dictionary.tsv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/code_generation/prompts.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/code_generation/questions.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/code_generation/responses.csv.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/code_repair/README.md byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/code_repair/full/events.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/code_repair/full/features.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/code_repair/responses.csv.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/data_dictionary.tsv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/document_positions/responses.csv.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/document_qa/attempts_clean.csv.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/document_qa/method_features.csv.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/document_qa/questions_clean.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/document_qa/responses_clean.csv.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/document_qa/review_queue_clean.csv.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/document_qa/scenarios_clean.csv.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/missingness_report.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/missingness_report.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/quality_report.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/reasoning/method_features.csv.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/reasoning/prompts_clean.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/reasoning/questions_clean.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/reasoning/repeated_hash_audit.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/reasoning/responses_clean.csv.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/reasoning/review_queue_clean.csv.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "data/processed/record_lineage.csv.gz byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-assertion_failure-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-assertion_failure-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-attribute_error-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-attribute_error-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-dependency_error-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-dependency_error-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-extraction_error-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-extraction_error-core.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-extraction_error-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-file_error-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-file_error-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-index_error-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-index_error-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-key_error-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-key_error-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-name_error-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-name_error-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-resource_error-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-resource_error-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-runtime_error-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-runtime_error-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-syntax_error-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-syntax_error-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-timeout-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-timeout-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-type_error-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-type_error-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-value_error-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-errors-value_error-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-prompts-0-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-prompts-0-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-prompts-1-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-prompts-1-core.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-prompts-1-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-prompts-3-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-prompts-3-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-prompts-5-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-prompts-5-core.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-0.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-10.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-11.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-12.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-13.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-14.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-15.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-16.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-17.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-18.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-19.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-2.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-20.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-21.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-22.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-23.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-24.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-25.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-26.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-27.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-28.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-29.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-30.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-4.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-5.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-6.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-7.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-8.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-9.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-all.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-all-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-0.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-10.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-11.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-12.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-13.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-14.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-15.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-16.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-17.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-18.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-19.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-2.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-20.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-21.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-22.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-23.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-24.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-25.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-26.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-27.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-28.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-29.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-30.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-4.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-5.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-6.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-7.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-8.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-9.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-deepseek-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-0.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-10.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-11.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-12.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-13.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-14.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-15.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-16.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-17.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-18.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-19.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-2.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-20.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-21.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-22.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-23.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-24.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-25.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-26.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-27.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-28.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-29.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-30.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-4.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-5.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-6.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-7.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-8.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-9.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-0.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-10.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-11.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-12.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-13.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-14.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-15.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-16.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-17.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-18.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-19.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-2.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-20.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-21.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-22.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-23.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-24.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-25.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-26.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-27.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-28.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-29.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-30.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-4.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-5.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-6.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-7.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-8.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-9.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-sampling-qwen3-all.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-tokens-1.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-tokens-1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-tokens-3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/code-tokens-5.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation/figure-metadata.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/01_model_pass_at_k.pdf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/01_model_pass_at_k.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/01_model_pass_at_k.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/02_sampling_saturation.pdf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/02_sampling_saturation.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/02_sampling_saturation.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/03_prompt_pass_at_1.pdf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/03_prompt_pass_at_1.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/03_prompt_pass_at_1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/04_prompt_sampling_gain.pdf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/04_prompt_sampling_gain.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/04_prompt_sampling_gain.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/05_error_categories.pdf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/05_error_categories.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/05_error_categories.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/06_tokens_and_pass_at_1.pdf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/06_tokens_and_pass_at_1.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/06_tokens_and_pass_at_1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/QUALITY.md byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/README.md byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/source_data/01_model_pass_at_k.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/source_data/02_sampling_saturation.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/source_data/03_prompt_pass_at_1.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/source_data/04_prompt_sampling_gain.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/source_data/05_error_categories.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/code_generation_source/source_data/06_tokens_and_pass_at_1.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/interaction/code-brush-low.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/interaction/sampling-step-2.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/interaction/token-distribution.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/01_position_model_length.pdf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/01_position_model_length.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/01_position_model_length.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/02_paired_position_metrics.pdf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/02_paired_position_metrics.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/02_paired_position_metrics.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/03_strategy_accuracy.pdf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/03_strategy_accuracy.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/03_strategy_accuracy.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/04_tokens_accuracy.pdf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/04_tokens_accuracy.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/04_tokens_accuracy.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/05_prompt_position_heatmap.pdf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/05_prompt_position_heatmap.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/05_prompt_position_heatmap.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/06_truncation_all_strategies.pdf byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/06_truncation_all_strategies.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/06_truncation_all_strategies.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/QUALITY.md byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/README.md byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/source_data/01_position_model_length.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/source_data/02_paired_position_metrics.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/source_data/03_strategy_accuracy.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/source_data/04_tokens_accuracy.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/source_data/05_prompt_position_heatmap.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/lost-in-the-middle/source_data/06_truncation_all_strategies.csv byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/budget-deepseek-normalized.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/budget-deepseek-raw.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/budget-hy4-normalized.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/budget-hy4-raw.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/budget-qwen-normalized.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/budget-qwen-raw.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/budget-qwen-raw.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/budget-qwen3-normalized.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/budget-qwen3-raw.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/efficiency-deepseek.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/efficiency-hy4.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/efficiency-overview-compact.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/efficiency-overview-compact.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/efficiency-overview.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/efficiency-overview.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/efficiency-qwen.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/efficiency-qwen3.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/efficiency-qwen3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/figure-metadata.json byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-BeConcise-0.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-BeConcise-1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-BeConcise-2.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-BeConcise-3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-DefaultCoT-0.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-DefaultCoT-0.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-DefaultCoT-1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-DefaultCoT-2.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-DefaultCoT-3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-NoCoT-0.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-NoCoT-1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-NoCoT-2.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-NoCoT-3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-core8-0.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-core8-1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-core8-2.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-core8-3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-main19-0.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-main19-1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-main19-2.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-main19-3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-matrix-0.png byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-matrix-0.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-matrix-1.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-matrix-2.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/position-matrix-3.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "reports/figures/publication/threshold-cdf.svg byte preservation",
+      "passed": true
+    },
+    {
+      "name": "styles.css source/build identical",
+      "passed": true
+    },
+    {
+      "name": "story.css source/build identical",
+      "passed": true
+    },
+    {
+      "name": "refinement.css source/build identical",
+      "passed": true
+    },
+    {
+      "name": "content-layout.css source/build identical",
+      "passed": true
+    },
+    {
+      "name": "intro.css source/build identical",
+      "passed": true
+    },
+    {
+      "name": "gateway.css source/build identical",
+      "passed": true
+    },
+    {
+      "name": "palette.css source/build identical",
+      "passed": true
+    },
+    {
+      "name": "No video or frame sequence shipped in product",
+      "passed": true
+    }
+  ]
+}

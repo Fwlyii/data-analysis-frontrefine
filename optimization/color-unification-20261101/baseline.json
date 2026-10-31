@@ -1,0 +1,5 @@
+{
+  "commit": "d80769de37e4171665bef22d68f1f701b9bf2c3c",
+  "frozenBuild": ".git/color-unification/baseline-dist",
+  "reason": "Moderate color unification after desktop layout delivery; preserve scientific drawings and existing readable layout."
+}

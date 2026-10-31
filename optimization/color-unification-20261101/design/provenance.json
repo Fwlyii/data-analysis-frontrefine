@@ -1,0 +1,43 @@
+{
+  "tool": "image_gen.imagegen",
+  "calls": [
+    {
+      "kind": "palette-unification",
+      "mode": "built-in image references",
+      "generatedPath": "/home/codex/.codex/generated_images/01a1904e-6f2b-76d0-9370-245c8bedb310/exec-25bb6878-ee57-4ec5-99a4-fcad17931c03.png",
+      "prompt": {
+        "path": "optimization/color-unification-20261101/design/prompt.txt",
+        "bytes": 2461,
+        "sha256": "b514d3bfaf552c76ce472fc3c1aaebbcb63b18be60cc7736a2286334e64b49b4"
+      },
+      "inputs": [
+        {
+          "path": "optimization/color-unification-20261101/design/inputs/gateway.png",
+          "bytes": 1451103,
+          "sha256": "30efbb7c7ad67b00bc379907b3b3a6b76131b20e83e2252add9a34abc7cf5503"
+        },
+        {
+          "path": "optimization/color-unification-20261101/design/inputs/question.png",
+          "bytes": 965985,
+          "sha256": "57cc2e024bac351881e238ea38c9dbd57101104a85953dd1b9ac7a0aebd28100"
+        },
+        {
+          "path": "optimization/color-unification-20261101/design/inputs/collection.png",
+          "bytes": 124406,
+          "sha256": "9f21f4922f24609796344efefe5047280ebfedc5064b1acba27b21d3ee1205be"
+        },
+        {
+          "path": "optimization/color-unification-20261101/design/inputs/library.png",
+          "bytes": 91969,
+          "sha256": "2448e980c285753651e2b25393398b26a55699da92c84b95959f27eeda1b8bc8"
+        }
+      ],
+      "output": {
+        "path": "optimization/color-unification-20261101/design/palette-reference.png",
+        "bytes": 1575256,
+        "sha256": "748c56fe4ed7931b9a5dcbf47bd713df34a2f0415e89e8d69731c63c1faf2b7b"
+      }
+    }
+  ],
+  "adoption": "Adopt deep navy, mist-blue reading surfaces and restrained champagne. Existing heading regions carry the identity; generated extra navbars and altered scientific marks are rejected. No generated bitmap ships in the website."
+}

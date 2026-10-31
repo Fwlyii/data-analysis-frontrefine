@@ -1,0 +1,5 @@
+{
+  "actual": "rgb(234, 240, 242)",
+  "expected": "rgb(7, 30, 48)",
+  "passed": false
+}

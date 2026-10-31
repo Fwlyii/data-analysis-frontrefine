@@ -10,6 +10,9 @@ def digest(path):
     return hashlib.sha256(value).hexdigest()
 def check():
     proof=json.loads((APP/'visual-coverage.json').read_text())
+    if proof.get('version')==12:
+        import runpy
+        return runpy.run_path(str(ROOT/'scripts/system/check_palette_coverage.py'))['check'](ROOT,proof)
     inventory=json.loads((ROOT/proof['inventory']).read_text());routes=inventory['routes'];keys={r['key'] for r in routes}
     assert len(keys)==len(routes)==93 and 'deck-gateway' in keys,'Regenerate route inventory and classify new routes'
     assert sorted(p.name for p in (APP/'dist').glob('*.html'))==sorted(inventory['entryDocuments'])

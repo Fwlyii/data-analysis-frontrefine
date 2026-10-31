@@ -118,20 +118,20 @@ def build():
         shutil.copy2(APP/'src'/name,runtime/name)
     index=APP/'explore.html'
     markup=index.read_text()
-    for asset in ['styles.css','refinement.css','content-layout.css','runtime/refinement.js','runtime/summary.js','runtime/publication.js','runtime/code-data.js','runtime/app.js']:
+    for asset in ['styles.css','refinement.css','content-layout.css','palette.css','runtime/refinement.js','runtime/summary.js','runtime/publication.js','runtime/code-data.js','runtime/app.js']:
         digest=hashlib.sha256((APP/asset).read_bytes()).hexdigest()[:12]
         markup=re.sub(r'([\"\"])'+re.escape(asset)+r'(?:\?v=[a-f0-9]+)?([\"\"])',lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)
     index.write_text(markup)
     story_index=APP/'index.html'
     markup=story_index.read_text()
-    for asset in ['story.css','refinement.css','content-layout.css','intro.css','gateway.css','runtime/gateway.js','runtime/intro.js','runtime/refinement.js','runtime/story-data.js','runtime/story.js','runtime/story-charts.js','runtime/narrative-data.js','runtime/narrative.js']:
+    for asset in ['story.css','refinement.css','content-layout.css','palette.css','intro.css','gateway.css','runtime/gateway.js','runtime/intro.js','runtime/refinement.js','runtime/story-data.js','runtime/story.js','runtime/story-charts.js','runtime/narrative-data.js','runtime/narrative.js']:
         digest=hashlib.sha256((APP/asset).read_bytes()).hexdigest()[:12]
         markup=re.sub(r'([\"\"])'+re.escape(asset)+r'(?:\?v=[^\"\']+)?([\"\"])',lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)
     story_index.write_text(markup)
     dist=APP/'dist'
     if dist.exists():shutil.rmtree(dist)
     dist.mkdir()
-    for name in ['index.html','explore.html','styles.css','story.css','refinement.css','content-layout.css','intro.css','gateway.css']:
+    for name in ['index.html','explore.html','styles.css','story.css','refinement.css','content-layout.css','palette.css','intro.css','gateway.css']:
         shutil.copy2(APP/name,dist/name)
     for name in ['assets','runtime']:
         shutil.copytree(APP/name,dist/name,dirs_exist_ok=True)

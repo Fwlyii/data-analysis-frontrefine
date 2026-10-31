@@ -1,0 +1,112 @@
+{
+  "results": [
+    {
+      "name": "site-checks",
+      "passed": true,
+      "checks": 467,
+      "report": "optimization/color-unification-20261101/after/site-checks.json"
+    },
+    {
+      "name": "master-alignment",
+      "passed": true,
+      "checks": 65,
+      "report": "optimization/color-unification-20261101/after/master-alignment.json"
+    },
+    {
+      "name": "preservation",
+      "passed": true,
+      "checks": 541,
+      "report": "optimization/color-unification-20261101/after/preservation.json"
+    },
+    {
+      "name": "home-interactions",
+      "passed": true,
+      "checks": 49,
+      "report": "optimization/color-unification-20261101/after/home-interactions.json"
+    },
+    {
+      "name": "library-interactions",
+      "passed": true,
+      "checks": 39,
+      "report": "optimization/color-unification-20261101/after/library-interactions.json"
+    },
+    {
+      "name": "gateway-checks",
+      "passed": true,
+      "checks": 123,
+      "report": "optimization/color-unification-20261101/after/gateway-checks.json"
+    },
+    {
+      "name": "optical-checks",
+      "passed": true,
+      "checks": 23,
+      "report": "optimization/color-unification-20261101/after/optical-checks.json"
+    },
+    {
+      "name": "resilience",
+      "passed": true,
+      "checks": 11,
+      "report": "optimization/color-unification-20261101/after/resilience.json"
+    },
+    {
+      "name": "intro-checks",
+      "passed": true,
+      "checks": 86,
+      "report": "optimization/color-unification-20261101/after/intro-checks.json"
+    },
+    {
+      "name": "planet-checks",
+      "passed": true,
+      "checks": 19,
+      "report": "optimization/color-unification-20261101/after/planet-checks.json"
+    },
+    {
+      "name": "chart-render-preservation",
+      "passed": true,
+      "checks": 184,
+      "report": "optimization/color-unification-20261101/after/chart-render-preservation.json"
+    },
+    {
+      "name": "export-checks",
+      "passed": true,
+      "checks": 31,
+      "report": "optimization/color-unification-20261101/after/export-checks.json"
+    },
+    {
+      "name": "readability-checks",
+      "passed": true,
+      "checks": 186,
+      "report": "optimization/color-unification-20261101/after/readability-checks.json"
+    },
+    {
+      "name": "nav-access-checks",
+      "passed": true,
+      "checks": 25,
+      "report": "optimization/color-unification-20261101/after/nav-access-checks.json"
+    },
+    {
+      "name": "desktop-recording-checks",
+      "passed": true,
+      "checks": 18,
+      "report": "optimization/color-unification-20261101/after/desktop-recording-checks.json"
+    },
+    {
+      "name": "expanded-reading-checks",
+      "passed": true,
+      "checks": 8,
+      "report": "optimization/color-unification-20261101/after/expanded-reading-checks.json"
+    },
+    {
+      "name": "palette-checks",
+      "passed": true,
+      "checks": 186,
+      "report": "optimization/color-unification-20261101/after/palette-checks.json"
+    },
+    {
+      "name": "early-paint-checks",
+      "passed": true,
+      "checks": 12,
+      "report": "optimization/color-unification-20261101/after/early-paint-checks.json"
+    }
+  ]
+}
