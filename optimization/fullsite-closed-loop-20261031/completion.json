@@ -1,0 +1,24 @@
+{
+  "status": "completed",
+  "baseline": "f751c3fe2db5a977f63d394ca185d09bc3ef8132",
+  "incomplete": [],
+  "releaseCommit": "b338faff02a0dff108db8946e0db7e0e5c00b4a4",
+  "previewUrl": "https://fwlyii.github.io/data-analysis-frontrefine/",
+  "planetAssets": [
+    "app/assets/visual/planet-question.webp",
+    "app/assets/visual/planet-collection.webp",
+    "app/assets/visual/planet-cleaning.webp",
+    "app/assets/visual/planet-landscape.webp",
+    "app/assets/visual/planet-findings.webp"
+  ],
+  "routeCount": 93,
+  "coverageRows": 186,
+  "generatedImageCalls": 14,
+  "protectedFiles": 519,
+  "onlineFileMatches": 227,
+  "onlineBrowserChecks": 335,
+  "workflowUrl": "https://github.com/Fwlyii/data-analysis-frontrefine/actions/runs/41217215015",
+  "completedAt": "2026-10-31T16:03:48.586279+00:00",
+  "result": "optimization/fullsite-closed-loop-20261031/RESULT.md",
+  "gallery": "optimization/fullsite-closed-loop-20261031/gallery.html"
+}

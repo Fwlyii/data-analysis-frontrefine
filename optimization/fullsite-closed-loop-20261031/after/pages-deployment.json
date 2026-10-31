@@ -1,0 +1,16 @@
+{
+  "results": [
+    {
+      "name": "GitHub Pages workflow for production commit",
+      "passed": true,
+      "detail": {
+        "id": 41217215015,
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/Fwlyii/data-analysis-frontrefine/actions/runs/41217215015",
+        "head_sha": "b338faff02a0dff108db8946e0db7e0e5c00b4a4",
+        "run_number": 15
+      }
+    }
+  ]
+}

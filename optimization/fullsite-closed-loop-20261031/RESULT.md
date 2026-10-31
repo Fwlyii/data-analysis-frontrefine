@@ -1,6 +1,6 @@
 # 知微之门至图表库：全站视觉闭环结果
 
-本地视觉闭环、功能与性能已完成；待本地发布门禁通过后正常推送并补充线上复核。
+已完成发布与线上复核。
 
 基线为 `f751c3fe2db5a977f63d394ca185d09bc3ef8132`。未使用子代理，未调用需要API Key的替代生图流程；未修改运行器和独立完成校验器。
 
@@ -95,11 +95,17 @@
 
 ## 发布、线上与审计
 
-尚未写入completed；完成正常发布、Pages成功与真实线上检查后补全本节。
+生产实现提交：`b338faff02a0dff108db8946e0db7e0e5c00b4a4`，已正常快进main并推送，无reset/force push。[Pages工作流](https://github.com/Fwlyii/data-analysis-frontrefine/actions/runs/41217215015)成功。
+
+[线上入口](https://fwlyii.github.io/data-analysis-frontrefine/?intro=0&v=fullsite-b338faff) · [观看完整开场](https://fwlyii.github.io/data-analysis-frontrefine/?intro=1&v=fullsite-b338faff) · [图表库](https://fwlyii.github.io/data-analysis-frontrefine/explore.html?mode=explore)
+
+227个线上构建文件逐字节与本地dist一致，保留预期/实际SHA-256；包括全部HTML、CSS、脚本、数据、图稿、字体与新资源。真实线上93路由×桌面/手机及原研究/图表库交互、开场、减少动态效果、真实触摸和31种导出均通过。
+
+[逐文件线上核对](after/public-assets.json) · [线上浏览器汇总](after/public-browser.json) · [线上全路由](after/public-routes/site-checks.json) · [线上导出](after/public-export-checks.json)
 
 发布门禁 `scripts/system/check_visual_coverage.py` 已绑定本轮451个源文件/输入指纹与全套新证据。旧“三次生图/开场禁止任意img”规则扩展为14次以上真实来源、恰好5个静态透明装饰、原生标签/原链接、科学文件固定哈希和新素材降级/交接检查，其余保护保留。
 
-检查工具最初遇到Plotly异步替换占位SVG、手机横向第二图裁切和原PNG参考被规范重拍覆盖等取证问题：均保留尝试日志并修正。Plotly等待最终renderer；手机按实际可见区域取样，完整DOM/样式仍严格比较；最初参考PNG以原SHA和字节数从本任务原图像记录恢复到独立归档输入路径，未改写原来源哈希。最终没有以失败取证或旧PASS代替当前证据。
+检查工具最初遇到Plotly异步替换占位SVG、手机横向第二图裁切和原PNG参考被规范重拍覆盖等取证问题：均保留尝试日志并修正。Plotly等待最终renderer；手机按实际可见区域取样，完整DOM/样式仍严格比较；最初参考PNG以原SHA和字节数从本任务原图像记录恢复到独立归档输入路径，未改写原来源哈希。线上图表库首次因过快跨页取消Motion请求而有1项资源检查失败，原报告保留于iterations/public-attempt-1；只增加离开首页前的networkidle等待，再完整重跑39项全部通过，未放宽资源断言。最终没有以失败取证或旧PASS代替当前证据。
 
 ## 修改文件与保留项
 
@@ -125,4 +131,4 @@
 
 原研究内页仍铺满视口，仅保留轻量research-home返回；未恢复侧栏和顶栏。所有未达到至少5分改进的布局均按账本保留，属于已完成的评审决策，不作为未完成伪装上线。科研图内字体/比例/几何/配色不动。
 
-未完成项：发布与线上复核，完成后更新。
+未完成项：无。
