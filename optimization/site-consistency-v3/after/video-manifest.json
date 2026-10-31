@@ -1,0 +1,52 @@
+{
+  "source": "Actual Chromium CDP screencast; no generated/interpolated frames",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "reducedMotion": "no-preference",
+  "frameCount": 283,
+  "seconds": 10.882897853851318,
+  "actions": [
+    {
+      "label": "Research homepage",
+      "at": 1793437427601
+    },
+    {
+      "label": "Open the unified chart library",
+      "at": 1793437429137
+    },
+    {
+      "label": "Change chart type",
+      "at": 1793437430197
+    },
+    {
+      "label": "Position research mode",
+      "at": 1793437431201
+    },
+    {
+      "label": "Open a matching record cohort",
+      "at": 1793437432212
+    },
+    {
+      "label": "Close the shared detail drawer",
+      "at": 1793437433657
+    },
+    {
+      "label": "Code generation mode",
+      "at": 1793437434749
+    },
+    {
+      "label": "Code output and linked errors",
+      "at": 1793437435765
+    },
+    {
+      "label": "Return to chart exploration",
+      "at": 1793437436767
+    },
+    {
+      "label": "Return to the research homepage",
+      "at": 1793437437780
+    }
+  ]
+}

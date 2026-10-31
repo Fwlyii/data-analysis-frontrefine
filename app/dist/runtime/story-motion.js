@@ -92,13 +92,6 @@
     revealSections();
   }
 
-  const wordmark = document.querySelector('.wordmark-art');
-  if (wordmark) {
-    wordmark.decode().then(() => {
-      wordmark.parentElement.classList.add('art-ready');
-      play(wordmark, {opacity: [.7, 1], transform: ['translateY(3px)', 'translateY(0px)']}, {duration: .4});
-    }).catch(() => {}); // Native brand text remains visible if the decorative image fails.
-  }
   preference.addEventListener('change', () => {
     settle();
     moveMarker(true);

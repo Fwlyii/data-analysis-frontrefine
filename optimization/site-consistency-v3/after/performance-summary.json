@@ -1,0 +1,165 @@
+{
+  "method": "Eight sequential cold-load Lighthouse runs on the same local host and Chromium. Provided throttling: NO simulated weak network or CPU throttling. Phone/desktop viewports only, not real mobile hardware. Baseline dist extracted unchanged from a6c4c1f. Do not compare these scores to v2 DevTools-throttled scores. Single-run diagnostics, not a statistical benchmark.",
+  "runs": [
+    {
+      "surface": "home",
+      "device": "mobile",
+      "stage": "before",
+      "report": "before/lighthouse-home-mobile.json",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 98.935,
+        "largest-contentful-paint": 199.043,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 177,
+        "total-byte-weight": 834857
+      },
+      "warnings": []
+    },
+    {
+      "surface": "home",
+      "device": "mobile",
+      "stage": "after",
+      "report": "after/lighthouse-home-mobile.json",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 101.259,
+        "largest-contentful-paint": 186.362,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 189,
+        "total-byte-weight": 873353
+      },
+      "warnings": []
+    },
+    {
+      "surface": "home",
+      "device": "desktop",
+      "stage": "before",
+      "report": "before/lighthouse-home-desktop.json",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 116.264,
+        "largest-contentful-paint": 211.076,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 183,
+        "total-byte-weight": 865949
+      },
+      "warnings": []
+    },
+    {
+      "surface": "home",
+      "device": "desktop",
+      "stage": "after",
+      "report": "after/lighthouse-home-desktop.json",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 102.885,
+        "largest-contentful-paint": 199.873,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 186,
+        "total-byte-weight": 904445
+      },
+      "warnings": []
+    },
+    {
+      "surface": "library",
+      "device": "mobile",
+      "stage": "before",
+      "report": "before/lighthouse-library-mobile.json",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 782.378,
+        "largest-contentful-paint": 782.378,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 802,
+        "total-byte-weight": 14592580
+      },
+      "warnings": []
+    },
+    {
+      "surface": "library",
+      "device": "mobile",
+      "stage": "after",
+      "report": "after/lighthouse-library-mobile.json",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 783.841,
+        "largest-contentful-paint": 783.841,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 763,
+        "total-byte-weight": 14708799
+      },
+      "warnings": []
+    },
+    {
+      "surface": "library",
+      "device": "desktop",
+      "stage": "before",
+      "report": "before/lighthouse-library-desktop.json",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 805.842,
+        "largest-contentful-paint": 805.842,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 823,
+        "total-byte-weight": 14592580
+      },
+      "warnings": []
+    },
+    {
+      "surface": "library",
+      "device": "desktop",
+      "stage": "after",
+      "report": "after/lighthouse-library-desktop.json",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 810.93,
+        "largest-contentful-paint": 810.93,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 749,
+        "total-byte-weight": 14708799
+      },
+      "warnings": []
+    }
+  ]
+}

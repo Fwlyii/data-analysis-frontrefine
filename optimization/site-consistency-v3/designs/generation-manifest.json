@@ -1,0 +1,40 @@
+{
+  "tool": "built-in image_gen",
+  "modelVersion": "not returned by tool",
+  "successfulCalls": 3,
+  "selectedDesktop": "direction-a",
+  "iterationReference": "mobile-refinement",
+  "usage": "design references only; no generated full-page image is shipped as UI",
+  "images": [
+    {
+      "file": "designs/direction-a.png",
+      "prompt": "designs/direction-a-prompt.txt",
+      "referenceImages": [
+        "before/chart-model-desktop.png",
+        "before/story-concise-desktop.png"
+      ],
+      "sha256": "53ad03d4075762bb0f787424cfb4335c629721ea1f8438631c9721e6dd340f72",
+      "bytes": 1146052
+    },
+    {
+      "file": "designs/direction-b.png",
+      "prompt": "designs/direction-b-prompt.txt",
+      "referenceImages": [
+        "before/chart-model-desktop.png",
+        "before/story-concise-desktop.png"
+      ],
+      "sha256": "7dbb422951573a72a42c690178b7d9609d308d1f589fdf127ef378566a7f2d5b",
+      "bytes": 1155745
+    },
+    {
+      "file": "designs/mobile-refinement.png",
+      "prompt": "designs/mobile-refinement-prompt.txt",
+      "referenceImages": [
+        "iterations/round-1/chart-model-mobile.png",
+        "designs/direction-a.png"
+      ],
+      "sha256": "b01d1d27e59e146c8b62d7bb5bf615ef2318e7a52a787ba886f873b9b54afa32",
+      "bytes": 1191293
+    }
+  ]
+}

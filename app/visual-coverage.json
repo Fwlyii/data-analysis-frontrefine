@@ -1,0 +1,227 @@
+{
+  "version": 3,
+  "entryDocuments": [
+    "explore.html",
+    "index.html"
+  ],
+  "routes": [
+    {
+      "key": "story-concise",
+      "family": "story",
+      "url": "index.html#concise"
+    },
+    {
+      "key": "story-language",
+      "family": "story",
+      "url": "index.html#language"
+    },
+    {
+      "key": "story-limits",
+      "family": "story",
+      "url": "index.html#limits"
+    },
+    {
+      "key": "story-position",
+      "family": "story",
+      "url": "index.html#position"
+    },
+    {
+      "key": "story-repair",
+      "family": "story",
+      "url": "index.html#repair"
+    },
+    {
+      "key": "story-language-gsm8k",
+      "family": "story",
+      "url": "index.html?task=gsm8k#language"
+    },
+    {
+      "key": "story-language-mmlu",
+      "family": "story",
+      "url": "index.html?task=mmlu#language"
+    },
+    {
+      "key": "efficiency",
+      "family": "publication",
+      "url": "explore.html#budget"
+    },
+    {
+      "key": "efficiency-prompts",
+      "family": "publication",
+      "url": "explore.html?view=prompts#budget"
+    },
+    {
+      "key": "position-matrix",
+      "family": "publication",
+      "url": "explore.html#position"
+    },
+    {
+      "key": "position-profile",
+      "family": "publication",
+      "url": "explore.html?figure=profile#position"
+    },
+    {
+      "key": "code-sampling",
+      "family": "code",
+      "url": "explore.html?codeView=sampling#code"
+    },
+    {
+      "key": "code-prompts",
+      "family": "code",
+      "url": "explore.html?codeView=prompts#code"
+    },
+    {
+      "key": "code-errors",
+      "family": "code",
+      "url": "explore.html?codeView=errors#code"
+    },
+    {
+      "key": "code-tokens",
+      "family": "code",
+      "url": "explore.html?codeView=tokens#code"
+    },
+    {
+      "key": "discovery-1",
+      "family": "discovery",
+      "url": "explore.html#case-1"
+    },
+    {
+      "key": "discovery-2",
+      "family": "discovery",
+      "url": "explore.html#case-2"
+    },
+    {
+      "key": "discovery-3",
+      "family": "discovery",
+      "url": "explore.html#case-3"
+    },
+    {
+      "key": "discovery-4",
+      "family": "discovery",
+      "url": "explore.html#case-4"
+    },
+    {
+      "key": "discovery-5",
+      "family": "discovery",
+      "url": "explore.html#case-5"
+    },
+    {
+      "key": "chart-model",
+      "label": "模型柱图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=model#case-1"
+    },
+    {
+      "key": "chart-radar",
+      "label": "雷达图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=radar#case-1"
+    },
+    {
+      "key": "chart-heatmap",
+      "label": "策略热力图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=heatmap#case-1"
+    },
+    {
+      "key": "chart-bubble",
+      "label": "规模 / 开销气泡图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=bubble#case-1"
+    },
+    {
+      "key": "chart-radial",
+      "label": "分组环形柱图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=radial#case-1"
+    },
+    {
+      "key": "chart-position",
+      "label": "资料位置曲线",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=position&dataset=document_qa#case-1"
+    },
+    {
+      "key": "chart-box",
+      "label": "分组箱线图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=box#case-1"
+    },
+    {
+      "key": "chart-parallel",
+      "label": "平行坐标图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=parallel#case-1"
+    },
+    {
+      "key": "chart-distribution",
+      "label": "状态饼图与堆叠图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=distribution#case-1"
+    },
+    {
+      "key": "chart-behavior",
+      "label": "输出形态与约束",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=behavior#case-1"
+    },
+    {
+      "key": "chart-timeline",
+      "label": "请求时间线",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=timeline&dataset=document_qa#case-1"
+    },
+    {
+      "key": "chart-tree",
+      "label": "重试路径树",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=tree&dataset=document_qa#case-1"
+    },
+    {
+      "key": "chart-flow",
+      "label": "评分分歧流图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=flow&dataset=document_qa#case-1"
+    },
+    {
+      "key": "chart-flow-empty",
+      "family": "library",
+      "empty": true,
+      "url": "explore.html?mode=explore&chart=flow&dataset=reasoning#case-1"
+    }
+  ],
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "screenshots": "optimization/site-consistency-v3/after/page-audit.json",
+  "browserChecks": "optimization/site-consistency-v3/after/site-checks.json",
+  "additionalBrowserChecks": [
+    "optimization/site-consistency-v3/after/home-regression/regression.json",
+    "optimization/site-consistency-v3/after/home-regression/motion-checks.json"
+  ],
+  "performance": "optimization/site-consistency-v3/after/performance-summary.json",
+  "fingerprints": {
+    "app/index.html": "5c9555acada1a98b5525bd1bc4900a393eb0c5f4cd64c87f54cbbee1a7ad68c1",
+    "app/explore.html": "4504d4570c2b26054e60d07811779c13c8756da92cc69503e85f3f93bffa422c",
+    "app/site.css": "a3250e5e4c3b32d17233afd7684663cdcf965f3689188982ac6db4c18552d147",
+    "app/story.css": "e492ef34d99b4251b66c8c87f3d315591b8bd82df2824d5f0106e1e9b75fbcaf",
+    "app/styles.css": "602bf7a98163c171ff7c1c33bdf2cd0e08294141acebfc5a9c1adee5bcf523c0",
+    "app/templates/site-header.html": "d39ec21f6449bba956f0f6e9f337acdde8cf9efc952233072dc61b6335639367",
+    "app/pipeline/scripts/system/build_web_app.py": "e5618cafe57a52a1845fc9f18e95bdb7d2534f3e2e9dcb1524c5bcc7b96c746c",
+    "app/assets/fonts/lens-editorial-site-semibold.woff2": "551f93dd92d0f778415410499939aa0505f4aaaa6439e8eaf1a08cd207b768d1",
+    "app/assets/visual/lens-wordmark.webp": "7a6b1fb73946f0310605543c5416331683a74b329469215b31a224db72f074cf",
+    "app/assets/vendor/motion-mini-14.9.0.min.js": "4bafd0d178299b2d0370a279fb28b2c3553855890f2b1dc9a8b09ece46e16c4a",
+    "app/src/app.js": "fdad676e751607158818eddf501655f9c8fd551d4f0a2ea0487ed175b7bc97b1",
+    "app/src/charts.js": "d63665664ff2de933632a220bdbb88e4c266b3461f8ec5d35182651e82d53c03",
+    "app/src/code-interactions.js": "c5c6c669a14a07fb735dbf273fee4baa9809f824343102548fe8ea3e49ffc964",
+    "app/src/code-study.js": "b6e3c034e9fcc04938e76a1f813042df917259be6c1d8dcba0d3ed7e9bd2becf",
+    "app/src/libraries.js": "21d8609b778724334167ebda135da0e02f97d16fa80f592ab7d54be9d575b71a",
+    "app/src/model.js": "dca681c4300f088cb1a4890bea8451240e94ea527dae998f8a85cfdc5b6f633f",
+    "app/src/site-shell.js": "4a67ba09eff834d45b6e145811ebf308e51ccadcd4af7df1a162ba60c3ad2e0e",
+    "app/src/story-motion.js": "5764e0f488075ee3844d3cb9c6e935b39d481e92fd9237451212c2deccd64818",
+    "app/src/story.js": "ce0bfdc49ead6dbfa5445f4425d79a7d78d55abc398cd791b3299eb09717488b"
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "baseCommit": "a6c4c1f360bf765c04242966a4dd8aa25250929e",
+  "entryDocuments": [
+    "app/index.html",
+    "app/explore.html"
+  ],
+  "routeCount": 34,
+  "routes": [
+    {
+      "key": "story-concise",
+      "family": "story",
+      "url": "index.html#concise"
+    },
+    {
+      "key": "story-language",
+      "family": "story",
+      "url": "index.html#language"
+    },
+    {
+      "key": "story-limits",
+      "family": "story",
+      "url": "index.html#limits"
+    },
+    {
+      "key": "story-position",
+      "family": "story",
+      "url": "index.html#position"
+    },
+    {
+      "key": "story-repair",
+      "family": "story",
+      "url": "index.html#repair"
+    },
+    {
+      "key": "story-language-gsm8k",
+      "family": "story",
+      "url": "index.html?task=gsm8k#language"
+    },
+    {
+      "key": "story-language-mmlu",
+      "family": "story",
+      "url": "index.html?task=mmlu#language"
+    },
+    {
+      "key": "efficiency",
+      "family": "publication",
+      "url": "explore.html#budget"
+    },
+    {
+      "key": "efficiency-prompts",
+      "family": "publication",
+      "url": "explore.html?view=prompts#budget"
+    },
+    {
+      "key": "position-matrix",
+      "family": "publication",
+      "url": "explore.html#position"
+    },
+    {
+      "key": "position-profile",
+      "family": "publication",
+      "url": "explore.html?figure=profile#position"
+    },
+    {
+      "key": "code-sampling",
+      "family": "code",
+      "url": "explore.html?codeView=sampling#code"
+    },
+    {
+      "key": "code-prompts",
+      "family": "code",
+      "url": "explore.html?codeView=prompts#code"
+    },
+    {
+      "key": "code-errors",
+      "family": "code",
+      "url": "explore.html?codeView=errors#code"
+    },
+    {
+      "key": "code-tokens",
+      "family": "code",
+      "url": "explore.html?codeView=tokens#code"
+    },
+    {
+      "key": "discovery-1",
+      "family": "discovery",
+      "url": "explore.html#case-1"
+    },
+    {
+      "key": "discovery-2",
+      "family": "discovery",
+      "url": "explore.html#case-2"
+    },
+    {
+      "key": "discovery-3",
+      "family": "discovery",
+      "url": "explore.html#case-3"
+    },
+    {
+      "key": "discovery-4",
+      "family": "discovery",
+      "url": "explore.html#case-4"
+    },
+    {
+      "key": "discovery-5",
+      "family": "discovery",
+      "url": "explore.html#case-5"
+    },
+    {
+      "key": "chart-model",
+      "label": "模型柱图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=model#case-1"
+    },
+    {
+      "key": "chart-radar",
+      "label": "雷达图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=radar#case-1"
+    },
+    {
+      "key": "chart-heatmap",
+      "label": "策略热力图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=heatmap#case-1"
+    },
+    {
+      "key": "chart-bubble",
+      "label": "规模 / 开销气泡图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=bubble#case-1"
+    },
+    {
+      "key": "chart-radial",
+      "label": "分组环形柱图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=radial#case-1"
+    },
+    {
+      "key": "chart-position",
+      "label": "资料位置曲线",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=position&dataset=document_qa#case-1"
+    },
+    {
+      "key": "chart-box",
+      "label": "分组箱线图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=box#case-1"
+    },
+    {
+      "key": "chart-parallel",
+      "label": "平行坐标图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=parallel#case-1"
+    },
+    {
+      "key": "chart-distribution",
+      "label": "状态饼图与堆叠图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=distribution#case-1"
+    },
+    {
+      "key": "chart-behavior",
+      "label": "输出形态与约束",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=behavior#case-1"
+    },
+    {
+      "key": "chart-timeline",
+      "label": "请求时间线",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=timeline&dataset=document_qa#case-1"
+    },
+    {
+      "key": "chart-tree",
+      "label": "重试路径树",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=tree&dataset=document_qa#case-1"
+    },
+    {
+      "key": "chart-flow",
+      "label": "评分分歧流图",
+      "family": "library",
+      "url": "explore.html?mode=explore&chart=flow&dataset=document_qa#case-1"
+    },
+    {
+      "key": "chart-flow-empty",
+      "family": "library",
+      "empty": true,
+      "url": "explore.html?mode=explore&chart=flow&dataset=reasoning#case-1"
+    }
+  ],
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "overlays": [
+    "publication-method",
+    "code-method",
+    "condition-records",
+    "anonymous-record-detail"
+  ],
+  "excluded": [
+    "PDF/CSV/SVG downloads are documents, not application screens",
+    "Archived optimization galleries are evidence, not production navigation"
+  ],
+  "discovery": "Entry HTML hrefs, mode navigation, source library keys, code VIEWS and discovery chapter arrays; browser inventory checks source keys are covered."
+}

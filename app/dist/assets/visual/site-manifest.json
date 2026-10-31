@@ -1,0 +1,19 @@
+{
+  "assets": [
+    {
+      "file": "assets/fonts/lens-editorial-site-semibold.woff2",
+      "bytes": 79296,
+      "sha256": "551f93dd92d0f778415410499939aa0505f4aaaa6439e8eaf1a08cd207b768d1"
+    }
+  ],
+  "font": {
+    "family": "LENS Editorial",
+    "source": "https://github.com/notofonts/noto-cjk/tree/main/Serif",
+    "license": "SIL OFL 1.1",
+    "masterSha256": "d627b53dbcde61e07de1498d2623a8b287f78585ffbc90cc0618d0caaa2ed6b0",
+    "codepoints": 252,
+    "missing": [],
+    "coverage": "optimization/site-consistency-v3/font-coverage.txt",
+    "scope": "all audited route main titles plus prior dynamic story titles and ASCII"
+  }
+}
