@@ -1,0 +1,29 @@
+{
+  "repository": "https://github.com/motiondivision/motion",
+  "tag": "v14.9.0",
+  "commit": "7415b6cd14dfdb35d91dfc5b9758994444cc228b",
+  "license": "MIT",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/motiondivision/motion/7415b6cd14dfdb35d91dfc5b9758994444cc228b/LICENSE.md",
+      "path": "optimization/fullsite-closed-loop-20261031/assets/motion-LICENSE.md",
+      "bytes": 1100,
+      "sha256": "1bf0dc3f7727723e5a032ed12164a47cf92c05204cb1a3485f123c24e2833ed1"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/motiondivision/motion/7415b6cd14dfdb35d91dfc5b9758994444cc228b/dev/html/public/benchmarks/interrupt-motion-animate-mini.html",
+      "path": "optimization/fullsite-closed-loop-20261031/assets/motion-interrupt-motion-animate-mini.html",
+      "bytes": 1876,
+      "sha256": "b35ea743b0adfeba2be9581a57a551c58491b0e427c890e0b725288bb70209ab"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/motiondivision/motion/7415b6cd14dfdb35d91dfc5b9758994444cc228b/packages/framer-motion/cypress/integration/animate-style.ts",
+      "path": "optimization/fullsite-closed-loop-20261031/assets/motion-animate-style.ts",
+      "bytes": 3188,
+      "sha256": "eadbd6e7a888e0533292ebd648208785763bc2b900c85ee327b8e65bc1d1bb2b"
+    }
+  ],
+  "localRuntime": "app/assets/vendor/motion-mini-14.9.0.min.js",
+  "runtimeSHA256": "4bafd0d178299b2d0370a279fb28b2c3553855890f2b1dc9a8b09ece46e16c4a",
+  "application": "app/src/gateway.js animate(): actual existing Motion mini animate call drives five orbital keyframe tracks and selected-link focus flight, now carrying new alpha images; sync()/cancelIdle() pause/cancel on hidden, route leave, preference and pagehide. Reuses the native WAAPI control pattern and interruption semantics; no new dependency."
+}

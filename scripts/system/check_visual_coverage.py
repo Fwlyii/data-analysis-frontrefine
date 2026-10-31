@@ -50,7 +50,9 @@ def check():
     assert 'class="chapter-rail"' not in home and 'class="research-home"' in home
     assert 'assets/visual/gateway-atmosphere.webp' in home
     provenance=json.loads((ROOT/proof['designProvenance']).read_text())
-    assert provenance['tool']=='image_gen.imagegen' and len(provenance['calls'])==3
+    assert provenance['tool']=='image_gen.imagegen' and len(provenance['calls'])>=14
+    assert len([c for c in provenance['calls'] if c.get('kind')=='transparent-planet'])==5
+    assert any(c.get('kind')=='implementation-feedback' for c in provenance['calls'])
     for call in provenance['calls']:
         for item in [call['prompt'],call['output'],*call['inputs'],*([call['runtime']] if 'runtime' in call else [])]:
             artifact=ROOT/item['path']
@@ -60,7 +62,7 @@ def check():
     assert len(optical['results'])==23 and all(r['passed'] for r in optical['results'])
     scene=json.loads((ROOT/proof['browserChecks']).parent.joinpath('gateway-checks.json').read_text());assert {row['width']for row in scene['layouts']}=={320,390,768,1366,1440}
     assert len([r for r in scene['results'] if 'original page has no navbar and uses full viewport' in r['name']])==25
-    assert (APP/'src/gateway.js').stat().st_size<20*1024 and (APP/'gateway.css').stat().st_size<16*1024
+    assert (APP/'src/gateway.js').stat().st_size<20*1024 and (APP/'gateway.css').stat().st_size<24*1024
     assert 'runtime/intro.js' not in library
     assert {p.name for p in (APP/'dist/runtime').glob('*.js')}=={'summary.js','publication.js','features.js','code-features.js','code-data.js','app.js','story-data.js','story.js','story-charts.js','narrative-data.js','narrative.js','intro.js','refinement.js','gateway.js'},'Stale or unclassified generated runtime script; clean runtime and rebuild'
     frames=json.loads((ROOT/proof['introFrames']).read_text())['runs'];assert len(frames)==6
@@ -77,5 +79,35 @@ def check():
             before=next(r for r in performance if r['surface']==surface and r['device']==device and r['stage']=='before')
             after=next(r for r in performance if r['surface']==surface and r['device']==device and r['stage']=='after')
             assert after['scores']['performance']>=before['scores']['performance']-5,'Investigate paired performance regression'
+    # This round explicitly authorizes five STATIC alpha decorations, while
+    # keeping native links/text, the same optical SVG, and all scientific bytes.
+    job=ROOT/'optimization/fullsite-closed-loop-20261031'
+    assert proof['version']>=10 and proof['baseline']=='f751c3fe2db5a977f63d394ca185d09bc3ef8132'
+    protected=job/'protected-files.json'
+    assert hashlib.sha256(protected.read_bytes()).hexdigest()=='29181b4d163b48c098ea5269eed624684abbc1bbf222ad66cefd2345870d914c'
+    protection=json.loads(protected.read_text());assert len(protection['files'])==519
+    for name,sha in protection['files'].items():assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==sha,'Protected bytes changed: '+name
+    planets=['app/assets/visual/planet-'+k+'.webp' for k in contract['links']]
+    assert set(proof['planetAssets'])==set(planets)
+    assert len(re.findall(r'class="orb-planet"',home))==5
+    for path in planets:
+        assert home.count('src="'+path.removeprefix('app/')+'"')==1
+    asset_report=json.loads((job/'assets/planet-validation.json').read_text())
+    assert len(asset_report['results'])==5 and all(r['passed'] and r['alpha']['min']==0 and r['alpha']['max']==255 for r in asset_report['results'])
+    for row in asset_report['results']:
+        asset=ROOT/row['runtime']['path'];assert hashlib.sha256(asset.read_bytes()).hexdigest()==row['runtime']['sha256']
+    ledger=json.loads((ROOT/proof['coverageLedger']).read_text())['rows']
+    assert len(ledger)==len(keys)*2 and {(r['routeKey'],r['device']) for r in ledger}=={(k,d)for k in keys for d in ['desktop','mobile']}
+    for row in ledger:
+        assert row['reason'].strip() and row['decision'] in ['improved','kept_with_reason']
+        for key in ['beforeScreenshot','referenceImage','afterScreenshot']:assert (ROOT/row[key]).stat().st_size>1000
+        for key in ['beforeScore','referenceScore','afterScore','fidelityScore']:assert 0<=row[key]<=100
+        if row['decision']=='improved':assert row['referenceScore']>=row['beforeScore']+5 and row['fidelityScore']>=90 and row['afterScore']>=row['referenceScore']-5
+    overlays=json.loads((ROOT/proof['overlays']).read_text())['states'];assert len(overlays)>=26
+    for state in overlays:
+        for key in ['beforeScreenshot','afterScreenshot']:assert (ROOT/state[key]).stat().st_size>1000
+    assert json.loads((job/'design/visual-scores.json').read_text())['assessmentType']=='AI subjective visual judgment'
+    for report in ['functional-checks','chart-preservation','planet-checks']:
+        report=json.loads((job/'after'/f'{report}.json').read_text());assert report['results'] and all(r['passed'] for r in report['results'])
     return {'routes':len(routes),'screenshots':len(rows),'viewports':checks['matrix']['viewports'],'fingerprintedSources':len(proof['fingerprints']),'verified':True}
 if __name__=='__main__':print(json.dumps(check()))

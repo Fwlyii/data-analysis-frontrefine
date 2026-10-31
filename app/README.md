@@ -29,3 +29,5 @@ python3 scripts/system/check_web_snapshot.py
 ```
 
 检查会重建快照、验证本地资源与三个任务31提示的数据接入。系统启动只需Python；若已安装Node，还会检查JS语法和SVG数值绑定。设计来源和许可证见../docs/design-sources.md。
+
+本轮全站视觉闭环与逐页评审见 `../optimization/fullsite-closed-loop-20261031/RESULT.md` 与 `gallery.html`。 原图表、数据及科研绘制源码保持；首页采用五个真实生成的静态透明装饰资产，原生链接、文字和开场交接连续性保留。

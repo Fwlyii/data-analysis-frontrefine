@@ -113,3 +113,27 @@ body[data-section=gateway] .skip{color:#071e30}
 @media(max-width:360px){.gate-space{padding:18px 18px 22px}.gate-center{width:142px;height:142px;margin:12px auto 18px}.gate-orb .orb-title{font-size:14px}.gate-orb .orb-description{font-size:9px;width:calc(100% - 112px)}.gate-orb .orb-number{display:none}.gate-heading h1{font-size:19px}.topbar-actions{gap:8px!important}}
 @media(min-width:700px) and (max-width:1000px){.gate-axis{width:82%}}
 @media(prefers-reduced-motion:reduce){.gate-orb,.gate-orb :is(.orb-title,.orb-english,.orb-description){transition:none}.gate-field .field-particles{animation:none!important}}
+/* Generated alpha glass is decoration inside the original five native links. */
+.orb-planet{position:absolute;left:-11%;top:-11%;width:122%;height:122%;max-width:none;object-fit:contain;pointer-events:none;opacity:0}
+.planet-ready .orb-planet{opacity:1}
+.gate-orb.planet-ready{background:transparent;border-color:transparent;box-shadow:none}
+.gate-orb.planet-ready::before,.gate-orb.planet-ready::after{opacity:0}
+.gate-orb.planet-ready .orb-rim{opacity:.2}
+.gate-orb.planet-ready .orb-icon{stroke:#f1fbff;opacity:.75;filter:drop-shadow(0 1px 3px #001321)}
+.gate-orb.planet-ready .orb-number{opacity:.7;text-shadow:0 1px 4px #001321}
+.gate-orb.planet-ready:is(:hover,:focus-visible){box-shadow:0 0 0 1px rgba(var(--tone),.3),0 0 28px rgba(var(--tone),.12)}
+.gate-center::before{content:"";position:absolute;inset:-11%;background:url('assets/visual/planet-question.webp') center/contain no-repeat;opacity:.8;mask-image:radial-gradient(circle,transparent 41%,#000 61%);pointer-events:none}
+.gate-lens-art{background:radial-gradient(circle,#071e3080 38%,#071e3000 68%);box-shadow:inset 0 0 24px #d4efff12,0 0 35px #a8dbf40a;border-color:#d9efff45}
+.gate-lens-art::before{border-width:1px;box-shadow:none}
+.gate-brand{z-index:2}
+.gate-axis{opacity:.42}
+.gate-atmosphere{opacity:.22}
+@media(max-width:699px){
+ .gate-orb.planet-ready{background:linear-gradient(110deg,rgba(var(--tone),.065),rgba(var(--tone),.015));border-color:rgba(var(--tone),.24);box-shadow:inset 0 1px 0 #ecf8ff0b}
+ .gate-orb.planet-ready::after{opacity:1}
+ .orb-planet{left:6px;top:4px;width:66px;height:66px}
+ .gate-orb.planet-ready .orb-icon{width:18px;height:18px;opacity:.72}
+ .gate-orb.planet-ready .orb-rim{opacity:.12}
+ .gate-orb.planet-ready:is(:hover,:focus-visible){border-color:rgba(var(--tone),.65);box-shadow:0 0 20px rgba(var(--tone),.08)}
+ .gate-atmosphere{opacity:.12}
+}

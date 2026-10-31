@@ -114,6 +114,15 @@
     done.then(()=>{if(token===epoch)go();},()=>{if(token===epoch)go();});
   }
   orbs.forEach(orb=>{
+    // Static generated glass travels inside the original accessible link node.
+    // Native CSS/SVG glass remains the fallback until the real alpha image decodes.
+    const planet=orb.querySelector('.orb-planet');
+    if(planet){
+      const ready=()=>{if(planet.naturalWidth>0)planet.decode().then(()=>orb.classList.add('planet-ready'),()=>{});};
+      planet.addEventListener('load',ready,{once:true});
+      planet.addEventListener('error',()=>orb.classList.remove('planet-ready'));
+      if(planet.complete)ready();
+    }
     orb.addEventListener('click',event=>{if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();navigate(orb);});
     const highlight=()=>{if(!borrowed&&!busy&&!preference.matches){idle[orbs.indexOf(orb)]?.pause();orb.style.scale='1.055';}};
     const clear=()=>{orb.style.removeProperty('scale');if(orb!==document.activeElement&&active()&&!busy&&!borrowed)idle[orbs.indexOf(orb)]?.play();};

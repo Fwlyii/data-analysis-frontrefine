@@ -19,12 +19,14 @@
   const cancel=()=>{for(const a of active)a.cancel();active.clear();};
   const reveal=(el,section=false)=>{
     cancel();
-    if(!el||preference.matches||document.documentElement.matches('.intro-active,.intro-pending'))return;
+    if(!el||preference.matches||document.hidden||document.documentElement.matches('.intro-active,.intro-pending'))return;
     const a=el.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:380,easing:'cubic-bezier(.22,1,.36,1)'});
     active.add(a);played++;if(section)sectionTransitions++;
     a.finished.then(()=>active.delete(a),()=>active.delete(a));
   };
   preference.addEventListener('change',cancel);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)cancel();});
+  addEventListener('pagehide',cancel);
   const deck=document.querySelector('.deck');
   if(deck){
     new MutationObserver(()=>reveal(document.querySelector('.deck-panel.is-active .panel-inner'),true)).observe(document.body,{attributes:true,attributeFilter:['data-section']});

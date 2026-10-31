@@ -1,0 +1,165 @@
+{
+  "assessmentType": "AI subjective visual judgment",
+  "weights": {
+    "layoutHierarchy": 25,
+    "typography": 20,
+    "colorMaterial": 20,
+    "siteConsistency": 15,
+    "readingOperation": 15,
+    "restraintFinish": 5
+  },
+  "candidates": [
+    {
+      "image": "optimization/fullsite-closed-loop-20261031/design/direction-a.png",
+      "label": "A gateway desktop",
+      "rubric": {
+        "layoutHierarchy": 9.3,
+        "typography": 9.3,
+        "colorMaterial": 9.5,
+        "siteConsistency": 9.5,
+        "readingOperation": 9.1,
+        "restraintFinish": 9.4
+      },
+      "score": 93.45,
+      "decision": "selected",
+      "reason": "准确延续原入口位置，玻璃材质与不同色调更完整；普通文字需以原生实现。"
+    },
+    {
+      "image": "optimization/fullsite-closed-loop-20261031/design/gateway-mobile-selected.png",
+      "label": "A gateway mobile",
+      "rubric": {
+        "layoutHierarchy": 9.4,
+        "typography": 9.3,
+        "colorMaterial": 9.5,
+        "siteConsistency": 9.5,
+        "readingOperation": 9.4,
+        "restraintFinish": 9.4
+      },
+      "score": 94.15,
+      "decision": "selected",
+      "reason": "完整触摸行与独立材质协调；实际实现保持原154px中心和74px行高，避免占用阅读空间。"
+    },
+    {
+      "image": "optimization/fullsite-closed-loop-20261031/design/direction-a-research.png",
+      "label": "A question/collection/cleaning",
+      "rubric": {
+        "layoutHierarchy": 8.9,
+        "typography": 8.95,
+        "colorMaterial": 9,
+        "siteConsistency": 9.1,
+        "readingOperation": 8.8,
+        "restraintFinish": 9.2
+      },
+      "score": 89.6,
+      "decision": "retained-layouts",
+      "reason": "外围眉题、分割和材质合适，但生成文字有误，整体收益未超过各原页5分；只参考外围。"
+    },
+    {
+      "image": "optimization/fullsite-closed-loop-20261031/design/direction-b-research.png",
+      "label": "B question/collection/cleaning",
+      "rubric": {
+        "layoutHierarchy": 8.5,
+        "typography": 8.5,
+        "colorMaterial": 8.5,
+        "siteConsistency": 7.9,
+        "readingOperation": 8.3,
+        "restraintFinish": 8.6
+      },
+      "score": 83.85,
+      "decision": "rejected",
+      "reason": "冷白青色与已有深蓝/铜色/衬线品牌脱节，且手机增加不存在的菜单。"
+    },
+    {
+      "image": "optimization/fullsite-closed-loop-20261031/design/direction-a-analysis.png",
+      "label": "A landscape/findings",
+      "rubric": {
+        "layoutHierarchy": 8.5,
+        "typography": 8.7,
+        "colorMaterial": 8.8,
+        "siteConsistency": 8.8,
+        "readingOperation": 8.5,
+        "restraintFinish": 9.0
+      },
+      "score": 86.7,
+      "decision": "retained-layouts",
+      "reason": "控制外框可参考，但省略总标题、发明控件、改写图表内容；完整原版更符合科研阅读。"
+    },
+    {
+      "image": "optimization/fullsite-closed-loop-20261031/design/direction-b-analysis.png",
+      "label": "B landscape/findings",
+      "rubric": {
+        "layoutHierarchy": 8.3,
+        "typography": 8.5,
+        "colorMaterial": 8.5,
+        "siteConsistency": 7.9,
+        "readingOperation": 8.4,
+        "restraintFinish": 8.5
+      },
+      "score": 83.45,
+      "decision": "rejected",
+      "reason": "更重的按钮和冷白底改变原研究语气，部分手机图缩小，不能证明更好的操作阅读。"
+    },
+    {
+      "image": "optimization/fullsite-closed-loop-20261031/design/direction-a-library.png",
+      "label": "A publication/code/discovery/explorer/empty",
+      "rubric": {
+        "layoutHierarchy": 8.6,
+        "typography": 8.7,
+        "colorMaterial": 9,
+        "siteConsistency": 9.1,
+        "readingOperation": 8.6,
+        "restraintFinish": 9.2
+      },
+      "score": 88.05,
+      "decision": "retained-layouts",
+      "reason": "同一控制边框与焦点语言有效，但稿件含额外菜单和筛选，原图与导航结构保留更妥当。"
+    },
+    {
+      "image": "optimization/fullsite-closed-loop-20261031/design/direction-b-library.png",
+      "label": "B publication/code/discovery/explorer/empty",
+      "rubric": {
+        "layoutHierarchy": 8.5,
+        "typography": 8.5,
+        "colorMaterial": 8.6,
+        "siteConsistency": 8.0,
+        "readingOperation": 8.3,
+        "restraintFinish": 8.8
+      },
+      "score": 84.3,
+      "decision": "rejected",
+      "reason": "青白色图面和标题变化不足以抵偿全站不一致，生成图简化/改写科研元素，未采用。"
+    }
+  ],
+  "assets": [
+    {
+      "image": "optimization/fullsite-closed-loop-20261031/design/planet-question.png",
+      "visualQualityScore": 92,
+      "reason": "蓝色上沿高光、较暗中部与下沿流体层次清楚。",
+      "objectiveValidation": "assets/planet-validation.json contains actual alpha/hash/size checks; this aesthetic value remains subjective."
+    },
+    {
+      "image": "optimization/fullsite-closed-loop-20261031/design/planet-collection.png",
+      "visualQualityScore": 92,
+      "reason": "翡翠与金色细节在小尺寸仍区分明确。",
+      "objectiveValidation": "assets/planet-validation.json contains actual alpha/hash/size checks; this aesthetic value remains subjective."
+    },
+    {
+      "image": "optimization/fullsite-closed-loop-20261031/design/planet-cleaning.png",
+      "visualQualityScore": 91,
+      "reason": "紫色边缘细腻，压缩后小尺寸内部略密。",
+      "objectiveValidation": "assets/planet-validation.json contains actual alpha/hash/size checks; this aesthetic value remains subjective."
+    },
+    {
+      "image": "optimization/fullsite-closed-loop-20261031/design/planet-landscape.png",
+      "visualQualityScore": 91,
+      "reason": "冰蓝波纹与研究问题蓝色同族但流体走向有差别。",
+      "objectiveValidation": "assets/planet-validation.json contains actual alpha/hash/size checks; this aesthetic value remains subjective."
+    },
+    {
+      "image": "optimization/fullsite-closed-loop-20261031/design/planet-findings.png",
+      "visualQualityScore": 92,
+      "reason": "琥珀色形成视觉重心，未覆盖原生线图标。",
+      "objectiveValidation": "assets/planet-validation.json contains actual alpha/hash/size checks; this aesthetic value remains subjective."
+    }
+  ]
+}

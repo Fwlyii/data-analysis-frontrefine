@@ -1,0 +1,1747 @@
+{
+  "states": [
+    {
+      "key": "collection-prompts",
+      "device": "desktop",
+      "url": "index.html?intro=0#collection",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/collection-prompts-desktop.png"
+    },
+    {
+      "key": "field-definitions",
+      "device": "desktop",
+      "url": "index.html?intro=0#cleaning",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/field-definitions-desktop.png"
+    },
+    {
+      "key": "landscape-keyboard-cell",
+      "device": "desktop",
+      "url": "index.html?intro=0&overviewView=heatmap#landscape",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/landscape-keyboard-cell-desktop.png"
+    },
+    {
+      "key": "real-example",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/real-example-desktop.png"
+    },
+    {
+      "key": "real-example-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/real-example-bottom-desktop.png",
+      "scroll": {
+        "max": 447,
+        "actual": 447
+      }
+    },
+    {
+      "key": "figure-data",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/figure-data-desktop.png"
+    },
+    {
+      "key": "figure-data-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/figure-data-bottom-desktop.png",
+      "scroll": {
+        "max": 519,
+        "actual": 519
+      }
+    },
+    {
+      "key": "method-scope",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/method-scope-desktop.png"
+    },
+    {
+      "key": "method-scope-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/method-scope-bottom-desktop.png",
+      "scroll": {
+        "max": 209,
+        "actual": 209
+      }
+    },
+    {
+      "key": "export-menu",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/export-menu-desktop.png"
+    },
+    {
+      "key": "publication-method",
+      "device": "desktop",
+      "url": "explore.html#budget",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/publication-method-desktop.png"
+    },
+    {
+      "key": "condition-records",
+      "device": "desktop",
+      "url": "explore.html#position",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/condition-records-desktop.png"
+    },
+    {
+      "key": "condition-records-bottom",
+      "device": "desktop",
+      "url": "explore.html#position",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/condition-records-bottom-desktop.png",
+      "scroll": {
+        "max": 251,
+        "actual": 251
+      }
+    },
+    {
+      "key": "anonymous-record-detail",
+      "device": "desktop",
+      "url": "explore.html#position",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/anonymous-record-detail-desktop.png"
+    },
+    {
+      "key": "code-method",
+      "device": "desktop",
+      "url": "explore.html?codeView=sampling#code",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-method-desktop.png"
+    },
+    {
+      "key": "code-scoring-detail",
+      "device": "desktop",
+      "url": "explore.html?codeView=errors#code",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-scoring-detail-desktop.png"
+    },
+    {
+      "key": "code-numeric-filter",
+      "device": "desktop",
+      "url": "explore.html?codeView=tokens#code",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-numeric-filter-desktop.png"
+    },
+    {
+      "key": "story-concise-cross-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=concise&view=cross#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-concise-cross-bottom-desktop.png",
+      "scroll": {
+        "max": 60,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-math500-WordLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-math500-WordLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-math500-CharLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-math500-CharLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-math500-TokenLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-math500-TokenLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-WordLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-gsm8k-WordLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-CharLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-gsm8k-CharLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-TokenLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-gsm8k-TokenLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-WordLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-mmlu-WordLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-CharLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-mmlu-CharLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-TokenLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-mmlu-TokenLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-math500-WordLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-math500-WordLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-math500-CharLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-math500-CharLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-math500-TokenLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-math500-TokenLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-WordLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-gsm8k-WordLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-CharLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-gsm8k-CharLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-TokenLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-gsm8k-TokenLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-mmlu-WordLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-mmlu-WordLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-mmlu-CharLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-mmlu-CharLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-mmlu-TokenLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-mmlu-TokenLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-math500-WordLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-math500-WordLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-math500-CharLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-math500-CharLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-math500-TokenLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-math500-TokenLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-WordLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-gsm8k-WordLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-CharLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-gsm8k-CharLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-TokenLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-gsm8k-TokenLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-mmlu-WordLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-mmlu-WordLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-mmlu-CharLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-mmlu-CharLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-mmlu-TokenLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-mmlu-TokenLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-math500-WordLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-math500-WordLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-math500-CharLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-math500-CharLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-math500-TokenLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-math500-TokenLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-WordLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-gsm8k-WordLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-CharLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-gsm8k-CharLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-TokenLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-gsm8k-TokenLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-WordLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-mmlu-WordLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-CharLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-mmlu-CharLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-TokenLimit-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-mmlu-TokenLimit-bottom-desktop.png",
+      "scroll": {
+        "max": 57,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-position-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-position-bottom-desktop.png",
+      "scroll": {
+        "max": 99,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-repair-qwen-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=repair&repairModel=qwen#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-repair-qwen-bottom-desktop.png",
+      "scroll": {
+        "max": 118,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-repair-qwen3-bottom",
+      "device": "desktop",
+      "url": "index.html?intro=0&finding=repair&repairModel=qwen3#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-repair-qwen3-bottom-desktop.png",
+      "scroll": {
+        "max": 118,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "code-sampling-bottom",
+      "device": "desktop",
+      "url": "explore.html?codeView=sampling#code",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-sampling-bottom-desktop.png",
+      "scroll": {
+        "max": 102,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "code-prompts-bottom",
+      "device": "desktop",
+      "url": "explore.html?codeView=prompts#code",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-prompts-bottom-desktop.png",
+      "scroll": {
+        "max": 84,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "code-errors-bottom",
+      "device": "desktop",
+      "url": "explore.html?codeView=errors#code",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-errors-bottom-desktop.png",
+      "scroll": {
+        "max": 172,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "code-tokens-bottom",
+      "device": "desktop",
+      "url": "explore.html?codeView=tokens#code",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-tokens-bottom-desktop.png",
+      "scroll": {
+        "max": 130,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "discovery-5-bottom",
+      "device": "desktop",
+      "url": "explore.html#case-5",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/discovery-5-bottom-desktop.png",
+      "scroll": {
+        "max": 73,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-behavior-bottom",
+      "device": "desktop",
+      "url": "explore.html?mode=explore&chart=behavior#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-behavior-bottom-desktop.png",
+      "scroll": {
+        "max": 68,
+        "client": 900,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "collection-prompts",
+      "device": "mobile",
+      "url": "index.html?intro=0#collection",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/collection-prompts-mobile.png"
+    },
+    {
+      "key": "collection-prompts-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0#collection",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/collection-prompts-bottom-mobile.png",
+      "scroll": {
+        "max": 608,
+        "actual": 608
+      }
+    },
+    {
+      "key": "field-definitions",
+      "device": "mobile",
+      "url": "index.html?intro=0#cleaning",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/field-definitions-mobile.png"
+    },
+    {
+      "key": "field-definitions-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0#cleaning",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/field-definitions-bottom-mobile.png",
+      "scroll": {
+        "max": 502,
+        "actual": 502
+      }
+    },
+    {
+      "key": "landscape-keyboard-cell",
+      "device": "mobile",
+      "url": "index.html?intro=0&overviewView=heatmap#landscape",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/landscape-keyboard-cell-mobile.png"
+    },
+    {
+      "key": "real-example",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/real-example-mobile.png"
+    },
+    {
+      "key": "real-example-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/real-example-bottom-mobile.png",
+      "scroll": {
+        "max": 865,
+        "actual": 865
+      }
+    },
+    {
+      "key": "figure-data",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/figure-data-mobile.png"
+    },
+    {
+      "key": "figure-data-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/figure-data-bottom-mobile.png",
+      "scroll": {
+        "max": 627,
+        "actual": 627
+      }
+    },
+    {
+      "key": "method-scope",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/method-scope-mobile.png"
+    },
+    {
+      "key": "method-scope-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/method-scope-bottom-mobile.png",
+      "scroll": {
+        "max": 403,
+        "actual": 403
+      }
+    },
+    {
+      "key": "export-menu",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/export-menu-mobile.png"
+    },
+    {
+      "key": "export-menu-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/export-menu-bottom-mobile.png",
+      "scroll": {
+        "max": 207,
+        "actual": 207
+      }
+    },
+    {
+      "key": "publication-method",
+      "device": "mobile",
+      "url": "explore.html#budget",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/publication-method-mobile.png"
+    },
+    {
+      "key": "condition-records",
+      "device": "mobile",
+      "url": "explore.html#position",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/condition-records-mobile.png"
+    },
+    {
+      "key": "condition-records-bottom",
+      "device": "mobile",
+      "url": "explore.html#position",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/condition-records-bottom-mobile.png",
+      "scroll": {
+        "max": 338,
+        "actual": 338
+      }
+    },
+    {
+      "key": "anonymous-record-detail",
+      "device": "mobile",
+      "url": "explore.html#position",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/anonymous-record-detail-mobile.png"
+    },
+    {
+      "key": "code-method",
+      "device": "mobile",
+      "url": "explore.html?codeView=sampling#code",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-method-mobile.png"
+    },
+    {
+      "key": "code-method-bottom",
+      "device": "mobile",
+      "url": "explore.html?codeView=sampling#code",
+      "kind": "expanded-bottom",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-method-bottom-mobile.png",
+      "scroll": {
+        "max": 252,
+        "actual": 252
+      }
+    },
+    {
+      "key": "code-scoring-detail",
+      "device": "mobile",
+      "url": "explore.html?codeView=errors#code",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-scoring-detail-mobile.png"
+    },
+    {
+      "key": "code-numeric-filter",
+      "device": "mobile",
+      "url": "explore.html?codeView=tokens#code",
+      "kind": "expanded",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-numeric-filter-mobile.png"
+    },
+    {
+      "key": "deck-collection-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0#collection",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/deck-collection-bottom-mobile.png",
+      "scroll": {
+        "max": 288,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "deck-cleaning-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0#cleaning",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/deck-cleaning-bottom-mobile.png",
+      "scroll": {
+        "max": 215,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-concise-baseline-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=concise&view=baseline#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-concise-baseline-bottom-mobile.png",
+      "scroll": {
+        "max": 159,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-concise-cross-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=concise&view=cross#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-concise-cross-bottom-mobile.png",
+      "scroll": {
+        "max": 183,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-language-math500-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=language&task=math500#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-language-math500-bottom-mobile.png",
+      "scroll": {
+        "max": 178,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-language-gsm8k-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=language&task=gsm8k#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-language-gsm8k-bottom-mobile.png",
+      "scroll": {
+        "max": 142,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-language-mmlu-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=language&task=mmlu#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-language-mmlu-bottom-mobile.png",
+      "scroll": {
+        "max": 142,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-math500-WordLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-math500-WordLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-math500-CharLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-math500-CharLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-math500-TokenLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-math500-TokenLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-WordLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-gsm8k-WordLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-CharLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-gsm8k-CharLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-gsm8k-TokenLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-gsm8k-TokenLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-WordLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-mmlu-WordLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-CharLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-mmlu-CharLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-deepseek-mmlu-TokenLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=deepseek&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-deepseek-mmlu-TokenLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-math500-WordLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-math500-WordLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-math500-CharLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-math500-CharLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-math500-TokenLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-math500-TokenLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-WordLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-gsm8k-WordLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-CharLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-gsm8k-CharLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-gsm8k-TokenLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-gsm8k-TokenLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-mmlu-WordLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-mmlu-WordLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-mmlu-CharLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-mmlu-CharLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-hy4-mmlu-TokenLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=hy4&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-hy4-mmlu-TokenLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-math500-WordLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-math500-WordLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-math500-CharLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-math500-CharLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-math500-TokenLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-math500-TokenLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-WordLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-gsm8k-WordLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-CharLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-gsm8k-CharLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-gsm8k-TokenLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-gsm8k-TokenLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-mmlu-WordLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-mmlu-WordLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-mmlu-CharLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-mmlu-CharLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen-mmlu-TokenLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen-mmlu-TokenLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-math500-WordLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-math500-WordLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-math500-CharLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-math500-CharLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-math500-TokenLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=math500&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-math500-TokenLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-WordLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-gsm8k-WordLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-CharLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-gsm8k-CharLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-gsm8k-TokenLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=gsm8k&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-gsm8k-TokenLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-WordLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=WordLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-mmlu-WordLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-CharLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=CharLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-mmlu-CharLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-limits-qwen3-mmlu-TokenLimit-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=limits&model=qwen3&task=mmlu&family=TokenLimit#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-limits-qwen3-mmlu-TokenLimit-bottom-mobile.png",
+      "scroll": {
+        "max": 305,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-position-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=position#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-position-bottom-mobile.png",
+      "scroll": {
+        "max": 207,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-repair-qwen-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=repair&repairModel=qwen#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-repair-qwen-bottom-mobile.png",
+      "scroll": {
+        "max": 271,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "story-repair-qwen3-bottom",
+      "device": "mobile",
+      "url": "index.html?intro=0&finding=repair&repairModel=qwen3#findings",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/story-repair-qwen3-bottom-mobile.png",
+      "scroll": {
+        "max": 271,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "efficiency-bottom",
+      "device": "mobile",
+      "url": "explore.html#budget",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/efficiency-bottom-mobile.png",
+      "scroll": {
+        "max": 136,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "efficiency-prompts-bottom",
+      "device": "mobile",
+      "url": "explore.html?view=prompts#budget",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/efficiency-prompts-bottom-mobile.png",
+      "scroll": {
+        "max": 187,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "position-matrix-bottom",
+      "device": "mobile",
+      "url": "explore.html#position",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/position-matrix-bottom-mobile.png",
+      "scroll": {
+        "max": 193,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "position-profile-bottom",
+      "device": "mobile",
+      "url": "explore.html?figure=profile#position",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/position-profile-bottom-mobile.png",
+      "scroll": {
+        "max": 152,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "code-sampling-bottom",
+      "device": "mobile",
+      "url": "explore.html?codeView=sampling#code",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-sampling-bottom-mobile.png",
+      "scroll": {
+        "max": 349,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "code-prompts-bottom",
+      "device": "mobile",
+      "url": "explore.html?codeView=prompts#code",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-prompts-bottom-mobile.png",
+      "scroll": {
+        "max": 249,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "code-errors-bottom",
+      "device": "mobile",
+      "url": "explore.html?codeView=errors#code",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-errors-bottom-mobile.png",
+      "scroll": {
+        "max": 328,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "code-tokens-bottom",
+      "device": "mobile",
+      "url": "explore.html?codeView=tokens#code",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/code-tokens-bottom-mobile.png",
+      "scroll": {
+        "max": 265,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "discovery-1-bottom",
+      "device": "mobile",
+      "url": "explore.html#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/discovery-1-bottom-mobile.png",
+      "scroll": {
+        "max": 240,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "discovery-2-bottom",
+      "device": "mobile",
+      "url": "explore.html#case-2",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/discovery-2-bottom-mobile.png",
+      "scroll": {
+        "max": 265,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "discovery-3-bottom",
+      "device": "mobile",
+      "url": "explore.html#case-3",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/discovery-3-bottom-mobile.png",
+      "scroll": {
+        "max": 281,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "discovery-4-bottom",
+      "device": "mobile",
+      "url": "explore.html#case-4",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/discovery-4-bottom-mobile.png",
+      "scroll": {
+        "max": 614,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "discovery-5-bottom",
+      "device": "mobile",
+      "url": "explore.html#case-5",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/discovery-5-bottom-mobile.png",
+      "scroll": {
+        "max": 362,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-model-bottom",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=model#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-model-bottom-mobile.png",
+      "scroll": {
+        "max": 219,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-radar-bottom",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=radar#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-radar-bottom-mobile.png",
+      "scroll": {
+        "max": 219,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-heatmap-bottom",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=heatmap#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-heatmap-bottom-mobile.png",
+      "scroll": {
+        "max": 264,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-bubble-bottom",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=bubble#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-bubble-bottom-mobile.png",
+      "scroll": {
+        "max": 264,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-radial-bottom",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=radial#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-radial-bottom-mobile.png",
+      "scroll": {
+        "max": 264,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-position-bottom",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=position&dataset=document_qa#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-position-bottom-mobile.png",
+      "scroll": {
+        "max": 219,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-box-bottom",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=box#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-box-bottom-mobile.png",
+      "scroll": {
+        "max": 240,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-parallel-bottom",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=parallel#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-parallel-bottom-mobile.png",
+      "scroll": {
+        "max": 219,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-distribution-bottom",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=distribution#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-distribution-bottom-mobile.png",
+      "scroll": {
+        "max": 462,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-behavior-bottom",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=behavior#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-behavior-bottom-mobile.png",
+      "scroll": {
+        "max": 774,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-timeline-bottom",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=timeline&dataset=document_qa#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-timeline-bottom-mobile.png",
+      "scroll": {
+        "max": 219,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-tree-bottom",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=tree&dataset=document_qa#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-tree-bottom-mobile.png",
+      "scroll": {
+        "max": 219,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-flow-bottom",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=flow&dataset=document_qa#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-flow-bottom-mobile.png",
+      "scroll": {
+        "max": 219,
+        "client": 844,
+        "position": "bottom"
+      }
+    },
+    {
+      "key": "chart-flow-empty-bottom",
+      "device": "mobile",
+      "url": "explore.html?mode=explore&chart=flow&dataset=reasoning#case-1",
+      "kind": "scroll",
+      "screenshot": "optimization/fullsite-closed-loop-20261031/after/overlays/chart-flow-empty-bottom-mobile.png",
+      "scroll": {
+        "max": 219,
+        "client": 844,
+        "position": "bottom"
+      }
+    }
+  ],
+  "errors": []
+}

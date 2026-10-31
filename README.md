@@ -68,3 +68,5 @@ python3 scripts/delivery/build_submission.py
 ```
 
 生成`submission/AI对话行为分析_系统/`：顶层为README、app、data、report、presentation，与课设系统组示例一致。提交版只含匿名特征、统计、图稿和代码；完整原始数据保留在本项目。提交版由同一套脚本生成，作为独立提交目录一并收录。
+
+本轮全站视觉闭环与逐页评审见 `optimization/fullsite-closed-loop-20261031/RESULT.md`、`optimization/fullsite-closed-loop-20261031/gallery.html`。 原图表、数据及科研绘制源码保持；首页采用五个真实生成的静态透明装饰资产，原生链接、文字和开场交接连续性保留。

@@ -1,0 +1,82 @@
+{
+  "results": [
+    {
+      "name": "site-checks complete real browser/source checks",
+      "passed": true,
+      "checks": 467,
+      "report": "optimization/fullsite-closed-loop-20261031/after/site-checks.json"
+    },
+    {
+      "name": "master-alignment complete real browser/source checks",
+      "passed": true,
+      "checks": 65,
+      "report": "optimization/fullsite-closed-loop-20261031/after/master-alignment.json"
+    },
+    {
+      "name": "preservation complete real browser/source checks",
+      "passed": true,
+      "checks": 525,
+      "report": "optimization/fullsite-closed-loop-20261031/after/preservation.json"
+    },
+    {
+      "name": "home-interactions complete real browser/source checks",
+      "passed": true,
+      "checks": 49,
+      "report": "optimization/fullsite-closed-loop-20261031/after/home-interactions.json"
+    },
+    {
+      "name": "library-interactions complete real browser/source checks",
+      "passed": true,
+      "checks": 39,
+      "report": "optimization/fullsite-closed-loop-20261031/after/library-interactions.json"
+    },
+    {
+      "name": "gateway-checks complete real browser/source checks",
+      "passed": true,
+      "checks": 123,
+      "report": "optimization/fullsite-closed-loop-20261031/after/gateway-checks.json"
+    },
+    {
+      "name": "optical-checks complete real browser/source checks",
+      "passed": true,
+      "checks": 23,
+      "report": "optimization/fullsite-closed-loop-20261031/after/optical-checks.json"
+    },
+    {
+      "name": "resilience complete real browser/source checks",
+      "passed": true,
+      "checks": 11,
+      "report": "optimization/fullsite-closed-loop-20261031/after/resilience.json"
+    },
+    {
+      "name": "intro-checks complete real browser/source checks",
+      "passed": true,
+      "checks": 86,
+      "report": "optimization/fullsite-closed-loop-20261031/after/intro-checks.json"
+    },
+    {
+      "name": "planet-checks complete real browser/source checks",
+      "passed": true,
+      "checks": 19,
+      "report": "optimization/fullsite-closed-loop-20261031/after/planet-checks.json"
+    },
+    {
+      "name": "chart-render-preservation complete real browser/source checks",
+      "passed": true,
+      "checks": 184,
+      "report": "optimization/fullsite-closed-loop-20261031/after/chart-render-preservation.json"
+    },
+    {
+      "name": "export-checks complete real browser/source checks",
+      "passed": true,
+      "checks": 31,
+      "report": "optimization/fullsite-closed-loop-20261031/after/export-checks.json"
+    },
+    {
+      "name": "top-capture-checks complete real browser/source checks",
+      "passed": true,
+      "checks": 188,
+      "report": "optimization/fullsite-closed-loop-20261031/after/top-capture-checks.json"
+    }
+  ]
+}
