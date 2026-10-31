@@ -1,0 +1,826 @@
+{
+  "base": "http://127.0.0.1:8780/",
+  "results": [
+    {
+      "name": "no-preference: decoded generated wordmark",
+      "passed": true
+    },
+    {
+      "name": "no-preference: concise has real browser animation",
+      "passed": true,
+      "detail": {
+        "played": 7,
+        "chapterTransitions": 1,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": false,
+        "running": 2,
+        "animations": 3,
+        "titleTransform": "none",
+        "plotTransform": "matrix(1, 0, 0, 1, 0, 5)",
+        "title": "把推理留下，\n把冗余删掉。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "no-preference: concise uses downloaded title font",
+      "passed": true,
+      "detail": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 12
+        }
+      ]
+    },
+    {
+      "name": "no-preference: concise settles",
+      "passed": true,
+      "detail": {
+        "played": 7,
+        "chapterTransitions": 1,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": false,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "none",
+        "plotTransform": "matrix(1, 0, 0, 1, 0, 0)",
+        "title": "把推理留下，\n把冗余删掉。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "no-preference: language has real browser animation",
+      "passed": true,
+      "detail": {
+        "played": 12,
+        "chapterTransitions": 2,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": false,
+        "running": 5,
+        "animations": 9,
+        "titleTransform": "matrix(1, 0, 0, 1, 0, 14)",
+        "plotTransform": "none",
+        "title": "同一道数学题，\n换成中文作答。",
+        "opacity": "0.82",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "no-preference: language uses downloaded title font",
+      "passed": true,
+      "detail": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ]
+    },
+    {
+      "name": "no-preference: language settles",
+      "passed": true,
+      "detail": {
+        "played": 12,
+        "chapterTransitions": 2,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": false,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "matrix(1, 0, 0, 1, 0, 0)",
+        "plotTransform": "none",
+        "title": "同一道数学题，\n换成中文作答。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "no-preference: limits has real browser animation",
+      "passed": true,
+      "detail": {
+        "played": 17,
+        "chapterTransitions": 3,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": false,
+        "running": 5,
+        "animations": 9,
+        "titleTransform": "matrix(1, 0, 0, 1, 0, 14)",
+        "plotTransform": "none",
+        "title": "越是极端限长，\n越可能写得更长。",
+        "opacity": "0.82",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "no-preference: limits uses downloaded title font",
+      "passed": true,
+      "detail": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 15
+        }
+      ]
+    },
+    {
+      "name": "no-preference: limits settles",
+      "passed": true,
+      "detail": {
+        "played": 17,
+        "chapterTransitions": 3,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": false,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "matrix(1, 0, 0, 1, 0, 0)",
+        "plotTransform": "none",
+        "title": "越是极端限长，\n越可能写得更长。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "no-preference: position has real browser animation",
+      "passed": true,
+      "detail": {
+        "played": 22,
+        "chapterTransitions": 4,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": false,
+        "running": 5,
+        "animations": 9,
+        "titleTransform": "matrix(1, 0, 0, 1, 0, 14)",
+        "plotTransform": "none",
+        "title": "资料位置一变，\n模型差距也变了。",
+        "opacity": "0.82",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "no-preference: position uses downloaded title font",
+      "passed": true,
+      "detail": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 15
+        }
+      ]
+    },
+    {
+      "name": "no-preference: position settles",
+      "passed": true,
+      "detail": {
+        "played": 23,
+        "chapterTransitions": 4,
+        "plotUpdates": 1,
+        "reveals": 1,
+        "reduced": false,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "matrix(1, 0, 0, 1, 0, 0)",
+        "plotTransform": "none",
+        "title": "资料位置一变，\n模型差距也变了。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "no-preference: repair has real browser animation",
+      "passed": true,
+      "detail": {
+        "played": 28,
+        "chapterTransitions": 5,
+        "plotUpdates": 1,
+        "reveals": 1,
+        "reduced": false,
+        "running": 5,
+        "animations": 9,
+        "titleTransform": "matrix(1, 0, 0, 1, 0, 14)",
+        "plotTransform": "none",
+        "title": "让模型改对代码，\n先告诉它哪里错。",
+        "opacity": "0.82",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "no-preference: repair uses downloaded title font",
+      "passed": true,
+      "detail": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 16
+        }
+      ]
+    },
+    {
+      "name": "no-preference: repair settles",
+      "passed": true,
+      "detail": {
+        "played": 28,
+        "chapterTransitions": 5,
+        "plotUpdates": 1,
+        "reveals": 1,
+        "reduced": false,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "matrix(1, 0, 0, 1, 0, 0)",
+        "plotTransform": "none",
+        "title": "让模型改对代码，\n先告诉它哪里错。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "no-preference: filter feedback",
+      "passed": true,
+      "detail": {
+        "played": 35,
+        "chapterTransitions": 6,
+        "plotUpdates": 2,
+        "reveals": 1,
+        "reduced": false,
+        "running": 6,
+        "animations": 5,
+        "titleTransform": "none",
+        "plotTransform": "matrix(1, 0, 0, 1, 0, 5)",
+        "title": "中文模板更短，\n基础算术未提分。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "no-preference: rapid switching releases animations",
+      "passed": true,
+      "detail": {
+        "played": 95,
+        "chapterTransitions": 18,
+        "plotUpdates": 2,
+        "reveals": 1,
+        "reduced": false,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "matrix(1, 0, 0, 1, 0, 0)",
+        "plotTransform": "none",
+        "title": "中文模板更短，\n基础算术未提分。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "no-preference: final route remains correct",
+      "passed": true,
+      "detail": "http://127.0.0.1:8780/?task=gsm8k#language"
+    },
+    {
+      "name": "no-preference: 320px underline alignment",
+      "passed": true,
+      "detail": {
+        "actual": 75,
+        "expected": 75,
+        "overflow": false
+      }
+    },
+    {
+      "name": "no-preference: 390px underline alignment",
+      "passed": true,
+      "detail": {
+        "actual": 89,
+        "expected": 89,
+        "overflow": false
+      }
+    },
+    {
+      "name": "no-preference: 768px underline alignment",
+      "passed": true,
+      "detail": {
+        "actual": 143.015625,
+        "expected": 143.015625,
+        "overflow": false
+      }
+    },
+    {
+      "name": "no-preference: 1440px underline alignment",
+      "passed": true,
+      "detail": {
+        "actual": 561.96875,
+        "expected": 561.96875,
+        "overflow": false
+      }
+    },
+    {
+      "name": "Preference change stops active animations",
+      "passed": true,
+      "detail": {
+        "played": 100,
+        "chapterTransitions": 19,
+        "plotUpdates": 2,
+        "reveals": 1,
+        "reduced": true,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "matrix(1, 0, 0, 1, 0, 0)",
+        "plotTransform": "none",
+        "title": "让模型改对代码，\n先告诉它哪里错。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reduce: decoded generated wordmark",
+      "passed": true
+    },
+    {
+      "name": "reduce: concise has no running animations",
+      "passed": true,
+      "detail": {
+        "played": 0,
+        "chapterTransitions": 1,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": true,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "none",
+        "plotTransform": "none",
+        "title": "把推理留下，\n把冗余删掉。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reduce: concise uses downloaded title font",
+      "passed": true,
+      "detail": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 12
+        }
+      ]
+    },
+    {
+      "name": "reduce: concise settles",
+      "passed": true,
+      "detail": {
+        "played": 0,
+        "chapterTransitions": 1,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": true,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "none",
+        "plotTransform": "none",
+        "title": "把推理留下，\n把冗余删掉。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reduce: language has no running animations",
+      "passed": true,
+      "detail": {
+        "played": 0,
+        "chapterTransitions": 2,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": true,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "none",
+        "plotTransform": "none",
+        "title": "同一道数学题，\n换成中文作答。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reduce: language uses downloaded title font",
+      "passed": true,
+      "detail": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ]
+    },
+    {
+      "name": "reduce: language settles",
+      "passed": true,
+      "detail": {
+        "played": 0,
+        "chapterTransitions": 2,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": true,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "none",
+        "plotTransform": "none",
+        "title": "同一道数学题，\n换成中文作答。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reduce: limits has no running animations",
+      "passed": true,
+      "detail": {
+        "played": 0,
+        "chapterTransitions": 3,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": true,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "none",
+        "plotTransform": "none",
+        "title": "越是极端限长，\n越可能写得更长。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reduce: limits uses downloaded title font",
+      "passed": true,
+      "detail": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 15
+        }
+      ]
+    },
+    {
+      "name": "reduce: limits settles",
+      "passed": true,
+      "detail": {
+        "played": 0,
+        "chapterTransitions": 3,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": true,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "none",
+        "plotTransform": "none",
+        "title": "越是极端限长，\n越可能写得更长。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reduce: position has no running animations",
+      "passed": true,
+      "detail": {
+        "played": 0,
+        "chapterTransitions": 4,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": true,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "none",
+        "plotTransform": "none",
+        "title": "资料位置一变，\n模型差距也变了。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reduce: position uses downloaded title font",
+      "passed": true,
+      "detail": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 15
+        }
+      ]
+    },
+    {
+      "name": "reduce: position settles",
+      "passed": true,
+      "detail": {
+        "played": 0,
+        "chapterTransitions": 4,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": true,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "none",
+        "plotTransform": "none",
+        "title": "资料位置一变，\n模型差距也变了。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reduce: repair has no running animations",
+      "passed": true,
+      "detail": {
+        "played": 0,
+        "chapterTransitions": 5,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": true,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "none",
+        "plotTransform": "none",
+        "title": "让模型改对代码，\n先告诉它哪里错。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reduce: repair uses downloaded title font",
+      "passed": true,
+      "detail": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 16
+        }
+      ]
+    },
+    {
+      "name": "reduce: repair settles",
+      "passed": true,
+      "detail": {
+        "played": 0,
+        "chapterTransitions": 5,
+        "plotUpdates": 1,
+        "reveals": 0,
+        "reduced": true,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "none",
+        "plotTransform": "none",
+        "title": "让模型改对代码，\n先告诉它哪里错。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reduce: filter feedback",
+      "passed": true,
+      "detail": {
+        "played": 0,
+        "chapterTransitions": 6,
+        "plotUpdates": 2,
+        "reveals": 0,
+        "reduced": true,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "none",
+        "plotTransform": "none",
+        "title": "中文模板更短，\n基础算术未提分。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reduce: rapid switching releases animations",
+      "passed": true,
+      "detail": {
+        "played": 0,
+        "chapterTransitions": 18,
+        "plotUpdates": 2,
+        "reveals": 0,
+        "reduced": true,
+        "running": 0,
+        "animations": 0,
+        "titleTransform": "none",
+        "plotTransform": "none",
+        "title": "中文模板更短，\n基础算术未提分。",
+        "opacity": "1",
+        "pageWidth": 1440,
+        "width": 1440
+      }
+    },
+    {
+      "name": "reduce: final route remains correct",
+      "passed": true,
+      "detail": "http://127.0.0.1:8780/?task=gsm8k#language"
+    },
+    {
+      "name": "reduce: 320px underline alignment",
+      "passed": true,
+      "detail": {
+        "actual": 75,
+        "expected": 75,
+        "overflow": false
+      }
+    },
+    {
+      "name": "reduce: 390px underline alignment",
+      "passed": true,
+      "detail": {
+        "actual": 89,
+        "expected": 89,
+        "overflow": false
+      }
+    },
+    {
+      "name": "reduce: 768px underline alignment",
+      "passed": true,
+      "detail": {
+        "actual": 143.015625,
+        "expected": 143.015625,
+        "overflow": false
+      }
+    },
+    {
+      "name": "reduce: 1440px underline alignment",
+      "passed": true,
+      "detail": {
+        "actual": 561.96875,
+        "expected": 561.96875,
+        "overflow": false
+      }
+    },
+    {
+      "name": "Generated image failure retains native brand",
+      "passed": true
+    },
+    {
+      "name": "Generated image failure retains working chart",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "fonts": [
+    {
+      "mode": "no-preference",
+      "chapter": "concise",
+      "fonts": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 12
+        }
+      ]
+    },
+    {
+      "mode": "no-preference",
+      "chapter": "language",
+      "fonts": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ]
+    },
+    {
+      "mode": "no-preference",
+      "chapter": "limits",
+      "fonts": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 15
+        }
+      ]
+    },
+    {
+      "mode": "no-preference",
+      "chapter": "position",
+      "fonts": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 15
+        }
+      ]
+    },
+    {
+      "mode": "no-preference",
+      "chapter": "repair",
+      "fonts": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 16
+        }
+      ]
+    },
+    {
+      "mode": "reduce",
+      "chapter": "concise",
+      "fonts": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 12
+        }
+      ]
+    },
+    {
+      "mode": "reduce",
+      "chapter": "language",
+      "fonts": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 14
+        }
+      ]
+    },
+    {
+      "mode": "reduce",
+      "chapter": "limits",
+      "fonts": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 15
+        }
+      ]
+    },
+    {
+      "mode": "reduce",
+      "chapter": "position",
+      "fonts": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 15
+        }
+      ]
+    },
+    {
+      "mode": "reduce",
+      "chapter": "repair",
+      "fonts": [
+        {
+          "familyName": "LENS Editorial",
+          "postScriptName": "LENSEditorial-SemiBold",
+          "isCustomFont": true,
+          "glyphCount": 16
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -34,6 +34,11 @@ def build():
             raise ValueError('Local visualization dependency changed: '+package['file'])
         if not (APP/'assets/vendor'/package['license_file']).is_file():
             raise ValueError('Missing visualization dependency license.')
+    type_manifest=APP/'assets/visual/type-motion-manifest.json'
+    if type_manifest.exists():
+        for asset in json.loads(type_manifest.read_text())['assets']:
+            if hashlib.sha256((APP/asset['file']).read_bytes()).hexdigest()!=asset['sha256']:
+                raise ValueError('Typography asset changed: '+asset['file'])
     runtime=APP/'runtime'
     runtime.mkdir(exist_ok=True)
     summary=json.loads((APP/'data/summary.json').read_text())
@@ -86,6 +91,7 @@ def build():
     story['figures']={p.stem:p.read_text() for p in sorted((APP/'assets/story').glob('*.svg'))}
     runtime.joinpath('story-data.js').write_text('window.LENS_STORY='+json.dumps(story,ensure_ascii=False,separators=(',',':'))+';\n')
     shutil.copy2(APP/'src/story.js',runtime/'story.js')
+    if (APP/'src/story-motion.js').exists():shutil.copy2(APP/'src/story-motion.js',runtime/'story-motion.js')
     index=APP/'explore.html'
     markup=index.read_text()
     for asset in ['styles.css','runtime/summary.js','runtime/publication.js','runtime/code-data.js','runtime/app.js']:
@@ -94,7 +100,7 @@ def build():
     index.write_text(markup)
     story_index=APP/'index.html'
     markup=story_index.read_text()
-    for asset in ['story.css','runtime/story-data.js','runtime/story.js']:
+    for asset in ['story.css','runtime/story-data.js','runtime/story.js','runtime/story-motion.js']:
         digest=hashlib.sha256((APP/asset).read_bytes()).hexdigest()[:12]
         markup=re.sub(r'([\"\"])'+re.escape(asset)+r'(?:\?v=[a-f0-9]+)?([\"\"])',lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)
     story_index.write_text(markup)

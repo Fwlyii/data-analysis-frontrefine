@@ -1,0 +1,81 @@
+{
+  "method": "Four sequential single-run Lighthouse diagnostics, actual DevTools throttling, same Chromium, host and screen profiles. Baseline is unchanged dist from 2344eb5. No parallel browser tests. Not a statistical speed benchmark.",
+  "runs": [
+    {
+      "stage": "before",
+      "device": "mobile",
+      "report": "before/lighthouse-mobile.json",
+      "scores": {
+        "performance": 79,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1471.917,
+        "largest-contentful-paint": 5417.686,
+        "total-blocking-time": 63.56500000000051,
+        "cumulative-layout-shift": 0,
+        "speed-index": 2867,
+        "total-byte-weight": 756890
+      },
+      "warnings": []
+    },
+    {
+      "stage": "before",
+      "device": "desktop",
+      "report": "before/lighthouse-desktop.json",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 139.363,
+        "largest-contentful-paint": 239.623,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 207,
+        "total-byte-weight": 787982
+      },
+      "warnings": []
+    },
+    {
+      "stage": "after",
+      "device": "mobile",
+      "report": "after/lighthouse-mobile.json",
+      "scores": {
+        "performance": 77,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1673.131,
+        "largest-contentful-paint": 5870.481,
+        "total-blocking-time": 77.22400000000107,
+        "cumulative-layout-shift": 0,
+        "speed-index": 3259,
+        "total-byte-weight": 834857
+      },
+      "warnings": []
+    },
+    {
+      "stage": "after",
+      "device": "desktop",
+      "report": "after/lighthouse-desktop.json",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 104.109,
+        "largest-contentful-paint": 185.555,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 165,
+        "total-byte-weight": 865949
+      },
+      "warnings": []
+    }
+  ]
+}

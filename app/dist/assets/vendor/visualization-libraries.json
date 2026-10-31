@@ -1,5 +1,5 @@
 {
-  "purpose": "Local, on-demand visualization libraries; no runtime CDN requests",
+  "purpose": "Locally hosted visualization and presentation libraries; no runtime CDN requests",
   "packages": [
     {
       "package": "d3",
@@ -45,6 +45,17 @@
       "bytes": 1405670,
       "sha256": "a7c9ebc7189bb6ca907ecfb3a819ab760e1acc6c033ef1c2feec44511a5a3c3a",
       "license_file": "plotly-cartesian-3.1.1-LICENSE.txt",
+      "peer_dependencies": {}
+    },
+    {
+      "package": "motion/mini",
+      "version": "14.9.0",
+      "license": "MIT",
+      "source": "https://github.com/motiondivision/motion",
+      "file": "motion-mini-14.9.0.min.js",
+      "bytes": 8771,
+      "sha256": "4bafd0d178299b2d0370a279fb28b2c3553855890f2b1dc9a8b09ece46e16c4a",
+      "license_file": "motion-mini-14.9.0-LICENSE.txt",
       "peer_dependencies": {}
     }
   ]

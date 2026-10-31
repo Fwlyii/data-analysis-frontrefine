@@ -1,0 +1,44 @@
+{
+  "source": "Actual Chromium CDP screencast; no generated/interpolated frames",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "reducedMotion": "no-preference",
+  "frameCount": 285,
+  "seconds": 11.366211891174316,
+  "actions": [
+    {
+      "label": "Cold entry",
+      "at": 1793435637501
+    },
+    {
+      "label": "Language chapter and moving navigation marker",
+      "at": 1793435639066
+    },
+    {
+      "label": "Task filter",
+      "at": 1793435640083
+    },
+    {
+      "label": "Position chapter",
+      "at": 1793435641012
+    },
+    {
+      "label": "Scroll reveal of evidence",
+      "at": 1793435641984
+    },
+    {
+      "label": "Return to top",
+      "at": 1793435642934
+    },
+    {
+      "label": "Repair chapter",
+      "at": 1793435644323
+    },
+    {
+      "label": "Existing repair playback with visual feedback",
+      "at": 1793435645278
+    }
+  ]
+}
