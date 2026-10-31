@@ -1,22 +1,23 @@
 {
-  "version": 8,
-  "baseline": "aa3116d69ce7c88a6fb03747da14e38655a0d17f",
-  "inventory": "optimization/knowledge-gateway/site-inventory.json",
-  "screenshots": "optimization/knowledge-gateway/after/page-audit.json",
-  "browserChecks": "optimization/knowledge-gateway/after/site-checks.json",
+  "version": 9,
+  "baseline": "f44a54f93760a8c9a51c1762ace002834c3d670b",
+  "inventory": "optimization/gateway-polish/site-inventory.json",
+  "screenshots": "optimization/gateway-polish/after/page-audit.json",
+  "browserChecks": "optimization/gateway-polish/after/site-checks.json",
   "additionalBrowserChecks": [
-    "optimization/knowledge-gateway/after/master-alignment.json",
-    "optimization/knowledge-gateway/after/preservation.json",
-    "optimization/knowledge-gateway/after/home-interactions.json",
-    "optimization/knowledge-gateway/after/library-interactions.json",
-    "optimization/knowledge-gateway/after/gateway-checks.json",
-    "optimization/knowledge-gateway/after/resilience.json",
-    "optimization/knowledge-gateway/after/intro-checks.json"
+    "optimization/gateway-polish/after/master-alignment.json",
+    "optimization/gateway-polish/after/preservation.json",
+    "optimization/gateway-polish/after/home-interactions.json",
+    "optimization/gateway-polish/after/library-interactions.json",
+    "optimization/gateway-polish/after/gateway-checks.json",
+    "optimization/gateway-polish/after/optical-checks.json",
+    "optimization/gateway-polish/after/resilience.json",
+    "optimization/gateway-polish/after/intro-checks.json"
   ],
   "fingerprints": {
     "app/explore.html": "d96698dadeb24df8959fd63dcabcc69d312189a2e870a79ae09618a1bce06421",
-    "app/gateway.css": "137b603c14821078aef9255363b1a665956168e82b578e477995aa1685f85aff",
-    "app/index.html": "65bcb0117f0a951ceaf818e227906b6f8b960c1be46d71c1d71758a83f2a7e0b",
+    "app/gateway.css": "8b9ddd6767872998f45ba923985748501172d203deb3c51fea79c0537d219c15",
+    "app/index.html": "980784a2b84f01de4b685c9a6d2cadcc65e83e8339abc5e58a2bd2b89014dfef",
     "app/intro.css": "edb0e0b2d7bfefc57909d1af69c4ab4a87cfcd5d3b785474aa5c3fff38f25e09",
     "app/refinement.css": "5769d5271ab7a3d1e94d582affd1b830fea4062bc6aecc3bf517282ef42cff71",
     "app/story.css": "7685e04f3bad32cdcdedee1591b159c6489105f7582b58ef97fbaa146461b669",
@@ -25,8 +26,8 @@
     "app/src/charts.js": "d63665664ff2de933632a220bdbb88e4c266b3461f8ec5d35182651e82d53c03",
     "app/src/code-interactions.js": "c5c6c669a14a07fb735dbf273fee4baa9809f824343102548fe8ea3e49ffc964",
     "app/src/code-study.js": "b6e3c034e9fcc04938e76a1f813042df917259be6c1d8dcba0d3ed7e9bd2becf",
-    "app/src/gateway.js": "11628b32110c3b645da7656a84f714ee053fd22095e7389a3c355b2d326693c2",
-    "app/src/intro.js": "8774300cdd61ea719fc82eb7fa7eb31693c8a4fd9a96b74fd726ff1bafaed0e3",
+    "app/src/gateway.js": "6072998fd7e689199ee59c685747dc8ec1412e1b9542582b3df880b7d73a0baa",
+    "app/src/intro.js": "43c36ca2ebb52ddec5b4a079d5578da8bda4623c4d732b9f824e78f57d7ca189",
     "app/src/libraries.js": "21d8609b778724334167ebda135da0e02f97d16fa80f592ab7d54be9d575b71a",
     "app/src/model.js": "dca681c4300f088cb1a4890bea8451240e94ea527dae998f8a85cfdc5b6f633f",
     "app/src/narrative.js": "9010910825307dda3f2a8d2cba8d70435a964910f6e59a4f00927e1f5e53469c",
@@ -224,6 +225,7 @@
     "app/assets/vendor/vega-lite-5.23.0-LICENSE.txt": "f618900fd0d64046963b29f40590cdd1e341a2f41449f99110d82fd81fea808c",
     "app/assets/vendor/vega-lite-5.23.0.min.js": "58c27358e26f2d319cf62f45bc17a4c8362f08645001df2ec8d341eee4097c7f",
     "app/assets/vendor/visualization-libraries.json": "03d69005ce47fbac341345d64a7357106023b0c87094e3a6de8d982961e07a3e",
+    "app/assets/visual/gateway-atmosphere.webp": "5700cbefad985179ef77a005a6746470503a83f7a9267d3861915580202c96a7",
     "app/data/README.md": "27292a2352c1af52aa593c6a0ebede364174f3026bbc0d517824368a5d100811",
     "app/data/code-evidence.json": "0ad5ce02d1e748ce2dab8ec23b7d1c60bb698e94e43b379776900d9b9c0abbaf",
     "app/data/code-features.json.gz": "ce992a81b6df906888a8ebb5b553583e4bd64e9db8d3ff8f3400ac2269bddf5a",
@@ -460,9 +462,9 @@
     "scripts/system/build_demo_evidence.py": "ff084d587b5590ac6618d133aeb1adea3e5e73a62c0395b6bef71bfd83a97019",
     "reports/code_generation/conditions.csv": "1b34ab7fbddbddb6d32771929a1fc8ca6dc3f2d19787ff0efcc0155c71c719de"
   },
-  "introFrames": "optimization/knowledge-gateway/after/frame-performance.json",
-  "recording": "optimization/knowledge-gateway/after/gateway-demo-desktop.mp4",
-  "performance": "optimization/knowledge-gateway/after/performance-summary.json",
+  "introFrames": "optimization/gateway-polish/after/frame-performance.json",
+  "recording": "optimization/gateway-polish/after/gateway-demo-desktop.mp4",
+  "performance": "optimization/gateway-polish/after/performance-summary.json",
   "sceneContract": {
     "sameFiveLinkNodes": true,
     "sameIntroOpticsNode": true,
@@ -476,5 +478,12 @@
     "defaultRoute": "gateway",
     "scientificDataUnchanged": true
   },
+  "layoutContract": {
+    "researchPagesFillViewport": true,
+    "chapterRailRemoved": true,
+    "minimalReturnControl": true,
+    "mobileUsesTouchRows": true
+  },
+  "designProvenance": "optimization/gateway-polish/design/provenance.json",
   "publication": "User explicitly authorized pushing this gateway version to main and publishing a Pages preview after local verification."
 }

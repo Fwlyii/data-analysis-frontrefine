@@ -2,6 +2,8 @@
 
 研究输出表达、资料位置与执行反馈如何影响大模型的任务表现。实验覆盖推理/选择题、文档问答与Python代码，共248,586条物理响应。项目采用课设题目二的**可视交互系统**形式。
 
+[线上预览](https://fwlyii.github.io/data-analysis-frontrefine/) · [知微之门最新视觉与全屏研究页](optimization/gateway-polish/README.md) · [全站优化流程](docs/visual-refinement-workflow.md)
+
 ## 运行
 
 ```bash

@@ -8,7 +8,7 @@ python3 app/launch.py --port 8770
 
 启动器用Python标准库构建本地快照并提供HTTP服务。构建后也可直接打开app/index.html或app/dist/index.html离线演示。
 
-主页包括Research Question、Collection Design、Data Pipeline、Data Landscape、Core Findings。主展示使用英文；图表库保留中文研究内容。五发现覆盖两低维、两多维和一异常，支持条件切换、九位置选择、五版本播放、实际案例及SVG/CSV导出。全貌页覆盖推理372、文档问答186、代码生成93个提示条件。
+默认主页是“知微之门”，五个入口分别进入Research Question、Collection Design、Data Pipeline、Data Landscape、Core Findings。研究页全屏展示，仅保留角落返回入口；图表库、重播开场和全屏按钮位于首页。主展示使用英文；图表库保留中文研究内容。五发现覆盖两低维、两多维和一异常，支持条件切换、九位置选择、五版本播放、实际案例及SVG/CSV导出。全貌页覆盖推理372、文档问答186、代码生成93个提示条件。最新视觉流程与证据见 `../optimization/gateway-polish/`。
 
 | 文件 | 用途 |
 |---|---|

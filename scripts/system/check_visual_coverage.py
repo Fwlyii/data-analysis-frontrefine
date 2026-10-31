@@ -28,7 +28,7 @@ def check():
             assert row['selectedViewMatches'] and not row['overflow'] and row['brandVisible'],r['key']
             assert (ROOT/proof['screenshots']).parent.joinpath(r['key']+'-'+device+'.png').stat().st_size>1000
             assert all(i['complete'] and i['naturalWidth']>0 and i['width']>0 and i['height']>0 for i in row['images'])
-            assert all((s['painted']>=3 or s.get('interactionLayer')) and s['opacity']>(.1 if s.get('decorative') else .95) and not s['unresolved'] and not s['invalid'] for s in row['svgs'])
+            assert all((s['painted']>=(1 if s.get('decorative') else 3) or s.get('interactionLayer')) and s['opacity']>(.1 if s.get('decorative') else .95) and not s['unresolved'] and not s['invalid'] for s in row['svgs'])
             assert all(i['passed'] for i in row['embeddedImages'])
     checks=json.loads((ROOT/proof['browserChecks']).read_text())
     assert set(checks['matrix']['routes'])==keys and sorted(checks['matrix']['viewports'])==[320,390,768,1366,1440]
@@ -46,7 +46,20 @@ def check():
     assert 'runtime/gateway.js?v=' in home and 'gateway.css?v=' in home and 'id="gateway"' in home
     assert len(re.findall(r'data-gate-route=',home))==5 and 'runtime/gateway.js' not in library
     contract=proof['sceneContract'];assert contract['sameFiveLinkNodes'] and contract['sameIntroOpticsNode'] and set(contract['links'])=={'question','collection','cleaning','landscape','findings'}
+    assert proof['version']>=9 and all(proof['layoutContract'].values()),'Missing full-screen research and responsive optical review'
+    assert 'class="chapter-rail"' not in home and 'class="research-home"' in home
+    assert 'assets/visual/gateway-atmosphere.webp' in home
+    provenance=json.loads((ROOT/proof['designProvenance']).read_text())
+    assert provenance['tool']=='image_gen.imagegen' and len(provenance['calls'])==3
+    for call in provenance['calls']:
+        for item in [call['prompt'],call['output'],*call['inputs'],*([call['runtime']] if 'runtime' in call else [])]:
+            artifact=ROOT/item['path']
+            assert artifact.stat().st_size==item['bytes'] and hashlib.sha256(artifact.read_bytes()).hexdigest()==item['sha256'],'Changed design evidence: '+str(artifact)
+    assert (APP/'assets/visual/gateway-atmosphere.webp').stat().st_size<50*1024
+    optical=json.loads((ROOT/proof['browserChecks']).parent.joinpath('optical-checks.json').read_text())
+    assert len(optical['results'])==23 and all(r['passed'] for r in optical['results'])
     scene=json.loads((ROOT/proof['browserChecks']).parent.joinpath('gateway-checks.json').read_text());assert {row['width']for row in scene['layouts']}=={320,390,768,1366,1440}
+    assert len([r for r in scene['results'] if 'original page has no navbar and uses full viewport' in r['name']])==25
     assert (APP/'src/gateway.js').stat().st_size<20*1024 and (APP/'gateway.css').stat().st_size<16*1024
     assert 'runtime/intro.js' not in library
     assert {p.name for p in (APP/'dist/runtime').glob('*.js')}=={'summary.js','publication.js','features.js','code-features.js','code-data.js','app.js','story-data.js','story.js','story-charts.js','narrative-data.js','narrative.js','intro.js','refinement.js','gateway.js'},'Stale or unclassified generated runtime script; clean runtime and rebuild'

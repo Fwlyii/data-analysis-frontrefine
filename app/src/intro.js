@@ -187,10 +187,11 @@
     reset() { this.first=null;this.last=null;this.targets=[];this.saved=[];this.controls=[];this.landing=null;this.driver='native-timeline';this.atmosphere.style.maskImage='';this.atmosphere.style.webkitMaskImage=''; }
     prepare() {
       this.gateway=window.LensGateway?.active()||false;
-      const target=$(this.gateway?'.gate-brand-mark':'.wordmark-logo strong');if(!target)throw new Error('Header brand unavailable');
+      const target=$(this.gateway?'.gate-brand-mark':'.research-home-mark');if(!target)throw new Error('Header brand unavailable');
       this.first=this.word.getBoundingClientRect();this.last=target.getBoundingClientRect();
+      this.finalInk=getComputedStyle(target).color.match(/[\d.]+/g).slice(0,3).map(Number);
       if(!this.first.width||!this.last.width)throw new Error('Brand geometry unavailable');
-      this.landing=$(this.gateway?'#gate-brand':'.wordmark-logo');this.landing.classList.add('intro-target-hidden');
+      this.landing=$(this.gateway?'#gate-brand':'#research-home-label');this.landing.classList.add('intro-target-hidden');
       this.saved.push([this.word,this.word.getAttribute('style')]);
       Object.assign(this.word.style,{position:'fixed',left:'0',top:'0',transformOrigin:'0 0',clipPath:'none',opacity:'1',letterSpacing:'-.055em'});
       this.targets=[...document.querySelectorAll(this.gateway?'.topbar,.gate-heading,.gate-foot':'.chapter-rail,.deck-panel.is-active .panel-inner')].filter(el=>el.getClientRects().length);
@@ -209,7 +210,8 @@
       const k=smooth(ramp(t,5.12,5.82)),x=mix(this.first.left,this.last.left,k),y=mix(this.first.top,this.last.top,k);
       const scale=mix(1,this.last.width/this.first.width,k);
       this.word.style.transform=`translate3d(${x}px,${y}px,0) scale(${scale})`;
-      this.word.style.color=theme.ink;
+      const tone=ramp(t,5.35,5.84),start=[1,3,5].map(i=>parseInt(theme.ink.slice(i,i+2),16));
+      this.word.style.color=`rgb(${start.map((v,i)=>Math.round(mix(v,this.finalInk[i],tone))).join(',')})`;
       this.word.style.opacity=1-ramp(t,5.84,5.94);
       if(t>=5.84)this.landing.classList.remove('intro-target-hidden');
       this.targets.forEach((el,i)=>{const p=ramp(t,5.28+i*.075,5.75+i*.055);if(this.controls[i])this.controls[i].time=p;else{const a=out(p);el.style.opacity=a;el.style.transform=`translateY(${(1-a)*10}px)`;}});

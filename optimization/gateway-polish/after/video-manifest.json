@@ -1,0 +1,44 @@
+{
+  "source": "Actual Chromium CDP screencast; no generated/interpolated frames",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "reducedMotion": "no-preference",
+  "frameCount": 629,
+  "seconds": 16.41601014137268,
+  "actions": [
+    {
+      "label": "Click real replay control",
+      "at": 1793458930326
+    },
+    {
+      "label": "Hover actual glass sphere",
+      "at": 1793458937141
+    },
+    {
+      "label": "Sphere enters the lens and opens collection design",
+      "at": 1793458939009
+    },
+    {
+      "label": "Return to the live gateway",
+      "at": 1793458939997
+    },
+    {
+      "label": "Enter original findings through its sphere",
+      "at": 1793458941466
+    },
+    {
+      "label": "Use the original evidence position chapter",
+      "at": 1793458942434
+    },
+    {
+      "label": "Operate the original scientific slider with End",
+      "at": 1793458943736
+    },
+    {
+      "label": "Return and replay then skip without losing the scene",
+      "at": 1793458944667
+    }
+  ]
+}
