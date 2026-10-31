@@ -6,6 +6,7 @@
 - [Codex 实现任务单](codex-implementation-brief.md)
 - [本轮检查报告](CHECK-REPORT.md)
 - [页面清单](site-inventory.json)
+- [线上逐文件核对](after/public-assets.json) / [线上实际交互复核](after/public-browser.json)
 - [候选方案 A/B](design/candidates-a-b.png) 与 [实际截图反馈稿](design/screenshot-feedback.png)
 - [第一次完整提示](design/proposal-prompt.txt) 与 [第二次完整提示](design/iteration-prompt.txt)
 - `before/` 保存重新克隆的 Master 基线截图；`after/` 保存当前版本真实浏览器截图、导出文件和检查 JSON。

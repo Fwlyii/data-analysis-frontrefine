@@ -43,6 +43,7 @@ def check():
         assert not any(old in markup for old in ['site.css','deck.css','lens-masthead','site-shell.js','story-motion.js'])
     assert 'runtime/intro.js?v=' in home and 'intro.css?v=' in home and 'id="intro-replay"' in home
     assert 'runtime/intro.js' not in library
+    assert {p.name for p in (APP/'dist/runtime').glob('*.js')}=={'summary.js','publication.js','features.js','code-features.js','code-data.js','app.js','story-data.js','story.js','story-charts.js','narrative-data.js','narrative.js','intro.js','refinement.js'},'Stale or unclassified generated runtime script; clean runtime and rebuild'
     frames=json.loads((ROOT/proof['introFrames']).read_text())['runs'];assert len(frames)==6
     assert all(r['run']['reason']=='complete' and not r['run']['error'] and 5900<=r['run']['elapsed']<6500 and r['idleRAF']==0 and r['idlePixels']==1 and r['run']['canvasPixels']<=2010000 for r in frames)
     assert (ROOT/proof['recording']).stat().st_size>10000

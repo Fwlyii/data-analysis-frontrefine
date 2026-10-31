@@ -35,6 +35,8 @@
 8. 新呈现层遗漏开场重播所需的 settle 接口：修复后复测重播与全部开场降级。
 9. 构建中的 logo 遍历顺序可能导致跨环境缓存版本不稳定：排序后输出，方便本地与 Pages 精确比对。
 
+10. 线上逐文件比对发现本地 ignored runtime 残留两个无引用的旧生成脚本：清理后重建，219个保留文件与此前测试版本逐字节一致；流程改为构建前清理 runtime，门禁检查精确脚本清单，线上原本即为干净构建。详见 [构建产物对照](after/artifact-cleanup.json)。
+
 ## 全站功能与渲染
 
 入口仅 index.html、explore.html；包括五个演示部分、三个方向全部模型与曲线/热图、五类研究发现及筛选组合、13种图表、4种代码视图、5个发现章节、论文图和空状态，共92种状态。
@@ -111,4 +113,13 @@
 
 ## 线上复核
 
-本地审查完成，待 Pages 对本次应用代码提交部署成功后，逐文件核对线上产物，再运行线上浏览器检查；实际结果将追加到本节。
+应用代码提交 `eb2277210c18cb9b4fb8a6e52f5ebf850f31c319` 已通过 [Pages 构建和发布](https://github.com/Fwlyii/data-analysis-frontrefine/actions/runs/41208345451)。
+
+- [线上全部产物核对](after/public-assets.json)：219/219个文件逐字节一致，HTML也没有通过去掉缓存版本来放宽比较。
+- [线上浏览器复核](after/public-browser.json)：17/17项通过，包含实际播放开场、资源清理、四部分导航、位置滑块、图表库绘制/统一页眉、代码视图、同会话返回、手机布局、减少动态效果、延迟模块与跳过；无未捕获浏览器错误。
+- [线上桌面首页截图](after/public-home-desktop.png)、[线上开场截图](after/public-intro-desktop.png)、[线上手机数据流程截图](after/public-pipeline-mobile.png)。
+- 发现的本地历史生成文件残留已清理；所有保留发布文件字节与已测试版本相同，复跑构建、快照及门禁后再次确认全部219个文件匹配。
+
+最后的报告补充提交仅调整审查脚本、门禁与开发文档及证据，不改变应用页面、数据、字体或动画资源。
+
+预览：[强制开场](https://fwlyii.github.io/data-analysis-frontrefine/?intro=1&v=master-v6)、[直接首页](https://fwlyii.github.io/data-analysis-frontrefine/?intro=0&v=master-v6)、[图表库](https://fwlyii.github.io/data-analysis-frontrefine/explore.html?mode=explore#case-1)。系统启用减少动态效果时，强制入口也会尊重该偏好并直接显示页面。

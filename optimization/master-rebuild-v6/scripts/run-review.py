@@ -1,6 +1,6 @@
 """Reproduce the v6 review. Start current app/dist on 8788, baseline on 8790 first."""
 from pathlib import Path
-import subprocess,sys,argparse
+import subprocess,sys,argparse,shutil
 ROOT=Path(__file__).resolve().parents[3]
 HERE=Path(__file__).resolve().parent
 p=argparse.ArgumentParser(description=__doc__)
@@ -10,7 +10,10 @@ args=p.parse_args()
 def run(*argv):
     print('+',' '.join(map(str,argv)),flush=True)
     subprocess.run(list(map(str,argv)),cwd=ROOT,check=True)
-if not args.skip_build:run(sys.executable,'scripts/system/build_web_app.py')
+if not args.skip_build:
+    # runtime is ignored, generated output; removed modules must not survive a rebuild.
+    shutil.rmtree(ROOT/'app/runtime',ignore_errors=True)
+    run(sys.executable,'scripts/system/build_web_app.py')
 run(sys.executable,'scripts/system/check_web_snapshot.py','--skip-build')
 run('node',HERE/'inventory.mjs')
 run(sys.executable,HERE/'fidelity.py')

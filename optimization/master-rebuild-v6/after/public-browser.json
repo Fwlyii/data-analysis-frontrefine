@@ -1,0 +1,76 @@
+{
+  "releaseCommit": "eb2277210c18cb9b4fb8a6e52f5ebf850f31c319",
+  "base": "https://fwlyii.github.io/data-analysis-frontrefine/",
+  "results": [
+    {
+      "name": "Published force opening actually starts",
+      "passed": true
+    },
+    {
+      "name": "Published intro completes and releases controls",
+      "passed": true
+    },
+    {
+      "name": "Published native section collection",
+      "passed": true
+    },
+    {
+      "name": "Published native section cleaning",
+      "passed": true
+    },
+    {
+      "name": "Published native section landscape",
+      "passed": true
+    },
+    {
+      "name": "Published native section findings",
+      "passed": true
+    },
+    {
+      "name": "Published scientific position slider is live",
+      "passed": true
+    },
+    {
+      "name": "Published library renders native science SVG",
+      "passed": true
+    },
+    {
+      "name": "Library shares navy header and local type",
+      "passed": true
+    },
+    {
+      "name": "Library has no opening module",
+      "passed": true
+    },
+    {
+      "name": "Published code views remain available",
+      "passed": true
+    },
+    {
+      "name": "Published library return does not replay in session",
+      "passed": true
+    },
+    {
+      "name": "Published mobile pipeline contains its contents",
+      "passed": true
+    },
+    {
+      "name": "Published reduced-motion force respects system preference",
+      "passed": true
+    },
+    {
+      "name": "Published late-loading explicit opening still starts",
+      "passed": true
+    },
+    {
+      "name": "Published skip reveals current real page",
+      "passed": true
+    },
+    {
+      "name": "No published browser errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "errors": []
+}
