@@ -22,6 +22,14 @@ node_modules/
 .collection.lock
 .run.lock
 
-# Temporary browser recording frames
-/optimization/**/video-frames/
-/optimization/**/raw-frames/
+# Generated browser output and optional manual recordings
+/artifacts/
+/optimization/
+/submission/
+*.mp4
+*.mov
+*.webm
+*.m4a
+*.avi
+*.mkv
+*.wav

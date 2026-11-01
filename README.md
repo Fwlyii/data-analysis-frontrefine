@@ -1,77 +1,52 @@
-# LENS · 模型行为研究
+# LENS · 知微
 
-研究输出表达、资料位置与执行反馈如何影响大模型的任务表现。实验覆盖推理/选择题、文档问答与Python代码，共248,586条物理响应。项目采用课设题目二的**可视交互系统**形式。
+研究提示表达、证据位置和执行反馈如何影响模型表现。系统使用保存的匿名研究快照，包含五个研究章节、五项发现、13类图表及4个代码研究视图。
 
-[线上预览](https://fwlyii.github.io/data-analysis-frontrefine/) · [最新全站配色与截图](optimization/color-unification-20261101/README.md) · [全站优化流程](docs/visual-refinement-workflow.md)
+[在线预览](https://fwlyii.github.io/data-analysis-frontrefine/) · [项目与研究概述](docs/project-summary.md) · [目录说明](docs/repository-structure.md) · [录制提交指南](docs/submission.md)
 
-逐页交互增强见[实施计划](optimization/interaction-design-20261101/PLAN.md)与[验收记录](optimization/interaction-design-20261101/REPORT.md)。包含方向卡、实验窗口、流程字段查看、逐视图转场、操作导览和图表聚焦；本轮已部署至 GitHub Pages，并完成线上文件与浏览器核验。
-
-## 运行
+## 启动系统
 
 ```bash
 python3 app/launch.py --port 8770
 ```
 
-标准库即可启动，使用本地数据和SVG，不需要API Key、网络或npm。首页按研究问题、采集设计、数据清洗、数据全貌、五项发现组织。五项发现依次为简洁作答、中文数学、资料位置、反馈修复、限长反弹；“图表库”提供课程图形和联动探索。
+在浏览器打开 `http://127.0.0.1:8770`。运行网站只需 Python 标准库，不需要 npm、API Key 或后端服务。首页可进入五章研究和图表库；支持真实条件筛选、记录查看、CSV/SVG导出及交互动效。
 
-前端源码与构建说明见[系统说明](app/README.md)。运行`python3 scripts/system/check_web_snapshot.py`可检查快照、本地资源及三类任务的数据接入。
-
-## 内容
+## 目录
 
 ```text
-app/                         可视化系统与匿名视图快照
-configs/                     实验协议与模型配置
-scripts/
-  acquisition/               数据采集
-  cleaning/                  数据清洗与质量审计
-  analysis/                  统计与配对分析
-  figures/                   科学图稿
-  system/                    网页数据导出与构建
-  delivery/                  报告、答辩与提交目录
-experiments/                 专用采集、评分和分析实现
-requirements/                分阶段依赖
-data/
-  raw/                       完整原始数据，内容冻结
-  processed/                 清洗表与统一匿名特征
-  quality/                   质量与缺失报告
-  inventory/                 原始校验与现行文件清单
-  data_dictionary.md         字段、来源、单位及缺失原因
-reports/                     统计CSV、区间、发现和图稿源数据
-report/                      案例报告
-presentation/                答辩PDF、汇报视频与制作材料
-docs/                       课程原文、研究方法与复算说明
-PROJECT_SUMMARY.md            实验、结论与六类材料索引
-submission/                  独立生成的课程匿名提交目录
+app/             网站源码、现用素材与匿名快照
+configs/         实验协议与配置
+data/           原始来源、清洗数据、质量与字段说明
+experiments/     专项实验代码
+reports/         科研统计、置信区间和科学图稿
+scripts/         采集、清洗、分析、绘图、构建与文档生成
+tests/          当前浏览器测试及必要的小型基线
+docs/           使用、研究、部署和维护说明
+report/          保留的参考报告（PDF与文稿）
+presentation/    保留的参考PPT（PDF与讲稿）
+requirements/    按用途划分的Python依赖
 ```
 
-实验规模、主要结论、数据与脚本入口见 [项目概述](PROJECT_SUMMARY.md)。
+`reports/` 是科研证据，`report/` 是参考报告，两者用途不同。`app/runtime/`、`app/dist/`、`artifacts/` 是可重新生成的目录，不提交到Git。
 
-## 数据管道
+## 检查与维护
 
 ```bash
-# 从匿名数值特征复算所有实验的条件统计
-python3 scripts/reproduce_anonymous.py
+python3 scripts/system/check_web_snapshot.py
+python3 scripts/system/check_visual_coverage.py
 
-# 查看全离线流程；不执行采集
-python3 scripts/pipeline.py all --plan
-
-# 重新清洗完整原始数据
-python3 scripts/pipeline.py clean
+# 自动浏览器测试才需要Node；首次安装测试依赖和浏览器
+npm ci --prefix tests
+npm run browser:install --prefix tests
+python3 tests/run.py           # 发布前的93状态检查
+python3 tests/run.py --full    # 全量交互与响应式回归
 ```
 
-分析和绘图依赖`requirements/analysis.txt`，文档生成另需`requirements/documents.txt`。图形指定Times New Roman。采集脚本单独放在`scripts/acquisition/`，默认不请求模型，只有`--execute`才采集。密钥从环境变量读取，空模板见`.env.example`。
+测试默认不录制视频、不保存截图。临时结果只写入 `artifacts/qa/`；需要临时截图时可设置 `QA_SCREENSHOTS=1`。更详细的说明见 [检查说明](docs/web-checks.md)与[前端维护流程](docs/visual-refinement-workflow.md)。
 
-## GitHub与课程提交
+## 课程提交
 
-本目录是同一GitHub仓库新分支的完整项目内容，包含原始数据、清洗表和全部代码。大压缩数据、ZIP、缓存及视频使用`.gitattributes`中的Git LFS规则；上传前应启用Git LFS。
+最终人工录制并提交一个演示视频。报告和PPT留作参考，不再自动生成完整提交包，也不在仓库保存录像、旁白、字幕和历次优化截图。录制顺序见[录制提交指南](docs/submission.md)。
 
-```bash
-python3 scripts/delivery/build_submission.py
-```
-
-生成`submission/AI对话行为分析_系统/`：顶层为README、app、data、report、presentation，与课设系统组示例一致。提交版只含匿名特征、统计、图稿和代码；完整原始数据保留在本项目。提交版由同一套脚本生成，作为独立提交目录一并收录。
-
-最新电脑录制版的详细布局重设计、逐页截图和测量见 `optimization/content-layout-20261101/REPORT.md`、`optimization/content-layout-20261101/gallery.html`。 原图表、数据及科研绘制源码保持；首页采用五个真实生成的静态透明装饰资产，原生链接、文字和开场交接连续性保留。
-
-
-最新全站配色统一见 `optimization/color-unification-20261101/REPORT.md`。以深海蓝、雾蓝灰、冷白和少量香槟金连接开场、研究页和图表库；保留已优化布局、字号与科学图形。
+科研数据、图表、统计结果与现用前端素材继续保留。过往优化过程可从Git历史查询；整理前版本为 `c3d648a`，备份分支为 `backup/before-repository-cleanup-c3d648a`。

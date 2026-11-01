@@ -2,6 +2,6 @@
   "schema": "model-behavior-coursework-v1",
   "name": "model-behavior-project",
   "created": "2026-10-28",
-  "data_policy": "Complete raw payloads are included locally; coursework submission is a separate anonymized profile.",
+  "data_policy": "Retain research sources and anonymous web snapshots. The course deliverable is one manually recorded video; report and slides are reference materials.",
   "api_calls_during_assembly": 0
 }

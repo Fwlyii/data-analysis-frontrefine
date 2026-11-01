@@ -1,5 +1,0 @@
-FAIL chart-box desktop [{"sameMarkup":false,"sameStyles":false,"samePixels":true,"dimensions":[1339.21875,540,1339,540]}]
-desktop science comparison complete
-FAIL code-tokens mobile [{"sameMarkup":true,"sameStyles":true,"samePixels":true,"dimensions":[694.28125,343.96875,694.28125,343.96875]},{"sameMarkup":true,"sameStyles":true,"samePixels":false,"dimensions":[386,355,386,355]}]
-FAIL chart-box mobile [{"sameMarkup":false,"sameStyles":false,"samePixels":true,"dimensions":[358,506.390625,358,506]}]
-mobile science comparison complete

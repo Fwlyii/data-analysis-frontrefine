@@ -1,7 +1,0 @@
-{"width":390,"label":"awakening","targetMilliseconds":450,"stateAfterScreenshot":{"elapsed":571.7,"phase":"awakening","running":true,"error":null}}
-{"width":390,"label":"flow","targetMilliseconds":1500,"stateAfterScreenshot":{"elapsed":1655,"phase":"flow","running":true,"error":null}}
-{"width":390,"label":"lens","targetMilliseconds":2700,"stateAfterScreenshot":{"elapsed":2871.6,"phase":"lens","running":true,"error":null}}
-{"width":390,"label":"insights","targetMilliseconds":3500,"stateAfterScreenshot":{"elapsed":3654.9,"phase":"insights","running":true,"error":null}}
-{"width":390,"label":"brand","targetMilliseconds":4800,"stateAfterScreenshot":{"elapsed":4954.8,"phase":"brand","running":true,"error":null}}
-{"width":390,"label":"transfer","targetMilliseconds":5530,"stateAfterScreenshot":{"elapsed":5704.8,"phase":"transfer","running":true,"error":null}}
-{"width":390,"errors":[],"state":{"reason":"complete","startedBy":"forced","elapsed":5964,"draws":177,"averageFPS":29.172398932555407,"p95Frame":33.40000000000009,"p95Draw":1.5999999046325684,"particles":92,"canvasPixels":329160,"error":null,"first":{"x":95.421875,"y":309.125,"width":199.15625,"height":73.796875,"top":309.125,"right":294.578125,"bottom":382.921875,"left":95.421875},"last":{"x":145.203125,"y":166.828125,"width":99.59375,"height":41,"top":166.828125,"right":244.796875,"bottom":207.828125,"left":145.203125},"driver":"motion-mini"},"overflow":false}

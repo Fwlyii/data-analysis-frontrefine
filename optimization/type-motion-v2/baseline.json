@@ -1,6 +1,0 @@
-{
-  "commit": "2344eb5f9848d4f0fc94fb40125a2fb815d94d5b",
-  "branch": "visual/type-motion-v2-20261031",
-  "previous_gates": "Static screenshots used reducedMotion=reduce; animation perception was not tested separately. Typography relied on OS font fallbacks.",
-  "publish_authorized": true
-}

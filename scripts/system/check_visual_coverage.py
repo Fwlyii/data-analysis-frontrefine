@@ -1,129 +1,52 @@
-"""Fail Pages publication when visual evidence is missing, failed or stale."""
+"""Verify the current scientific/source contract and optionally a fresh browser run.
+
+No recording, screenshot archive or historical optimization directory is required.
+Pages additionally passes --browser-report after running the current 93-route smoke.
+"""
 from pathlib import Path
-import hashlib,json,re
+import argparse,hashlib,json,re
 ROOT=Path(__file__).resolve().parents[2]
-APP=ROOT/'app'
-def digest(path):
-    value=path.read_bytes()
-    if path.suffix=='.html':value=re.sub(rb'\?v=[a-f0-9]+',b'?v=BUILD',value)
-    if path.suffix=='.css':value=re.sub(rb'[ \t]+$',b'',value,flags=re.M)
-    return hashlib.sha256(value).hexdigest()
-def check():
-    proof=json.loads((APP/'visual-coverage.json').read_text())
-    if proof.get('version')==13:
-        import runpy
-        return runpy.run_path(str(ROOT/'scripts/system/check_interaction_coverage.py'))['check'](ROOT,proof)
-    if proof.get('version')==12:
-        import runpy
-        return runpy.run_path(str(ROOT/'scripts/system/check_palette_coverage.py'))['check'](ROOT,proof)
-    inventory=json.loads((ROOT/proof['inventory']).read_text());routes=inventory['routes'];keys={r['key'] for r in routes}
-    assert len(keys)==len(routes)==93 and 'deck-gateway' in keys,'Regenerate route inventory and classify new routes'
-    assert sorted(p.name for p in (APP/'dist').glob('*.html'))==sorted(inventory['entryDocuments'])
-    # Re-derive inventory from actual source, so a new view cannot silently escape review.
-    source=(APP/'src/app.js').read_text();charts=re.findall(r'(\w+): "[^"]+"',re.search(r'const library = \{(.*?)\n\};',source,re.S)[1])
-    views=re.findall(r'(\w+):',re.search(r'const VIEWS = \{(.*?)\};',(APP/'src/code-study.js').read_text(),re.S)[1])
-    data=json.loads((APP/'data/narrative-evidence.json').read_text())
-    expected={'deck-'+s for s in ['question','collection','cleaning']}|{f'landscape-{d}-{m}-{v}' for d,c in data['directions'].items() for m in c['models'] for v in ['curve','heatmap']}|{'story-concise-baseline','story-concise-cross','story-position','story-repair-qwen','story-repair-qwen3'}|{'story-language-'+t for t in ['math500','gsm8k','mmlu']}|{f'story-limits-{m}-{t}-{f}' for m in ['deepseek','hy4','qwen','qwen3'] for t in ['math500','gsm8k','mmlu'] for f in ['WordLimit','CharLimit','TokenLimit']}|{'chart-'+c for c in charts}|{'code-'+v for v in views}|{'discovery-'+str(i+1) for i in range(len(re.findall(r'"[^"]+"',re.search(r'const chapters = \[(.*?)\];',source)[1])))}|{'efficiency','efficiency-prompts','position-matrix','position-profile','chart-flow-empty'}
-    expected.add('deck-gateway')
-    assert keys==expected,'Source route graph changed'
-    audit=json.loads((ROOT/proof['screenshots']).read_text());rows=audit['rows']
-    assert len(rows)==len(routes)*2
-    for r in routes:
-        for device in ['desktop','fullhd']:
-            row=next(x for x in rows if x['key']==r['key'] and x['device']==device)
-            assert row['selectedViewMatches'] and not row['overflow'] and row['brandVisible'],r['key']
-            assert (ROOT/proof['screenshots']).parent.joinpath(r['key']+'-'+device+'.png').stat().st_size>1000
-            assert all(i['complete'] and i['naturalWidth']>0 and i['width']>0 and i['height']>0 for i in row['images'])
-            assert all((s['painted']>=(1 if s.get('decorative') else 3) or s.get('interactionLayer')) and s['opacity']>(.1 if s.get('decorative') else .95) and not s['unresolved'] and not s['invalid'] for s in row['svgs'])
-            assert all(i['passed'] for i in row['embeddedImages'])
-    checks=json.loads((ROOT/proof['browserChecks']).read_text())
-    assert set(checks['matrix']['routes'])==keys and sorted(checks['matrix']['viewports'])==[1366,1440,1600,1920,2560]
-    assert len([r for r in checks['results'] if 'decoded/painted/layout' in r['name']])==len(routes)*5
-    for name in [proof['browserChecks'],*proof['additionalBrowserChecks']]:
-        report=json.loads((ROOT/name).read_text());assert report['results'] and all(r['passed'] for r in report['results']),'Failed browser/fidelity check: '+name
-        if 'fingerprints' in report:assert report['fingerprints']==proof['fingerprints'],'Evidence source mismatch: '+name
-    assert checks['fingerprints']==proof['fingerprints']
-    for name,sha in proof['fingerprints'].items():assert digest(ROOT/name)==sha,'Stale browser evidence: '+name
-    home=(APP/'dist/index.html').read_text();library=(APP/'dist/explore.html').read_text()
-    for markup in [home,library]:
-        assert 'refinement.css?v=' in markup and 'content-layout.css?v=' in markup and 'runtime/refinement.js?v=' in markup
-        assert not any(old in markup for old in ['site.css','deck.css','lens-masthead','site-shell.js','story-motion.js'])
-    assert 'runtime/intro.js?v=' in home and 'intro.css?v=' in home and 'id="intro-replay"' in home
-    assert 'runtime/gateway.js?v=' in home and 'gateway.css?v=' in home and 'id="gateway"' in home
-    assert len(re.findall(r'data-gate-route=',home))==5 and 'runtime/gateway.js' not in library
-    contract=proof['sceneContract'];assert contract['sameFiveLinkNodes'] and contract['sameIntroOpticsNode'] and set(contract['links'])=={'question','collection','cleaning','landscape','findings'}
-    assert proof['version']>=9 and all(proof['layoutContract'].values()),'Missing full-screen research and responsive optical review'
-    assert 'class="chapter-rail"' not in home and 'class="research-home"' in home
-    assert 'assets/visual/gateway-atmosphere.webp' in home
-    provenance=json.loads((ROOT/proof['designProvenance']).read_text())
-    assert provenance['tool']=='image_gen.imagegen' and len(provenance['calls'])>=5
-    assert {'question-layout','content-layouts','analytics-layouts','publication-discovery-layouts','implementation-feedback'}<={c.get('kind')for c in provenance['calls']}
-    assert any(c.get('kind')=='implementation-feedback' for c in provenance['calls'])
-    for call in provenance['calls']:
-        for item in [call['prompt'],call['output'],*call['inputs'],*([call['runtime']] if 'runtime' in call else [])]:
-            artifact=ROOT/item['path']
-            assert artifact.stat().st_size==item['bytes'] and hashlib.sha256(artifact.read_bytes()).hexdigest()==item['sha256'],'Changed design evidence: '+str(artifact)
-    assert (APP/'assets/visual/gateway-atmosphere.webp').stat().st_size<50*1024
-    optical=json.loads((ROOT/proof['browserChecks']).parent.joinpath('optical-checks.json').read_text())
-    assert len(optical['results'])==23 and all(r['passed'] for r in optical['results'])
-    scene=json.loads((ROOT/proof['browserChecks']).parent.joinpath('gateway-checks.json').read_text());assert {row['width']for row in scene['layouts']}=={320,390,768,1366,1440}
-    assert len([r for r in scene['results'] if 'original page has no navbar and uses full viewport' in r['name']])==25
-    assert (APP/'src/gateway.js').stat().st_size<20*1024 and (APP/'gateway.css').stat().st_size<24*1024
-    assert 'runtime/intro.js' not in library
-    assert {p.name for p in (APP/'dist/runtime').glob('*.js')}=={'summary.js','publication.js','features.js','code-features.js','code-data.js','app.js','story-data.js','story.js','story-charts.js','narrative-data.js','narrative.js','intro.js','refinement.js','gateway.js'},'Stale or unclassified generated runtime script; clean runtime and rebuild'
-    frames=json.loads((ROOT/proof['introFrames']).read_text())['runs'];assert len(frames)==6
-    assert all(r['run']['reason']=='complete' and not r['run']['error'] and 5900<=r['run']['elapsed']<6500 and r['idleRAF']==0 and r['idlePixels']==1 and r['run']['canvasPixels']<=2010000 for r in frames)
-    assert (ROOT/proof['recording']).stat().st_size>10000
-    assert not list((APP/'dist').rglob('*.mp4'))
-    assert (APP/'refinement.css').stat().st_size<12*1024 and (APP/'src/intro.js').stat().st_size<32*1024
-    for f in (APP/'data').glob('*.gz'):assert f.read_bytes()[:2]==b'\x1f\x8b','Unhydrated dataset: '+str(f)
-    performance=json.loads((ROOT/proof['performance']).read_text())['runs'];assert len(performance)==8
-    for r in performance:
-        assert r['metrics']['cumulative-layout-shift']<=.02,'Layout shift needs investigation'
-    for surface in ['home','library']:
-        for device in ['desktop','fullhd']:
-            before=next(r for r in performance if r['surface']==surface and r['device']==device and r['stage']=='before')
-            after=next(r for r in performance if r['surface']==surface and r['device']==device and r['stage']=='after')
-            assert after['scores']['performance']>=before['scores']['performance']-5,'Investigate paired performance regression'
-    # This round explicitly authorizes five STATIC alpha decorations, while
-    # keeping native links/text, the same optical SVG, and all scientific bytes.
-    job=ROOT/'optimization/content-layout-20261101'
-    assert proof['version']>=11 and proof['baseline']=='860eb9c2a56a0c5051988efee3c76d9a77d2a899'
-    protected=job/'protected-files.json'
-    assert hashlib.sha256(protected.read_bytes()).hexdigest()=='d63528ddc60f4433ef1ddea1b5cda22d839b7aee0565277799f88ee5af288505'
-    protection=json.loads(protected.read_text());assert len(protection['files'])==527
-    for name,sha in protection['files'].items():assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==sha,'Protected bytes changed: '+name
-    planets=['app/assets/visual/planet-'+k+'.webp' for k in contract['links']]
-    assert set(proof['planetAssets'])==set(planets)
-    assert len(re.findall(r'class="orb-planet"',home))==5
-    for path in planets:
-        assert home.count('src="'+path.removeprefix('app/')+'"')==1
-    asset_report=json.loads((ROOT/'optimization/fullsite-closed-loop-20261031/assets/planet-validation.json').read_text())
-    assert len(asset_report['results'])==5 and all(r['passed'] and r['alpha']['min']==0 and r['alpha']['max']==255 for r in asset_report['results'])
-    for row in asset_report['results']:
-        asset=ROOT/row['runtime']['path'];assert hashlib.sha256(asset.read_bytes()).hexdigest()==row['runtime']['sha256']
-    ledger=json.loads((ROOT/proof['coverageLedger']).read_text())['rows']
-    assert len(ledger)==len(keys)*2 and {(r['routeKey'],r['device']) for r in ledger}=={(k,d)for k in keys for d in ['desktop','fullhd']}
-    for row in ledger:
-        assert row['reason'].strip() and row['decision'] in ['redesigned','entrance_preserved']
-        for key in ['beforeScreenshot','referenceImage','afterScreenshot']:assert (ROOT/row[key]).stat().st_size>1000
-        if row['routeKey']!='deck-gateway':assert row['decision']=='redesigned' and row['measuredTypeImprovement']>=1.15
-    reading=json.loads((job/'after/readability-checks.json').read_text())
-    assert len(reading['rows'])==184 and all(r['passed']for r in reading['results'])
-    assert all(r['liveView']['selectedViewMatches']for r in reading['rows']),'Reading audit missed actual route identity'
-    expanded=json.loads((job/'after/expanded-reading-checks.json').read_text())
-    assert len(expanded['results'])==8 and all(r['passed']and r['detail']['samples']and all(s['size']>=16 for s in r['detail']['samples'])for r in expanded['results'])
-    science=json.loads((job/'after/chart-render-preservation.json').read_text())['results']
-    assert len(science)==184 and sum(r['actualGraphs']for r in science)==188
-    assert all(r['passed']and r['actualGraphs']==r['expectedGraphs']and all(g['sameMarkup']and g['sameStyles']and g['sameCanonicalPixels']for g in r['graphs'])for r in science)
-    assert (APP/'content-layout.css').stat().st_size<40*1024
-    assert proof['recordingViewport']=={'width':1920,'height':1080}
-    assert all(r['detail']['chartStartsInFirstScreen'] for r in checks['results'] if isinstance(r.get('detail'),dict)and r['detail'].get('width')==1920 and r['detail'].get('section')=='findings')
-    overlays=json.loads((ROOT/proof['overlays']).read_text())['states'];assert len(overlays)==212
-    for state in overlays:
-        for key in ['beforeScreenshot','afterScreenshot']:assert (ROOT/state[key]).stat().st_size>1000
-    assert json.loads((job/'design/visual-review.json').read_text())['assessmentType']=='Human-readable AI design review with actual measured typography; no automatic aesthetic veto'
-    for report in ['functional-checks','chart-preservation','planet-checks','readability-checks']:
-        report=json.loads((job/'after'/f'{report}.json').read_text());assert report['results'] and all(r['passed'] for r in report['results'])
-    return {'routes':len(routes),'screenshots':len(rows),'viewports':checks['matrix']['viewports'],'fingerprintedSources':len(proof['fingerprints']),'verified':True}
-if __name__=='__main__':print(json.dumps(check()))
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def source_sha(p):
+ b=p.read_bytes()
+ if p.suffix=='.html':b=re.sub(rb'\?v=[a-f0-9]+',b'?v=BUILD',b)
+ if p.suffix=='.css':b=re.sub(rb'[ \t]+$',b'',b,flags=re.M)
+ return hashlib.sha256(b).hexdigest()
+def check(browser_report=None):
+ proof=json.loads((ROOT/'app/visual-coverage.json').read_text());assert proof['version']==14
+ fixtures=ROOT/'tests/fixtures';accepted=json.loads((fixtures/'accepted-release.json').read_text())
+ protected=fixtures/'research-protection.json';assert sha(protected)=='364b630f923c2c60b96369ee0f014d8ba25ad67c68f63bb8ac4b6aaf4ac92d03'
+ manifest=json.loads(protected.read_text());assert len(manifest['files'])==1100
+ for path,h in manifest['files'].items():assert sha(ROOT/path)==h,'Protected scientific/source file changed: '+path
+ for path,h in accepted['fingerprints'].items():assert source_sha(ROOT/path)==h,'Source changed: run the browser review and explicitly review/update the accepted baseline: '+path
+ inventory=json.loads((fixtures/'routes.json').read_text());routes=inventory['routes'];keys={r['key']for r in routes};assert len(keys)==len(routes)==93
+ source=(ROOT/'app/src/app.js').read_text();charts=re.findall(r'(\w+): "[^"]+"',re.search(r'const library = \{(.*?)\n\};',source,re.S)[1])
+ code=re.findall(r'(\w+):',re.search(r'const VIEWS = \{(.*?)\};',(ROOT/'app/src/code-study.js').read_text(),re.S)[1])
+ assert {'chart-'+c for c in charts}=={r['key']for r in routes if r.get('chart')and not r.get('empty')}
+ assert {'code-'+c for c in code}=={r['key']for r in routes if r['family']=='code'}
+ narrative=json.loads((ROOT/'app/data/narrative-evidence.json').read_text())
+ assert {f'landscape-{d}-{m}-{v}'for d,c in narrative['directions'].items()for m in c['models']for v in ['curve','heatmap']}=={r['key']for r in routes if r['family']=='landscape'}
+ science=json.loads((fixtures/'scientific-comparison.json').read_text());assert science['fingerprints']==accepted['fingerprints']
+ assert len(science['results'])==184 and sum(r['actualGraphs']for r in science['results'])==188
+ for r in science['results']:
+  assert r['passed']and r['actualGraphs']==r['expectedGraphs']
+  assert all(g['sameMarkup']and g['sameStyles']and g['sameCanonicalPixels']for g in r['graphs'])
+ exports=json.loads((fixtures/'export-comparison.json').read_text())['results'];assert len(exports)==31
+ for r in exports:
+  assert r['passed'];path=fixtures/'exports'/Path(r['afterFile']).name
+  assert sha(path)==r['afterSHA256'],'Scientific export fixture changed: '+str(path)
+ assert sorted(p.name for p in (ROOT/'app/dist').glob('*.html'))==sorted(inventory['entryDocuments'])
+ assert {p.name for p in (ROOT/'app/dist/runtime').glob('*.js')}=={'summary.js','publication.js','features.js','code-features.js','code-data.js','app.js','story-data.js','story.js','story-charts.js','narrative-data.js','narrative.js','intro.js','refinement.js','gateway.js','interaction.js'}
+ for name in inventory['entryDocuments']:
+  html=(ROOT/'app/dist'/name).read_text();assert re.search(r'interaction.css\?v=[a-f0-9]{12}',html)and re.search(r'runtime/interaction.js\?v=[a-f0-9]{12}',html)
+ for name in ['interaction.js','story-charts.js','intro.js','gateway.js']:assert (ROOT/'app/src'/name).read_bytes()==(ROOT/'app/dist/runtime'/name).read_bytes()
+ assert not any(p.suffix.lower()in{'.mp4','.mov','.webm','.m4a'}for p in (ROOT/'app/dist').rglob('*'))
+ result={'routes':len(routes),'charts':len(charts),'codeViews':len(code),'protectedFiles':len(manifest['files']),'scientificComparisons':184,'exportFixtures':31,'staticVerified':True,'recordingsRequired':False}
+ if browser_report:
+  report=json.loads(Path(browser_report).read_text());assert report['fingerprints']==accepted['fingerprints'],'Browser checked different production sources'
+  assert report['routeCount']==93 and len(report['results'])>=450 and all(r['passed']for r in report['results'])
+  for key in keys:assert any(r['name']==key+' live correct scene and visible content'and r['passed']for r in report['results']),key
+  assert not report['errors']and not report['failed'];result.update(freshBrowserChecks=len(report['results']),browserVerified=True)
+ return result
+if __name__=='__main__':
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--browser-report',type=Path);a=p.parse_args();print(json.dumps(check(a.browser_report)))

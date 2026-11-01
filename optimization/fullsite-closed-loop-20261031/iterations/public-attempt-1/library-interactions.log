@@ -1,2 +1,0 @@
-FAIL No failed resources [{"url":"https://fwlyii.github.io/data-analysis-frontrefine/assets/vendor/motion-mini-14.9.0.min.js","error":"net::ERR_ABORTED"}]
-{"checks":39,"passed":38,"failed":[{"name":"No failed resources","detail":[{"url":"https://fwlyii.github.io/data-analysis-frontrefine/assets/vendor/motion-mini-14.9.0.min.js","error":"net::ERR_ABORTED"}]}]}

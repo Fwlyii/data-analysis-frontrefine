@@ -12,7 +12,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     permissions:
       contents: read
       pages: write
@@ -24,6 +24,19 @@ jobs:
       - name: Check out source
         uses: actions/checkout@v6
 
+      - name: Set up Node for browser checks
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tests/package-lock.json
+
+      - name: Install browser check dependencies
+        run: npm ci --prefix tests --ignore-scripts --no-audit --no-fund
+
+      - name: Install Chromium for current-page checks
+        run: npm run browser:install --prefix tests
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
@@ -34,6 +47,12 @@ jobs:
 
       - name: Verify whole-site visual coverage
         run: python3 scripts/system/check_visual_coverage.py
+
+      - name: Test current pages in a real browser
+        run: python3 tests/run.py
+
+      - name: Verify fresh browser coverage
+        run: python3 scripts/system/check_visual_coverage.py --browser-report artifacts/qa/after/smoke.json
 
       - name: Upload website
         uses: actions/upload-pages-artifact@v4

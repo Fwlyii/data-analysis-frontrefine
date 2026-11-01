@@ -1,36 +1,19 @@
-# LENS 可视交互系统
+# LENS 前端
 
-在项目根目录执行：
+在仓库根目录执行 `python3 app/launch.py --port 8770`，浏览器打开 `http://127.0.0.1:8770`。启动和构建只使用Python标准库；全部科学数据、字体和图表依赖从本地读取。
 
-```bash
-python3 app/launch.py --port 8770
-```
-
-启动器用Python标准库构建本地快照并提供HTTP服务。构建后也可直接打开app/index.html或app/dist/index.html离线演示。
-
-默认主页是“知微之门”，五个入口分别进入Research Question、Collection Design、Data Pipeline、Data Landscape、Core Findings。研究页全屏展示，仅保留角落返回入口；图表库、重播开场和全屏按钮位于首页。主展示使用英文；图表库保留中文研究内容。五发现覆盖两低维、两多维和一异常，支持条件切换、九位置选择、五版本播放、实际案例及SVG/CSV导出。全貌页覆盖推理372、文档问答186、代码生成93个提示条件。最新电脑端配色流程与证据见 `../optimization/color-unification-20261101/`；布局改造历史保存在 `../optimization/content-layout-20261101/`。
-
-| 文件 | 用途 |
+| 位置 | 内容 |
 |---|---|
-| index.html / story.css | 主展示结构与样式 |
-| src/narrative.js | 研究设计、清洗与31提示全貌 |
-| src/story.js | 五发现、案例、版本控制及导出 |
-| src/story-charts.js | 从冻结统计生成可编辑SVG主图 |
-| explore.html / styles.css | 课程图表库 |
-| src/charts.js及其他模块 | 图表库、匿名记录和交互联动 |
-| data/ | 冻结特征、分组证据与精选案例 |
-| assets/ | 字体、图标、图稿与本地依赖 |
-| runtime/ / dist/ | 从源码生成的运行文件 |
+| `index.html` / `story.css` | 知微之门与五个研究章节 |
+| `explore.html` / `styles.css` | 图表库、代码研究与匿名记录 |
+| `src/story.js` / `src/story-charts.js` | 研究控制与真实科学SVG |
+| `src/narrative.js` | 实验、处理流程和数据全貌 |
+| `src/app.js` 及其他模块 | 图表库筛选、图表、记录和导出 |
+| `src/intro.js` / `src/gateway.js` | 原创开场、五球交接与导航 |
+| `src/interaction.js` / `interaction.css` | 方向卡、实验窗口、流程选择、转场及图表聚焦 |
+| `palette.css` / `content-layout.css` | 统一色彩与电脑阅读布局 |
+| `assets/` | 当前网站实际使用的图稿、装饰、字体、依赖与许可证 |
+| `data/` | 冻结的匿名特征、统计与研究证据 |
+| `runtime/` / `dist/` | 构建生成，不直接编辑、不提交 |
 
-修改src后执行python3 scripts/system/build_web_app.py或重新启动服务。runtime由构建生成；story-charts.js与图表库的charts.js分别维护。
-
-```bash
-python3 scripts/system/check_web_snapshot.py
-```
-
-检查会重建快照、验证本地资源与三个任务31提示的数据接入。系统启动只需Python；若已安装Node，还会检查JS语法和SVG数值绑定。设计来源和许可证见../docs/design-sources.md。
-
-最新电脑录制版详细布局重设计见 `../optimization/content-layout-20261101/REPORT.md` 与该目录 `gallery.html`。 原图表、数据及科研绘制源码保持；首页采用五个真实生成的静态透明装饰资产，原生链接、文字和开场交接连续性保留。
-
-
-配色由 `palette.css` 统一：深海蓝标题/导航、雾蓝灰阅读背景、冷白卡片与少量香槟金，科学图面仍采用原纸白/纯白及数据颜色。修改真实源码后运行构建，CSS内容指纹会更新。
+修改真实源码后，执行 `python3 scripts/system/build_web_app.py` 或重新启动服务。CSS/JS版本由构建自动更新。自动检查见[tests说明](../tests/README.md)，部署见[GitHub Pages说明](../docs/github-pages.md)。

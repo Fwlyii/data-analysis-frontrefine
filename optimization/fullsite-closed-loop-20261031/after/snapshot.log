@@ -1,1 +1,0 @@
-{"local_resources": 38, "prompt_conditions": {"reasoning": 372, "document_qa": 186, "code_generation": 93}, "source_runtime_sync": true, "chart_bindings": "passed", "api_calls": 0}
