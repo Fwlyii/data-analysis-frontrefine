@@ -4,7 +4,7 @@
 
 [线上预览](https://fwlyii.github.io/data-analysis-frontrefine/) · [最新全站配色与截图](optimization/color-unification-20261101/README.md) · [全站优化流程](docs/visual-refinement-workflow.md)
 
-逐页交互增强见[实施计划](optimization/interaction-design-20261101/PLAN.md)与[验收记录](optimization/interaction-design-20261101/REPORT.md)。包含方向卡、实验窗口、流程字段查看、逐视图转场、操作导览和图表聚焦；本轮已通过本地验证，按用户授权发布至 GitHub Pages。
+逐页交互增强见[实施计划](optimization/interaction-design-20261101/PLAN.md)与[验收记录](optimization/interaction-design-20261101/REPORT.md)。包含方向卡、实验窗口、流程字段查看、逐视图转场、操作导览和图表聚焦；本轮已部署至 GitHub Pages，并完成线上文件与浏览器核验。
 
 ## 运行
 

@@ -531,9 +531,11 @@
     "scientificColorsRetained": true
   },
   "publication": {
-    "status": "release-authorized",
+    "status": "published",
+    "productCommit": "7f30c60cebb93a0ab7aee0e18ca90c0219b1bd07",
     "deploymentEvidence": "optimization/interaction-design-20261101/after/deployment.json",
-    "liveVerification": "optimization/interaction-design-20261101/after/public-review.json"
+    "liveVerification": "optimization/interaction-design-20261101/after/public-review.json",
+    "assetVerification": "optimization/interaction-design-20261101/after/public-assets.json"
   },
   "interactionContract": {
     "nativeScientificControllersUnchanged": true,

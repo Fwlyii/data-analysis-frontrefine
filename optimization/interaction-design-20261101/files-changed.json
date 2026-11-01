@@ -1,12 +1,12 @@
 {
   "baseline": "926c936a3571153eb855571b9ab7768e65c1c1f0",
-  "status": "Working tree only; no commit or push",
+  "status": "User-authorized release; product 7f30c60 published and verified, followed by evidence-only archive",
   "note": "This file excludes itself to avoid a recursive hash; ignored raw recording frames and generated app/dist/runtime are excluded by git.",
   "productionAndDocumentation": [
     {
       "path": "README.md",
-      "bytes": 4504,
-      "sha256": "29e6c8579948a87ebe2294f2c26841ef275ba072bb4f3191e5b3c23a7b7dc15b"
+      "bytes": 4508,
+      "sha256": "919c738dd29b7a68a264574752ba60624953afba167c2c5d1d67a9df47abfbea"
     },
     {
       "path": "app/explore.html",
@@ -30,8 +30,8 @@
     },
     {
       "path": "app/visual-coverage.json",
-      "bytes": 60842,
-      "sha256": "74381c4b3c927e8a00fcea1a1818dd9ae610dbec0abf31afcc90a49cb4fcf4d5"
+      "bytes": 61128,
+      "sha256": "860a5c8274ecbe40466838b2751caeda238e26bf97dd3992c2793085f95874dd"
     },
     {
       "path": "docs/interaction-and-tools.md",
@@ -60,14 +60,14 @@
     }
   ],
   "artifacts": {
-    "count": 1332,
-    "bytes": 153450562
+    "count": 1343,
+    "bytes": 156383868
   },
   "files": [
     {
       "path": "README.md",
-      "bytes": 4504,
-      "sha256": "29e6c8579948a87ebe2294f2c26841ef275ba072bb4f3191e5b3c23a7b7dc15b"
+      "bytes": 4508,
+      "sha256": "919c738dd29b7a68a264574752ba60624953afba167c2c5d1d67a9df47abfbea"
     },
     {
       "path": "app/explore.html",
@@ -91,8 +91,8 @@
     },
     {
       "path": "app/visual-coverage.json",
-      "bytes": 60842,
-      "sha256": "74381c4b3c927e8a00fcea1a1818dd9ae610dbec0abf31afcc90a49cb4fcf4d5"
+      "bytes": 61128,
+      "sha256": "860a5c8274ecbe40466838b2751caeda238e26bf97dd3992c2793085f95874dd"
     },
     {
       "path": "docs/interaction-and-tools.md",
@@ -111,13 +111,13 @@
     },
     {
       "path": "optimization/interaction-design-20261101/README.md",
-      "bytes": 247,
-      "sha256": "683208459e6b5061839084150e59d4b00b2efb262ab2c027fd658f6f4b6a16a5"
+      "bytes": 324,
+      "sha256": "a02254ca69ac72778fe5ea0e9144e118399f7e7f0ed525a05cef58440a092889"
     },
     {
       "path": "optimization/interaction-design-20261101/REPORT.md",
-      "bytes": 12588,
-      "sha256": "1f9575af19c87a599cb3c5e920a72c9d9310a0c190019dd47070820828d8214b"
+      "bytes": 13929,
+      "sha256": "8b039e42e676c5aaadcff8320ddf4688b7dd62bc7ddddaab10740c62c86ff448"
     },
     {
       "path": "optimization/interaction-design-20261101/accepted-palette-proof.json",
@@ -433,6 +433,11 @@
       "path": "optimization/interaction-design-20261101/after/deck-question-fullhd.png",
       "bytes": 980369,
       "sha256": "41e09fcc4f33c521d44415829c25c4c79c919b6c78036a1176fbb46477523b44"
+    },
+    {
+      "path": "optimization/interaction-design-20261101/after/deployment.json",
+      "bytes": 308,
+      "sha256": "0f77bebb65f7d058441f2d5571dee7706a4be3785f8a03e7c817da5a32f2cca9"
     },
     {
       "path": "optimization/interaction-design-20261101/after/desktop-recording-checks.json",
@@ -1153,6 +1158,46 @@
       "path": "optimization/interaction-design-20261101/after/preservation.json",
       "bytes": 142583,
       "sha256": "e25943ea4d884b7a7084d14e3f783543fe0df077b149cc670c91f430e38f0c93"
+    },
+    {
+      "path": "optimization/interaction-design-20261101/after/public-assets.json",
+      "bytes": 72801,
+      "sha256": "6757db29c994b5cc8f6e944614d7a7ce660e1d5da4f63179ddf6001e13166fa6"
+    },
+    {
+      "path": "optimization/interaction-design-20261101/after/public-code-fullhd.png",
+      "bytes": 167646,
+      "sha256": "557ac47e84d4bcddbca2aad855b274e475da27887351a5e54417b782cd1aa624"
+    },
+    {
+      "path": "optimization/interaction-design-20261101/after/public-concise.csv",
+      "bytes": 118,
+      "sha256": "2d635c5903ce6b1617cd2ac54b08b5e618e6e90fbaef6f05020f3458b8139a78"
+    },
+    {
+      "path": "optimization/interaction-design-20261101/after/public-concise.svg",
+      "bytes": 4420,
+      "sha256": "42ebb8af7e4e143da76c8d0fe06d6f24b14f522a3534ddd41ff74c25fef2bc9d"
+    },
+    {
+      "path": "optimization/interaction-design-20261101/after/public-gateway-fullhd.png",
+      "bytes": 1455969,
+      "sha256": "cb53920ba0d8be12ee3277a4952efc103e9892aecf66084cf1e090d5fc9a4684"
+    },
+    {
+      "path": "optimization/interaction-design-20261101/after/public-library-fullhd.png",
+      "bytes": 139674,
+      "sha256": "73e03e6e2934d8090a9dbc0ccd15089abd2b004b2712bfc453db754492357955"
+    },
+    {
+      "path": "optimization/interaction-design-20261101/after/public-question-fullhd.png",
+      "bytes": 1005754,
+      "sha256": "56af7b2afbc8431aa95dd0bbb4f965406808a14afa0ff5f6803a549d483de614"
+    },
+    {
+      "path": "optimization/interaction-design-20261101/after/public-review.json",
+      "bytes": 76199,
+      "sha256": "c9688854f69c7f2ca6c0d7f032ddfc7654679a124a95fce5ef870ddcbacab011"
     },
     {
       "path": "optimization/interaction-design-20261101/after/publication-1920.png",
@@ -6561,8 +6606,8 @@
     },
     {
       "path": "optimization/interaction-design-20261101/gallery.html",
-      "bytes": 72233,
-      "sha256": "67b37e6e2aaf59bcfdbe20c1b979f1a64ba9567222bcb3748bb54ce725abf6f9"
+      "bytes": 72239,
+      "sha256": "a33bd711aaebb3feb8ec1e54760dbcf006a2a34297014df548f9f203ef4daa67"
     },
     {
       "path": "optimization/interaction-design-20261101/iterations/distribution-after.txt",
@@ -6611,8 +6656,8 @@
     },
     {
       "path": "optimization/interaction-design-20261101/scripts/build-gallery.mjs",
-      "bytes": 5961,
-      "sha256": "71a590d329451235fa16492bb7497f2abc7fbdd0709d339c437b4f3c102d268d"
+      "bytes": 5967,
+      "sha256": "133de21619b8a3d1d8aaaf2af853340f4df8dab35bf5e6385b78f5e4a7e633b8"
     },
     {
       "path": "optimization/interaction-design-20261101/scripts/chart-render-preservation.mjs",
@@ -6730,6 +6775,16 @@
       "sha256": "70d51257b8e3ddac545cfd337ee9dd743224011eab40af2626aba6139bcf4d8e"
     },
     {
+      "path": "optimization/interaction-design-20261101/scripts/public-assets.py",
+      "bytes": 1730,
+      "sha256": "f70dbe9c1b705c007951e041d5384f307a54634f36e4f5b986ec69c3392641c6"
+    },
+    {
+      "path": "optimization/interaction-design-20261101/scripts/public-review.mjs",
+      "bytes": 7257,
+      "sha256": "6454185f1635b2c31ba061b1cf34f9eb6df3c5e52a49cae0b4f118964f8147c4"
+    },
+    {
       "path": "optimization/interaction-design-20261101/scripts/record.mjs",
       "bytes": 6573,
       "sha256": "04c6593f8a7ef8388c2c427f8573170d16b4e2ce8b391ca657e8d09549b15979"
@@ -6779,5 +6834,6 @@
       "bytes": 12499,
       "sha256": "ef1255abb1ac28bc8223e2353ee1da2bfbe9d639dff915128024e0afb8e63621"
     }
-  ]
+  ],
+  "productCommit": "7f30c60cebb93a0ab7aee0e18ca90c0219b1bd07"
 }

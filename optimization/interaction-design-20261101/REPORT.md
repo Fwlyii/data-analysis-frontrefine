@@ -134,3 +134,18 @@
 ![方向卡实际展开](after/question-selected-1920.png)
 
 ![图表库实际导览](after/library-guide-1920.png)
+
+
+## 已发布与线上核验
+
+用户明确授权后，产品提交`7f30c60cebb93a0ab7aee0e18ca90c0219b1bd07`已正常推送main。[对应Pages部署工作流](https://github.com/Fwlyii/data-analysis-frontrefine/actions/runs/41285802342)成功，原始结果在[deployment.json](after/deployment.json)。
+
+线上231个文件与本地构建逐字节一致；39个代表性真实路由覆盖五章、全部13类图表、4个代码视图、更多发现、输出效率、位置研究及空状态。实际浏览器190项检查全部通过，包括原开场与同节点交接、方向卡/实验卡/流程节点、导览、聚焦、Esc恢复，以及真实CSV/SVG下载对照。没有未捕获浏览器错误或失败的普通资源请求。
+
+原始记录：[public-assets.json](after/public-assets.json)、[public-review.json](after/public-review.json)。本次之后的提交只补充线上证据和说明，网页产物保持一致。
+
+[完整开场与新版首页](https://fwlyii.github.io/data-analysis-frontrefine/?intro=1&v=interaction-7f30c60) · [图表库](https://fwlyii.github.io/data-analysis-frontrefine/explore.html?mode=explore&chart=model&v=interaction-7f30c60)
+
+![线上新版方向卡](after/public-question-fullhd.png)
+
+![线上新版图表库](after/public-library-fullhd.png)
