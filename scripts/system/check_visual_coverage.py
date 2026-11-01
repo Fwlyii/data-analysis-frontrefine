@@ -10,6 +10,9 @@ def digest(path):
     return hashlib.sha256(value).hexdigest()
 def check():
     proof=json.loads((APP/'visual-coverage.json').read_text())
+    if proof.get('version')==13:
+        import runpy
+        return runpy.run_path(str(ROOT/'scripts/system/check_interaction_coverage.py'))['check'](ROOT,proof)
     if proof.get('version')==12:
         import runpy
         return runpy.run_path(str(ROOT/'scripts/system/check_palette_coverage.py'))['check'](ROOT,proof)

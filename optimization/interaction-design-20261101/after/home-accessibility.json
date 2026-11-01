@@ -1,0 +1,4620 @@
+[
+  {
+    "label": "question desktop",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "14.3pt (19px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<button class=\"research-home\" data-section=\"gateway\" aria-label=\"返回知微之门\"><span id=\"research-home-label\"><strong class=\"research-home-mark\">LENS<span>.</span></strong><span class=\"research-home-caption\">返回入口 ↗</span></span></button>",
+                    "target": [
+                      ".research-home"
+                    ]
+                  },
+                  {
+                    "html": "<img class=\"question-art\" src=\"assets/hero-orbit.svg\" alt=\"\" aria-hidden=\"true\">",
+                    "target": [
+                      ".question-art"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong class=\"research-home-mark\">LENS<span>.</span></strong>",
+            "target": [
+              ".research-home-mark"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<button class=\"research-home\" data-section=\"gateway\" aria-label=\"返回知微之门\"><span id=\"research-home-label\"><strong class=\"research-home-mark\">LENS<span>.</span></strong><span class=\"research-home-caption\">返回入口 ↗</span></span></button>",
+                    "target": [
+                      ".research-home"
+                    ]
+                  },
+                  {
+                    "html": "<img class=\"question-art\" src=\"assets/hero-orbit.svg\" alt=\"\" aria-hidden=\"true\">",
+                    "target": [
+                      ".question-art"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"research-home-caption\">返回入口 ↗</span>",
+            "target": [
+              ".research-home-caption"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section id=\"question\" class=\"deck-panel question-panel is-active\" aria-labelledby=\"question-title\" data-ix-scene=\"question\">",
+                    "target": [
+                      "#question"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"section-index\">01 — RESEARCH QUESTION</p>",
+            "target": [
+              ".question-copy > .section-index"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "51.8pt (69.12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section id=\"question\" class=\"deck-panel question-panel is-active\" aria-labelledby=\"question-title\" data-ix-scene=\"question\">",
+                    "target": [
+                      "#question"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<h1 id=\"question-title\">What shapes<br>a model’s answer?</h1>",
+            "target": [
+              "#question-title"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "15.0pt (20px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section id=\"question\" class=\"deck-panel question-panel is-active\" aria-labelledby=\"question-title\" data-ix-scene=\"question\">",
+                    "target": [
+                      "#question"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"question-lead\">\n              The task stays fixed. The conditions do not.\n            </p>",
+            "target": [
+              ".question-lead"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "24.0pt (32px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<li>",
+                    "target": [
+                      ".question-points > li:nth-child(1)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>Expression</strong>",
+            "target": [
+              "li:nth-child(1) > div:nth-child(3) > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<li>",
+                    "target": [
+                      ".question-points > li:nth-child(1)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span>How the answer is formed</span>",
+            "target": [
+              "li:nth-child(1) > div:nth-child(3) > span:nth-child(2)"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<li>",
+                    "target": [
+                      ".question-points > li:nth-child(1)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"dimension-note\">Different prompt strategies, same task and settings.</span>",
+            "target": [
+              "li:nth-child(1) > div:nth-child(3) > .dimension-note"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "24.0pt (32px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<li>",
+                    "target": [
+                      ".question-points > li:nth-child(2)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>Evidence</strong>",
+            "target": [
+              "li:nth-child(2) > div:nth-child(3) > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<li>",
+                    "target": [
+                      ".question-points > li:nth-child(2)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span>Where the answer is found</span>",
+            "target": [
+              "li:nth-child(2) > div:nth-child(3) > span:nth-child(2)"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<li>",
+                    "target": [
+                      ".question-points > li:nth-child(2)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"dimension-note\">Which sources, positions, and context are used.</span>",
+            "target": [
+              "li:nth-child(2) > div:nth-child(3) > .dimension-note"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "24.0pt (32px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<li>",
+                    "target": [
+                      ".question-points > li:nth-child(3)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>Feedback</strong>",
+            "target": [
+              "li:nth-child(3) > div:nth-child(3) > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<li>",
+                    "target": [
+                      ".question-points > li:nth-child(3)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span>How a draft is repaired</span>",
+            "target": [
+              "li:nth-child(3) > div:nth-child(3) > span:nth-child(2)"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<li>",
+                    "target": [
+                      ".question-points > li:nth-child(3)"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"dimension-note\">What changes the model makes after feedback.</span>",
+            "target": [
+              "li:nth-child(3) > div:nth-child(3) > .dimension-note"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "36.8pt (49px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section id=\"question\" class=\"deck-panel question-panel is-active\" aria-labelledby=\"question-title\" data-ix-scene=\"question\">",
+                    "target": [
+                      "#question"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>248,586</strong>",
+            "target": [
+              ".question-scale > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section id=\"question\" class=\"deck-panel question-panel is-active\" aria-labelledby=\"question-title\" data-ix-scene=\"question\">",
+                    "target": [
+                      "#question"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span>real responses. One connected research space.</span>",
+            "target": [
+              ".question-scale > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "collection desktop",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2",
+          "RGAAv4",
+          "RGAA-7.1.1"
+        ],
+        "description": "Ensure ARIA attributes are not prohibited for an element's role",
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-prohibited-attr?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": {
+                  "role": null,
+                  "nodeName": "div",
+                  "messageKey": "noRoleSingular",
+                  "prohibited": [
+                    "aria-label"
+                  ]
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+              }
+            ],
+            "impact": "serious",
+            "html": "<div class=\"experiment-flow\" aria-label=\"Controlled experiment flow\">",
+            "target": [
+              ".experiment-flow"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header\">",
+                    "target": [
+                      "#collection > .panel-inner > .panel-header"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"section-index\">02 — COLLECTION DESIGN</p>",
+            "target": [
+              "#collection > .panel-inner > .panel-header > div > .section-index"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "38.9pt (51.84px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header\">",
+                    "target": [
+                      "#collection > .panel-inner > .panel-header"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<h2 id=\"collection-title\" tabindex=\"-1\">How can we isolate each effect?</h2>",
+            "target": [
+              "#collection-title"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header\">",
+                    "target": [
+                      "#collection > .panel-inner > .panel-header"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"panel-aside\">One condition at a time.</p>",
+            "target": [
+              "#collection > .panel-inner > .panel-header > .panel-aside"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "messageKey": "nonBmp"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element content contains only non-text characters"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<i>→</i>",
+            "target": [
+              "i:nth-child(2)"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "27.8pt (37px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"flow-node focus\"><span>31 ×</span><strong>Prompt strategies</strong></div>",
+                    "target": [
+                      ".focus"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span>31 ×</span>",
+            "target": [
+              ".focus > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "18.8pt (25px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"flow-node focus\"><span>31 ×</span><strong>Prompt strategies</strong></div>",
+                    "target": [
+                      ".focus"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>Prompt strategies</strong>",
+            "target": [
+              ".focus > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "messageKey": "nonBmp"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element content contains only non-text characters"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<i>→</i>",
+            "target": [
+              "i:nth-child(4)"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "shortTextContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element content is too short to determine if it is actual text content"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span>A</span>",
+            "target": [
+              ".task-row:nth-child(1) > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "14.3pt (19px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<h3>Reasoning &amp; choice</h3>",
+            "target": [
+              ".task-row:nth-child(1) > h3"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p>4 models · 3 benchmarks</p>",
+            "target": [
+              ".task-row:nth-child(1) > p"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "27.8pt (37px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>74,400</strong>",
+            "target": [
+              ".task-row:nth-child(1) > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "shortTextContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element content is too short to determine if it is actual text content"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span>B</span>",
+            "target": [
+              ".task-row:nth-child(2) > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "14.3pt (19px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<h3>Document QA</h3>",
+            "target": [
+              ".task-row:nth-child(2) > h3"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p>2 models · 200 questions</p>",
+            "target": [
+              ".task-row:nth-child(2) > p"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "27.8pt (37px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>74,800</strong>",
+            "target": [
+              ".task-row:nth-child(2) > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "shortTextContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element content is too short to determine if it is actual text content"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span>C</span>",
+            "target": [
+              ".task-row:nth-child(3) > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "14.3pt (19px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<h3>Code generation</h3>",
+            "target": [
+              ".task-row:nth-child(3) > h3"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p>3 models · 194 tasks · 5 samples</p>",
+            "target": [
+              ".task-row:nth-child(3) > p"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "27.8pt (37px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>90,210</strong>",
+            "target": [
+              ".task-row:nth-child(3) > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.8pt (17px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>Evidence position</strong>",
+            "target": [
+              ".special-studies > div:nth-child(1) > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span>2 models × 9 positions · 3,600</span>",
+            "target": [
+              "div:nth-child(1) > span:nth-child(4)"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.8pt (17px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>Feedback repair</strong>",
+            "target": [
+              ".special-studies > div:nth-child(2) > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span>2 models × 4 strategies × 4 rounds · 5,576</span>",
+            "target": [
+              "div:nth-child(2) > span:nth-child(4)"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "cleaning desktop",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2",
+          "RGAAv4",
+          "RGAA-7.1.1"
+        ],
+        "description": "Ensure ARIA attributes are not prohibited for an element's role",
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-prohibited-attr?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": {
+                  "role": null,
+                  "nodeName": "pre",
+                  "messageKey": "noRoleSingular",
+                  "prohibited": [
+                    "aria-label"
+                  ]
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-label attribute is not well supported on \"pre\" elements with no valid role attribute."
+              }
+            ],
+            "impact": "serious",
+            "html": "<pre class=\"schema-preview\" aria-label=\"JSON example of an anonymized response\">",
+            "target": [
+              "pre"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on \"pre\" elements with no valid role attribute."
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header\">",
+                    "target": [
+                      "#cleaning > .panel-inner > .panel-header"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"section-index\">03 — DATA PIPELINE</p>",
+            "target": [
+              "#cleaning > .panel-inner > .panel-header > div > .section-index"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "38.9pt (51.84px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header\">",
+                    "target": [
+                      "#cleaning > .panel-inner > .panel-header"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<h2 id=\"cleaning-title\" tabindex=\"-1\">What can we trust?</h2>",
+            "target": [
+              "#cleaning-title"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header\">",
+                    "target": [
+                      "#cleaning > .panel-inner > .panel-header"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"panel-aside\">Keep the record. Keep the distinction.</p>",
+            "target": [
+              "#cleaning > .panel-inner > .panel-header > .panel-aside"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>Freeze &amp; join</strong>",
+            "target": [
+              "li:nth-child(1) > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span>Stable keys. Source files unchanged.</span>",
+            "target": [
+              "ol > li:nth-child(1) > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>Normalize</strong>",
+            "target": [
+              "li:nth-child(2) > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span>Consistent types. Repeated measures retained.</span>",
+            "target": [
+              "ol > li:nth-child(2) > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>Keep missingness distinct</strong>",
+            "target": [
+              "li:nth-child(3) > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span>Truncation, unresolved extraction, environment exclusion.</span>",
+            "target": [
+              "ol > li:nth-child(3) > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong>Anonymize &amp; derive</strong>",
+            "target": [
+              "li:nth-child(4) > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span>Anonymous keys and condition summaries.</span>",
+            "target": [
+              "li:nth-child(4) > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "landscape desktop",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header\">",
+                    "target": [
+                      ".landscape-inner > .panel-header"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"section-index\">04 — DATA LANDSCAPE</p>",
+            "target": [
+              ".landscape-inner > .panel-header > div > .section-index"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "38.9pt (51.84px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header\">",
+                    "target": [
+                      ".landscape-inner > .panel-header"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<h2 id=\"landscape-title\" tabindex=\"-1\">What repeats across tasks?</h2>",
+            "target": [
+              "#landscape-title"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header\">",
+                    "target": [
+                      ".landscape-inner > .panel-header"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p id=\"landscape-takeaway\" class=\"panel-aside\">\n              31 prompts. No single prompt tells the whole story.\n            </p>",
+            "target": [
+              "#landscape-takeaway"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section data-ix-owned=\"\" class=\"ix-reading\" data-scene=\"landscape\" aria-label=\"比较研究条件 · 交互导览\">",
+                    "target": [
+                      ".ix-reading"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong data-ix-owned=\"\" class=\"\">比较研究条件</strong>",
+            "target": [
+              ".ix-reading-label > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section data-ix-owned=\"\" class=\"ix-reading\" data-scene=\"landscape\" aria-label=\"比较研究条件 · 交互导览\">",
+                    "target": [
+                      ".ix-reading"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span data-ix-owned=\"\" class=\"\">操作导览</span>",
+            "target": [
+              ".ix-guide-toggle > span[data-ix-owned=\"\"]:nth-child(1)"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "messageKey": "nonBmp"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element content contains only non-text characters"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span data-ix-owned=\"\" class=\"ix-chevron\">⌄</span>",
+            "target": [
+              ".ix-chevron"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section data-ix-owned=\"\" class=\"ix-reading\" data-scene=\"landscape\" aria-label=\"比较研究条件 · 交互导览\">",
+                    "target": [
+                      ".ix-reading"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<button data-ix-owned=\"\" class=\"ix-focus-toggle\" type=\"button\" data-ix-focus=\"\" aria-pressed=\"false\"><span data-ix-owned=\"\" class=\"ix-focus-glyph\"></span>聚焦图表</button>",
+            "target": [
+              ".ix-focus-toggle"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"0\" y=\"22\" font-size=\"13\" fill=\"#6c706b\" text-anchor=\"start\" font-weight=\"400\">Each point is one prompt strategy</text>",
+            "target": [
+              "text[font-size=\"13\"][y=\"22\"][x=\"0\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"894\" y=\"22\" font-size=\"12\" fill=\"#6c706b\" text-anchor=\"start\" font-weight=\"400\">DefaultCoT</text>",
+            "target": [
+              "text[x=\"894\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"1012\" y=\"22\" font-size=\"12\" fill=\"#6c706b\" text-anchor=\"start\" font-weight=\"400\">BeConcise</text>",
+            "target": [
+              "text[x=\"1012\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.8pt (17px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"58\" y=\"39\" font-size=\"17\" fill=\"#202522\" text-anchor=\"start\" font-weight=\"400\">GSM8K</text>",
+            "target": [
+              "text[x=\"58\"][font-size=\"17\"][y=\"39\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"343.3333333333333\" y=\"39\" font-size=\"11\" fill=\"#a34f36\" text-anchor=\"end\" font-weight=\"400\">+21.5 slope · R² 0.91</text>",
+            "target": [
+              "text[x=\"343.3333333333333\"][y=\"39\"][fill=\"#a34f36\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "shortTextContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element content is too short to determine if it is actual text content"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"48\" y=\"331\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"end\" font-weight=\"400\">0</text>",
+            "target": [
+              "text[x=\"48\"][y=\"331\"][text-anchor=\"end\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"48\" y=\"198.5\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"end\" font-weight=\"400\">50</text>",
+            "target": [
+              "text[x=\"48\"][y=\"198.5\"][text-anchor=\"end\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"48\" y=\"66\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"end\" font-weight=\"400\">100</text>",
+            "target": [
+              "text[x=\"48\"][y=\"66\"][text-anchor=\"end\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "shortTextContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element content is too short to determine if it is actual text content"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"58\" y=\"350\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">0</text>",
+            "target": [
+              "text[x=\"58\"][y=\"350\"][font-size=\"11\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"200.66666666666666\" y=\"350\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">128</text>",
+            "target": [
+              "text[x=\"200.66666666666666\"][y=\"350\"][font-size=\"11\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"343.3333333333333\" y=\"350\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">256</text>",
+            "target": [
+              "text[x=\"343.3333333333333\"][y=\"350\"][font-size=\"11\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"200.66666666666666\" y=\"375\" font-size=\"12\" fill=\"#6c706b\" text-anchor=\"middle\" font-weight=\"400\">Mean output tokens</text>",
+            "target": [
+              "text[x=\"200.66666666666666\"][y=\"375\"][fill=\"#6c706b\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"16\" y=\"194.5\" transform=\"rotate(-90 16 194.5)\" font-size=\"12\" fill=\"#6c706b\" text-anchor=\"middle\">Score (%)</text>",
+            "target": [
+              "text[x=\"16\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.8pt (17px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"431.3333333333333\" y=\"39\" font-size=\"17\" fill=\"#202522\" text-anchor=\"start\" font-weight=\"400\">MATH500</text>",
+            "target": [
+              "text[x=\"431.3333333333333\"][font-size=\"17\"][y=\"39\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"716.6666666666666\" y=\"39\" font-size=\"11\" fill=\"#a34f36\" text-anchor=\"end\" font-weight=\"400\">+9.7 slope · R² 0.75</text>",
+            "target": [
+              "text[x=\"716.6666666666666\"][y=\"39\"][fill=\"#a34f36\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "shortTextContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element content is too short to determine if it is actual text content"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"421.3333333333333\" y=\"331\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"end\" font-weight=\"400\">0</text>",
+            "target": [
+              "text[x=\"421.3333333333333\"][y=\"331\"][text-anchor=\"end\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"421.3333333333333\" y=\"198.5\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"end\" font-weight=\"400\">50</text>",
+            "target": [
+              "text[x=\"421.3333333333333\"][y=\"198.5\"][text-anchor=\"end\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"421.3333333333333\" y=\"66\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"end\" font-weight=\"400\">100</text>",
+            "target": [
+              "text[x=\"421.3333333333333\"][y=\"66\"][text-anchor=\"end\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "shortTextContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element content is too short to determine if it is actual text content"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"431.3333333333333\" y=\"350\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">0</text>",
+            "target": [
+              "text[x=\"431.3333333333333\"][y=\"350\"][font-size=\"11\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"574\" y=\"350\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">269</text>",
+            "target": [
+              "text[x=\"574\"][y=\"350\"][font-size=\"11\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"716.6666666666666\" y=\"350\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">537</text>",
+            "target": [
+              "text[x=\"716.6666666666666\"][y=\"350\"][font-size=\"11\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"574\" y=\"375\" font-size=\"12\" fill=\"#6c706b\" text-anchor=\"middle\" font-weight=\"400\">Mean output tokens</text>",
+            "target": [
+              "text[x=\"574\"][y=\"375\"][fill=\"#6c706b\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.8pt (17px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"804.6666666666666\" y=\"39\" font-size=\"17\" fill=\"#202522\" text-anchor=\"start\" font-weight=\"400\">MMLU-Pro</text>",
+            "target": [
+              "text[x=\"804.6666666666666\"][font-size=\"17\"][y=\"39\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"1090\" y=\"39\" font-size=\"11\" fill=\"#a34f36\" text-anchor=\"end\" font-weight=\"400\">+8.3 slope · R² 0.84</text>",
+            "target": [
+              "text[x=\"1090\"][y=\"39\"][fill=\"#a34f36\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "shortTextContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element content is too short to determine if it is actual text content"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"794.6666666666666\" y=\"331\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"end\" font-weight=\"400\">0</text>",
+            "target": [
+              "text[x=\"794.6666666666666\"][y=\"331\"][text-anchor=\"end\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"794.6666666666666\" y=\"198.5\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"end\" font-weight=\"400\">50</text>",
+            "target": [
+              "text[x=\"794.6666666666666\"][y=\"198.5\"][text-anchor=\"end\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"794.6666666666666\" y=\"66\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"end\" font-weight=\"400\">100</text>",
+            "target": [
+              "text[x=\"794.6666666666666\"][y=\"66\"][text-anchor=\"end\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "shortTextContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element content is too short to determine if it is actual text content"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"804.6666666666666\" y=\"350\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">0</text>",
+            "target": [
+              "text[x=\"804.6666666666666\"][y=\"350\"][font-size=\"11\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"947.3333333333333\" y=\"350\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">260</text>",
+            "target": [
+              "text[x=\"947.3333333333333\"][y=\"350\"][font-size=\"11\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "8.3pt (11px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"1090\" y=\"350\" font-size=\"11\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">520</text>",
+            "target": [
+              "text[x=\"1090\"][y=\"350\"][font-size=\"11\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 400\" role=\"img\" aria-label=\"Thirty-one prompt strategies across tasks\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 400\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"947.3333333333333\" y=\"375\" font-size=\"12\" fill=\"#6c706b\" text-anchor=\"middle\" font-weight=\"400\">Mean output tokens</text>",
+            "target": [
+              "text[x=\"947.3333333333333\"][y=\"375\"][fill=\"#6c706b\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "findings desktop",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header findings-heading\">",
+                    "target": [
+                      ".findings-heading"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"section-index\">05 — CORE FINDINGS</p>",
+            "target": [
+              ".findings-heading > div > .section-index"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "27.0pt (36px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header findings-heading\">",
+                    "target": [
+                      ".findings-heading"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<h2 id=\"findings-title\" tabindex=\"-1\">Where do patterns turn?</h2>",
+            "target": [
+              "#findings-title"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header findings-heading\">",
+                    "target": [
+                      ".findings-heading"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"panel-aside\">\n              2 low-dimensional · 2 multidimensional · 1 anomaly\n            </p>",
+            "target": [
+              ".findings-heading > .panel-aside"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "messageKey": "nonBmp"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element content contains only non-text characters"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span data-ix-owned=\"\" class=\"ix-chevron\">⌄</span>",
+            "target": [
+              "button[aria-controls=\"ix-guide-concise\"] > .ix-chevron[data-ix-owned=\"\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"0\" y=\"20\" font-size=\"13\" fill=\"#6c706b\" text-anchor=\"start\" font-weight=\"400\">200 paired items</text>",
+            "target": [
+              "text[font-size=\"13\"][y=\"20\"][x=\"0\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"520\" y=\"20\" font-size=\"14\" fill=\"#202522\" text-anchor=\"middle\" font-weight=\"400\">Score (%)</text>",
+            "target": [
+              "text[x=\"520\"][y=\"20\"][font-size=\"14\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"1015\" y=\"20\" font-size=\"14\" fill=\"#202522\" text-anchor=\"middle\" font-weight=\"400\">Mean output tokens</text>",
+            "target": [
+              "text[x=\"1015\"][y=\"20\"][font-size=\"14\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "shortTextContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element content is too short to determine if it is actual text content"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"80\" y=\"286\" font-size=\"12\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">0</text>",
+            "target": [
+              "text[x=\"80\"][y=\"286\"][font-size=\"12\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"300\" y=\"286\" font-size=\"12\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">50</text>",
+            "target": [
+              "text[x=\"300\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"520\" y=\"286\" font-size=\"12\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">100</text>",
+            "target": [
+              "text[x=\"520\"][y=\"286\"][font-size=\"12\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"0\" y=\"110\" font-size=\"15\" fill=\"#202522\" text-anchor=\"start\" font-weight=\"400\">NoCoT</text>",
+            "target": [
+              "text[y=\"110\"][font-size=\"15\"][x=\"0\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"532\" y=\"110\" font-size=\"14\" fill=\"#a5a79f\" text-anchor=\"start\" font-weight=\"400\">22.0%</text>",
+            "target": [
+              "text[x=\"532\"][y=\"110\"][font-size=\"14\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"0\" y=\"175\" font-size=\"15\" fill=\"#202522\" text-anchor=\"start\" font-weight=\"400\">DefaultCoT</text>",
+            "target": [
+              "text[y=\"175\"][font-size=\"15\"][x=\"0\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"532\" y=\"175\" font-size=\"14\" fill=\"#202522\" text-anchor=\"start\" font-weight=\"400\">91.5%</text>",
+            "target": [
+              "text[x=\"532\"][y=\"175\"][font-size=\"14\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"0\" y=\"240\" font-size=\"15\" fill=\"#202522\" text-anchor=\"start\" font-weight=\"400\">BeConcise</text>",
+            "target": [
+              "text[y=\"240\"][font-size=\"15\"][x=\"0\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"532\" y=\"240\" font-size=\"14\" fill=\"#a34f36\" text-anchor=\"start\" font-weight=\"400\">92.0%</text>",
+            "target": [
+              "text[x=\"532\"][y=\"240\"][font-size=\"14\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "shortTextContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element content is too short to determine if it is actual text content"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"640\" y=\"286\" font-size=\"12\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">0</text>",
+            "target": [
+              "text[x=\"640\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"830\" y=\"286\" font-size=\"12\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">125</text>",
+            "target": [
+              "text[x=\"830\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"1020\" y=\"286\" font-size=\"12\" fill=\"#a5a79f\" text-anchor=\"middle\" font-weight=\"400\">250</text>",
+            "target": [
+              "text[x=\"1020\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"1032\" y=\"110\" font-size=\"14\" fill=\"#a5a79f\" text-anchor=\"start\" font-weight=\"400\">6.5</text>",
+            "target": [
+              "text[x=\"1032\"][y=\"110\"][font-size=\"14\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"1032\" y=\"175\" font-size=\"14\" fill=\"#202522\" text-anchor=\"start\" font-weight=\"400\">236.7</text>",
+            "target": [
+              "text[x=\"1032\"][y=\"175\"][font-size=\"14\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"1032\" y=\"240\" font-size=\"14\" fill=\"#a34f36\" text-anchor=\"start\" font-weight=\"400\">185.8</text>",
+            "target": [
+              "text[x=\"1032\"][y=\"240\"][font-size=\"14\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"80\" y=\"318\" font-size=\"12\" fill=\"#6c706b\" text-anchor=\"start\" font-weight=\"400\">NoCoT is a reference; DefaultCoT → BeConcise is the paired comparison.</text>",
+            "target": [
+              "text[x=\"80\"][y=\"318\"][fill=\"#6c706b\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 355\" role=\"img\" aria-label=\"Paired score and token comparison\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 355\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"1015\" y=\"318\" font-size=\"15\" fill=\"#a34f36\" text-anchor=\"end\" font-weight=\"400\">+0.5 pp score · −21.5% tokens</text>",
+            "target": [
+              "text[x=\"1015\"][y=\"318\"][font-size=\"15\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "cleaning phone",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2",
+          "RGAAv4",
+          "RGAA-7.1.1"
+        ],
+        "description": "Ensure ARIA attributes are not prohibited for an element's role",
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-prohibited-attr?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": {
+                  "role": null,
+                  "nodeName": "pre",
+                  "messageKey": "noRoleSingular",
+                  "prohibited": [
+                    "aria-label"
+                  ]
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-label attribute is not well supported on \"pre\" elements with no valid role attribute."
+              }
+            ],
+            "impact": "serious",
+            "html": "<pre class=\"schema-preview\" aria-label=\"JSON example of an anonymized response\">",
+            "target": [
+              "pre"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on \"pre\" elements with no valid role attribute."
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header\">\n            <div>\n              <p class=\"section-index\">03 — DATA PIPELINE</p>\n              <h2 id=\"cleaning-title\">What can we trust?</h2>\n            </div>\n            <p class=\"panel-aside\">Keep the record. Keep the distinction.</p>\n          </header>",
+                    "target": [
+                      "#cleaning > .panel-inner > .panel-header"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"section-index\">03 — DATA PIPELINE</p>",
+            "target": [
+              "#cleaning > .panel-inner > .panel-header > div > .section-index"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "26.3pt (35px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header\">\n            <div>\n              <p class=\"section-index\">03 — DATA PIPELINE</p>\n              <h2 id=\"cleaning-title\">What can we trust?</h2>\n            </div>\n            <p class=\"panel-aside\">Keep the record. Keep the distinction.</p>\n          </header>",
+                    "target": [
+                      "#cleaning > .panel-inner > .panel-header"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<h2 id=\"cleaning-title\">What can we trust?</h2>",
+            "target": [
+              "#cleaning-title"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "landscape phone matrix",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header\">",
+                    "target": [
+                      ".landscape-inner > .panel-header"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"section-index\">04 — DATA LANDSCAPE</p>",
+            "target": [
+              ".landscape-inner > .panel-header > div > .section-index"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fontSize": "26.3pt (35px)",
+                  "fontWeight": "normal",
+                  "messageKey": "pseudoContent",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<header class=\"panel-header\">",
+                    "target": [
+                      ".landscape-inner > .panel-header"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a pseudo element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<h2 id=\"landscape-title\">What repeats across tasks?</h2>",
+            "target": [
+              "#landscape-title"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section data-ix-owned=\"\" class=\"ix-reading\" data-scene=\"landscape\" aria-label=\"比较研究条件 · 交互导览\">",
+                    "target": [
+                      ".ix-reading"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong data-ix-owned=\"\" class=\"\">比较研究条件</strong>",
+            "target": [
+              ".ix-reading-label > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section data-ix-owned=\"\" class=\"ix-reading\" data-scene=\"landscape\" aria-label=\"比较研究条件 · 交互导览\">",
+                    "target": [
+                      ".ix-reading"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span data-ix-owned=\"\" class=\"\">操作导览</span>",
+            "target": [
+              ".ix-guide-toggle > span[data-ix-owned=\"\"]:nth-child(1)"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "messageKey": "nonBmp"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element content contains only non-text characters"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span data-ix-owned=\"\" class=\"ix-chevron\">⌄</span>",
+            "target": [
+              ".ix-chevron"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section data-ix-owned=\"\" class=\"ix-reading\" data-scene=\"landscape\" aria-label=\"比较研究条件 · 交互导览\">",
+                    "target": [
+                      ".ix-reading"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<button data-ix-owned=\"\" class=\"ix-focus-toggle\" type=\"button\" data-ix-focus=\"\" aria-pressed=\"false\"><span data-ix-owned=\"\" class=\"ix-focus-glyph\"></span>聚焦图表</button>",
+            "target": [
+              ".ix-focus-toggle"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1120 300\" role=\"group\" aria-label=\"Score matrix for 31 prompts\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1120 300\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"0\" y=\"20\" font-size=\"14\" fill=\"#202522\" text-anchor=\"start\" font-weight=\"400\">31 prompt strategies</text>",
+            "target": [
+              "text[x=\"0\"][y=\"20\"][font-size=\"14\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "position phone expanded",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "label": "limits phone",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section data-ix-owned=\"\" class=\"ix-reading\" data-scene=\"limits\" aria-label=\"对照请求与输出 · 交互导览\">",
+                    "target": [
+                      ".ix-reading"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<strong data-ix-owned=\"\" class=\"\">对照请求与输出</strong>",
+            "target": [
+              ".ix-reading-label > strong"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section data-ix-owned=\"\" class=\"ix-reading\" data-scene=\"limits\" aria-label=\"对照请求与输出 · 交互导览\">",
+                    "target": [
+                      ".ix-reading"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span data-ix-owned=\"\" class=\"\">操作导览</span>",
+            "target": [
+              ".ix-guide-toggle > span[data-ix-owned=\"\"]:nth-child(1)"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "messageKey": "nonBmp"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element content contains only non-text characters"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span data-ix-owned=\"\" class=\"ix-chevron\">⌄</span>",
+            "target": [
+              ".ix-chevron"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content contains only non-text characters"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section data-ix-owned=\"\" class=\"ix-reading\" data-scene=\"limits\" aria-label=\"对照请求与输出 · 交互导览\">",
+                    "target": [
+                      ".ix-reading"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<button data-ix-owned=\"\" class=\"ix-focus-toggle\" type=\"button\" data-ix-focus=\"\" aria-pressed=\"false\"><span data-ix-owned=\"\" class=\"ix-focus-glyph\"></span>聚焦图表</button>",
+            "target": [
+              ".ix-focus-toggle"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 390\" role=\"img\" aria-label=\"Requested length limit versus actual output\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 390\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"72\" y=\"22\" font-size=\"14\" fill=\"#202522\" text-anchor=\"start\" font-weight=\"400\">Actual output tokens</text>",
+            "target": [
+              "text[font-size=\"14\"][x=\"72\"][y=\"22\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "shortTextContent",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 390\" role=\"img\" aria-label=\"Requested length limit versus actual output\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 390\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element content is too short to determine if it is actual text content"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"60\" y=\"307\" font-size=\"12\" fill=\"#a5a79f\" text-anchor=\"end\" font-weight=\"400\">0</text>",
+            "target": [
+              "text[y=\"307\"][x=\"60\"][font-size=\"12\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 390\" role=\"img\" aria-label=\"Requested length limit versus actual output\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 390\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"60\" y=\"184.5\" font-size=\"12\" fill=\"#a5a79f\" text-anchor=\"end\" font-weight=\"400\">100</text>",
+            "target": [
+              "text[y=\"184.5\"][x=\"60\"][font-size=\"12\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 390\" role=\"img\" aria-label=\"Requested length limit versus actual output\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 390\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"60\" y=\"62\" font-size=\"12\" fill=\"#a5a79f\" text-anchor=\"end\" font-weight=\"400\">200</text>",
+            "target": [
+              "text[y=\"62\"][x=\"60\"][font-size=\"12\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"72\" y=\"221.698125\" font-size=\"13\" fill=\"#a34f36\" text-anchor=\"middle\" font-weight=\"400\">52</text>",
+            "target": [
+              "text[y=\"221.698125\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"262\" y=\"193.44962500000003\" font-size=\"13\" fill=\"#202522\" text-anchor=\"middle\" font-weight=\"400\">75</text>",
+            "target": [
+              "text[y=\"193.44962500000003\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgOverlap",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it is overlapped by another element"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"452\" y=\"159.798875\" font-size=\"13\" fill=\"#202522\" text-anchor=\"middle\" font-weight=\"400\">102</text>",
+            "target": [
+              "text[y=\"159.798875\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 390\" role=\"img\" aria-label=\"Requested length limit versus actual output\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 390\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"72\" y=\"330\" font-size=\"12\" fill=\"#6c706b\" text-anchor=\"middle\" font-weight=\"400\">10</text>",
+            "target": [
+              "text[x=\"72\"][y=\"330\"][font-size=\"12\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 390\" role=\"img\" aria-label=\"Requested length limit versus actual output\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 390\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"262\" y=\"330\" font-size=\"12\" fill=\"#6c706b\" text-anchor=\"middle\" font-weight=\"400\">50</text>",
+            "target": [
+              "text[x=\"262\"][y=\"330\"][font-size=\"12\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 390\" role=\"img\" aria-label=\"Requested length limit versus actual output\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 390\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"452\" y=\"330\" font-size=\"12\" fill=\"#6c706b\" text-anchor=\"middle\" font-weight=\"400\">100</text>",
+            "target": [
+              "text[x=\"452\"][y=\"330\"][font-size=\"12\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.8pt (13px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 390\" role=\"img\" aria-label=\"Requested length limit versus actual output\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 390\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"357\" y=\"358\" font-size=\"13\" fill=\"#6c706b\" text-anchor=\"middle\" font-weight=\"400\">Requested token limit</text>",
+            "target": [
+              "text[x=\"357\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "messageKey": "imgNode",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1100 390\" role=\"img\" aria-label=\"Requested length limit versus actual output\" font-family=\"Times New Roman, Times, serif\">",
+                    "target": [
+                      "svg[viewBox=\"0 0 1100 390\"]"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined because element contains an image node"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<text x=\"72\" y=\"385\" font-size=\"12\" fill=\"#6c706b\" text-anchor=\"start\" font-weight=\"400\">Prompted limits, not API hard caps.</text>",
+            "target": [
+              "text[y=\"385\"]"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "concise phone native drawers",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "label": "language phone native drawers",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "label": "position phone native drawers",
+    "violations": [],
+    "incomplete": []
+  },
+  {
+    "label": "repair phone native drawers",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "impact": "serious",
+        "tags": [
+          "cat.aria",
+          "wcag2a",
+          "wcag412",
+          "EN-301-549",
+          "EN-9.4.1.2",
+          "RGAAv4",
+          "RGAA-7.1.1"
+        ],
+        "description": "Ensure ARIA attributes are not prohibited for an element's role",
+        "help": "Elements must only use permitted ARIA attributes",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/aria-prohibited-attr?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": {
+                  "role": null,
+                  "nodeName": "pre",
+                  "messageKey": "noRoleSingular",
+                  "prohibited": [
+                    "aria-label"
+                  ]
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-label attribute is not well supported on \"pre\" elements with no valid role attribute."
+              }
+            ],
+            "impact": "serious",
+            "html": "<pre class=\"answer-content code\" tabindex=\"0\" aria-label=\"Code before revision\">",
+            "target": [
+              "pre[aria-label=\"Code before revision\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on \"pre\" elements with no valid role attribute."
+          },
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "aria-prohibited-attr",
+                "data": {
+                  "role": null,
+                  "nodeName": "pre",
+                  "messageKey": "noRoleSingular",
+                  "prohibited": [
+                    "aria-label"
+                  ]
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "aria-label attribute is not well supported on \"pre\" elements with no valid role attribute."
+              }
+            ],
+            "impact": "serious",
+            "html": "<pre class=\"answer-content code\" tabindex=\"0\" aria-label=\"Code after revision\">",
+            "target": [
+              "pre[aria-label=\"Code after revision\"]"
+            ],
+            "failureSummary": "Fix all of the following:\n  aria-label attribute is not well supported on \"pre\" elements with no valid role attribute."
+          }
+        ]
+      },
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "error": {
+          "message": "Element midpoint exceeds the grid bounds Skipping color-contrast rule.",
+          "stack": "Error: Element midpoint exceeds the grid bounds\n    at assert (eval at evaluate (:370:30), <anonymous>:7734:15)\n    at Grid.getCellFromPoint (eval at evaluate (:370:30), <anonymous>:19793:11)\n    at getRectStack (eval at evaluate (:370:30), <anonymous>:20159:27)\n    at getRectStack (eval at evaluate (:370:30), <anonymous>:20171:17)\n    at eval (eval at evaluate (:370:30), <anonymous>:22000:16)\n    at Array.map (<anonymous>)\n    at getTextElementStack (eval at evaluate (:370:30), <anonymous>:21999:26)\n    at _getBackgroundStack (eval at evaluate (:370:30), <anonymous>:29075:20)\n    at _getBackgroundColor (eval at evaluate (:370:30), <anonymous>:29441:22)\n    at _getBackgroundColor2 (eval at evaluate (:370:30), <anonymous>:29431:21)",
+          "name": "Error",
+          "ruleId": "color-contrast",
+          "method": "color-contrast#evaluate"
+        },
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+        "nodes": [
+          {
+            "any": [],
+            "all": [],
+            "none": [
+              {
+                "id": "error-occurred",
+                "data": {
+                  "message": "Element midpoint exceeds the grid bounds Skipping color-contrast rule.",
+                  "stack": "Error: Element midpoint exceeds the grid bounds\n    at assert (eval at evaluate (:370:30), <anonymous>:7734:15)\n    at Grid.getCellFromPoint (eval at evaluate (:370:30), <anonymous>:19793:11)\n    at getRectStack (eval at evaluate (:370:30), <anonymous>:20159:27)\n    at getRectStack (eval at evaluate (:370:30), <anonymous>:20171:17)\n    at eval (eval at evaluate (:370:30), <anonymous>:22000:16)\n    at Array.map (<anonymous>)\n    at getTextElementStack (eval at evaluate (:370:30), <anonymous>:21999:26)\n    at _getBackgroundStack (eval at evaluate (:370:30), <anonymous>:29075:20)\n    at _getBackgroundColor (eval at evaluate (:370:30), <anonymous>:29441:22)\n    at _getBackgroundColor2 (eval at evaluate (:370:30), <anonymous>:29431:21)",
+                  "name": "Error",
+                  "ruleId": "color-contrast",
+                  "method": "color-contrast#evaluate"
+                },
+                "relatedNodes": [],
+                "message": "Axe encountered an error; test the page for this type of problem manually",
+                "impact": "serious"
+              }
+            ],
+            "impact": "serious",
+            "html": "<th scope=\"col\">Feedback</th>",
+            "target": [
+              "th:nth-child(1)"
+            ],
+            "failureSummary": "Fix all of the following:\n  Axe encountered an error; test the page for this type of problem manually"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "limits phone native drawers",
+    "violations": [],
+    "incomplete": []
+  }
+]

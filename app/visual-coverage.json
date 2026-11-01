@@ -1,33 +1,36 @@
 {
-  "version": 12,
-  "baseline": "d80769de37e4171665bef22d68f1f701b9bf2c3c",
-  "inventory": "optimization/color-unification-20261101/site-inventory.json",
-  "screenshots": "optimization/color-unification-20261101/after/page-audit.json",
-  "browserChecks": "optimization/color-unification-20261101/after/site-checks.json",
+  "version": 13,
+  "baseline": "926c936a3571153eb855571b9ab7768e65c1c1f0",
+  "inventory": "optimization/interaction-design-20261101/site-inventory.json",
+  "screenshots": "optimization/interaction-design-20261101/after/page-audit.json",
+  "browserChecks": "optimization/interaction-design-20261101/after/site-checks.json",
   "additionalBrowserChecks": [
-    "optimization/color-unification-20261101/after/master-alignment.json",
-    "optimization/color-unification-20261101/after/preservation.json",
-    "optimization/color-unification-20261101/after/home-interactions.json",
-    "optimization/color-unification-20261101/after/library-interactions.json",
-    "optimization/color-unification-20261101/after/gateway-checks.json",
-    "optimization/color-unification-20261101/after/optical-checks.json",
-    "optimization/color-unification-20261101/after/resilience.json",
-    "optimization/color-unification-20261101/after/intro-checks.json",
-    "optimization/color-unification-20261101/after/planet-checks.json",
-    "optimization/color-unification-20261101/after/chart-render-preservation.json",
-    "optimization/color-unification-20261101/after/export-checks.json",
-    "optimization/color-unification-20261101/after/readability-checks.json",
-    "optimization/color-unification-20261101/after/nav-access-checks.json",
-    "optimization/color-unification-20261101/after/desktop-recording-checks.json",
-    "optimization/color-unification-20261101/after/expanded-reading-checks.json",
-    "optimization/color-unification-20261101/after/palette-checks.json",
-    "optimization/color-unification-20261101/after/early-paint-checks.json"
+    "optimization/interaction-design-20261101/after/interaction-checks.json",
+    "optimization/interaction-design-20261101/after/layout-review.json",
+    "optimization/interaction-design-20261101/after/preservation.json",
+    "optimization/interaction-design-20261101/after/master-alignment.json",
+    "optimization/interaction-design-20261101/after/home-interactions.json",
+    "optimization/interaction-design-20261101/after/library-interactions.json",
+    "optimization/interaction-design-20261101/after/gateway-checks.json",
+    "optimization/interaction-design-20261101/after/optical-checks.json",
+    "optimization/interaction-design-20261101/after/resilience.json",
+    "optimization/interaction-design-20261101/after/intro-checks.json",
+    "optimization/interaction-design-20261101/after/planet-checks.json",
+    "optimization/interaction-design-20261101/after/chart-render-preservation.json",
+    "optimization/interaction-design-20261101/after/export-checks.json",
+    "optimization/interaction-design-20261101/after/nav-access-checks.json",
+    "optimization/interaction-design-20261101/after/early-paint-checks.json",
+    "optimization/interaction-design-20261101/after/desktop-recording-checks.json",
+    "optimization/interaction-design-20261101/after/showcase-checks.json",
+    "optimization/interaction-design-20261101/after/lifecycle-checks.json",
+    "optimization/interaction-design-20261101/after/gallery-checks.json"
   ],
   "fingerprints": {
     "app/content-layout.css": "1d84f85601ee33e1b126558b2a7495be9d50ac2dfdfd22f19cd168d3ed3d2297",
-    "app/explore.html": "baa5590c4214ff306b48093ba4647ed5acd6648fc744e5d96a81985c38f9ff9c",
+    "app/explore.html": "4bda977049e91c013a560b2821282ae5cace7dc67d3f62734975841764182a19",
     "app/gateway.css": "6f14ad3732581145550d06184cabd8aff3c2779ab68cd8a86e89933068d5875a",
-    "app/index.html": "57e64ae342b70bd5c1017ca31f9caa539880e0455c9d7e74f001aca3564b2767",
+    "app/index.html": "31202a107860932210a1b3e0eca5d949b2f24c3b2e8f0ddb622b04d5443d2b99",
+    "app/interaction.css": "7454b09d713729a43049ce6c610fda229aebc648e5ec818c80e6ae619c602c09",
     "app/intro.css": "edb0e0b2d7bfefc57909d1af69c4ab4a87cfcd5d3b785474aa5c3fff38f25e09",
     "app/palette.css": "4b6fa995aa3654195a43cf05e26cd21b5090a229f679ab2e6d02a84ad4f67a53",
     "app/refinement.css": "dc319ec56a70c1b6b5d1ae86a4a9c5754c2e7e210e2700d90bc0277efbe593e5",
@@ -38,6 +41,7 @@
     "app/src/code-interactions.js": "c5c6c669a14a07fb735dbf273fee4baa9809f824343102548fe8ea3e49ffc964",
     "app/src/code-study.js": "b6e3c034e9fcc04938e76a1f813042df917259be6c1d8dcba0d3ed7e9bd2becf",
     "app/src/gateway.js": "0f25fdf7a13e39016182ff0525eddf99b2005dacb695e507dbbf907ddadd8c9b",
+    "app/src/interaction.js": "9ccd7b9c841c87db183d7ad48f04afcf1c18e40485a49d016830fb7cf0cf3d84",
     "app/src/intro.js": "43c36ca2ebb52ddec5b4a079d5578da8bda4623c4d732b9f824e78f57d7ca189",
     "app/src/libraries.js": "21d8609b778724334167ebda135da0e02f97d16fa80f592ab7d54be9d575b71a",
     "app/src/model.js": "dca681c4300f088cb1a4890bea8451240e94ea527dae998f8a85cfdc5b6f633f",
@@ -474,13 +478,24 @@
     "reports/figures/code_generation/code-tokens-3.svg": "8a424bd87da26a5dd4b8c40327dbc00bb43981f5119e5ad45b82a589592cff34",
     "reports/figures/code_generation/code-tokens-5.svg": "dade401e12f2fcbbac72cb55bf205e9c7cf818e8c1b942204651a79434bbb138",
     "reports/figures/code_generation/figure-metadata.json": "cbe1776437bfba53f5d609a80272ff449376cac55caf7c7db4ed5b7e25563ee1",
-    "scripts/system/build_web_app.py": "f72532ded765f45301b671cd46c42e57504cef39e504c688fccdfd588e9a4701",
+    "scripts/system/build_web_app.py": "b20044a044e37e5f87af5ddc9c6b5815a32c763ea4293a1f7fe8d2cc2855a129",
     "scripts/system/build_demo_evidence.py": "ff084d587b5590ac6618d133aeb1adea3e5e73a62c0395b6bef71bfd83a97019",
     "reports/code_generation/conditions.csv": "1b34ab7fbddbddb6d32771929a1fc8ca6dc3f2d19787ff0efcc0155c71c719de"
   },
-  "introFrames": "optimization/color-unification-20261101/after/frame-performance.json",
-  "recording": "optimization/color-unification-20261101/after/intro-demo.mp4",
-  "performance": "optimization/color-unification-20261101/after/performance-summary.json",
+  "interactions": "optimization/interaction-design-20261101/after/interaction-checks.json",
+  "scientificPreservation": "optimization/interaction-design-20261101/after/chart-render-preservation.json",
+  "exports": "optimization/interaction-design-20261101/after/export-checks.json",
+  "layoutReview": "optimization/interaction-design-20261101/after/layout-review.json",
+  "coverageLedger": "optimization/interaction-design-20261101/coverage-table.json",
+  "recording": "optimization/interaction-design-20261101/after/interaction-demo.mp4",
+  "recordingManifest": "optimization/interaction-design-20261101/after/video-manifest.json",
+  "recordingViewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "performance": "optimization/interaction-design-20261101/after/performance-summary.json",
+  "introFrames": "optimization/interaction-design-20261101/after/frame-performance.json",
+  "frozenBuild": "optimization/interaction-design-20261101/frozen-build.json",
   "sceneContract": {
     "sameFiveLinkNodes": true,
     "sameIntroOpticsNode": true,
@@ -507,13 +522,6 @@
     "app/assets/visual/planet-landscape.webp",
     "app/assets/visual/planet-findings.webp"
   ],
-  "coverageLedger": "optimization/color-unification-20261101/coverage-table.json",
-  "overlays": "optimization/color-unification-20261101/overlays.json",
-  "designProvenance": "optimization/color-unification-20261101/design/provenance.json",
-  "recordingViewport": {
-    "width": 1920,
-    "height": 1080
-  },
   "colorContract": {
     "navy": "#071e30",
     "reading": "#eaf0f2",
@@ -522,5 +530,19 @@
     "layoutAndTypographyRetained": true,
     "scientificColorsRetained": true
   },
-  "publication": "Existing authorization to push main and provide a verified GitHub Pages preview continues for this moderate palette refinement."
+  "publication": {
+    "status": "release-authorized",
+    "deploymentEvidence": "optimization/interaction-design-20261101/after/deployment.json",
+    "liveVerification": "optimization/interaction-design-20261101/after/public-review.json"
+  },
+  "interactionContract": {
+    "nativeScientificControllersUnchanged": true,
+    "scientificSVGUnchanged": true,
+    "routeStates": 93,
+    "chartTypes": 13,
+    "codeSubViews": 4,
+    "noNewFramework": true,
+    "motion": "Existing local Motion mini 14.9.0, with native Web Animations fallback",
+    "cleanup": "Restore original inline styles, cancel on hidden/reduced motion/pagehide, disconnect observers and handlers on disposal"
+  }
 }

@@ -1,0 +1,41 @@
+{
+  "results": [
+    {
+      "name": "gallery route 0 fullhd actual images decoded",
+      "passed": true
+    },
+    {
+      "name": "gallery route 3 desktop actual images decoded",
+      "passed": true
+    },
+    {
+      "name": "gallery route 24 fullhd actual images decoded",
+      "passed": true
+    },
+    {
+      "name": "gallery route 92 desktop actual images decoded",
+      "passed": true
+    },
+    {
+      "name": "after/question-selected-1920.png showcase asset",
+      "passed": true
+    },
+    {
+      "name": "after/collection-selected-1920.png showcase asset",
+      "passed": true
+    },
+    {
+      "name": "after/pipeline-selected-1920.png showcase asset",
+      "passed": true
+    },
+    {
+      "name": "after/library-guide-1920.png showcase asset",
+      "passed": true
+    },
+    {
+      "name": "gallery has no uncaught browser errors",
+      "passed": true,
+      "detail": []
+    }
+  ]
+}

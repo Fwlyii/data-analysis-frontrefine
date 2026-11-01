@@ -1,5 +1,7 @@
 # LENS 全站视觉优化流程
 
+当前本地交互增强轮次为[`interaction-design-20261101`](../optimization/interaction-design-20261101/PLAN.md)，从已验收的926c936开始。本轮沿用现有配色与数据，不重新做生图皮肤；采用逐页卡片、流程检查与原生代码动效。新版门禁版本13要求93状态完整覆盖、两电脑尺寸真实操作、五电脑宽度巡检、真实前后截图、科学 SVG 与导出对照、1,100原文件字节保护及当次源指纹。新增界面文字在内容对照中独立标记；所有原文、原数据及科学图仍完整比较。初轮失败保留后复测，不能修改断言使布局挤压通过。部署仍需用户本轮授权，本次只开发和本地验证。
+
 本流程以 `dataAnalysis-vision` 的 **Master** 为科研内容基线，覆盖演示首页与图表库。Master 视觉重建保存在 [`optimization/master-rebuild-v6`](../optimization/master-rebuild-v6/)；首次「知微之门」实现保存在 [`optimization/knowledge-gateway`](../optimization/knowledge-gateway/)；最新光学美化与全屏研究页验收保存在 [`optimization/gateway-polish`](../optimization/gateway-polish/)。历史参考保留，当前网页不会加载旧版 site/deck 皮肤。
 
 ## 当前轮次：光学材质与全屏研究页
