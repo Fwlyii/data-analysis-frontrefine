@@ -1,14 +1,16 @@
 import {esc, fmt, pct} from './model.js';
 import * as libraries from './libraries.js';
 
-let generation=0, cleanups=[], selection=[], snapshotExport=null,stopPlayback=null;
+let generation=0, cleanups=[], selection=[], snapshotExport=null,stopPlayback=null,resetFocus=null;
+const playback={playing:false,step:5,kind:'independent-sampling'};
+window.LensCodePlayback={pause,inspect:()=>({...playback})};
 const names={deepseek:'DeepSeek Flash',qwen:'Qwen2.5 7B',qwen3:'Qwen3 8B'};
 const errors={assertion_failure:'Assertion failure',attribute_error:'Attribute error',type_error:'Type error',syntax_error:'Syntax error',extraction_error:'Extraction error',dependency_error:'Dependency error',name_error:'Name error',timeout:'Timeout',runtime_error:'Runtime error',file_error:'File error',index_error:'Index error',key_error:'Key error',value_error:'Value error',resource_error:'Resource error'};
 const namespace='http://www.w3.org/2000/svg';
-export function pause(){stopPlayback?.();document.querySelectorAll(".code-hover-tip").forEach(el=>{el.hidden=true;});}
-export function dispose(){generation++;stopPlayback=null;for(const f of cleanups.splice(0))f();document.querySelector('.code-hover-tip')?.remove();snapshotExport=null;}
+export function pause(){stopPlayback?.();resetFocus?.();document.querySelectorAll(".code-hover-tip").forEach(el=>{el.hidden=true;});}
+export function dispose(){generation++;stopPlayback=null;resetFocus=null;playback.playing=false;for(const f of cleanups.splice(0))f();document.querySelector('.code-hover-tip')?.remove();snapshotExport=null;}
 export function selectedConditions(){return selection.map(r=>({model:r.model,prompt:r.prompt}));}
-export function svgSnapshot(){return snapshotExport?.() || null;}
+export function svgSnapshot(){resetFocus?.();return snapshotExport?.() || null;}
 export function playbackControls(step=5){return `<div class="code-playback"><button id="code-play" class="text-action" aria-pressed="false" disabled><svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 3.5 16 10 6 16.5Z"/></svg><span>播放</span></button><label for="code-sample-step">独立采样</label><input id="code-sample-step" type="range" min="1" max="5" step="1" value="${step}" aria-valuetext="显示至第 ${step} 次"><output id="code-sample-label" for="code-sample-step">${step} / 5</output><div id="code-sample-values" class="code-sample-values" aria-live="polite"></div></div>`;}
 export function tokenTools(brush){return `<span class="code-gesture-note">拖动框选条件 · 双击清除</span><button class="text-action" id="code-clear-brush" ${brush?'':'hidden'}>清除框选</button>`;}
 export function numericControls(brush,categories,labels){const b=brush || [0,700,0,100];return `<details class="code-numeric-filter"><summary>精确范围筛选</summary><form id="code-range-form"><label>最少 token<input name="xmin" type="number" min="0" step="any" value="${b[0]}" required></label><label>最多 token<input name="xmax" type="number" min="0" step="any" value="${b[1]}" required></label><label>最低通过率 %<input name="ymin" type="number" min="0" max="100" step="any" value="${b[2]}" required></label><label>最高通过率 %<input name="ymax" type="number" min="0" max="100" step="any" value="${b[3]}" required></label><button class="text-action" type="submit">应用范围</button><button class="text-action" id="code-reset-range" type="button">全部条件</button></form><div class="code-error-keyboard"><label for="code-keyboard-error">错误类型</label><select id="code-keyboard-error" class="form-select form-select-sm">${categories.map(c=>`<option value="${c}">${esc(labels[c] || c)}</option>`).join('')}</select><button class="text-action" id="code-keyboard-error-open">查看错误记录</button></div></details>`;}
@@ -20,11 +22,15 @@ export async function enhanceStatic(root){
  try{const d3=await libraries.load('d3');if(ticket!==generation || !root.isConnected)return;
   const tip=makeTip();const svg=root.querySelector('#code-publication > svg');if(!svg)return;
   const items=d3.select(svg).selectAll('[data-code-model]');
+  let focused=false;
+  const originalStyles=new Map([...svg.querySelectorAll('*')].map(n=>[n,n.getAttribute('style')]));
   const focus=model=>{
+   focused=true;
    items.each(function(){const other=this.dataset.codeModel!==model;d3.select(this).style('opacity',other?.25:1);const hit=this.id.endsWith('-hit');if(hit)d3.select(this).selectAll('path').style('fill',other?'white':'black').style('fill-opacity',other?.7:.001);});
    d3.select(svg).selectAll('[id^="code-trend-"], [id^="code-band-"]').style('opacity',function(){return this.id.endsWith(model)?1:.18;});
   };
-  const clear=()=>{tip.hidden=true;items.style('opacity',null);items.filter(function(){return this.id.endsWith('-hit');}).selectAll('path').style('fill',null).style('fill-opacity',null);d3.select(svg).selectAll('[id^="code-trend-"], [id^="code-band-"]').style('opacity',null);};
+  const clear=()=>{tip.hidden=true;if(focused){focused=false;items.style('opacity',null);items.filter(function(){return this.id.endsWith('-hit');}).selectAll('path').style('fill',null).style('fill-opacity',null);d3.select(svg).selectAll('[id^="code-trend-"], [id^="code-band-"]').style('opacity',null);}for(const [node,style]of originalStyles){const saved=document.createElement('span').style;saved.cssText=style||'';for(const prop of ['opacity','fill','fill-opacity']){const value=saved.getPropertyValue(prop);if(value)node.style.setProperty(prop,value,saved.getPropertyPriority(prop));}if(node.style.cssText===saved.cssText){if(style===null)node.removeAttribute('style');else node.setAttribute('style',style);}}d3.select(svg).selectAll('[id^="code-trend-"], [id^="code-band-"]').each(function(){if(this.getAttribute('style')==='')this.removeAttribute('style');});};
+  resetFocus=clear;
   items.on('pointerenter.focus',function(event){focus(this.dataset.codeModel);showTip(tip,event,esc(this.dataset.codeLabel || this.getAttribute('aria-label') || ''));}).on('pointermove.focus',function(event){showTip(tip,event,esc(this.dataset.codeLabel || this.getAttribute('aria-label') || ''));}).on('pointerleave.focus',clear).on('focus.focus',function(){focus(this.dataset.codeModel);}).on('blur.focus',clear);
   cleanups.push(()=>{items.on('.focus',null);tip.remove();});
  }catch{ /* The original SVG and record controls remain usable. */ }
@@ -40,7 +46,7 @@ export async function enhanceSampling(root,state,data,onStep){
  const clipId='code-reveal-'+ticket;const defs=d3.select(svg).append('defs');const clip=defs.append('clipPath').attr('id',clipId).attr('clipPathUnits','userSpaceOnUse').append('rect').attr('x',xs[0]-8).attr('y',0).attr('height',10000);
  d3.select(svg).selectAll('[id^="code-trend-"], [id^="code-band-"]').attr('clip-path','url(#'+clipId+')');
  let step=state.step || 5, timer=null;
- const stop=()=>{if(timer)clearInterval(timer);timer=null;button.setAttribute('aria-pressed','false');button.querySelector('span').textContent='播放';button.querySelector('svg').innerHTML='<path d="M6 3.5 16 10 6 16.5Z"/>';};
+ const stop=()=>{if(timer)clearInterval(timer);timer=null;playback.playing=false;button.setAttribute('aria-pressed','false');button.querySelector('span').textContent='播放';button.querySelector('svg').innerHTML='<path d="M6 3.5 16 10 6 16.5Z"/>';};
  const draw=(next,animate=true)=>{
   step=next;slider.value=step;slider.setAttribute('aria-valuetext','显示至第 '+step+' 次');out.value=step+' / 5';out.textContent=step+' / 5';
   const width=xs[step-1]-xs[0]+16;clip.interrupt('reveal');
@@ -48,10 +54,12 @@ export async function enhanceSampling(root,state,data,onStep){
   d3.select(svg).selectAll('[id^="pass-"], [id^="gain-"], [id^="code-lastgain-"]').each(function(){let sample=this.id.startsWith('pass-')?+this.id.split('-').at(-1)+1:this.id.startsWith('gain-')?+this.id.split('-').at(-1):5;const hidden=sample>step;d3.select(this).style('visibility',hidden?'hidden':null).attr('aria-hidden',hidden?'true':null);if(this.hasAttribute('data-code-action'))this.setAttribute('tabindex',hidden?'-1':'0');});
   const ms=state.model==='all'?data.models.map(m=>m.id):[state.model];values.innerHTML=`<span>Pass@${step}</span>`+ms.map(mid=>{const r=data.stats.find(r=>r.model===mid && r.prompt===state.prompt),m=data.models.find(m=>m.id===mid);return `<span title="${esc(m.name)}"><i style="background:${m.color}"></i><span class="visually-hidden">${esc(m.name)}</span><strong>${pct(r.pass[step-1],2)}</strong></span>`;}).join('');
   onStep(step);
+  playback.step=step;window.LensChartMotion?.progress(slider,step-1,5);window.LensChartMotion?.animate(out,{opacity:[.35,1]},160);
+  points.filter(p=>p.id.endsWith('-'+(step-1))).forEach(p=>window.LensChartMotion?.animate(p,{opacity:[.35,1]},180));
  };
- stopPlayback=stop;
+ stopPlayback=()=>{stop();clip.interrupt('reveal').attr('width',xs[step-1]-xs[0]+16);};
  const visibleObserver=new IntersectionObserver(entries=>{if(!entries[0].isIntersecting)stop();});visibleObserver.observe(root.querySelector(".code-playback"));cleanups.push(()=>visibleObserver.disconnect());
- button.disabled=false;button.onclick=()=>{if(timer){stop();return;}if(step===5)draw(1,false);button.setAttribute('aria-pressed','true');button.querySelector('span').textContent='暂停';button.querySelector('svg').innerHTML='<path d="M6 4v12M14 4v12"/>';timer=setInterval(()=>{if(document.hidden){stop();return;}draw(Math.min(5,step+1));if(step===5)stop();},1100);};
+ button.disabled=false;button.onclick=()=>{if(timer){stop();return;}if(step===5)draw(1,false);playback.playing=true;button.setAttribute('aria-pressed','true');button.querySelector('span').textContent='暂停';button.querySelector('svg').innerHTML='<path d="M6 4v12M14 4v12"/>';timer=setInterval(()=>{if(document.hidden){stop();return;}draw(Math.min(5,step+1));if(step===5)stop();},1100);};
  slider.oninput=()=>{stop();draw(+slider.value);};
  const onVisibility=()=>{if(document.hidden)stop();};document.addEventListener('visibilitychange',onVisibility);
  draw(step,false);snapshotExport=()=>{stop();clip.interrupt('reveal').attr('width',xs[step-1]-xs[0]+16);return viewText(svg);};
@@ -72,15 +80,17 @@ export async function enhanceTokens(root,state,data,callbacks){
  let compiled;try{compiled=vl.compile(spec).spec;}catch(e){callbacks.onUnavailable(e.message);return;}
  host.replaceChildren(scaffold);host.classList.add('code-interactive-host');
  const chart=window.echarts.init(scaffold.querySelector('#code-linked-errors'),null,{renderer:'svg'});
- const tip=makeTip();let pending=null,persistTimer=null,dragStart=null,disposed=false;
+ const tip=makeTip();let pending=null,persistTimer=null,dragStart=null,disposed=false,clickError=null;
  const view=new vega.View(vega.parse(compiled),{renderer:'svg',hover:true}).initialize(scaffold.querySelector('#code-vega-scatter'));
  const refresh=()=>{
   if(disposed)return;selection=selectionFor(data,state.k,state.brush);const n=selection.reduce((a,r)=>a+r.n,0);const mean=n?selection.reduce((a,r)=>a+r.pass[state.k-1],0)/selection.length:0;
   const cats=data.error_categories.map(cat=>({cat,count:selection.reduce((a,r)=>a+(r.errors[cat] || 0),0)})).sort((a,b)=>b.count-a.count);
   const summary=`${selection.length} / 93 个条件 · ${fmt(n)} 条可评回答${n?` · 平均 Pass@${state.k} ${pct(mean,2)}`:''}`;
   scaffold.querySelector('#code-brush-summary').textContent=summary;callbacks.onSelection(selection,state.brush);
-  chart.setOption({aria:{enabled:true,description:`${selection.length} 个条件、${n} 条可评回答。`+cats.map(r=>`${errors[r.cat]} ${r.count} 条，${n?(r.count/n*100).toFixed(2):0}%。`).join(' ')},animation:!libraries.reducedMotion(),animationDuration:0,animationDurationUpdate:220,textStyle:{fontFamily:'Times New Roman',color:'#353842',fontSize:12},grid:{left:128,right:20,top:51,bottom:53},xAxis:{type:'value',min:0,max:100,name:'Share of selected responses (%)',nameLocation:'middle',nameGap:30,nameTextStyle:{fontSize:12},axisLabel:{fontSize:11},splitLine:{lineStyle:{color:'#e8e7ed'}}},yAxis:{type:'category',inverse:true,data:cats.map(r=>errors[r.cat]),axisLine:{show:false},axisTick:{show:false},axisLabel:{fontSize:12,color:'#54545b'}},tooltip:{confine:true,backgroundColor:'#fff',borderColor:'#e5e3eb',textStyle:{color:'#252830',fontFamily:'Times New Roman',fontSize:12},formatter:p=>`${esc(errors[cats[p.dataIndex].cat])}<br>${fmt(cats[p.dataIndex].count)} / ${fmt(n)} (${pct(n?cats[p.dataIndex].count/n:0,1)})`},series:[{id:'selected-errors',type:'bar',barMaxWidth:13,data:cats.map(r=>({value:n?r.count/n*100:0,category:r.cat,itemStyle:{color:r.cat==='extraction_error'?'#8958b4':'#a9a1b9'}})),emphasis:{itemStyle:{color:'#65428d'}}}]});
-  chart.off('click');chart.on('click',p=>{if(p.data?.category)callbacks.onRecords({conditions:selectedConditions(),error:p.data.category},errors[p.data.category]+' / 框选条件');});
+  const motionOption={aria:{enabled:true,description:`${selection.length} 个条件、${n} 条可评回答。`+cats.map(r=>`${errors[r.cat]} ${r.count} 条，${n?(r.count/n*100).toFixed(2):0}%。`).join(' ')},animation:!libraries.reducedMotion(),animationDuration:0,animationDurationUpdate:220,textStyle:{fontFamily:'Times New Roman',color:'#353842',fontSize:12},grid:{left:128,right:20,top:51,bottom:53},xAxis:{type:'value',min:0,max:100,name:'Share of selected responses (%)',nameLocation:'middle',nameGap:30,nameTextStyle:{fontSize:12},axisLabel:{fontSize:11},splitLine:{lineStyle:{color:'#e8e7ed'}}},yAxis:{type:'category',inverse:true,data:cats.map(r=>errors[r.cat]),axisLine:{show:false},axisTick:{show:false},axisLabel:{fontSize:12,color:'#54545b'}},tooltip:{confine:true,backgroundColor:'#fff',borderColor:'#e5e3eb',textStyle:{color:'#252830',fontFamily:'Times New Roman',fontSize:12},formatter:p=>`${esc(errors[cats[p.dataIndex].cat])}<br>${fmt(cats[p.dataIndex].count)} / ${fmt(n)} (${pct(n?cats[p.dataIndex].count/n:0,1)})`},series:[{id:'selected-errors',type:'bar',barMaxWidth:13,data:cats.map(r=>({value:n?r.count/n*100:0,category:r.cat,itemStyle:{color:r.cat==='extraction_error'?'#8958b4':'#a9a1b9'}})),emphasis:{itemStyle:{color:'#65428d'}}}]};chart.setOption(window.LensChartMotion?.configure("code-linked-errors",motionOption)||motionOption);
+  if(clickError)chart.off('click',clickError);clickError=p=>{if(p.data?.category)callbacks.onRecords({conditions:selectedConditions(),error:p.data.category},errors[p.data.category]+' / 框选条件');};chart.on('click',clickError);
+  window.LensChartMotion?.register(chart,scaffold.querySelector('#code-linked-errors'));
+  window.LensChartMotion?.animate(scaffold.querySelector('#code-brush-summary'),{opacity:[.45,1]},220);
   snapshotExport=()=>{const left=scaffold.querySelector('#code-vega-scatter svg'),right=scaffold.querySelector('#code-linked-errors svg');return left && right?compositeSvg(left,right,summary):null;};
  };
  const schedule=value=>{
@@ -98,8 +108,9 @@ export async function enhanceTokens(root,state,data,callbacks){
  cleanups.push(()=>{disposed=true;if(pending)cancelAnimationFrame(pending);if(persistTimer)clearTimeout(persistTimer);view.finalize();chart.dispose();tip.remove();});
  try{await view.runAsync();if(ticket!==generation || !root.isConnected)return;
   scaffold.querySelectorAll('.codeBrush_brush_bg,.codeBrush_brush').forEach(el=>el.setAttribute('aria-label','图表框选范围；也可使用下方精确范围筛选'));
+  window.LensChartMotion?.svg(scaffold.querySelector('#code-vega-scatter'),{key:'code-tokens'});
   refresh();}catch(e){callbacks.onUnavailable(e.message);return;}
- const observer=new ResizeObserver(()=>{if(!disposed)chart.resize();});observer.observe(scaffold);cleanups.push(()=>observer.disconnect());
+ const observer=new ResizeObserver(()=>{if(!disposed){if(window.LensChartMotion)window.LensChartMotion.resize(chart);else chart.resize();}});observer.observe(scaffold);cleanups.push(()=>observer.disconnect());
  // Native buttons are available when direct manipulation is inconvenient.
  const svg=scaffold.querySelector('#code-vega-scatter svg');if(svg){svg.setAttribute('role','img');svg.setAttribute('aria-label','93 个模型与提示条件。拖动框选；精确范围筛选提供键盘替代。');}
 }

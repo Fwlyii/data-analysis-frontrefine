@@ -23,3 +23,11 @@
 按用户授权正常推送main。Pages在构建后检查科学/源码契约，并实际运行浏览器测试后再次核对其源指纹，成功才发布。录屏和历史截图不是发布依赖。
 
 历史设计流程与大文件按用户要求从工作区移除，整理前提交为 `c3d648a`。本轮整理不改变现用页面或科学图表。
+
+## 图内动画的专项复核
+
+`codex/lens-chart-motion` 使用独立 `chart-motion` 模块，原页面场景仍由 `interaction.js` 负责。新运行时须同时更新构建复制、资源哈希、dist检查和浏览器验收。
+
+原 `research-protection.json`、`accepted-release.json`、`scientific-comparison.json` 和31份导出golden不可直接改写。对获准修改的接入源码，先逐段审查 diff，再以基线提交 `7de85e8` 的真实页面作对照，验证184状态/188幅图的结构、计算样式、像素及位置、13种正常动画结束状态和31项实际下载；同时运行原93状态 smoke、全量回归及新增动画测试。
+
+确认通过后，`scripts/system/record_chart_motion_review.py` 接收本次真实的 `--science-report`、`--browser-report` 和 `--motion-report`。它会校验当前源码指纹、完整数量和逐项结果，才生成单独的认可说明及可逆接入补丁。门禁可精确还原原接入源码，并继续逐字节校验未获准改变的保护文件。任何新源码变化都会使这份认可失效，不能拿旧报告继续通过。

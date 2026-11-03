@@ -3,10 +3,11 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 import argparse,functools,http.server,json,os,subprocess,sys,threading
 ROOT=Path(__file__).resolve().parents[1]
-SUITES=['coverage','interaction-checks','home-interactions','library-interactions','gateway-checks','intro-checks','resilience','nav-access-checks','lifecycle-checks']
+SUITES=['coverage','interaction-checks','home-interactions','library-interactions','gateway-checks','intro-checks','resilience','nav-access-checks','lifecycle-checks','chart-motion-checks']
 def main():
- p=argparse.ArgumentParser();p.add_argument('--full',action='store_true');p.add_argument('--port',type=int,default=8848);a=p.parse_args()
- subprocess.run([sys.executable,'scripts/system/build_web_app.py'],cwd=ROOT,check=True)
+ p=argparse.ArgumentParser();p.add_argument('--full',action='store_true');p.add_argument('--port',type=int,default=8848);p.add_argument('--skip-build',action='store_true',help='Use an already built, frozen dist while other browser audits read it.');a=p.parse_args()
+ if a.skip_build:assert (ROOT/'app/dist/index.html').is_file(),'Build app/dist before using --skip-build'
+ else:subprocess.run([sys.executable,'scripts/system/build_web_app.py'],cwd=ROOT,check=True)
  class Quiet(http.server.SimpleHTTPRequestHandler):
   def log_message(self,*args):pass
  server=http.server.ThreadingHTTPServer(('127.0.0.1',a.port),functools.partial(Quiet,directory=str(ROOT/'app/dist')));threading.Thread(target=server.serve_forever,daemon=True).start()

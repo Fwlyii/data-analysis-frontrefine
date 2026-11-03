@@ -1,8 +1,9 @@
 {
-  "version": 14,
-  "baseline": "c3d648ac55bc63c7662c3bc8bd71355de8e5954b",
-  "acceptedSources": "tests/fixtures/accepted-release.json",
+  "version": 16,
+  "baseline": "7de85e836e8bc0f7c28c79188b71f1818c0aa234",
+  "acceptedSources": "tests/fixtures/chart-motion-release.json",
   "scientificProtection": "tests/fixtures/research-protection.json",
   "routeInventory": "tests/fixtures/routes.json",
-  "policy": "Preserve scientific data and current web source; run fresh browser smoke before Pages deployment. Generated screenshots, videos and test output are not committed."
+  "policy": "Preserve original 1100-file/184-state/31-export contracts; reviewed reversible motion patches require fresh exact scientific and browser evidence. No screenshots or recordings committed.",
+  "scientificMotionReview": "tests/fixtures/chart-motion-scientific-review.json"
 }

@@ -863,7 +863,11 @@ function drawExplore() {
   if (libraryChart === "parallel") charts.parallel("library-main", data, state);
   if (libraryChart === "flow") {
     if (state.dataset === "document_qa")
-      charts.disagreement("library-main", data, state);
+      charts.disagreement("library-main", data, state, async meta=>{
+        const epoch=version,scope={...state,models:[...state.models]},all=await loadRows();if(epoch!==version)return;
+        const selected=all.filter(r=>scope.models.includes(r.model)&&matches(r,{dataset:scope.dataset,task:scope.task==='all'?null:scope.task,scope:scope.prompt,documents:scope.documents==='all'?null:+scope.documents,position:scope.position==='all'?null:scope.position})&&r.scores[0]===meta.firstline&&r.scores[2]===meta.final);
+        openBehaviorRecords(selected,`首行${meta.firstline?'命中':'未命中'} → 最终答案${meta.final?'命中':'未命中'}`);
+      });
     else charts.emptyChart("library-main", "请选择带资料问答", "");
   }
   if (["box", "distribution", "timeline", "tree"].includes(libraryChart))
@@ -1290,7 +1294,7 @@ document.addEventListener("change", async (e) => {
   }
   if (el.id === "radial-mode") {
     state.radial = el.value;
-    render();
+    if(window.LensChartMotion)window.LensChartMotion.transition(render);else render();
   }
   if (el.id === "code-upload") {
     const file = el.files[0];

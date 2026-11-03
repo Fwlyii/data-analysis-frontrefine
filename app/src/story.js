@@ -79,6 +79,8 @@
     counterexample: "Counterexample",
   };
   let playing = null,
+    playKind = null,
+    playbackObserver = null,
     noticeTimer = null,
     lastRoute = "";
   function hydrate() {
@@ -221,7 +223,7 @@
   }
   function scrubber() {
     if (s.chapter === "position")
-      return `<div class="point-control"><label for="position">Evidence position</label><input id="position" type="range" min="0" max="8" step="1" value="${s.position}" aria-valuetext="Document ${positions[s.position]}"><output for="position" id="position-label">Doc ${positions[s.position]}</output><label class="interval-control"><input id="ci" type="checkbox" ${s.ci ? "checked" : ""}>95% interval</label></div><div id="point-readout" class="point-readout" aria-live="polite"></div>`;
+      return `<div class="point-control"><button id="position-play" class="play-button" aria-label="Play nine measured positions" aria-pressed="false">${icon('play')}</button><label for="position">Evidence position</label><input id="position" type="range" min="0" max="8" step="1" value="${s.position}" aria-valuetext="Document ${positions[s.position]}"><output for="position" id="position-label">Doc ${positions[s.position]}</output><label class="interval-control"><input id="ci" type="checkbox" ${s.ci ? "checked" : ""}>95% interval</label></div><div id="point-readout" class="point-readout" aria-live="polite"></div>`;
     if (s.chapter === "repair")
       return `<div class="point-control"><button id="play" class="play-button" aria-label="Play five code versions">${icon("play")}<span>Play versions</span></button><label for="round">Version</label><input id="round" type="range" min="0" max="4" step="1" value="${s.round}" aria-valuetext="${s.round === 0 ? "Initial draft" : `After revision ${s.round}`}"><output id="round-label" for="round">${s.round === 0 ? "Draft" : "Version " + (s.round + 1)}</output></div><div id="point-readout" class="point-readout" aria-live="polite"></div>`;
     return "";
@@ -477,6 +479,8 @@
     p.classList.toggle("show-intervals", s.ci);
     if (s.chapter === "position") positionUpdate();
     if (s.chapter === "repair") repairUpdate();
+    window.LensChartMotion?.svg(p,{key:JSON.stringify([s.chapter,s.view,s.task,s.model,s.family,s.repairModel,s.ci]),step:s.chapter==='position'?s.position:s.chapter==='repair'?s.round:null});
+    window.LensChartMotion?.progress($(s.chapter==='position'?'#position':'#round'),s.chapter==='position'?s.position:s.round,s.chapter==='position'?9:5);
   }
   function positionUpdate() {
     const p = positions[s.position];
@@ -487,6 +491,7 @@
       q3 = rs.find((r) => r.model.includes("Qwen3"));
     $("#point-readout").textContent =
       `Position ${p}: Qwen3 ${(q3.rate * 100).toFixed(1)}% · Qwen2.5 ${(q25.rate * 100).toFixed(1)}% · Δ ${((q3.rate - q25.rate) * 100).toFixed(1)} pp`;
+    $('#point-readout').title=s.ci?`95% CI: Qwen3 [${(q3.ci_low*100).toFixed(1)}, ${(q3.ci_high*100).toFixed(1)}]% · Qwen2.5 [${(q25.ci_low*100).toFixed(1)}, ${(q25.ci_high*100).toFixed(1)}]%`:'';
   }
   function repairUpdate() {
     const r = D.repair[s.repairModel].filter((r) => r.round === s.round),
@@ -590,6 +595,7 @@
     );
     if ($("#position"))
       $("#position").oninput = (e) => {
+        stop();
         s.position = Number(e.target.value);
         paintPlot();
         url();
@@ -607,32 +613,13 @@
         paintPlot();
         url();
       };
-    if ($("#play"))
-      $("#play").onclick = () => {
-        if (playing) {
-          stop();
-          return;
-        }
-        s.round = 0;
-        paintPlot();
-        url();
-        $("#play").innerHTML = icon("pause") + "<span>Pause</span>";
-        $("#play").setAttribute("aria-label", "Pause playback");
-        playing = setInterval(
-          () => {
-            if (s.round === 4) {
-              stop();
-              return;
-            }
-            s.round++;
-            paintPlot();
-            url();
-            if (s.round === 4) stop();
-          },
-          matchMedia("(prefers-reduced-motion: reduce)").matches ? 1800 : 1100,
-        );
-      };
+    if ($("#play")) $("#play").onclick = () => togglePlayback('repair');
+    if ($("#position-play")) $("#position-play").onclick = () => togglePlayback('position');
+    playbackObserver?.disconnect();
+    playbackObserver=new IntersectionObserver(entries=>{if(!entries[0].isIntersecting)stop();});
+    playbackObserver.observe($('#plot'));
     $("#download-svg").onclick = () => {
+      window.LensChartMotion?.beforeExport();
       const svg = $("#plot svg").cloneNode(true),
         box = svg.getAttribute("viewBox").trim().split(/[ ,]+/).map(Number);
       svg.setAttribute("width", box[2] + "pt");
@@ -658,13 +645,28 @@
       );
     };
   }
+  function togglePlayback(kind) {
+    if(playing){stop();return;}
+    const field=kind==='position'?'position':'round',last=kind==='position'?8:4;
+    if(s[field]>=last){s[field]=0;paintPlot();url();}
+    playKind=kind;
+    const button=$(kind==='position'?'#position-play':'#play');
+    button.innerHTML=icon('pause')+(kind==='repair'?'<span>Pause</span>':'');button.setAttribute('aria-pressed','true');button.setAttribute('aria-label','Pause playback');
+    playing=setInterval(()=>{
+      if(document.hidden||document.body.dataset.section!=='findings'){stop();return;}
+      s[field]=Math.min(last,s[field]+1);paintPlot();url();if(s[field]===last)stop();
+    },kind==='position'?1000:1100);
+  }
   function stop() {
     if (playing) clearInterval(playing);
     playing = null;
     if ($("#play")) {
       $("#play").innerHTML = icon("play") + "<span>Play versions</span>";
       $("#play").setAttribute("aria-label", "Play five code versions");
+      $("#play").setAttribute('aria-pressed','false');
     }
+    if($('#position-play')){$('#position-play').innerHTML=icon('play');$('#position-play').setAttribute('aria-pressed','false');$('#position-play').setAttribute('aria-label',s.position===8?'Replay nine measured positions':s.position?'Continue measured positions':'Play nine measured positions');}
+    playKind=null;
   }
   function route() {
     if (lastRoute === location.href) return;
@@ -723,5 +725,9 @@
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) stop();
   });
+  const playbackPreference=matchMedia('(prefers-reduced-motion: reduce)');playbackPreference.addEventListener('change',stop);
+  const chapterObserver=new MutationObserver(()=>{if(document.body.dataset.section!=='findings')stop();});chapterObserver.observe(document.body,{attributes:true,attributeFilter:['data-section']});
+  addEventListener('pagehide',()=>{stop();playbackObserver?.disconnect();chapterObserver.disconnect();});
+  window.LensStoryPlayback={pause:stop,inspect:()=>({playing:!!playing,kind:playKind,position:positions[s.position],positionIndex:s.position,round:s.round,model:s.repairModel})};
   route();
 })();

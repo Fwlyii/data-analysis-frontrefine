@@ -46,7 +46,11 @@ try{
   await replayOpening(page);await at(page,2500);await page.setViewportSize({width:390,height:844});check('Resize during lens phase adapts canvas',await page.evaluate(()=>LensIntro.inspect().running));await page.locator('.intro-skip').click();check('Resize cleanup restores narrow page',!(await clean(page)).overflow);
   await replayOpening(page);await at(page,5400);await page.setViewportSize({width:768,height:1024});const resizeEnd=await finished(page);check('Resize during transfer safely finishes',resizeEnd.state.history.at(-1).reason==='resize-transfer'&&!resizeEnd.inert&&!resizeEnd.locked);
   await replayOpening(page);await page.emulateMedia({reducedMotion:'reduce'});const preferenceEnd=await finished(page);check('Changed reduced-motion preference cancels immediately',preferenceEnd.state.history.at(-1).reason==='reduced-motion'&&!preferenceEnd.inert&&await page.locator('#intro-replay').isDisabled());
-  await page.emulateMedia({reducedMotion:'no-preference'});await page.waitForTimeout(30);check('Preference reset enables replay',await page.locator('#intro-replay').isEnabled());
+  await page.emulateMedia({reducedMotion:'no-preference'});
+  // The browser dispatches matchMedia changes asynchronously, sometimes after 30ms.
+  // Keep the enabled-state assertion and wait for the actual preference delivery.
+  await page.waitForFunction(()=>!matchMedia('(prefers-reduced-motion: reduce)').matches&&!document.querySelector('#intro-replay').disabled);
+  check('Preference reset enables replay',await page.locator('#intro-replay').isEnabled());
   for(let i=0;i<8;i++){await replayOpening(page);await page.locator('.intro-skip').click();}
   check('Repeated replay does not duplicate DOM or optical ticks',await page.locator('#lens-intro').count()===1&&await page.locator('.intro-tick').count()===96&&(await clean(page)).state.raf===0);
   await replayOpening(page);await page.keyboard.press('Tab');check('Keyboard remains in accessible skip control',await page.locator('.intro-skip').evaluate(el=>el===document.activeElement));await page.keyboard.press('Escape');

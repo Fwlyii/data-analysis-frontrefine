@@ -21,6 +21,7 @@ const ink = "#526174",
   grid = "#e9eef5";
 let tooltip;
 export function disposeCharts() {
+  window.LensChartMotion?.beforeDispose();
   chartEpoch++;
   for (const c of mounted.values()) c.dispose();
   mounted.clear();
@@ -28,7 +29,7 @@ export function disposeCharts() {
   tooltip = null;
 }
 export function resizeCharts() {
-  for (const c of mounted.values()) c.resize();
+  for (const c of mounted.values()) {if(window.LensChartMotion&&c.getZr)window.LensChartMotion.resize(c);else c.resize();}
 }
 window.addEventListener("resize", resizeCharts);
 const model = (data, id) => data.models.find((m) => m.id === id);
@@ -74,7 +75,9 @@ export function mount(id, option, onClick) {
     renderer: "svg",
     devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
   });
-  c.setOption({ ...base(), ...option });
+  const motionOption={ ...base(), ...option };
+  c.setOption(window.LensChartMotion?.configure(id,motionOption) || motionOption);
+  window.LensChartMotion?.register(c,el,onClick);
   if (onClick)
     c.on("click", (p) => {
       if (p.data?.meta) onClick(p.data.meta);
@@ -83,6 +86,7 @@ export function mount(id, option, onClick) {
   return c;
 }
 export function exportChart(id) {
+  window.LensChartMotion?.beforeExport();
   const c = mounted.get(id);
   if (!c) return false;
   if(c.exportSvg){c.exportSvg();return true;}
@@ -490,6 +494,7 @@ export function radial(id, data, state, onSelect) {
   }
   svg += `<circle cx="${cx}" cy="${cy}" r="55" fill="#fff"/><text x="${cx}" y="${cy - 5}" text-anchor="middle" fill="#65758b" font-size="16" font-weight="600" letter-spacing="2">STRATEGY</text><text x="${cx}" y="${cy + 16}" text-anchor="middle" fill="#a7afba" font-size="9">8 策略 × ${models.length} 模型</text></g></svg>`;
   el.innerHTML = svg;
+  window.LensChartMotion?.svg(el,{key:'radial'});
   el.querySelectorAll(".radial-bar").forEach((path) => {
     const action = () =>
       onSelect({ model: path.dataset.model, prompt: path.dataset.prompt });
@@ -798,7 +803,7 @@ export function metricComparison(id, data, state) {
   });
 }
 
-export function disagreement(id, data, state) {
+export function disagreement(id, data, state, onSelect) {
   const a = aggregate(selectCells(data, state), 0),
     j = a.disagreement;
   const nodes = [
@@ -820,7 +825,7 @@ export function disagreement(id, data, state) {
     { source: 0, target: 3, value: j[1] },
     { source: 1, target: 2, value: j[2] },
     { source: 1, target: 3, value: j[3] },
-  ].filter((l) => l.value > 0);
+  ].filter((l) => l.value > 0).map(l=>({...l,meta:{firstline:l.source===1?1:0,final:l.target===3?1:0}}));
   mount(id, {
     tooltip: {
       ...base().tooltip,
@@ -846,7 +851,7 @@ export function disagreement(id, data, state) {
         draggable: false,
       },
     ],
-  });
+  },onSelect);
 }
 
 export function truncationBars(id, data, state, onSelect) {
@@ -1270,6 +1275,7 @@ export async function boxplot(id,data,state,rows,onSelect){
   try{
    await Plotly.newPlot(el,traces,{paper_bgcolor:'#fff',plot_bgcolor:'#fff',font:{family:'Times New Roman',color:'#353842',size:13},margin:{l:75,r:22,t:50,b:55},boxmode:'group',boxgap:.35,boxgroupgap:.18,dragmode:'zoom',hovermode:'closest',legend:{orientation:'h',x:0,y:1.16,font:{size:12}},xaxis:{type:'category',categoryorder:'array',categoryarray:tasks.map(label),showline:true,linecolor:'#8a8a93',tickfont:{size:13},fixedrange:false},yaxis:{title:{text:'Returned output tokens / response',font:{size:14}},rangemode:'tozero',gridcolor:'#e8e7ed',zeroline:false,showline:false,tickfont:{size:12}},transition:{duration:libraries.reducedMotion()?0:220}},{responsive:false,displayModeBar:false,scrollZoom:false,showTips:false});
    if(disposed || epoch!==chartEpoch){Plotly.purge(el);return;}ready=true;
+   window.LensChartMotion?.plotly(el);
    el.on('plotly_click',event=>{const p=event.points?.[0];if(!p)return;const task=p.data.meta.boxes.find(b=>label(b.task)===String(p.x))?.task;onSelect?.({model:p.data.meta.model,task});});
    el.on('plotly_legendclick',event=>{onSelect?.({model:traces[event.curveNumber].meta.model});return false;});
   }catch{if(!disposed && epoch===chartEpoch){mounted.delete(id);Plotly.purge(el);echartsBoxplot(id,data,state,rows);}}

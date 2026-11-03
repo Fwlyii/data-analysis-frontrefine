@@ -79,7 +79,7 @@
     active.clear();
     $$('.ix-click-mark').forEach(e => e.remove());
   }
-  function animate(node, values, delay = 0, duration = .48) {
+  function animate(node, values, delay = 0, duration = .36) {
     if (!node || preference.matches || document.hidden || !running || document.documentElement.matches('.intro-pending,.intro-active')) return;
     for (const [previous, item] of active) {
       if (item.node !== node) continue;
@@ -309,12 +309,13 @@
         $$('.cleaning-steps>li', root).forEach((c, i) => reveal(c, 'rise', i * .045));
       } else {
         const graphs = $$(graphSelector, root).filter(e => !e.parentElement.closest(graphSelector));
-        graphs.forEach((g, i) => reveal(g, scene?.[0] || 'rise', Math.min(i * .05, .12)));
+        graphs.forEach((g, i) => {if(!window.LensChartMotion?.handles(g))reveal(g, scene?.[0] || 'rise', Math.min(i * .05, .12));});
         if (scene?.[0] === 'split') {
           $$('.plot-content.dual>div', root).slice(0, 2).forEach((g, i) => animate(g, {opacity: [0, 1], transform: [`translateX(${i ? 14 : -14}px)`, 'translateX(0px)']}, .08 + i * .05));
         }
         reveal($('.ix-reading', root), 'rise', .045);
       }
+      window.LensChartMotion?.refresh(root,key);
     });
   }
   function schedule() {
@@ -344,7 +345,7 @@
     const control = element.closest('button,summary');
     if (control && !control.disabled && !control.closest('svg')) {
       gestures++;
-      animate(control, {scale: [1, .97, 1]}, 0, .24);
+      animate(control, {scale: [1, .97, 1]}, 0, .15);
     }
     const graph = element.closest('#plot,.overview-plot,.publication-svg,#library-main,#library-side,#code-vega-scatter,#code-linked-errors');
     if (graph && !preference.matches && !document.hidden && event.detail > 0) {

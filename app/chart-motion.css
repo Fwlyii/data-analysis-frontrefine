@@ -1,0 +1,26 @@
+/* Transient overlays live outside scientific SVGs. Default chart geometry is unchanged. */
+.cm-marker,.cm-reference,.cm-matrix-band{position:fixed;pointer-events:none;z-index:90;border:1px solid #91acbc;border-radius:5px;box-shadow:0 0 0 3px #91acbc1c}
+.cm-marker{border-color:#b69f7b;box-shadow:0 0 0 4px #b69f7b1a}
+.cm-reference{border:0;border-left:1px dashed #7898aa99;box-shadow:none;border-radius:0;width:1px!important}
+.cm-matrix-band{border:1px solid #91acbc66;border-radius:2px;box-shadow:none;background:#b5cfdf0b}
+.cm-mark-tip{position:fixed;z-index:190;max-width:min(350px,calc(100vw - 24px));white-space:pre-line;padding:11px 14px;border:1px solid #a4b8c5;border-radius:9px;background:#f8fafbf7;box-shadow:0 7px 25px #112e4026;color:#17394e;font:13px/1.7 var(--sans,Geist,Arial,sans-serif);pointer-events:none}
+.cm-mark-tip[hidden]{display:none}
+#question .question-points>li:hover,#collection .task-row:hover,#collection .special-studies>div:hover{translate:0 -2px;transition:translate .2s cubic-bezier(.22,1,.36,1)}
+:is(#plot,.overview-plot,#publication-root,#code-publication,#library-main,#library-side):focus-visible{outline:2px solid #7b9bad;outline-offset:3px}
+#cleaning .cm-pipeline-dot{position:absolute;left:13px;top:39px;width:6px;height:6px;border-radius:50%;background:#b69f7b;box-shadow:0 0 0 4px #b69f7b22;pointer-events:none}
+#research .answer-content.code .cm-code-removed{background:#b8866726;box-shadow:inset 2px 0 #aa785a}
+#research .answer-content.code .cm-code-added{background:#477d7726;box-shadow:inset 2px 0 #628d85}
+.cm-progress{position:absolute;pointer-events:none;display:flex;justify-content:space-between;align-items:center;height:10px;z-index:2}
+.cm-progress>i{height:5px;width:5px;border-radius:50%;background:#9eb3c0;box-shadow:0 0 0 2px #eaf0f2}
+.cm-progress>i[aria-current=step]{background:#ad8c61;box-shadow:0 0 0 3px #ad8c6133;scale:1.4}
+.point-control,.code-playback{position:relative}
+#position-play{min-width:34px;min-height:32px;padding:3px;border:1px solid #aebfc955;border-radius:5px;justify-content:center}
+#position-play svg{width:15px;height:15px}
+#code-sample-label{transition:color .16s;color:inherit}
+.code-playback:has(#code-play[aria-pressed=true]) #code-sample-label{color:#8c6b40}
+#stage :is(.plot-surface,.publication-frame):hover{outline:1px solid #91acbc66;outline-offset:1px}
+#stage tbody tr:hover,#research .data-scroll tbody tr:hover{background:#c7dbe524}
+::view-transition-old(lens-chart-layout){animation:cm-chart-out .16s ease-out both}
+::view-transition-new(lens-chart-layout){animation:cm-chart-in .32s cubic-bezier(.22,1,.36,1) both}
+@keyframes cm-chart-out{to{opacity:0}}@keyframes cm-chart-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){#question .question-points>li:hover,#collection .task-row:hover,#collection .special-studies>div:hover{translate:none;transition:none}.cm-pipeline-dot{display:none}#code-sample-label{transition:none}}
