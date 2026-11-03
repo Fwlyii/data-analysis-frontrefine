@@ -1,6 +1,6 @@
 # LENS 图表动态升级
 
-基线 `7de85e836e8bc0f7c28c79188b71f1818c0aa234`，独立分支 `codex/lens-chart-motion`。保留 main、A、B 分支；本次不合并、不推送、不发布。
+基线 `7de85e836e8bc0f7c28c79188b71f1818c0aa234`，独立分支 `codex/lens-chart-motion`。保留 main、A、B 分支；前端保持独立；用户追加授权后，以GitHub Pages预览子目录发布，配置见 `docs/pages-preview.md`。
 
 ## 审计与实现边界
 
@@ -128,4 +128,4 @@ BASE_URL=http://127.0.0.1:8774/ MOTION_BASE_URL=http://127.0.0.1:8770/ node test
 
 最终全量命令使用 `python3 tests/run.py --full --skip-build --port 8851`，与普通 `--full` 执行完全相同的10个测试套件；前置构建已单独完成，避免其他科学图审核读取dist时重复生成文件。通过记录：`full-final-proof.log`、`science-final-proof.log`、`smoke-final-proof.log`、`gate-final-proof.log`、`snapshot-final-proof.log`。
 
-只提交源码、说明和必要的小型认可清单/科学图摘要；完整临时测试报告、截图、下载和旧失败日志均不提交。未制作或提交录屏，未合并、推送或发布。
+只提交源码、说明和必要的小型认可清单/科学图摘要；完整临时测试报告、截图、下载和旧失败日志均不提交。未制作或提交录屏，前端未合并main；后续获用户授权的预览发布见 `docs/pages-preview.md`。
