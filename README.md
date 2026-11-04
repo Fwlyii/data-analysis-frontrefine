@@ -1,52 +1,81 @@
 # LENS · 知微
 
-研究提示表达、证据位置和执行反馈如何影响模型表现。系统使用保存的匿名研究快照，包含五个研究章节、五项发现、13类图表及4个代码研究视图。
+中文模型行为研究与可视化系统。以“提示词策略怎样影响任务质量与输出开销”为总问题，串起研究问题、采集设计、数据处理、核心发现、总结与反思五章。
 
-[在线预览](https://fwlyii.github.io/data-analysis-frontrefine/) · [项目与研究概述](docs/project-summary.md) · [目录说明](docs/repository-structure.md) · [录制提交指南](docs/submission.md)
+核心发现采用**四个总体主题＋三个任务专项**：Token与成功率的log关系、模型规模、简洁表达、限长反弹，以及数学语言模板、文档证据位置、代码执行反馈。
 
-## 启动系统
+当前包含 **37张可编辑SVG、13类通用交互图和4个代码独立生成视图**，支持条件筛选、匿名记录、CSV/SVG导出。位置与反馈修复专项另有9,176条匿名记录入口，来自总计248,586条物理响应中的对应子集。
+
+[研究概述](docs/project-summary.md) · [内容与美化交接](docs/reconstruction-handoff.md) · [目录说明](docs/repository-structure.md) · [录制指南](docs/submission.md)
+
+## 启动
+
+在仓库根目录运行：
 
 ```bash
 python3 app/launch.py --port 8770
 ```
 
-在浏览器打开 `http://127.0.0.1:8770`。运行网站只需 Python 标准库，不需要 npm、API Key 或后端服务。首页可进入五章研究和图表库；支持真实条件筛选、记录查看、CSV/SVG导出及交互动效。
+浏览器打开 `http://127.0.0.1:8770`。运行与构建只用Python标准库，使用已保存的匿名网页快照，不需要npm、模型密钥或常驻后端。请通过本地HTTP服务打开，避免直接双击HTML。
 
-## 目录
-
-```text
-app/             网站源码、现用素材与匿名快照
-configs/         实验协议与配置
-data/           原始来源、清洗数据、质量与字段说明
-experiments/     专项实验代码
-reports/         科研统计、置信区间和科学图稿
-scripts/         采集、清洗、分析、绘图、构建与文档生成
-tests/          当前浏览器测试及必要的小型基线
-docs/           使用、研究、部署和维护说明
-report/          保留的参考报告（PDF与文稿）
-presentation/    保留的参考PPT（PDF与讲稿）
-requirements/    按用途划分的Python依赖
-```
-
-`reports/` 是科研证据，`report/` 是参考报告，两者用途不同。`app/runtime/`、`app/dist/`、`artifacts/` 是可重新生成的目录，不提交到Git。
-
-## 检查与维护
+## 图表与静态构建
 
 ```bash
-python3 scripts/system/check_web_snapshot.py
-python3 scripts/system/check_visual_coverage.py
+# 从冻结统计生成37张SVG和图表目录
+python3 scripts/figures/build_research_atlas.py
 
-# 自动浏览器测试才需要Node；首次安装测试依赖和浏览器
-npm ci --prefix tests
-npm run browser:install --prefix tests
-python3 tests/run.py           # 发布前的93状态检查
-python3 tests/run.py --full    # 全量交互与响应式回归
+# 打包主系统、探索模块、快照及SVG/CSV图包
+python3 scripts/system/build_web_app.py
+
+# 检查图包、真实记录与1100项科研文件保护
+python3 scripts/system/check_reconstruction.py
 ```
 
-测试默认不录制视频、不保存截图。临时结果只写入 `artifacts/qa/`；需要临时截图时可设置 `QA_SCREENSHOTS=1`。更详细的说明见 [检查说明](docs/web-checks.md)与[前端维护流程](docs/visual-refinement-workflow.md)。
+- `app/assets/research/*.svg`：可编辑科学图。
+- `app/data/research-charts.json`：图表主题、条件、来源与数值。
+- `app/assets/research-svg.zip`：完整SVG图包及各图CSV。
+- `app/dist/`：生成后的静态网站，可由HTTP静态服务提供。
 
-## 课程提交
+## 浏览器回归
 
-最终人工录制并提交一个演示视频。报告和PPT留作参考，不再自动生成完整提交包，也不在仓库保存录像、旁白、字幕和历次优化截图。录制顺序见[录制提交指南](docs/submission.md)。
+先启动上面的本地服务，在另一个终端运行：
 
-科研数据、图表、统计结果与现用前端素材继续保留。过往优化过程可从Git历史查询；整理前版本为 `c3d648a`，备份分支为 `backup/before-repository-cleanup-c3d648a`。
+```bash
+npm ci --prefix tests
+npm run browser:install --prefix tests
+BASE_URL=http://127.0.0.1:8770/ node tests/browser/reconstruction.mjs
+```
+
+已有Chrome等浏览器时，可用 `CHROMIUM_PATH` 指定其可执行文件。新回归检查五章、四维策略、字段映射、七主题图形、探索记录、导出、响应式与可访问性；结果写入 `artifacts/qa/reconstruction/report.json`。
+
+`tests/run.py`及其93状态基线保留用于旧门户维护，不代表新主界面的状态数量，也不能替代上述回归。
+
+## 源码入口
+
+| 内容 | 入口 |
+|---|---|
+| 主页面、路由、主题图册 | `app/index.html`、`app/src/research.js`、`app/research.css` |
+| 中文章节、策略与清洗演示 | `app/src/research-content.js`、`app/research-content.css` |
+| 通用图表、代码生成探索 | `app/src/research-explorer.js`、`app/research-explorer.css` |
+| 位置与反馈专项记录 | `app/src/research-special-records.js`、`app/data/special-records.json.gz` |
+| SVG生成与目录 | `scripts/figures/build_research_atlas.py`、`app/data/research-charts.json` |
+| 冻结数据、清洗、统计 | `data/`、`scripts/cleaning/`、`scripts/analysis/`、`reports/` |
+| 参考报告与答辩材料 | `report/`、`presentation/` |
+
+`app/dist/`、`app/runtime/`和`artifacts/`为生成或临时目录。后续页面切换、动效与布局的修改边界见[交接说明](docs/reconstruction-handoff.md)。
+
+向队友提供可运行网站及图稿源文件，可运行 `python3 scripts/system/package_reconstruction.py --output /绝对路径/交接目录`。它保留网页模块源码、离线数据、SVG生成器与冻结统计，并附独立启动器；目标目录已存在时会停止，避免覆盖队友修改。
+
+## 数据复算与课程演示
+
+完整分析表通过Git LFS管理。要重算统一匿名表的条件汇总，先取回该表：
+
+```bash
+git lfs install --local
+git lfs pull --include='data/processed/all_records.csv.gz' --exclude=''
+python3 scripts/reproduce_anonymous.py
+```
+
+完整离线流程见[复算说明](docs/reproducibility.md)。网页浏览不要求下载完整问答全文。专项网页快照可用 `python3 scripts/system/export_special_records.py` 从已取回的统一表更新。
+
+报告与PPT作为参考，最终演示视频由人工录制并提交；不在仓库保存成片。系统、演讲稿、报告和PPT应使用同一套图形、数据范围与结论。

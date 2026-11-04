@@ -1,4 +1,4 @@
-"""Build a file-openable classroom app using the Python standard library."""
+"""Build the static Chinese research app using the Python standard library."""
 import base64
 import csv
 import gzip
@@ -7,6 +7,8 @@ import importlib.util
 import json
 import re
 import shutil
+import io
+import zipfile
 from pathlib import Path
 
 ROOT = next(p for p in Path(__file__).resolve().parents if (p / 'project.json').is_file())
@@ -24,6 +26,23 @@ def _module(source, namespace, dependency=None):
 
 
 def build():
+    # Research figures are generated from frozen aggregate tables with stdlib only.
+    atlas_spec=importlib.util.spec_from_file_location('research_atlas',ROOT/'scripts/figures/build_research_atlas.py')
+    atlas_module=importlib.util.module_from_spec(atlas_spec)
+    atlas_spec.loader.exec_module(atlas_module)
+    atlas_module.build()
+    chart_catalog=json.loads((APP/'data/research-charts.json').read_text())
+    with zipfile.ZipFile(APP/'assets/research-svg.zip','w',zipfile.ZIP_DEFLATED) as archive:
+        archive.write(APP/'data/research-charts.json','图表目录与数值.json')
+        archive.writestr('使用说明.txt','知微科研图册\n\n全部图表为可编辑SVG，文字、坐标和真实数据均保留。每图配有数值CSV；条件、单位和来源请随图保留。页面动画与整体切换可独立美化。\n')
+        for chart in chart_catalog['charts']:
+            archive.write(APP/chart['file'],Path(chart['file']).name)
+            values=chart.get('data') or []
+            if values:
+                buffer=io.StringIO(newline='')
+                writer=csv.DictWriter(buffer,fieldnames=list(values[0]))
+                writer.writeheader();writer.writerows(values)
+                archive.writestr(chart['id']+'.csv','\ufeff'+buffer.getvalue())
     spec=importlib.util.spec_from_file_location('demo_evidence',ROOT/'scripts/system/build_demo_evidence.py')
     module=importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -135,9 +154,14 @@ def build():
         shutil.copy2(APP/name,dist/name)
     for name in ['assets','runtime']:
         shutil.copytree(APP/name,dist/name,dirs_exist_ok=True)
+    shutil.copytree(APP/'src',dist/'src',dirs_exist_ok=True)
+    for name in ['research.css','research-content.css','research-explorer.css']:
+        shutil.copy2(APP/name,dist/name)
     (dist/'data').mkdir(exist_ok=True)
-    for name in ['summary.json','demo-evidence.json']:
+    for name in ['summary.json','demo-evidence.json','research-charts.json','research-content.json']:
         shutil.copy2(APP/'data'/name,dist/'data'/name)
+    for name in ['special-records.json.gz']:
+        if (APP/'data'/name).exists():shutil.copy2(APP/'data'/name,dist/'data'/name)
     for name in ['findings.md','README.md']:
         shutil.copy2(ROOT/'reports/baseline'/name,dist/'data'/f'analysis-{name}')
     shutil.copy2(ROOT/'data/processed/data_dictionary.tsv',dist/'data/data_dictionary.tsv')
@@ -146,7 +170,7 @@ def build():
     for name in ['chart-coverage.md','demo-guide.md','insight-audit.md']:
         path=ROOT/'docs'/name
         if path.exists():shutil.copy2(path,dist/'data'/name)
-    print('Classroom app ready: app/index.html (file://) or app/dist (HTTP).')
+    print('知微研究系统已构建：app/dist（请通过本地HTTP服务打开）。')
     return dist
 
 
