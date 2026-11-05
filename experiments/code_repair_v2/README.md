@@ -26,6 +26,8 @@ python -m experiments.code_repair_v2.src.prepare --config configs/code_repair_ex
 python -m experiments.code_repair_v2.src.collect --config configs/code_repair_extension.json --credential-file /private/path/key
 python -m experiments.code_repair_v2.src.holdout --config configs/code_repair_extension.json --watch --all-rounds --concurrency 4
 python -m experiments.code_repair_v2.src.analyze --config configs/code_repair_extension.json
+python -m experiments.code_repair_v2.src.normalize --config configs/code_repair_extension.json --output reports/code_repair_extension/code-repair-extension-free-full-20261105-3rep-v2/unified-format
+python -m experiments.code_repair_v2.src.publish --source reports/code_repair_extension/code-repair-extension-free-full-20261105-3rep-v2
 ```
 
 采集与评测支持断点续跑，完整响应和真实评分按记录ID核对。未完整的任务块不会伪称完整配对结果；缺失会单独报告。全部新增运行数据位于配置指定的独立批次，既有受保护科研文件不覆盖。
@@ -37,3 +39,5 @@ python -m experiments.code_repair_v2.src.analyze --config configs/code_repair_ex
 主指标为最终版本同时通过公开诊断与强保留测试。区间按题目聚类，组间共享同题与同初稿的配对关系。原始公开诊断用于反馈核验、原曲线与停止版本选择；强测重执行不能覆写这些历史信息。
 
 同时报告初错修复、初对回退、公开通过但保留失败、Token与调用成本、各错误类型真实支持数、模型与重复差异。静态中文SVG和真实机制案例来自实际保存结果，尚未完成的实验不生成真实网页证据。
+
+`normalize`在完整物理响应、原公开评测及全五版强测齐全后，另存原21字段格式的`unified-records.csv.gz`，不覆盖原统一表。新评分名为`base_and_full_disjoint_holdout_pass_v2`，与旧Mini分开。题号、记录键与父版本键使用批次内稳定伪名；独立初稿编号另存`lineage.csv`，修复轮次使用`revision_round`。字段缺失统计与资产SHA保存在同目录。`publish`只接受完整真实新批次和独立的完整旧批复核，匿名快照、六张新SVG与一张历史复核图进入静态网站。
