@@ -3,7 +3,6 @@ import { renderHome, mountHome } from './research-home.js';
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
-const arrow = direction => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${direction === 'back' ? 'm14 6-6 6 6 6M8 12h12' : 'm10 6 6 6-6 6M4 12h12'}"/></svg>`;
 const CHAPTERS=[
  {id:'question',label:'研究问题',title:'同一道任务，怎样让模型做得更好？',intro:'从提示词策略出发，在数学、文档与代码三类任务中比较回答质量和输出开销，再沿任务特性研究证据位置与执行反馈。'},
  {id:'collection',label:'采集设计',title:'从四个考察维度，到真实的对照实验。',intro:'语言、推理提示、长度与表达格式，构成理解31种实际策略的线索。题目、模型、条件与响应数量，都能沿来源追溯。'},
@@ -22,12 +21,6 @@ const TOPICS=[
 ];
 
 const topicById = id => TOPICS.find(topic => topic.id === id);
-const SCENES = [
-  {chapter:'question'}, {chapter:'collection'}, {chapter:'cleaning'},
-  {chapter:'findings',topic:'overview'},
-  ...TOPICS.map(topic => ({chapter:'findings',topic:topic.id})),
-  {chapter:'conclusion'}
-];
 const HIGHLIGHTS = {
   budget: ['输出增加，收益逐渐放缓。', 'Qwen2.5 / GSM8K，七档真实限制的对数拟合 R² = 0.939。', '横轴使用实际输出Token；不同模型与题库分别比较。'],
   scale: ['模型规模与任务表现一起看。', 'Qwen2.5为7.61B，Qwen3为8.2B；未知规模保持缺失。', '模型代际、训练和任务同时影响结果，现有数据支持同条件对照。'],
@@ -44,7 +37,6 @@ let disposeHome;
 let disposeExplorer;
 let epoch = 0;
 let toastTimer;
-const svgCache = new Map();
 
 function readRoute() {
   const params = new URLSearchParams(location.search);
@@ -59,7 +51,6 @@ function readRoute() {
 function routeURL(next) {
   const params = new URLSearchParams();
   if(next.chapter !== 'home') params.set('chapter', next.chapter);
-  if(next.chapter === 'findings' && next.topic && next.topic !== 'overview') params.set('topic',next.topic);
   if(next.chapter === 'atlas' && next.filter && next.filter !== 'all') params.set('filter',next.filter);
   return location.pathname + (params.size ? '?' + params.toString() : '');
 }
@@ -84,16 +75,8 @@ function download(filename, content, type) {
   document.body.append(anchor); anchor.click(); anchor.remove();
   setTimeout(() => URL.revokeObjectURL(url),1000);
 }
-async function svgText(chart) {
-  if(!svgCache.has(chart.id)) svgCache.set(chart.id,fetch(chart.file).then(response => {
-    if(!response.ok) throw new Error('图稿读取失败，请刷新页面重试。');
-    return response.text();
-  }));
-  return svgCache.get(chart.id);
-}
-function sourceLabel(chart) { return chart.source || '保存的研究统计'; }
 function mainFigure(chart) {
-  return `<figure class="main-figure" data-chart-id="${esc(chart.id)}"><div class="figure-canvas loading" id="primary-figure" tabindex="0" role="img" aria-label="${esc(chart.title)}">正在读取图稿…</div></figure>`;
+  return `<figure class="main-figure" data-chart-id="${esc(chart.id)}"><div class="figure-canvas" tabindex="0" role="region" aria-label="${esc(chart.title)}，图形可横向滚动"><img class="primary-figure-img" src="${esc(chart.file)}" alt="${esc(chart.title)}" loading="lazy" width="${chart.width}" height="${chart.height}"></div></figure>`;
 }
 function supportFigure(chart, tools = false) {
   const wide = /landscape|matrix|real-code-case|fit-comparison/.test(chart.id);
@@ -106,23 +89,17 @@ function topicHTML(topic) {
   const charts = catalog.charts.filter(chart => chart.topic === topic.id);
   const main = charts.find(chart => chart.role === 'main') || charts[0];
   const highlights = HIGHLIGHTS[topic.id];
-  return `<section class="finding-stage" aria-label="${esc(topic.name)}">${mainFigure(main)}<aside class="finding-insight"><h2>${highlights[0]}</h2>${highlights.slice(1).map(text => `<p>${text}</p>`).join('')}<div class="insight-scope">${esc(topic.scope.replaceAll(' · ','，'))}</div></aside></section><section class="support-section" aria-label="辅助对照图"><div class="support-heading"><h2>对照与细节</h2><p>${topic.group === '总体规律' ? '在不同条件下，检验同一规律。' : '沿任务特性，继续看证据。'}</p></div><div class="support-grid">${charts.filter(chart => chart.id !== main.id).map(chart => supportFigure(chart)).join('')}</div></section>`;
+  return `<section class="finding-chapter" id="finding-${topic.id}" data-topic="${topic.id}" aria-labelledby="finding-title-${topic.id}"><header class="finding-chapter-heading"><span class="finding-chapter-number" aria-hidden="true">${topic.n}</span><div><h3 id="finding-title-${topic.id}">${topic.title}</h3><p>${topic.name}</p></div></header><div class="finding-stage">${mainFigure(main)}<aside class="finding-insight"><h4>${highlights[0]}</h4>${highlights.slice(1).map(text => `<p>${text}</p>`).join('')}<div class="insight-scope">${esc(topic.scope.replaceAll(' · ','，'))}</div></aside></div><div class="support-section"><div class="support-heading"><h4>实测对照</h4><p>${topic.group === '总体规律' ? '在不同条件下，检验同一规律。' : '沿任务特性，继续看证据。'}</p></div><div class="support-grid">${charts.filter(chart => chart.id !== main.id).map(chart => supportFigure(chart)).join('')}</div></div></section>`;
+}
+function findingsHTML() {
+  return `<div class="findings-long-page">${overviewHTML()}${['总体规律','任务专项'].map((group,index) => `<section class="findings-part" aria-labelledby="findings-part-${index}"><header class="findings-part-heading"><h2 id="findings-part-${index}">${group}</h2><p>${index === 0 ? '从输出投入、模型规模、表达与约束，观察跨任务的共同规律。' : '进入数学、文档与代码，解释各自特有的影响因素。'}</p></header>${TOPICS.filter(topic => topic.group === group).map(topicHTML).join('')}</section>`).join('')}</div>`;
 }
 function atlasHTML() {
   const charts = catalog.charts.filter(chart => route.filter === 'all' || chart.topic === route.filter);
   return `<div class="catalog-tools"><label for="atlas-filter">图稿主题<select id="atlas-filter"><option value="all">全部37张</option>${TOPICS.map(topic => `<option value="${topic.id}" ${route.filter === topic.id ? 'selected' : ''}>${topic.name}</option>`).join('')}</select></label><a href="assets/research-svg.zip" download>下载完整SVG与数值图包</a></div><div class="support-grid atlas-grid">${charts.map(chart => supportFigure(chart,true)).join('')}</div><section id="research-explorer-host" class="archive-explorer" aria-label="完整交互图表库"></section>`;
 }
-function sceneTitle(scene) {
-  return scene?.chapter === 'home' ? '知微首页' : topicById(scene?.topic)?.name || CHAPTERS.find(chapter => chapter.id === scene?.chapter)?.label || '';
-}
 function renderNavigation() {
-  const active = route.chapter;
-  $('#chapter-nav').innerHTML = CHAPTERS.map((chapter,index) => `<a href="?chapter=${chapter.id}" ${active === chapter.id ? 'aria-current="page"' : ''}><span class="chapter-number">${String(index + 1).padStart(2,'0')}</span>${chapter.label}</a>`).join('');
-  const index = SCENES.findIndex(scene => scene.chapter === active && (active !== 'findings' || scene.topic === route.topic));
-  if(index < 0) { $('#page-progress').innerHTML = ''; return; }
-  const previous = SCENES[index - 1] || {chapter:'home'};
-  const next = SCENES[index + 1] || {chapter:'home'};
-  $('#page-progress').innerHTML = `<a class="scene-previous" href="${routeURL(previous)}" aria-label="上一段：${sceneTitle(previous)}">${arrow('back')}<span>${sceneTitle(previous)}</span></a><div class="scene-track"><span class="scene-step">${String(index + 1).padStart(2,'0')}<small> / ${SCENES.length}</small></span><span class="scene-track-line"><i style="width:${(index + 1)/SCENES.length*100}%"></i></span><span class="scene-title">${sceneTitle(SCENES[index])}</span></div><a class="scene-next" href="${routeURL(next)}" aria-label="下一段：${sceneTitle(next)}"><span>${sceneTitle(next)}</span>${arrow('next')}</a>`;
+  $('#chapter-nav').innerHTML = CHAPTERS.map((chapter,index) => `<a href="?chapter=${chapter.id}" ${route.chapter === chapter.id ? 'aria-current="page"' : ''}><span class="chapter-number">${String(index + 1).padStart(2,'0')}</span>${chapter.label}</a>`).join('');
 }
 async function render() {
   const version = ++epoch;
@@ -140,23 +117,13 @@ async function render() {
     return;
   }
   const chapter = CHAPTERS.find(item => item.id === route.chapter);
-  const topic = route.chapter === 'findings' ? topicById(route.topic) : null;
-  const title = topic?.title || chapter?.title || '科研图稿与交互图表';
-  const intro = topic ? '' : chapter?.intro || '完整保留37张科研SVG和原有交互探索。';
-  const body = route.chapter === 'question' ? renderQuestion() : route.chapter === 'collection' ? renderCollection() : route.chapter === 'cleaning' ? renderCleaning() : route.chapter === 'conclusion' ? renderConclusion() : route.chapter === 'atlas' ? atlasHTML() : topic ? topicHTML(topic) : overviewHTML();
-  main.innerHTML = `<section class="section-intro${topic ? ' topic-intro' : ''}"><h1>${title}</h1>${intro ? `<p>${intro}</p>` : ''}${topic ? `<p class="finding-subject">${topic.group}<span></span>${topic.name}</p>` : ''}</section>${body}`;
-  document.title = `${topic?.name || chapter?.label || '科研图稿'} · 知微`;
+  const title = chapter?.title || '科研图稿与交互图表';
+  const intro = chapter?.intro || '完整保留37张科研SVG和原有交互探索。';
+  const body = route.chapter === 'question' ? renderQuestion() : route.chapter === 'collection' ? renderCollection() : route.chapter === 'cleaning' ? renderCleaning() : route.chapter === 'conclusion' ? renderConclusion() : route.chapter === 'atlas' ? atlasHTML() : findingsHTML();
+  main.innerHTML = `<section class="section-intro"><h1>${title}</h1>${intro ? `<p>${intro}</p>` : ''}</section>${body}`;
+  document.title = `${chapter?.label || '科研图稿'} · 知微`;
   if(route.chapter === 'question') $('.rc-lead',main)?.remove();
   if(['question','collection','cleaning','conclusion'].includes(route.chapter)) disposeContent = bindContent(main,{notify});
-  const primary = $('#primary-figure');
-  if(primary) {
-    const chart = catalog.charts.find(item => item.id === primary.closest('[data-chart-id]').dataset.chartId);
-    try {
-      const svg = await svgText(chart);
-      if(version !== epoch) return;
-      primary.innerHTML = svg; primary.classList.remove('loading');
-    } catch(error) { if(version === epoch) primary.textContent = error.message; }
-  }
   const filter = $('#atlas-filter');
   if(filter) filter.onchange = () => go({chapter:'atlas',filter:filter.value},{replace:true});
   if(route.chapter === 'atlas') {
@@ -187,12 +154,6 @@ document.addEventListener('click',event => {
     download(`知微-${chart.id}.csv`,csv,'text/csv;charset=utf-8');
     notify('已导出当前图稿数值');
   }
-});
-window.addEventListener('keydown',event => {
-  if(event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || /INPUT|SELECT|TEXTAREA/.test(event.target.tagName) || event.target.isContentEditable || event.target.closest('button,a,.figure-canvas') || route.chapter === 'home' || route.chapter === 'atlas') return;
-  const index = SCENES.findIndex(scene => scene.chapter === route.chapter && (scene.chapter !== 'findings' || scene.topic === route.topic));
-  if(event.key === 'ArrowRight' && index >= 0) {event.preventDefault();go(SCENES[index + 1] || {chapter:'home'});}
-  if(event.key === 'ArrowLeft' && index >= 0) {event.preventDefault();go(SCENES[index - 1] || {chapter:'home'});}
 });
 window.addEventListener('popstate',() => {route = readRoute(); render();});
 window.addEventListener('pagehide',() => {disposeContent?.();disposeHome?.();disposeExplorer?.();});

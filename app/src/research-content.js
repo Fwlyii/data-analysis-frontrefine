@@ -648,33 +648,26 @@ function sourceValue(source, key) {
   if (key === 'model_id' && source === 'document_qa') return 'Qwen/Qwen2.5-7B-Instruct';
   return row[key];
 }
-function sourceKey(source, field, active) {
-  const label = source === 'reasoning' ? field.reasoningKey : field.documentKey;
-  const rawKey = source === 'document_qa' ? label.split('.').at(-1) : label;
-  return `<mark class="rc-field-token${field.id === active ? ' is-active' : ''}">&quot;${esc(rawKey)}&quot;</mark>`;
+function sourceFieldTable(source) {
+  const d=researchContent.cleaning;
+  const fieldName=f=>{
+    if(source==='reasoning')return `<mark class="rc-field-token">${esc(f.reasoningKey)}</mark>`;
+    const path=f.documentKey.split('.'),leaf=path.pop(),prefix=path.length?path.join('.')+'.':'';
+    return `${prefix?`<span class="rc-field-path">${esc(prefix)}</span>`:''}<mark class="rc-field-token">${esc(leaf)}</mark>`;
+  };
+  return `<table class="rc-origin-table"><thead><tr><th scope="col">来源字段</th><th scope="col">原始值</th></tr></thead><tbody>${d.fields.map(f=>`<tr><th scope="row">${fieldName(f)}</th><td>${esc(String(sourceValue(source,f.id)))}</td></tr>`).join('')}</tbody></table>`;
 }
-function sourceFragment(source, active) {
-  const fields = Object.fromEntries(researchContent.cleaning.fields.map(f => [f.id, f]));
-  const val = key => `<span class="rc-code-value">${esc(JSON.stringify(sourceValue(source,key)))}</span>`;
-  const key = id => sourceKey(source,fields[id],active);
-  if (source === 'reasoning') return `{\n  ${key('model_id')}: ${val('model_id')},\n  ${key('input_tokens')}: ${val('input_tokens')},\n  ${key('output_tokens')}: ${val('output_tokens')},\n  ${key('finish_reason')}: ${val('finish_reason')}\n}`;
-  return `{\n  ${key('model_id')}: ${val('model_id')},\n  "response": {\n    "usage": {\n      ${key('input_tokens')}: ${val('input_tokens')},\n      ${key('output_tokens')}: ${val('output_tokens')}\n    },\n    "choices": [{\n      ${key('finish_reason')}: ${val('finish_reason')}\n    }]\n  }\n}`;
+function unifiedRecordTable() {
+  const d=researchContent.cleaning;
+  const keys=['model_id','benchmark','input_tokens','output_tokens','finish_reason','metric_name','metric_value','document_count','evidence_position'];
+  const mapped=new Set(d.fields.map(f=>f.id));
+  const cell=value=>value===null?'<span class="rc-null">null</span>':esc(String(value));
+  return `<table class="rc-saved-table rc-combined-records"><thead><tr><th scope="col">统一字段</th><th scope="col" data-rc-record="reasoning">推理记录</th><th scope="col" data-rc-record="document_qa">文档记录</th></tr></thead><tbody>${keys.map(key=>`<tr data-rc-saved-field="${esc(key)}"${mapped.has(key)?' class="is-mapped"':''}><th scope="row"><code>${esc(key)}</code></th><td data-source="reasoning">${cell(d.records.reasoning[key])}</td><td data-source="document_qa">${cell(d.records.document_qa[key])}</td></tr>`).join('')}</tbody></table>`;
 }
-function savedRecord(source, active) {
-  const row = researchContent.cleaning.records[source];
-  const keys = ['model_id','benchmark','input_tokens','output_tokens','finish_reason','metric_name','metric_value','document_count','evidence_position'];
-  return `<div class="rc-table-wrap rc-saved-table-wrap" tabindex="0" role="region" aria-label="统一保存记录的关键字段，可横向滚动"><table class="rc-saved-table"><caption>同一份21列CSV中的关键字段</caption><thead><tr><th scope="col">统一字段</th><th scope="col">保存值</th><th scope="col">类型</th></tr></thead><tbody>${keys.map(key => {const value=row[key];return `<tr class="${key === active ? 'is-active' : ''}"><th scope="row"><code>${esc(key)}</code></th><td>${value === null ? '<span class="rc-null">null</span>' : esc(String(value))}</td><td>${typeOf(value)}</td></tr>`;}).join('')}</tbody></table></div>`;
-}
-function cleaningBody(active, source) {
-  const d = researchContent.cleaning;
-  const f = d.fields.find(f => f.id === active) || d.fields[0];
-  return `<div class="rc-mapping-toolbar" role="group" aria-label="选择字段映射">${d.fields.map(x => `<button type="button" data-rc-field="${x.id}" aria-pressed="${x.id === f.id}">${esc(x.name)}</button>`).join('')}</div><p class="rc-difference-legend"><span aria-hidden="true"></span>${esc(d.legend)}</p><div class="rc-cleaning-flow"><div class="rc-sources"><h3>不同来源</h3>${[['reasoning','推理实验：源表格'],['document_qa','文档问答：API响应']].map(([id,title]) => `<article class="rc-source-fragment${source === id?' is-current':''}"><div class="rc-source-header"><h4>${title}</h4></div><pre tabindex="0" aria-label="${title}字段视图，可横向滚动"><code>${sourceFragment(id,f.id)}</code></pre></article>`).join('')}</div><div class="rc-transformation"><svg viewBox="0 0 96 32" aria-hidden="true" class="rc-flow-arrow"><path d="M3 16h84m-14-12 14 12-14 12" fill="none" stroke="currentColor" stroke-width="2"/></svg><h3>映射与清洗</h3><div class="rc-target-field"><code>${esc(f.id)}</code><span>${esc(f.type)}</span></div><p>${esc(f.rule)}</p><pre class="rc-mapping-code" tabindex="0" aria-label="字段映射代码，可横向滚动"><code>${esc(f.code)}</code></pre></div><div class="rc-unified"><div class="rc-section-heading"><h3>统一保存</h3><label>样例来源<select data-rc-saved-source aria-label="选择清洗后记录"><option value="reasoning"${source === 'reasoning'?' selected':''}>推理实验</option><option value="document_qa"${source === 'document_qa'?' selected':''}>文档问答</option></select></label></div>${savedRecord(source,f.id)}<p class="rc-format-note"><code>all_records.csv.gz</code><span>所有来源，按同一套字段与类型保存。</span></p></div></div><div class="rc-cleaning-rules">${d.rules.map(r=>`<article><h4>${esc(r.title)}</h4><p>${esc(r.text)}</p></article>`).join('')}</div><p class="rc-mapping-status" role="status" aria-live="polite">${esc(f.reasoningKey)} / ${esc(f.documentKey)} → ${esc(f.id)}</p><p class="rc-source-note rc-cleaning-provenance">${esc(d.projectionNote)} 统一文件实际为gzip压缩CSV；JSON仅为结构化阅读形式。</p>`;
-}
-
+const flowArrow = '<svg viewBox="0 0 40 24" aria-hidden="true"><path d="M2 12h32m-9-9 9 9-9 9" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>';
 export function renderCleaning(field = 'output_tokens', source = 'reasoning', view = 'csv') {
-  const f = researchContent.cleaning.fields.some(x=>x.id===field)?field:'output_tokens';
-  const s = Object.hasOwn(researchContent.cleaning.records,source)?source:'reasoning';
-  return `<section class="rc-cleaning" data-rc-cleaning data-field="${f}" data-source="${s}" data-view="csv">${cleaningBody(f,s)}</section>`;
+  const d=researchContent.cleaning;
+  return `<section class="rc-cleaning" data-rc-cleaning><figure class="rc-cleaning-figure" aria-labelledby="rc-cleaning-caption"><div class="rc-figure-legend"><span><i class="rc-legend-red" aria-hidden="true"></i>红色：同义异名字段</span><span><i class="rc-legend-blue" aria-hidden="true"></i>蓝色：统一字段与保存值</span><p>相同含义，不同名字；红色不表示数据错误。</p></div><div class="rc-cleaning-stage"><section class="rc-clean-panel rc-panel-a" aria-labelledby="rc-panel-a-title"><header><span class="rc-panel-letter" aria-hidden="true">A</span><h3 id="rc-panel-a-title">两种来源</h3></header><article class="rc-origin-block" data-rc-source="reasoning"><h4>推理实验 · 源表格</h4>${sourceFieldTable('reasoning')}</article><article class="rc-origin-block" data-rc-source="document_qa"><h4>文档问答 · API字段</h4>${sourceFieldTable('document_qa')}</article></section><div class="rc-stage-arrow" aria-hidden="true">${flowArrow}</div><section class="rc-clean-panel rc-panel-b" aria-labelledby="rc-panel-b-title"><header><span class="rc-panel-letter" aria-hidden="true">B</span><h3 id="rc-panel-b-title">统一字段与类型</h3></header><p class="rc-map-note">源表字段 / API末级字段</p><div class="rc-mapping-list">${d.fields.map(f=>`<article class="rc-mapping-row" data-rc-mapping="${esc(f.id)}"><div class="rc-map-origin"><mark class="rc-field-token">${esc(f.reasoningKey)}</mark><mark class="rc-field-token">${esc(f.documentKey.split('.').at(-1))}</mark></div><span class="rc-map-arrow" aria-hidden="true">${flowArrow}</span><div class="rc-map-target"><code>${esc(f.id)}</code><span>${esc(f.type)}</span></div><p>${esc(f.rule)}</p></article>`).join('')}</div></section><div class="rc-stage-arrow" aria-hidden="true">${flowArrow}</div><section class="rc-clean-panel rc-panel-c" aria-labelledby="rc-panel-c-title"><header><span class="rc-panel-letter" aria-hidden="true">C</span><h3 id="rc-panel-c-title">按同一结构保存</h3></header><p class="rc-map-note">两条已保存记录的9个关键字段</p>${unifiedRecordTable()}<p class="rc-record-note">模型名称归一，数值类型一致；不适用的位置字段保持null。</p></section></div><section class="rc-storage-summary" aria-label="统一格式与清洗原则"><div class="rc-storage-file"><span class="rc-panel-letter" aria-hidden="true">D</span><div><strong>统一落盘</strong><code>all_records.csv.gz</code><p>21个统一字段；每条物理响应保存一行。</p></div></div><div class="rc-cleaning-rules">${d.rules.map(r=>`<article><h4>${esc(r.title)}</h4><p>${esc(r.text)}</p></article>`).join('')}</div></section><figcaption id="rc-cleaning-caption"><strong>从不同来源，到同一份可分析的数据。</strong><span>${esc(d.projectionNote)} 实际保存格式为gzip压缩CSV。</span></figcaption></figure></section>`;
 }
 
 export function renderConclusion() {
@@ -691,24 +684,6 @@ export function cleaningSampleCSV() {
   return [d.headers.join(','),...Object.values(d.records).map(row=>d.headers.map(key=>csvCell(row[key])).join(','))].join('\r\n')+'\r\n';
 }
 export function bindContent(container, options = {}) {
-  function setMapping(change) {
-    const el=container.querySelector('[data-rc-cleaning]');if(!el)return;
-    const focused=document.activeElement;
-    const field=change.field||el.dataset.field||'output_tokens',source=change.source||el.dataset.source||'reasoning';
-    const focusField=focused?.dataset?.rcField,focusSource=focused?.hasAttribute?.('data-rc-saved-source');
-    el.dataset.field=field;el.dataset.source=source;el.dataset.view='csv';
-    el.innerHTML=cleaningBody(field,source);
-    if(focusField)el.querySelector(`[data-rc-field="${focusField}"]`)?.focus({preventScroll:true});
-    if(focusSource)el.querySelector('[data-rc-saved-source]')?.focus({preventScroll:true});
-    options.onFieldChange?.({field,source,view:'csv'});
-  }
-  function click(event) {
-    const button=event.target.closest('button[data-rc-field]');
-    if(button&&container.contains(button))setMapping({field:button.dataset.rcField});
-  }
-  function change(event) {
-    if(event.target.matches('[data-rc-saved-source]'))setMapping({source:event.target.value});
-  }
-  container.addEventListener('click',click);container.addEventListener('change',change);
-  return ()=>{container.removeEventListener('click',click);container.removeEventListener('change',change);};
+  // Research chapters are static presentation figures; no local controls to bind.
+  return () => {};
 }

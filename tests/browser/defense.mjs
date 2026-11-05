@@ -1,6 +1,6 @@
-/** Defense flow regression: BASE_URL=http://127.0.0.1:8771/ node tests/browser/defense.mjs. */
+/** Continuous defense page regression: BASE_URL=http://127.0.0.1:8771/ node tests/browser/defense.mjs. */
 import {createRequire} from 'node:module';
-import {mkdir,writeFile,readFile} from 'node:fs/promises';
+import {mkdir,writeFile} from 'node:fs/promises';
 import {existsSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {execFileSync} from 'node:child_process';
@@ -11,12 +11,14 @@ const AxeBuilder=require('@axe-core/playwright').default;
 const base=process.env.BASE_URL||'http://127.0.0.1:8771/';
 const out=resolve('artifacts/qa/defense');
 const screenshotsOut=process.env.DEFENSE_PREVIEW_DIR?resolve(process.env.DEFENSE_PREVIEW_DIR):resolve(out,'screenshots');
-await mkdir(out,{recursive:true});await mkdir(screenshotsOut,{recursive:true});
+await mkdir(out,{recursive:true});await mkdir(screenshotsOut,{recursive:true});await mkdir(resolve(out,'screenshots'),{recursive:true});
 const chrome=process.env.CHROMIUM_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const browser=await chromium.launch({headless:true,executablePath:existsSync(chrome)?chrome:undefined,args:['--no-sandbox']});
 const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce',acceptDownloads:true});
 const page=await context.newPage();
 const checks=[],errors=[],missing=[],screenshots=[],accessibility=[];
+const topics=['budget','scale','concise','limits','language','position','feedback'];
+const chapters=['question','collection','cleaning','findings','conclusion'];
 page.on('pageerror',error=>errors.push(error.message));
 page.on('response',response=>{if(response.status()>=400&&!response.url().endsWith('favicon.ico'))missing.push({url:response.url(),status:response.status()});});
 function assert(value,message){if(!value)throw Error(message);}
@@ -24,111 +26,92 @@ function record(name,pass,detail){checks.push({name,pass,detail});if(!pass)conso
 async function test(name,action){try{record(name,true,await action());}catch(error){record(name,false,{error:error.message});}}
 async function ready(){await page.waitForFunction(()=>document.body.dataset.view&&document.querySelector('#main-content h1')&&!document.querySelector('.initial-loading'));}
 async function open(query=''){await page.goto(new URL(query,base).href,{waitUntil:'domcontentloaded'});await ready();}
-async function imagesReady(){
-  const images=page.locator('#main-content img');
+async function imagesReady(root='#main-content'){
+  const images=page.locator(root+' img');
   for(let i=0;i<await images.count();i++){await images.nth(i).scrollIntoViewIfNeeded();await images.nth(i).evaluate(image=>image.decode());}
 }
-async function primaryReady(){await page.locator('#primary-figure > svg').waitFor();}
-async function shot(name,file){await imagesReady();await page.evaluate(()=>window.scrollTo(0,0));await page.evaluate(()=>document.fonts.ready);const path=resolve(screenshotsOut,file);await page.screenshot({path});screenshots.push({name,path});}
+async function shot(name,file,{fullPage=false,target=null,artifact=false}={}){
+  if(target){await imagesReady(target);await page.locator(target).evaluate(element=>window.scrollTo({top:element.getBoundingClientRect().top+scrollY-(document.querySelector('.site-header')?.getBoundingClientRect().height||0)-28,behavior:'instant'}));}
+  else {await imagesReady();await page.evaluate(()=>window.scrollTo(0,0));}
+  await page.evaluate(()=>document.fonts.ready);const path=resolve(artifact?resolve(out,'screenshots'):screenshotsOut,file);await page.screenshot({path,fullPage});screenshots.push({name,path});
+}
 async function axe(name){const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();const findings=result.violations.map(item=>({id:item.id,impact:item.impact,nodes:item.nodes.map(node=>({target:node.target,summary:node.failureSummary}))}));accessibility.push({name,violations:findings});record(name+' accessibility',findings.length===0,findings);}
-const scenes=[['question'],['collection'],['cleaning'],['findings','overview'],...['budget','scale','concise','limits','language','position','feedback'].map(topic=>['findings',topic]),['conclusion']];
-const query=([chapter,topic])=>'?chapter='+chapter+(topic&&topic!=='overview'?'&topic='+topic:'');
-
+async function assertChrome(){
+  assert(await page.locator('.research-rail,aside[aria-label="当前研究路径"],.page-footer,#page-progress,.scene-next,.scene-previous').count()===0,'Old navigation remains in DOM');
+  assert(await page.locator('#chapter-nav a').count()===5,'Chapter nav count differs');
+  assert(await page.locator('.site-header a').count()===6,'Header has unrelated links');
+  assert(await page.locator('#main-content a,#main-content button,#main-content select,#main-content details').count()===0,'Body exposes unnecessary actions or hidden disclosure');
+}
 try{
   await open();
   const catalog=await page.evaluate(async()=>await(await fetch('data/research-charts.json')).json());
   const content=await page.evaluate(async()=>await import('./src/research-content.js').then(module=>module.researchContent));
-  await test('root opens five-orb home with chapter chrome hidden',async()=>{
-    assert(await page.locator('.rh-orb:visible').count()===5,'Home does not expose exactly5 orbs');
-    assert(!await page.locator('.site-header').isVisible()&&!await page.locator('.page-footer').isVisible(),'Chapter chrome appears on home');
-    const visibleLinks=await page.locator('a:visible').evaluateAll(links=>links.filter(link=>{const b=link.getBoundingClientRect();return b.bottom>0&&b.right>0&&b.top<innerHeight&&b.left<innerWidth;}).map(link=>link.textContent.trim()));
-    assert(visibleLinks.length===5,'Home shows links outside its5 chapter orbs');return visibleLinks;
+  await test('root opens exactly five orb links without chapter chrome or footer',async()=>{
+    assert(await page.locator('.rh-orb:visible').count()===5,'Home does not expose exactly5 orbs');assert(!await page.locator('.site-header').isVisible(),'Chapter chrome appears on home');assert(await page.locator('.page-footer,#page-progress').count()===0,'Footer still exists');
+    const visibleLinks=await page.locator('a:visible').evaluateAll(links=>links.filter(link=>{const b=link.getBoundingClientRect();return b.bottom>0&&b.right>0&&b.top<innerHeight&&b.left<innerWidth;}).map(link=>link.textContent.trim()));assert(visibleLinks.length===5,'Home exposes extra links');return visibleLinks;
   });
   await test('five orbs enter five chapters and brand restores home',async()=>{
-    const chapters=['question','collection','cleaning','findings','conclusion'];
-    for(const chapter of chapters){await page.locator('[data-home-chapter="'+chapter+'"]').click();await page.waitForFunction(chapter=>document.body.dataset.chapter===chapter,chapter);assert(await page.locator('#main-content h1').isVisible(),chapter+' title missing');await page.locator('[data-home-link]').click();await page.locator('.rh-orb').first().waitFor();}
-    return chapters;
+    for(const chapter of chapters){await page.locator('[data-home-chapter="'+chapter+'"]').click();await page.waitForFunction(chapter=>document.body.dataset.chapter===chapter,chapter);await assertChrome();await page.locator('[data-home-link]').click();await page.locator('.rh-orb').first().waitFor();}return chapters;
   });
-  await test('home and chapter survive Back and refresh',async()=>{
-    await page.locator('[data-home-chapter="cleaning"]').click();await page.locator('[data-rc-cleaning]').waitFor();const before=page.url();await page.reload();await page.locator('[data-rc-cleaning]').waitFor();assert(page.url()===before,'Refresh lost cleaning route');await page.goBack();await page.locator('.research-home').waitFor();await page.reload();await page.locator('.research-home').waitFor();return true;
+  await test('home and cleaning survive Back and refresh',async()=>{
+    await page.locator('[data-home-chapter="cleaning"]').click();await page.locator('.rc-cleaning-figure').waitFor();const before=page.url();await page.reload();await page.locator('.rc-cleaning-figure').waitFor();assert(page.url()===before,'Refresh lost cleaning route');await page.goBack();await page.locator('.research-home').waitFor();await page.reload();await page.locator('.research-home').waitFor();return true;
   });
-  await axe('home desktop');await shot('home','答辩版_首页.png');
   await open('?chapter=question');
-  await test('question shows all three task examples without controls or cross-chapter CTA',async()=>{
-    assert(await page.locator('.rc-task-example:visible').count()===3,'Tasks are hidden behind tabs');
-    assert(await page.locator('#main-content button,#main-content a').count()===0,'Question has unnecessary interactive CTA');
-    assert(await page.locator('.rc-task-example h3').count()===3,'Three task names missing');return await page.locator('.rc-task-example h3').allTextContents();
-  });
-  await axe('question desktop');await shot('question','答辩版_研究问题.png');
+  await test('question directly shows three task examples without controls',async()=>{assert(await page.locator('.rc-task-example:visible').count()===3,'Tasks hidden behind tabs');await assertChrome();return await page.locator('.rc-task-example h3').allTextContents();});
   await open('?chapter=collection');
-  await test('collection shows four dimensions and31 strategies directly',async()=>{
-    assert(await page.locator('.rc-dimension').count()===4,'Dimension count mismatch');assert(await page.locator('.rc-prompt-item:visible').count()===31,'Strategy catalogue is not fully visible');assert(await page.locator('#main-content details,#main-content button,#main-content a').count()===0,'Collection content is hidden or exposes detours');assert(await page.locator('.rc-experiment-table tbody tr').count()===5,'Experiment ledger count mismatch');return {dimensions:4,prompts:31,records:content.totalRecords};
+  await test('collection directly shows four dimensions,31 strategies and five experiments',async()=>{
+    assert(await page.locator('.rc-dimension').count()===4,'Dimension count mismatch');assert(await page.locator('.rc-prompt-item:visible').count()===31,'Catalogue is not fully visible');assert(await page.locator('.rc-experiment-table tbody tr').count()===5,'Experiment count mismatch');await assertChrome();assert(content.totalRecords===248586,'Record total changed');return {dimensions:4,prompts:31,records:content.totalRecords};
   });
   await open('?chapter=cleaning');
-  await test('cleaning exposes only four field switches and one record source',async()=>{
-    assert(await page.locator('#main-content button').count()===4,'Unexpected cleaning buttons');assert(await page.locator('#main-content select').count()===1,'Unexpected cleaning select');assert(await page.locator('#main-content a').count()===0,'Cleaning has cross links');return true;
+  await test('cleaning is a static A/B/C/D figure without buttons, selects, links or disclosure',async()=>{
+    await assertChrome();for(const selector of ['.rc-panel-a','.rc-panel-b','.rc-panel-c','.rc-storage-summary'])assert(await page.locator(selector).isVisible(),'Missing panel '+selector);assert(await page.locator('[data-rc-source]').count()===2,'Sources missing');assert(await page.locator('[data-rc-mapping]').count()===4,'Four mappings missing');return {sources:2,mappings:4,panels:4};
   });
-  await test('all four mappings and saved nine keys match both frozen records',async()=>{
-    const keys=['model_id','benchmark','input_tokens','output_tokens','finish_reason','metric_name','metric_value','document_count','evidence_position'];
-    for(const field of content.cleaning.fields){await page.locator('[data-rc-field="'+field.id+'"]').click();await page.locator('[data-rc-cleaning][data-field="'+field.id+'"]').waitFor();assert(await page.locator('.rc-source-fragment .rc-field-token.is-active').count()===2,'Two source fields not marked for '+field.id);assert(await page.locator('.rc-saved-table tr.is-active code').innerText()===field.id,'Wrong saved field is selected');}
-    for(const source of ['reasoning','document_qa']){
-      await page.locator('[data-rc-saved-source]').selectOption(source);
-      const rows=await page.locator('.rc-saved-table tbody tr').evaluateAll(rows=>rows.map(row=>[row.querySelector('code').textContent,row.cells[1].textContent.trim()]));
-      assert(rows.length===9,'Saved key count is not9');
-      for(const [index,[key,value]]of rows.entries()){assert(key===keys[index],'Key order differs');assert(value===String(content.cleaning.records[source][key]),source+' saved '+key+' differs');}
-    }
-    await page.locator('[data-rc-field="output_tokens"]').click();await page.locator('[data-rc-saved-source]').selectOption('reasoning');return {fields:4,sources:2,keys:9};
+  await test('all four source-name mappings are simultaneously visible and marked red',async()=>{
+    for(const source of ['reasoning','document_qa']){const marks=page.locator('[data-rc-source="'+source+'"] .rc-field-token');assert(await marks.count()===4,'Four red source fields missing for '+source);const colors=await marks.evaluateAll(nodes=>nodes.map(node=>getComputedStyle(node).color));assert(colors.every(color=>{const [r,g,b]=color.match(/[0-9.]+/g).map(Number);return r>g*1.5&&r>b*1.2;}),'Source fields are not visually red: '+source);}
+    for(const field of content.cleaning.fields){const mapping=page.locator('[data-rc-mapping="'+field.id+'"]');assert(await mapping.isVisible(),'Mapping is hidden: '+field.id);const text=await mapping.innerText();assert(text.includes(field.id),'Canonical field missing '+field.id);assert(text.includes(field.reasoningKey)&&text.includes(field.documentKey.split('.').at(-1)),'Source names missing '+field.id);const sourceText=await page.locator('[data-rc-source="document_qa"]').textContent();assert(sourceText.includes(field.documentKey),'Full API path missing '+field.id);}
+    return content.cleaning.fields.map(field=>field.id);
   });
-  await axe('cleaning desktop');await shot('cleaning','答辩版_数据处理.png');
+  await test('both unified records simultaneously match all nine saved keys',async()=>{
+    const keys=['model_id','benchmark','input_tokens','output_tokens','finish_reason','metric_name','metric_value','document_count','evidence_position'];assert(await page.locator('.rc-combined-records [data-rc-record]').count()===2,'Two record columns missing');assert(await page.locator('[data-rc-saved-field]').count()===9,'Saved key count differs');
+    for(const key of keys)for(const source of ['reasoning','document_qa']){const cell=page.locator('[data-rc-saved-field="'+key+'"] [data-source="'+source+'"]');assert(await cell.isVisible(),'Saved value hidden '+source+'/'+key);assert((await cell.innerText()).trim()===String(content.cleaning.records[source][key]),'Saved value differs '+source+'/'+key);}
+    const storage=await page.locator('.rc-storage-summary').innerText();assert(storage.includes('all_records.csv.gz')&&storage.includes('21'),'Saved file/format not disclosed');return {keys:9,records:2};
+  });
+  await shot('static cleaning figure','滚动版_数据处理Figure.png',{fullPage:true});
   await open('?chapter=findings');
-  await test('findings overview shows static four general and three specific findings',async()=>{
-    const groups=page.locator('.finding-group');assert(await groups.count()===2,'Findings groups missing');assert(await groups.nth(0).locator('li').count()===4&&await groups.nth(1).locator('li').count()===3,'4+3 structure changed');assert(await page.locator('#main-content a,#main-content button').count()===0,'Overview contains detours');return {general:4,specific:3};
+  await test('findings is one continuous article with four general and three task sections',async()=>{
+    assert(await page.locator('.findings-long-page').count()===1,'Continuous findings article missing');const parts=page.locator('.findings-part');assert(await parts.count()===2,'General/specific grouping differs');assert(await parts.nth(0).locator('[data-topic]').count()===4&&await parts.nth(1).locator('[data-topic]').count()===3,'4+3 sections differ');assert(JSON.stringify(await page.locator('[data-topic]').evaluateAll(nodes=>nodes.map(node=>node.dataset.topic)))===JSON.stringify(topics),'Theme order changed');assert(await page.locator('.finding-group').nth(0).locator('li').count()===4&&await page.locator('.finding-group').nth(1).locator('li').count()===3,'Static overview count differs');await assertChrome();return topics;
   });
-  await axe('overview desktop');
-  await test('sequential defense path reaches all seven themes with all37 inline figures',async()=>{
-    let figures=0;const ids=[];
-    for(const topic of ['budget','scale','concise','limits','language','position','feedback']){
-      await page.locator('.scene-next').click();await page.waitForFunction(topic=>new URLSearchParams(location.search).get('topic')===topic,topic);await primaryReady();
-      assert(await page.locator('.main-figure').count()===1,'Missing main plot '+topic);
-      assert(await page.locator('#main-content button,#main-content select,#main-content a').count()===0,'Theme '+topic+' exposes unnecessary controls');
-      await imagesReady();const displayed=await page.locator('[data-chart-id]').evaluateAll(plots=>plots.map(plot=>plot.dataset.chartId));
-      const expected=catalog.charts.filter(chart=>chart.topic===topic).map(chart=>chart.id);assert(expected.every(id=>displayed.includes(id))&&displayed.length===expected.length,'Theme '+topic+' lost charts');
-      figures+=displayed.length;ids.push(...displayed);
-    }
-    assert(figures===37&&new Set(ids).size===37,'Complete theme flow does not show37 figures');
-    await page.locator('.scene-next').click();await page.locator('.rc-conclusion').waitFor();return {themes:7,figures};
+  await test('all37 charts are in the same DOM and decode during one continuous scroll',async()=>{
+    const before=page.url(),plots=page.locator('.findings-long-page [data-chart-id]'),actual=await plots.evaluateAll(nodes=>nodes.map(node=>node.dataset.chartId));assert(actual.length===37&&new Set(actual).size===37,'Not37 unique plots');assert(catalog.charts.every(chart=>actual.includes(chart.id)),'Catalogue figure absent');assert(await page.locator('.main-figure img').count()===7&&await page.locator('.support-figure img').count()===30,'Main/support figure counts differ');
+    await imagesReady('.findings-long-page');const loaded=await plots.locator('img').evaluateAll(images=>images.every(image=>image.complete&&image.naturalWidth>0));assert(loaded,'Image did not load');assert(page.url()===before,'Scrolling changed route');const height=await page.evaluate(()=>document.documentElement.scrollHeight);assert(height>10000,'Findings did not form a long article');return {charts:37,main:7,support:30,height,url:before};
   });
-  await test('chapter chrome has five links, brand and exactly two sequential links',async()=>{
-    assert(await page.locator('.research-rail,aside[aria-label="当前研究路径"]').count()===0,'Sidebar still exists');assert(await page.locator('#chapter-nav a').count()===5,'Chapter nav count differs');assert(await page.locator('.site-header a').count()===6,'Header has unrelated links');assert(await page.locator('.page-footer a').count()===2,'Footer has unrelated links');assert(await page.locator('#main-content a,#main-content button').count()===0,'Conclusion contains unnecessary actions');return true;
+  await test('PageDown scrolls without changing chapter or hiding findings',async()=>{
+    await page.evaluate(()=>window.scrollTo(0,0));await page.locator('#main-content h1').click();const before=page.url();await page.keyboard.press('PageDown');await page.waitForFunction(()=>scrollY>200);assert(page.url()===before,'Native scrolling changed route');assert(await page.locator('[data-topic]').count()===7,'Scroll replaced article content');return true;
   });
-  await axe('conclusion desktop');
-  await open('?chapter=findings&topic=budget');await primaryReady();await axe('budget desktop');await shot('budget','答辩版_核心发现.png');
-  await test('left and right arrows advance sequentially from body focus',async()=>{
-    await page.locator('h1').click();await page.keyboard.press('ArrowRight');await page.waitForFunction(()=>new URLSearchParams(location.search).get('topic')==='scale');await primaryReady();await page.locator('h1').click();await page.keyboard.press('ArrowLeft');await page.waitForFunction(()=>new URLSearchParams(location.search).get('topic')==='budget');await primaryReady();return true;
+  await test('left and right arrow keys never navigate chapters',async()=>{
+    for(const chapter of ['question','cleaning','findings','conclusion']){await open('?chapter='+chapter);await page.locator('#main-content h1').click();const before=page.url();await page.keyboard.press('ArrowRight');await page.keyboard.press('ArrowLeft');await page.waitForTimeout(60);assert(page.url()===before,'Arrow key changed '+chapter+' route');}return true;
   });
+  await test('legacy topic URLs preserve all seven sections and37 charts',async()=>{
+    for(const topic of ['budget','position','feedback']){await open('?chapter=findings&topic='+topic);assert(await page.locator('[data-topic]').count()===7&&await page.locator('[data-chart-id]').count()===37,'Legacy URL cut the article: '+topic);assert(await page.locator('.section-intro h1').innerText()==='先看总体关系，再进入具体任务。','Legacy topic replaced chapter heading');}return true;
+  });
+  await open('?chapter=findings');await shot('findings structure','滚动版_发现结构.png');await shot('budget graph in continuous article','滚动版_核心发现.png',{target:'#finding-budget'});assert(page.url().endsWith('?chapter=findings'),'Figure screenshot altered route');
   for(const width of [1440,1000,768,390]){
     await page.setViewportSize({width,height:width===390?844:1000});
-    for(const route of ['',...scenes.map(query)]){
-      await open(route);if(route.includes('&topic='))await primaryReady();
-      await test(width+' no whole-page horizontal overflow '+(route||'home'),async()=>{const dimensions=await page.evaluate(()=>({viewport:innerWidth,scroll:document.documentElement.scrollWidth,body:document.body.scrollWidth}));assert(dimensions.scroll<=dimensions.viewport+1&&dimensions.body<=dimensions.viewport+1,JSON.stringify(dimensions));return dimensions;});
+    for(const chapter of ['home',...chapters]){
+      await open(chapter==='home'?'':'?chapter='+chapter);
+      await test(width+' no whole-page horizontal overflow '+chapter,async()=>{const dimensions=await page.evaluate(()=>({viewport:innerWidth,scroll:document.documentElement.scrollWidth,body:document.body.scrollWidth}));assert(dimensions.scroll<=dimensions.viewport+1&&dimensions.body<=dimensions.viewport+1,JSON.stringify(dimensions));return dimensions;});
+      await axe(width+' '+chapter);
     }
   }
-  await open();await axe('home phone');await shot('home phone','答辩版_首页_手机.png');
-  await open('?chapter=cleaning');await axe('cleaning phone');await shot('cleaning phone','答辩版_数据处理_手机.png');
-  await open('?chapter=findings&topic=budget');await primaryReady();await axe('budget phone');await shot('budget phone','答辩版_核心发现_手机.png');
-  await page.setViewportSize({width:1440,height:1000});
-  await open('?chapter=atlas');
-  await test('separate archive retains37 editable plots and legacy interactive explorer',async()=>{
-    assert(await page.locator('.atlas-grid [data-chart-id]').count()===37,'Archive is missing figures');
-    await page.locator('[data-x-field="chart"]').waitFor({timeout:30000});assert(await page.locator('[data-x-field="chart"] option').count()===13,'Legacy13 chart types missing');
-    const archive=await page.request.get(new URL('assets/research-svg.zip',base).href);assert(archive.ok(),'SVG archive missing');return {figures:37,interactiveTypes:13};
+  await open('?chapter=cleaning');await shot('static cleaning phone','静态清洗Figure_手机.png',{fullPage:true,artifact:true});
+  await open('?chapter=findings');await shot('continuous article phone','长页核心发现_手机.png',{target:'#finding-budget',artifact:true});
+  await page.setViewportSize({width:1440,height:1000});await open('?chapter=atlas');
+  await test('separate archive retains37 editable plots and13 interactive chart types',async()=>{
+    assert(await page.locator('.atlas-grid [data-chart-id]').count()===37,'Archive missing figures');await page.locator('[data-x-field="chart"]').waitFor({timeout:30000});assert(await page.locator('[data-x-field="chart"] option').count()===13,'Legacy13 chart types missing');const archive=await page.request.get(new URL('assets/research-svg.zip',base).href);assert(archive.ok(),'SVG archive missing');return {figures:37,interactiveTypes:13};
   });
   await test('scientific protection remains intact',async()=>execFileSync('python3',['scripts/system/check_reconstruction.py'],{encoding:'utf8'}).trim());
 }catch(error){record('unexpected runner failure',false,{error:error.stack});}
 finally{
   await browser.close();record('no uncaught browser errors',errors.length===0,errors);record('no missing resources',missing.length===0,missing);
-  const report={baseURL:base,checks:checks.length,passed:checks.filter(check=>check.pass).length,failed:checks.filter(check=>!check.pass),errors,missing,accessibility,screenshots,results:checks};
-  await writeFile(resolve(out,'report.json'),JSON.stringify(report,null,2)+'\n');
-  console.log(JSON.stringify({checks:report.checks,passed:report.passed,failed:report.failed.length,report:resolve(out,'report.json')}));
-  if(report.failed.length)process.exitCode=1;
+  const report={baseURL:base,checks:checks.length,passed:checks.filter(check=>check.pass).length,failed:checks.filter(check=>!check.pass),errors,missing,accessibility,screenshots,results:checks};await writeFile(resolve(out,'report.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({checks:report.checks,passed:report.passed,failed:report.failed.length,report:resolve(out,'report.json')}));if(report.failed.length)process.exitCode=1;
 }

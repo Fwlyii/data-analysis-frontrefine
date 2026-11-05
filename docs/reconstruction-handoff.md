@@ -1,12 +1,12 @@
 # 知微答辩展示版交接
 
-首页恢复深海蓝知微五气泡。五颗气泡进入研究问题、采集设计、数据处理、核心发现、总结与反思。正文只保留五章顶导航和上一段／下一段；可用左右方向键依序讲述。品牌返回五气泡首页。
+首页恢复深海蓝知微五气泡。五颗气泡进入研究问题、采集设计、数据处理、核心发现、总结与反思。正文只保留五章顶导航，页底翻页与左右键跳章均已删除。品牌返回五气泡首页。
 
 ## 展示结构
 
-研究问题由总问题分到数学、文档、代码三任务，三组案例同时展示。采集页直接展示四维和31种真实策略。清洗页沿红色同义异名字段、映射规则、保存CSV关键字段展开；保留四字段切换与一个记录来源选择。
+研究问题由总问题分到数学、文档、代码三任务，三组案例同时展示。采集页直接展示四维和31种真实策略。清洗页为完整静态Figure：A两来源字段，B四组映射规则，C两条统一保存记录，D统一21列CSV格式与保存原则。所有部分同时可见，没有按钮、选择框或折叠。
 
-发现部分先展示四总体、三专项的静态结构，然后顺序进入七组证据：Token边际收益、模型规模、简洁表达、限长反弹、数学语言、文档位置、代码反馈。每组为结论标题、大图和旁侧解读，下接全部辅助对照。37张SVG全部保留。
+核心发现是一个连续长页面，先展示四总体、三专项的静态结构，然后向下阅读七组证据：Token边际收益、模型规模、简洁表达、限长反弹、数学语言、文档位置、代码反馈。每组为结论标题、大图和旁侧解读，下接全部辅助对照。37张SVG全部保留。
 
 正文不再放置“查看对应专项”、交叉推荐、每图SVG/CSV按钮、“设为主图”、格式切换、独立图册入口和探索按钮。图形来源与条件在图稿内保留，研究细节随正文阅读，不依赖多层展开。
 
@@ -15,14 +15,14 @@
 | 内容 | 文件 |
 |---|---|
 | 首页五气泡 | `app/src/research-home.js`、`app/research-home.css` |
-| 主壳、五章路由、12段顺序 | `app/index.html`、`app/src/research.js`、`app/research.css` |
+| 主壳、五章路由、发现长页 | `app/index.html`、`app/src/research.js`、`app/research.css` |
 | 三任务、31策略、清洗、总结 | `app/src/research-content.js`、`app/research-content.css` |
 | 37张科学SVG与目录 | `app/assets/research/`、`app/data/research-charts.json` |
 | 图稿生成器 | `scripts/figures/build_research_atlas.py` |
 | 保留的完整探索 | `app/src/research-explorer.js`、`app/research-explorer.css` |
 | 专项匿名记录模块与快照 | `app/src/research-special-records.js`、`app/data/special-records.json.gz` |
 
-`renderHome()`返回首页HTML；`mountHome(container,{onNavigate})`返回清理函数。内容模块保留 `renderQuestion()`、`renderCollection()`、`renderCleaning(field,source)`、`renderConclusion()` 与 `bindContent(container,callbacks)`。离开模块前释放其事件。
+`renderHome()`返回首页HTML；`mountHome(container,{onNavigate})`返回清理函数。内容模块保留 `renderQuestion()`、`renderCollection()`、`renderCleaning()`、`renderConclusion()` 与 `bindContent(container,callbacks)`。离开模块前释放其事件。
 
 图稿资源页通过 `?chapter=atlas` 直接访问，保留逐图SVG／CSV、完整图包与原有13类通用图、4个代码生成视图。该页面服务研究与素材准备，主答辩页面不摆额外按钮。专项匿名记录模块继续作为数据能力保留，未删除快照。
 
@@ -30,7 +30,7 @@
 
 - 248,586条是物理响应；9,176条专项记录已在其中。
 - 四维是策略标签，31种是实际清单，不是完整笛卡尔组合。
-- CSV（gzip压缩）为实际统一保存格式；清洗页展示同一21列CSV中的9个关键字段。完整行仍保留在数据对象及CSV helper中。
+- CSV（gzip压缩）为实际统一保存格式；清洗页同时展示两条21列CSV记录的关键字段与统一类型。完整行仍保留在数据对象及CSV helper中。
 - 源字段片段由真实清洗代码重建所需字段视图，数值来自同条已保存记录；不冒充原API响应全文。
 - 不混合任务评分。模型未知参数不填0，拟合线不改为实测线。
 - 五次独立生成、反馈修复轮次、HTTP请求重试分别解释。共同修复初稿只计一次。
