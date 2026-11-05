@@ -54,12 +54,14 @@ function limits(catalog){
   body+=text(344,239,'字母上限 100 → 10，实际输出约 '+n(points[2].y/points[0].y)+' 倍','text-anchor="middle" class="gold"');
   return svg('DeepSeek MATH500三档字母限制，限制更紧时输出反弹',body);
 }
-export function renderOceanOverview(catalog,feedbackPublished){
+export function renderOceanOverview(catalog,feedbackPublished,options={}){
   const cards=[
     ['cyan','(a) Token投入与边际收益','Qwen2.5 / GSM8K / 每条件200题',budget(catalog),'输出增加，边际收益逐渐放缓'],
     ['teal','(b) 模型规模与任务表现','DefaultCoT / 每题库200题',scale(catalog),'模型有任务差异，规模效应需更多尺度验证'],
-    ['purple','(c) 简洁思考：压缩Token，保持质量','Qwen2.5 / GSM8K',concise(catalog),'17组输出全部缩短，15组评分持平或提高'],
-    ['gold','(d) 过紧限制触发输出反弹','DeepSeek / MATH500',limits(catalog),'提示中的上限，并不等于实际输出长度']
+    ['purple','(c) 简洁思考：压缩Token，保持质量','Qwen2.5 / GSM8K',concise(catalog),'17组输出全部缩短，15组评分点估计持平或提高'],
+    ['gold','(d) 过紧限制触发输出反弹','DeepSeek / MATH500 · 三档示例',limits(catalog),'提示中的上限，并不等于实际输出长度']
   ];
-  return `<section class="topic-overview ocean-overview" aria-label="四个总体规律与三个任务专项"><svg class="ocean-defs" aria-hidden="true"><defs>${[['blue','#8acbff','#39759c'],['teal','#83ebd6','#298a84'],['gold','#f4cf84','#997b3b']].map(([id,a,b])=>`<linearGradient id="ocean-bar-${id}" x2=".3" y2="1"><stop stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient>`).join('')}</defs></svg><div class="finding-group ocean-general"><h2 class="ocean-visually-hidden">总体规律</h2><ol>${cards.map(([theme,title,scope,chart,result])=>`<li class="ocean-card optical-panel theme-${theme}" tabindex="0" aria-label="${esc(title)}，图形可横向滚动"><header><h3>${title}</h3><p>${scope}</p></header>${chart}<p class="ocean-result"><span>结果</span>${result}</p></li>`).join('')}</ol></div><div class="finding-group ocean-task-overview"><h2>回到具体任务<span>三项专项，沿任务特性继续追问</span></h2><ol><li><span>01 / 数学</span><h3>中英文作答模板</h3><p>MATH500：四模型更短，三模型提分。</p></li><li><span>02 / 文档</span><h3>关键证据的位置</h3><p>九个实测位置，观察模型差距如何改变。</p></li><li><span>03 / 代码</span><h3>执行反馈与修复</h3><p>${feedbackPublished?'六种反馈，三份初稿，完整保留测试。':'从相同初稿出发，观察反馈后的真实修改。'}</p></li></ol></div></section>`;
+  const ids=['budget','scale','concise','limits'],sources=['budget-log-gsm8k','scale-known-parameters','concise-baseline','limits-rebound-main'];
+  const taskOverview=options.includeTasks===false?'':`<div class="finding-group ocean-task-overview"><h2>回到具体任务<span>三项专项，沿任务特性继续追问</span></h2><ol><li><span>01 / 数学</span><h3>中英文作答模板</h3><p>MATH500：四模型更短，三模型提分。</p></li><li><span>02 / 文档</span><h3>关键证据的位置</h3><p>九个实测位置，观察模型差距如何改变。</p></li><li><span>03 / 代码</span><h3>执行反馈与修复</h3><p>${feedbackPublished?'六种反馈，三份初稿，完整保留测试。':'从相同初稿出发，观察反馈后的真实修改。'}</p></li></ol></div>`;
+  return `<section class="topic-overview ocean-overview" aria-label="四个总体规律"><svg class="ocean-defs" aria-hidden="true"><defs>${[['blue','#8acbff','#39759c'],['teal','#83ebd6','#298a84'],['gold','#f4cf84','#997b3b']].map(([id,a,b])=>`<linearGradient id="ocean-bar-${id}" x2=".3" y2="1"><stop stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient>`).join('')}</defs></svg><div class="finding-group ocean-general"><h2 class="ocean-visually-hidden">总体规律</h2><ol>${cards.map(([theme,title,scope,chart,result],index)=>`<li class="ocean-card optical-panel theme-${theme}" ${options.markTopics?`id="finding-${ids[index]}" data-topic="${ids[index]}" data-source-chart="${sources[index]}"`:''} tabindex="0" aria-label="${esc(title)}，图形可横向滚动"><header><h3>${title}</h3><p>${scope}</p></header>${chart}<p class="ocean-result"><span>结果</span>${result}</p></li>`).join('')}</ol></div>${taskOverview}</section>`;
 }

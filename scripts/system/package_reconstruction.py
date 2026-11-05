@@ -258,9 +258,9 @@ GUIDE = '''知微展示系统 · 研究内容重构版
 总体四项：Token与质量的log关系、模型规模、简洁表达、限长反弹。
 专项三项：数学中英文模板、文档证据位置、代码执行反馈。
 首页保留知微五气泡；正文只有五章顶导航，页底前后翻页和左右键跳章均已删除。
-核心发现为一个完整长页面，四总体与三专项的37张图直接向下阅读。
-37张中文SVG以主图与辅助对照直接呈现，无逐图工具按钮。
-完整图稿、SVG/CSV导出与13类通用交互图、4个代码生成视图保留在 ?chapter=atlas。
+核心发现按四组连续图板阅读，桌面约3–4屏：四总体、数学与文档、代码统计、真实修改案例。
+主线原生SVG直接读取冻结图册和发布快照，无逐图工具按钮或内跳。
+完整37张原图、7张补充图、4个完整案例，以及SVG/CSV导出、13类通用图和4个代码视图保留在 ?chapter=atlas。
 清洗演示为一张完整静态Figure：A两来源四字段同时红标，B四组映射，C两条统一记录，D统一保存规则。
 没有字段按钮、来源选择框或格式切换；完整21列数据仍保留。
 专项9,176条匿名记录来自248,586条物理响应中的对应子集，不额外累计。
@@ -272,6 +272,7 @@ GUIDE = '''知微展示系统 · 研究内容重构版
 网站/src/research-content.js、research-content.css：中文章节、四维31策略和清洗演示。
 网站/research-ocean.css、research-content-ocean.css：深海光学玻璃v5的全局材质与内容图解。
 网站/src/research-ocean-summary.js：由同一冻结目录数值绘制四项总体发现概览。
+网站/src/research-findings-compact.js、research-findings-compact.css：3–4屏主线、数学与文档的原生科研图。
 网站/assets/visual/ocean-optics-v5.png：从用户参考图提取的干净背景；提示词与来源随素材保留。
 网站/src/research-explorer.js、research-explorer.css：13类交互图、4代码视图。
 网站/src/research-special-records.js：位置和修复匿名记录。

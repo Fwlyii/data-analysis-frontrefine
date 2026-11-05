@@ -133,6 +133,102 @@ function publicOutcome(report) {
   return status + checked + scan;
 }
 function strongOutcome(value) { return value === true ? '通过' : value === false ? '失败' : '未做强测'; }
+
+const COMPACT_ARMS = [
+  ['resample','独立重采样','#b5c7d0'],['self_review','自行检查','#f4cf84'],
+  ['pass_fail','仅通过状态','#76ccff'],['diagnostic','错误定位诊断','#d6c3ff'],
+  ['counterexample','单个失败反例','#ff967f'],['multi_counterexample','多个失败反例','#61e6d3'],
+];
+
+function compactEndpointFigure(evidence, figures, prefix) {
+  const figure=(Array.isArray(figures)?figures:figures.figures).find(row=>row.id==='strong-endpoints');
+  const extentValues=evidence.summary.flatMap(row=>[row.initial_rate,row.final_rate,...(Array.isArray(row.final_ci)?row.final_ci:[])]).filter(finite);
+  const axisMinimum=extentValues.length?Math.max(0,Math.floor((Math.min(...extentValues)*100-5)/10)*10):0;
+  const axisMaximum=extentValues.length?Math.min(100,Math.ceil((Math.max(...extentValues)*100+5)/10)*10):100;
+  const text=(x,y,value,size=13,fill='#f5fbff',anchor='start',weight=400)=>`<text x="${x}" y="${y}" font-size="${size}" fill="${fill}" text-anchor="${anchor}" font-weight="${weight}">${esc(value)}</text>`;
+  const line=(x1,y1,x2,y2,color='#315361',width=1)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="${width}"/>`;
+  const circle=(x,y,r,fill,stroke)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="1.6"/>`;
+  const panels=evidence.models.map((model,index)=>{
+    const offset=index*550,x=v=>offset+153+(v*100-axisMinimum)/(axisMaximum-axisMinimum||1)*242;
+    let body=text(offset+18,29,modelLabel(evidence,model),18,'#f5fbff','start',600);
+    for(let tick=axisMinimum;tick<=axisMaximum;tick+=10)body+=line(x(tick/100),58,x(tick/100),236)+text(x(tick/100),49,tick+'%',11,'#b5d1de','middle');
+    COMPACT_ARMS.forEach(([arm,label,color],i)=>{
+      const row=evidence.summary.find(row=>row.model===model&&row.arm===arm);if(!row)return;
+      const y=78+i*29;
+      body+=`<g data-model="${esc(model)}" data-arm="${arm}" data-initial-rate="${row.initial_rate}" data-final-rate="${row.final_rate}" data-final-ci-low="${row.final_ci?.[0]??''}" data-final-ci-high="${row.final_ci?.[1]??''}">`;
+      body+=text(offset+18,y+4,label,13);
+      if(finite(row.initial_rate)&&finite(row.final_rate))body+=line(x(row.initial_rate),y,x(row.final_rate),y,color,2.2)+circle(x(row.initial_rate),y,4,'#042735','#b5d1de')+circle(x(row.final_rate),y,4.5,color,color);
+      if(Array.isArray(row.final_ci)&&row.final_ci.length===2&&row.final_ci.every(finite)){
+        const [low,high]=row.final_ci;body+=line(x(low),y,x(high),y,color,1.3)+line(x(low),y-4,x(low),y+4,color,1.3)+line(x(high),y-4,x(high),y+4,color,1.3);
+      }
+      body+=text(offset+529,y+4,`${number(row.final_success)}/${number(row.programs)} · ${rate(row.final_rate)}`,13,color,'end',500);
+      body+='</g>';
+    });
+    return body;
+  }).join('');
+  return `<figure class="fex-compact-figure" data-source-svg="${esc(prefix+figure.file)}"><div class="fex-compact-plot" tabindex="0" role="region" aria-label="双模型终稿图，窄屏可横向滚动"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 278" width="1100" height="278" role="img" aria-labelledby="fex-compact-chart-title fex-compact-chart-desc" data-fex-figure="strong-endpoints" data-axis-min="${axisMinimum}" data-axis-max="${axisMaximum}" data-source-svg="${esc(prefix+figure.file)}"><title id="fex-compact-chart-title">两模型、六种反馈的终稿完整测试通过率</title><desc id="fex-compact-chart-desc">每组492份程序，来自164道独立题与每题三份初稿。空心点为共同初稿，实心点为第四次后续生成；横线为终稿95%按题目聚类区间。完整通过要求公开与保留测试同时通过。两模型共用显式截取的横轴${axisMinimum}到${axisMaximum}%，覆盖全部初稿、终稿与置信区间。</desc><style>text{font-family:"PingFang SC","Microsoft YaHei",sans-serif;font-variant-numeric:tabular-nums}</style><rect width="1100" height="278" rx="8" fill="#042735"/>${panels}${text(18,265,`空心＝共同初稿 · 实心＝终稿 · 横线＝95%按题目聚类区间；横轴截取${axisMinimum}–${axisMaximum}%。`,11,'#b5d1de')}${text(1082,265,'HumanEval+ Full v0.1.10',11,'#b5d1de','end')}</svg></div></figure>`;
+}
+
+function compactModelContrasts(evidence) {
+  return evidence.models.map(model=>{
+    const single=evidence.summary.find(row=>row.model===model&&row.arm==='counterexample');
+    const multi=evidence.summary.find(row=>row.model===model&&row.arm==='multi_counterexample');
+    const self=evidence.summary.find(row=>row.model===model&&row.arm==='self_review');
+    const main=getContrast(evidence,model,'counterexample','self_review');
+    const extra=getContrast(evidence,model,'multi_counterexample','counterexample');
+    if(!single||!multi||!self||!main||!extra)return '';
+    const cost=finite(single.mean_chain_total_tokens)&&single.mean_chain_total_tokens>0&&finite(multi.mean_chain_total_tokens)?100*(multi.mean_chain_total_tokens/single.mean_chain_total_tokens-1):null;
+    const ci=values=>values.every(finite)?`[${values.map(value=>`${value>0?'+':''}${value.toFixed(2)}`).join(', ')}]`:'未测';
+    const delta=finite(main.delta_pp)?`${main.delta_pp>0?'+':''}${main.delta_pp.toFixed(2)}`:'未测';
+    const stable=main.ci_low_pp>0?'本批支持正向差异':'区间含0，差异尚不明确';
+    const extraReading=extra.ci_low_pp<=0&&extra.ci_high_pp>=0?'区间含0，未见稳定额外收益':contrastReading(extra);
+    return `<article class="fex-compact-comparison" data-model="${esc(model)}"><h4>${esc(modelLabel(evidence,model))}</h4><p class="fex-compact-main-effect"><strong>${delta}<span> pp</span></strong><span>单反例相对自查 · 95% CI ${ci([main.ci_low_pp,main.ci_high_pp])}</span></p><p>${stable}；${rate(single.final_rate)} 对 ${rate(self.final_rate)}。</p><p class="fex-compact-cost">多反例相对单反例：95% CI ${ci([extra.ci_low_pp,extra.ci_high_pp])} pp，${extraReading}；整链 Token ${finite(cost)?`${cost>0?'+':''}${cost.toFixed(2)}%`:'未测'}。</p></article>`;
+  }).join('');
+}
+
+function compactFeedbackExcerpt(example) {
+  const raw=typeof example.actual_feedback==='string'?example.actual_feedback:'';
+  const prefix='Diagnostic test feedback:\n';
+  if(raw.startsWith(prefix)){
+    try {
+      const report=JSON.parse(raw.slice(prefix.length).split('\n\n')[0]);
+      const projection={diagnostic_status:report.diagnostic_status};
+      if(report.diagnostic){
+        projection.diagnostic={};
+        for(const key of ['error_type','error_message','line','column','source_line'])if(Object.hasOwn(report.diagnostic,key))projection.diagnostic[key]=report.diagnostic[key];
+      }else if(Array.isArray(report.failures)&&report.failures.length){
+        const first={};for(const key of ['input','expected','actual'])if(Object.hasOwn(report.failures[0],key))first[key]=report.failures[0][key];
+        projection.failures=[first];
+      }
+      return {kind:report.diagnostic?'diagnostic-projection':'failure-projection',text:JSON.stringify(projection,null,2),label:report.diagnostic?'实际诊断摘录 · 原字段原值':'首个公开反例摘录 · 输入、期望与实际输出'};
+    }catch{}
+  }
+  const commonEnd=raw.indexOf(' Return the complete implementation');
+  return {kind:'literal-prefix',text:commonEnd>=0?raw.slice(0,commonEnd):raw,label:'实际指令摘录 · 无执行反馈'};
+}
+
+function compactCases(evidence) {
+  const all=Array.isArray(evidence.examples)?evidence.examples:[];
+  const repair=all.find(row=>row.category==='semantic_repair'&&row.before_strong_pass===false&&row.after_strong_pass===true)||all.find(row=>row.category==='diagnostic_repair'&&row.before_strong_pass===false&&row.after_strong_pass===true);
+  const regression=all.find(row=>row.category==='regression'&&row.before_strong_pass===true&&row.after_strong_pass===false);
+  const selected=[repair,regression].filter(Boolean);
+  return `<section class="fex-compact-case-section" aria-label="执行反馈的真实修复与隐蔽回退"><header class="fex-compact-case-heading"><h3>真实修改：既看修复，也看隐蔽回退</h3><p>${number(selected.length)} 个已知相邻版本案例；反馈字段取自当步原文，代码差异完整保留。</p></header><div class="fex-compact-cases">${selected.map((example,index)=>{
+    const excerpt=compactFeedbackExcerpt(example);
+    const hasDiff=typeof example.diff==='string'&&example.diff.length>0;
+    return `<article class="fex-case fex-compact-case" data-case-category="${esc(example.category)}" data-case-task="${esc(example.anonymous_task||'')}" data-replicate="${example.replicate}" data-before-round="${example.before_round}" data-after-round="${example.after_round}"><header><div><h4>${example.category==='regression'?'公开测试仍过，完整强测却回退':example.category==='semantic_repair'?'具体反例澄清语义，代码得到修复':'诊断定位错误，代码得到修复'}</h4><p>${esc(modelLabel(evidence,example.model))} · ${esc(armLabel(evidence,example.arm))} · ${esc(example.anonymous_task||'匿名题目')} · 版本 ${number(example.before_round+1)} → ${number(example.after_round+1)}</p></div></header><div class="fex-compact-trace"><div class="fex-code-block fex-feedback" data-feedback-excerpt="${excerpt.kind}" data-feedback-source="actual_feedback"><h5>${excerpt.label}</h5><pre><code>${esc(excerpt.text)}</code></pre></div><div class="fex-code-block fex-diff" data-case-code="${hasDiff?'full-diff':'unchanged-code'}"><h5>${hasDiff?'代码的实际变化 · 完整 diff':'代码未改变 · 实际实现'}</h5><pre><code>${esc(hasDiff?example.diff:example.before_code)}</code></pre></div></div><dl class="fex-compact-outcomes"><div><dt>公开测试 · 前 → 后</dt><dd>${esc(publicOutcome(example.before_public))} → ${esc(publicOutcome(example.after_public))}</dd></div><div><dt>完整强测 · 前 → 后</dt><dd>${strongOutcome(example.before_strong_pass)} → ${strongOutcome(example.after_strong_pass)}</dd></div></dl></article>`;
+  }).join('')}</div><p class="fex-compact-case-note">案例解释机制，不代表平均效果。完整反馈、前后代码、其余案例及原七张补充图均保留在图册与发布快照；总体效果以上方同题配对统计为准。</p></section>`;
+}
+
+/** Compact defense panels; the original complete renderer below remains available to the atlas. */
+export function renderFeedbackCompact(evidence, figures, legacyEvidence, options = {}) {
+  if(!publishable(evidence,figures))return '';
+  const requestedPrefix=typeof options==='string'?options:options.prefix??figures.prefix??'assets/research-extension/';
+  if(typeof requestedPrefix!=='string'||/^[a-z][a-z\d+.-]*:/i.test(requestedPrefix)||/[<>"'\u0000-\u001f]/.test(requestedPrefix))return '';
+  const prefix=requestedPrefix.endsWith('/')?requestedPrefix:requestedPrefix+'/';
+  const c=evidence.coverage;
+  return `<div class="feedback-extension feedback-compact"><section class="fex-compact-result-section" aria-label="六种反馈的两模型完整测试结果"><header class="fex-compact-heading"><h3>代码反馈：收益依赖模型，反例不必越多越好</h3><p>${number(c.planned_tasks)} 题 × ${number(evidence.models.length)} 模型 × ${number(evidence.repeats_per_task)} 份共享初稿 ×（1＋${number(evidence.arms.length)}组×${number(evidence.rounds-1)}次修订）＝ ${number(evidence.saved_physical_responses)} 份物理响应；每模型每组 ${number(c.planned_tasks*evidence.repeats_per_task)} 份程序。</p></header>${compactEndpointFigure(evidence,figures,prefix)}<div class="fex-compact-contrasts">${compactModelContrasts(evidence)}</div><p class="fex-compact-method-note">完整通过＝公开与保留测试同时通过；95%区间按 ${number(c.planned_tasks)} 道题聚类，属于未做多重校正的探索比较。额外保留输入全题库合计 ${number(c.holdout_cases)} 条，不进入模型反馈。</p></section>${compactCases(evidence)}</div>`;
+}
+
 function codeBlock(label, code, modifier = '') {
   return `<div class="fex-code-block ${modifier}"><h6>${esc(label)}</h6><pre><code>${esc(code)}</code></pre></div>`;
 }

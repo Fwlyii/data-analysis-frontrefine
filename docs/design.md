@@ -55,6 +55,21 @@ typography:
     fontWeight: 500
     lineHeight: 1.8
     letterSpacing: ".045em"
+  compact-study-title:
+    fontFamily: "ResearchGeist, 'PingFang SC', 'Microsoft YaHei', sans-serif"
+    fontSize: "25px"
+    fontWeight: 600
+    lineHeight: 1.4
+    letterSpacing: ".01em"
+  compact-plot:
+    fontFamily: "'PingFang SC', 'Microsoft YaHei', sans-serif"
+    fontSize: "15px"
+    fontWeight: 400
+  compact-code:
+    fontFamily: "SFMono-Regular, Consolas, 'Liberation Mono', monospace"
+    fontSize: "11.5px"
+    fontWeight: 400
+    lineHeight: 1.45
   home-brand:
     fontFamily: "'Songti SC', 'STSong', serif"
     fontSize: "86px"
@@ -75,6 +90,8 @@ spacing:
   caption: "20px"
   figure-gap: "26px"
   section: "30px"
+  compact-grid: "20px"
+  compact-section: "42px"
 components:
   chapter-nav:
     textColor: "{colors.foreground}"
@@ -102,6 +119,14 @@ components:
     textColor: "{colors.coral}"
     rounded: "4px"
     padding: "0 2px"
+  compact-study-panel:
+    textColor: "{colors.foreground}"
+    rounded: "{rounded.optical-panel}"
+    padding: "0 0 14px"
+  compact-saved-case:
+    textColor: "{colors.foreground}"
+    rounded: "{rounded.optical-inner}"
+    padding: "14px"
   atlas-select:
     backgroundColor: "#063344"
     textColor: "{colors.foreground}"
@@ -115,7 +140,7 @@ components:
 
 **Creative North Star: "深海光学玻璃"**
 
-以用户提供的六张 v5 参考图为视觉依据：深海背景、折射光弧、白色中文、带双层亮边的厚玻璃容器。玻璃边缘和局部高光具有明确的材质感，内部保持安静，供读者辨认原生文字、真实表格和科学图形。此文档替换旧浅纸正文与中央 LENS 标记的描述；首页中央实际文字为“知微”。
+以用户提供的六张 v5 参考图为视觉依据：深海背景、折射光弧、白色中文、带双层亮边的厚玻璃容器。玻璃边缘和局部高光具有明确的材质感，内部保持安静，供读者辨认原生文字、真实表格和科学图形。首页中央文字为“知微”。
 
 光学素材只承担环境与装饰。问题、提示词、来源字段、坐标、数值、置信区间和结论全部由 HTML、原生 SVG 或独立科学 SVG 呈现。系统不把研究内容烘焙进背景图。
 
@@ -124,11 +149,11 @@ components:
 - 深海底色与白色中文形成清楚的阅读层级。
 - 青、绿、紫、金色玻璃边缘对应并列的研究内容。
 - 双层边框、顶部亮线与内凹高光共同表达光学玻璃。
-- 图形与长文直接展示，阅读路径不依赖展开或悬停。
+- 图形与文字直接展示，阅读路径不依赖展开或悬停。
 
 ## Colors
 
-前置 token 是当前实现的规范值，来源为 `app/research-ocean.css`、`app/research-content-ocean.css` 与 `scripts/figures/build_research_atlas.py`。侧车的八级OKLCH色阶仅供设计面板预览，不是新增运行时颜色。
+前置 token 是当前实现的规范值，来源为 `app/research-ocean.css`、`app/research-content-ocean.css`、`app/research-findings-compact.css` 与 `scripts/figures/build_research_atlas.py`。侧车的八级OKLCH色阶仅供设计面板预览，不是新增运行时颜色。
 
 ### Primary
 
@@ -155,7 +180,7 @@ components:
 
 `display` 用于总研究问题的真实 h1；`headline` 用于章节标题；`title` 用于发现主题。主体阅读为 `body`，问题、采集、清洗和总结原生构图为 `content-body`。数字、结果表与科学图使用等宽数字。玻璃标签不替代标题语义。
 
-手机上总问题变为 27px、1.6 行高；章节标题变为 29px；首页品牌变为 49px，359px 以下变为 43px。图内字号不会因页面变窄而持续缩小，宽图通过局部横向滚动保持可读。
+手机上总问题变为27px、1.6行高；章节标题变为29px，紧凑发现标题为30px；首页品牌变为49px，359px以下变为43px。紧凑数学／文档图使用14–15px坐标与数值；案例代码为11.5px、1.45行高，640px以下为11px、1.55行高。宽图通过局部横向滚动保持可读。
 
 ## Layout
 
@@ -163,9 +188,9 @@ components:
 
 研究问题的中央总问题连接三张任务仪器；采集使用四维玻璃面板，完整列出 31 种实际提示词；清洗在同一 Figure 中并列 A/B/C，再接 D 的 21 列结构。具体页面约束以 `.impeccable/surfaces/app-index-html.md` 为准。
 
-发现页开头为 2×2 的四个原生概览图／表，再接四总体、三任务的连续长文。主要科学图和结论侧栏使用 `minmax(0,1fr) 265px`、间距 26px；1200px 以下侧栏 235px，850px 以下移至下方。辅助图逐张占据完整行，常规图配 240px 侧栏图注；宽矩阵等图的图注置于下方。
+发现主线为四段连续构图：四个总体概览、数学与文档、代码反馈效果、真实修复与回退。1440×900下总高3061px，约3.4屏；使用自然内容高度，手机可更长。数学／文档面板为等宽双列、间距20px，1100px以下堆叠；段间距42px，手机收紧到30–32px。两例代码案例为双列，640px以下堆叠。主线不重复独立图册的44张附图。
 
-620px 以下概览改为单列，其原生图宽度保留 560px；主科学图最低宽度 580px。补充反馈图最低宽度 1100px，结果表最低宽度 760px。宽内容放入有名称、可键盘聚焦的局部横向滚动区域，页面本身不得横向溢出。采集、清洗、总结还在 1200px、1000px、640px 调整原生构图，不用一个统一断点覆盖全部内容。
+620px以下概览改为单列，其原生图宽度保留560px。数学／文档图最低宽度620px；反馈端点图在1000px以下保留1040px宽度。图册补充图最低宽度1100px，结果表最低宽度760px。宽内容放入有名称、可键盘聚焦的局部横向滚动区域，页面本身不得横向溢出。采集、清洗、总结继续在1200px、1000px、640px调整原生构图。
 
 ## Elevation & Depth
 
@@ -173,7 +198,7 @@ components:
 
 主要图形框的实际阴影为 `inset 0 1px 2px #f2ffffb0, inset 0 0 0 3px #9ddff533, inset 0 -2px 4px #40daff66, 0 0 9px #5fd9ff33, 0 14px 28px #000b1733`。内容面板使用同类语法，底边发光随所属色变化；完整值保存在 `.impeccable/design.json`。
 
-背景图固定铺满视口。620px 以下章节使用下部渐深遮罩，保留折射光弧并降低自由段落背后的亮度。相关复核记录见 `.impeccable/review/final-v5/contrast-results.json`，记录中的最低对比度为 7.24:1。
+背景图固定铺满视口。发现页在所有宽度使用下部渐深遮罩；其他章节保留620px以下的v5遮罩，降低自由段落背后的亮度。紧凑反馈图与案例沿用双层亮边和内凹高光，不增加新背景。当前发现复核见 `.impeccable/review/compact-v6/`，其他章节对比度记录见 `.impeccable/review/final-v5/contrast-results.json`。
 
 ## Shapes
 
@@ -191,9 +216,13 @@ components:
 
 ### Scientific Figures
 
-四个概览由 `renderOceanOverview(catalog, feedbackPublished)` 从图表目录取真实数值，使用原生 SVG／表格。下方保留原 37 张独立科学 SVG，并在代码专项展示六张新完整反馈图和一张历史 Mini→完整强测复核图，共 44 张独立图像；四个概览不计入 44 张。
+`renderCompactFindings(catalog,publication)` 从冻结目录与已发布快照生成主线原生HTML／SVG，四个总体概览使用 `renderOceanOverview`。数学保留四模型八柱与四个Token变化；文档保留九个真实位置、两模型18点及各点95%区间。代码端点图保留两模型六策略，使用共同且明确标示的60–100%截取轴，全部初稿、终稿与区间均在轴内；它使用点与区间编码。
 
-图内标题、坐标、单位、条件、直接标注、范围和来源必须可读。旧实验与新完整评测分别保存、分别叙述。图框按图像实际比例显示，不裁掉图例或坐标。
+完整44张独立科学SVG、四个完整案例与13＋4交互视图继续由 `?chapter=atlas` 提供。主线图形和四个概览不算作原44张。图内标题、坐标、单位、条件、标注、范围和来源必须可读；旧实验与新完整评测分别保存、分别叙述，不裁掉图例或坐标。
+
+### Compact Evidence and Cases
+
+数学／文档面板继承主要光学容器，标题与条件在上，图形、数值和一句结论依次排列。代码端点图与案例采用 `optical-inner` 圆角、稳定深海底面和双层光学亮边。案例展示真实反馈字段的标注摘录、完整保存diff，以及公开／完整测试的前后结果；完整反馈和前后代码在图册保留。紧凑密度通过合并构图与缩短说明实现，不能裁剪研究内容或伪造数值。
 
 ### Source Fields and Saved Records
 
@@ -220,6 +249,6 @@ components:
 
 - **Don't** 将背景素材用于承载文字、界面或科研数据。
 - **Don't** 增加第六颗气泡、正文跳转 CTA、页底翻页或左右键跳章。
-- **Don't** 隐藏清洗步骤、实际提示词或发现页辅助图。
+- **Don't** 隐藏清洗步骤、实际提示词，或删除独立图册的完整44图与案例。
 - **Don't** 改写数值、坐标、分母、置信区间、任务评分或把未知模型规模填为零。
 - **Don't** 把两种接近的已知参数规模与另外两个未知规模解释为已建立 Scaling Law。

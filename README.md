@@ -1,10 +1,12 @@
 # 知微 · 模型行为研究
 
-中文模型行为研究与可视化系统。界面采用用户指定的深海光学玻璃 v5：原五颗玻璃气泡环绕中央“知微”，进入研究问题、采集设计、数据处理、核心发现、总结与反思。正文只保留五章顶导航与品牌返回首页，核心发现为包含七主题、44张独立科学图的完整长页面；没有页底翻页、左右键跳章或正文跳转按钮。
+中文模型行为研究与可视化系统。界面采用用户指定的深海光学玻璃 v5：原五颗玻璃气泡环绕中央“知微”，进入研究问题、采集设计、数据处理、核心发现、总结与反思。正文只保留五章顶导航与品牌返回首页，核心发现以四段连续构图覆盖七个研究主题，桌面约3–4屏；没有页底翻页、左右键跳章或正文跳转按钮。
 
 核心发现采用**四个总体主题＋三个任务专项**：Token与成功率的log关系、模型规模、简洁表达、限长反弹，以及数学语言模板、文档证据位置、代码执行反馈。
 
-发现页开头有四个读取真实目录数值的原生概览图／表；下方保留 **原37张可编辑SVG＋六张新完整反馈图＋一张历史Mini→完整强测复核图**，合计44张独立图像。科学图使用深海呈现配色，冻结数值与原评分保持独立。辅助图逐张占满一行，配侧栏图注；手机宽图在有名称、可聚焦的局部区域内横向滚动。清洗页为完整静态Figure：两种来源各四个红色同义异名字段、四组映射、两条记录的九个关键字段及完整21列结构同时可见。完整交互、图稿导出、13类通用图和4个代码视图保留在独立的 `?chapter=atlas`，答辩主线不展示该入口。
+发现主线依次展示四个总体概览、数学模板与文档证据位置、双模型六策略代码反馈、两例真实修复／回退。图形由冻结目录与发布快照直接生成原生HTML／SVG，保留实测点、区间、条件及完整代码diff。1440×900下页面高3061px，约3.4屏；手机纵向堆叠，宽图在有名称、可聚焦的局部区域内横向滚动。
+
+**原37张可编辑SVG＋六张新完整反馈图＋一张历史Mini→完整强测复核图**共44张，连同四个完整案例、13类通用交互图和4个代码视图，保留在独立的 `?chapter=atlas` 与原图包，主线不重复44张附图。清洗页仍完整同时展示两来源各四个同义异名字段、四组映射、两条记录的九个关键字段及21列结构。
 
 完整代码反馈补充批次已发布为 `app/data/code-feedback-extension.json`。164道独立题目 × 2模型 × 3份独立初稿，每份初稿进入六条策略链并各修订四次；共享初稿只保存一次，共24,600份物理响应。原248,586份保持分开，其中包含9,176条专项快照；累计273,186份。新批次另存同样21列的 `reports/code_repair_extension/code-repair-extension-free-full-20261105-3rep-v2/unified-format/unified-records.csv.gz`，不修改原 `all_records.csv.gz`。新批次原始归档位于 `data/raw/code_repair_extension/`，不进入网站或交接包。
 
@@ -63,7 +65,7 @@ npm run browser:install --prefix tests
 BASE_URL=http://127.0.0.1:8770/ node tests/browser/defense.mjs
 ```
 
-已有Chrome等浏览器时，可用 `CHROMIUM_PATH` 指定其可执行文件。当前回归检查五气泡首页、五章答辩路径、无多余按钮、字段映射、七主题科学图、完整补充快照、响应式与可访问性；结果写入 `artifacts/qa/defense/report.json`。视觉复核截图与背景对比度记录位于 `.impeccable/review/final-v5/`。
+已有Chrome等浏览器时，可用 `CHROMIUM_PATH` 指定其可执行文件。当前74项回归检查全部通过，覆盖五气泡首页、五章路径、四段发现构图与七主题证据、真实数学／文档／代码区间及案例谱系、图册44图与完整案例、四个断点和可访问性；结果写入 `artifacts/qa/defense/report.json`。紧凑发现的视觉复核与测量位于 `.impeccable/review/compact-v6/`，其余v5页面的背景对比度记录保留在 `.impeccable/review/final-v5/`。
 
 `tests/run.py`和 `tests/browser/reconstruction.mjs` 保留此前界面的基线，不代表当前精简后的控件数量，不能替代上述回归。
 
@@ -73,12 +75,13 @@ BASE_URL=http://127.0.0.1:8770/ node tests/browser/defense.mjs
 |---|---|
 | 主页面、路由、主题图册 | `app/index.html`、`app/src/research.js`、`app/research.css` |
 | v5深海外观与原生概览 | `app/research-ocean.css`、`app/research-content-ocean.css`、`app/src/research-ocean-summary.js` |
+| 四段紧凑发现主线 | `app/src/research-findings-compact.js`、`app/research-findings-compact.css` |
 | 五气泡首页 | `app/src/research-home.js`、`app/research-home.css` |
 | 中文章节、策略与清洗演示 | `app/src/research-content.js`、`app/research-content.css` |
 | 通用图表、代码生成探索 | `app/src/research-explorer.js`、`app/research-explorer.css` |
 | 位置与反馈专项记录 | `app/src/research-special-records.js`、`app/data/special-records.json.gz` |
 | SVG生成与目录 | `scripts/figures/build_research_atlas.py`、`app/data/research-charts.json` |
-| 代码反馈补充展示 | `app/src/research-feedback-extension.js`、`app/research-feedback-extension.css` |
+| 代码反馈紧凑主线与完整图册 | `app/src/research-feedback-extension.js`、`app/research-feedback-extension.css` |
 | 补充实验统计与重绘 | `experiments/code_repair_v2/src/analyze.py`、`experiments/code_repair_v2/analysis/` |
 | 冻结数据、清洗、统计 | `data/`、`scripts/cleaning/`、`scripts/analysis/`、`reports/` |
 | 参考报告与答辩材料 | `report/`、`presentation/` |

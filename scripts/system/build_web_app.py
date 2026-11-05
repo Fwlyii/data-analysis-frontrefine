@@ -155,7 +155,7 @@ def build():
     for name in ['assets','runtime']:
         shutil.copytree(APP/name,dist/name,dirs_exist_ok=True)
     shutil.copytree(APP/'src',dist/'src',dirs_exist_ok=True)
-    for name in ['research.css','research-content.css','research-explorer.css','research-home.css','research-feedback-extension.css','research-ocean.css','research-content-ocean.css']:
+    for name in ['research.css','research-content.css','research-explorer.css','research-home.css','research-feedback-extension.css','research-ocean.css','research-content-ocean.css','research-findings-compact.css']:
         shutil.copy2(APP/name,dist/name)
     (dist/'data').mkdir(exist_ok=True)
     for name in ['summary.json','demo-evidence.json','research-charts.json','research-content.json']:
@@ -202,7 +202,7 @@ def build():
     if supplement.exists():
         supplement_sha=hashlib.sha256(supplement.read_bytes()).hexdigest()[:12]
         markup=markup.replace('</head>',f'<meta name="code-feedback-extension" content="data/code-feedback-extension.json?v={supplement_sha}">\n</head>')
-    for asset in ['research.css','research-content.css','research-explorer.css','research-home.css','research-feedback-extension.css','research-ocean.css','research-content-ocean.css','src/research.js']:
+    for asset in ['research.css','research-content.css','research-explorer.css','research-home.css','research-feedback-extension.css','research-ocean.css','research-content-ocean.css','research-findings-compact.css','src/research.js']:
         digest=hashlib.sha256((dist/asset).read_bytes()).hexdigest()[:12]
         markup=re.sub(r'([\'\"])'+re.escape(asset)+r'(?:\?v=[a-f0-9]+)?([\'\"])',
             lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)

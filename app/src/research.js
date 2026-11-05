@@ -1,7 +1,7 @@
 import { researchContent, renderQuestion, renderCollection, renderCleaning, renderConclusion, bindContent } from './research-content.js';
 import { renderHome, mountHome } from './research-home.js';
 import { renderFeedbackExtension } from './research-feedback-extension.js';
-import { renderOceanOverview } from './research-ocean-summary.js';
+import { renderCompactFindings } from './research-findings-compact.js';
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
@@ -9,7 +9,7 @@ const CHAPTERS=[
  {id:'question',label:'研究问题',title:'同一道任务，怎样让模型做得更好？',intro:'从提示词策略出发，在数学、文档与代码三类任务中比较回答质量和输出开销，再沿任务特性研究证据位置与执行反馈。'},
  {id:'collection',label:'采集设计',title:'四个维度，具体怎样写 Prompt？',intro:'相同题目，替换作答指令，记录每次回答。'},
  {id:'cleaning',label:'数据处理',title:'异名字段，清洗后统一保存',intro:'两类原始来源 → 同义字段映射 → 同一份21列数据。'},
- {id:'findings',label:'核心发现',title:'总体规律：Token、模型与表达',intro:'四项对照，解释准确率与输出开销；再进入数学、文档和代码。'},
+ {id:'findings',label:'核心发现',title:'核心发现',intro:'四个总体规律，三个任务专项。'},
  {id:'conclusion',label:'总结与反思',title:'从实测发现，到五条使用建议',intro:'把研究中的对照结果，转化为选择提示、组织证据和使用反馈的依据。'}
 ];
 const TOPICS=[
@@ -85,26 +85,13 @@ function supportFigure(chart, tools = false) {
   const wide = /landscape|matrix|real-code-case|fit-comparison/.test(chart.id);
   return `<figure class="support-figure${wide ? ' support-wide' : ''}" data-chart-id="${esc(chart.id)}"><img src="${esc(chart.file)}" alt="${esc(chart.title)}" loading="lazy" width="${chart.width}" height="${chart.height}"><figcaption><p>${esc(chart.description || chart.subtitle)}</p>${tools ? `<div class="figure-downloads"><a href="${esc(chart.file)}" download>SVG</a><button data-figure-csv="${esc(chart.id)}">数值CSV</button></div>` : ''}</figcaption></figure>`;
 }
-function overviewHTML() {
-  return renderOceanOverview(catalog, Boolean(feedbackPublication));
+function findingsHTML() {
+  return renderCompactFindings(catalog, feedbackPublication);
 }
 
-function topicHTML(topic) {
-  const charts = catalog.charts.filter(chart => chart.topic === topic.id);
-  const main = charts.find(chart => chart.role === 'main') || charts[0];
-  const highlights = HIGHLIGHTS[topic.id];
-  if(topic.id === 'feedback' && feedbackPublication) {
-    const extension = renderFeedbackExtension(feedbackPublication.evidence,feedbackPublication.figures,feedbackPublication.legacyEvidence);
-    if(extension) return `<section class="finding-chapter" id="finding-feedback" data-topic="feedback" aria-label="代码中的执行反馈">${extension}<section class="feedback-history" aria-label="保留的历史Mini实验图稿"><header class="support-heading"><div><h3>历史批次：原 Mini 实验图稿</h3><p>以下图稿完整保留原四组实验及原评分。141 / 164 等数值属于当时的 Mini 测试；同一批代码的完整强复测结果在上方单独报告。</p></div></header><div class="finding-stage">${mainFigure(main)}<aside class="finding-insight"><h4>原 Mini 测试中的反馈差异</h4><p>旧实验每模型、每题只有一份共享初稿，包含四种处理和四次后续生成。</p><p>这些历史曲线不与上方三次独立初稿的新批次合并计算。</p><div class="insight-scope">HumanEval+ Mini v0.1.10，164道题，两模型，5,576份物理响应。</div></aside></div><div class="support-section"><div class="support-grid">${charts.filter(chart => chart.id !== main.id).map(chart => supportFigure(chart)).join('')}</div></div></section></section>`;
-  }
-  return `<section class="finding-chapter" id="finding-${topic.id}" data-topic="${topic.id}" aria-labelledby="finding-title-${topic.id}"><header class="finding-chapter-heading"><span class="finding-chapter-number" aria-hidden="true">${topic.n}</span><div><h3 id="finding-title-${topic.id}">${topic.title}</h3><p>${topic.name}</p></div></header><div class="finding-stage">${mainFigure(main)}<aside class="finding-insight"><h4>${highlights[0]}</h4>${highlights.slice(1).map(text => `<p>${text}</p>`).join('')}<div class="insight-scope">${esc(topic.scope.replaceAll(' · ','，'))}</div></aside></div><div class="support-section"><div class="support-heading"><h4>实测对照</h4><p>${topic.group === '总体规律' ? '在不同条件下，检验同一规律。' : '沿任务特性，继续看证据。'}</p></div><div class="support-grid">${charts.filter(chart => chart.id !== main.id).map(chart => supportFigure(chart)).join('')}</div></div></section>`;
-}
-function findingsHTML() {
-  return `<div class="findings-long-page">${overviewHTML()}${['总体规律','任务专项'].map((group,index) => `<section class="findings-part" aria-labelledby="findings-part-${index}"><header class="findings-part-heading"><h2 id="findings-part-${index}">${group}</h2><p>${index === 0 ? '从输出投入、模型规模、表达与约束，观察跨任务的共同规律。' : '进入数学、文档与代码，解释各自特有的影响因素。'}</p></header>${TOPICS.filter(topic => topic.group === group).map(topicHTML).join('')}</section>`).join('')}</div>`;
-}
 function atlasHTML() {
   const charts = catalog.charts.filter(chart => route.filter === 'all' || chart.topic === route.filter);
-  return `<div class="catalog-tools"><label for="atlas-filter">图稿主题<select id="atlas-filter"><option value="all">全部37张</option>${TOPICS.map(topic => `<option value="${topic.id}" ${route.filter === topic.id ? 'selected' : ''}>${topic.name}</option>`).join('')}</select></label><a href="assets/research-svg.zip" download>下载完整SVG与数值图包</a></div><div class="support-grid atlas-grid">${charts.map(chart => supportFigure(chart,true)).join('')}</div><section id="research-explorer-host" class="archive-explorer" aria-label="完整交互图表库"></section>`;
+  return `<div class="catalog-tools"><label for="atlas-filter">图稿主题<select id="atlas-filter"><option value="all">全部37张</option>${TOPICS.map(topic => `<option value="${topic.id}" ${route.filter === topic.id ? 'selected' : ''}>${topic.name}</option>`).join('')}</select></label><a href="assets/research-svg.zip" download>下载完整SVG与数值图包</a></div><div class="support-grid atlas-grid">${charts.map(chart => supportFigure(chart,true)).join('')}</div>${feedbackPublication?`<section class="atlas-feedback-host" aria-label="完整代码反馈补充图册">${renderFeedbackExtension(feedbackPublication.evidence,feedbackPublication.figures,feedbackPublication.legacyEvidence)}</section>`:''}<section id="research-explorer-host" class="archive-explorer" aria-label="完整交互图表库"></section>`;
 }
 function renderNavigation() {
   $('#chapter-nav').innerHTML = CHAPTERS.map((chapter,index) => `<a href="?chapter=${chapter.id}" ${route.chapter === chapter.id ? 'aria-current="page"' : ''}><span class="chapter-number">${String(index + 1).padStart(2,'0')}</span>${chapter.label}</a>`).join('');
