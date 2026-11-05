@@ -253,9 +253,12 @@ def normalize(config_path, output):
         lineage.append({"record_id": ids[rid], "replicate_id": source["replicate"], "arm": arm, "round": round_,
                         "public_pass": public[rid]["public"]["passed"], "full_pass": strong[rid]["full_pass"],
                         "code_sha256": source["code_sha256"]})
+    descriptions = dict(FIELDS)
+    descriptions['feedback_type'] = ('category/null', '/'.join(['seed', *arms]),
+                                      'Recorded feedback strategy in this extension batch')
     statistics = [{"field": field, "type": description[0], "meaning": description[1],
                    "missing_policy": description[2], "records": len(rows), "missing_count": missing[field],
-                   "missing_rate": missing[field] / len(rows)} for field, description in FIELDS.items()]
+                   "missing_rate": missing[field] / len(rows)} for field, description in descriptions.items()]
     if SECRET.search(json.dumps([rows, lineage], ensure_ascii=False)):
         raise ValueError("Credential-like value cannot enter anonymous export")
     # Validate first, then stage only this supplement's four output files.

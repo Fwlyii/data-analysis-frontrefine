@@ -814,6 +814,22 @@ class Figure:
     def rect(self, x, y, width, height, color):
         self.parts.append(f'<rect x="{x:.2f}" y="{y:.2f}" width="{max(0,width):.2f}" height="{max(0,height):.2f}" rx="2" fill="{color}"/>')
 
+    def marker(self, x, y, color, kind, size=5):
+        if kind == 'circle':
+            self.dot(x, y, color, size)
+        elif kind == 'square':
+            self.parts.append(f'<rect x="{x-size:.2f}" y="{y-size:.2f}" width="{2*size}" height="{2*size}" fill="#fffdf9" stroke="{color}" stroke-width="2"/>')
+        elif kind in ('triangle', 'diamond'):
+            points = [(x,y-size-1),(x+size+1,y+size),(x-size-1,y+size)] if kind == 'triangle' else [(x,y-size-1),(x+size+1,y),(x,y+size+1),(x-size-1,y)]
+            vertices = ' '.join(f'{a:.2f},{b:.2f}' for a,b in points)
+            self.parts.append(f'<polygon points="{vertices}" fill="#fffdf9" stroke="{color}" stroke-width="2"/>')
+        elif kind == 'plus':
+            self.line(x-size-1,y,x+size+1,y,color,2.4)
+            self.line(x,y-size-1,x,y+size+1,color,2.4)
+        else:
+            self.line(x-size,y-size,x+size,y+size,color,2.4)
+            self.line(x-size,y+size,x+size,y-size,color,2.4)
+
     def footer(self, batch, note):
         self.text(42, self.height - 49, note, 13, color="#526574")
         self.text(42, self.height - 23, "来源：代码反馈补充实验 / " + batch, 12, color="#526574")
@@ -864,6 +880,17 @@ def build_figures(output, results):
     figure.save(output / "01-strong-endpoints.svg")
     figures.append({"id":"strong-endpoints", "file":"01-strong-endpoints.svg", "title":"强保留测试的初稿与终稿对照", "data_file":"summary.csv"})
 
+    # A fixed display rule shared by both trajectory plots, independent of which
+    # treatment wins: observed pooled range +5pp, ten-point ticks, >=30pp span.
+    rates = [row['rate']*100 for key in ('public_curves','strong_curves') for row in results.get(key,[]) if row.get('rate') is not None]
+    axis_low = max(0, math.floor((min(rates)-5)/10)*10) if rates else 0
+    axis_high = min(100, math.ceil((max(rates)+5)/10)*10) if rates else 100
+    if axis_high-axis_low < 30:
+        axis_low=max(0,axis_low-math.ceil((30-axis_high+axis_low)/10)*10)
+        axis_high=min(100,axis_low+30)
+        axis_low=max(0,axis_high-30)
+    markers = dict(zip(ARMS,('circle','square','triangle','diamond','plus','cross')))
+    dashes = dict(zip(ARMS,('3 5','10 5','2 4','8 4 2 4',None,'12 3')))
     for curve_key, task_key, filename, figure_id, title, subtitle, footer, data_file in [
         ("public_curves", "public_task_clusters", "02-public-trajectories.svg", "public-trajectories",
          "公开诊断测试的五版轨迹", "这些曲线仅表示公开诊断测试通过率。",
@@ -874,22 +901,23 @@ def build_figures(output, results):
         public_rows = results.get(curve_key, [])
         if not public_rows or not results.get(task_key):
             continue
-        figure = Figure(title, f'{results[task_key]}道配对题；' + subtitle, 180+len(models)*430, synthetic)
+        figure = Figure(title, f'{results[task_key]}道配对题；纵轴{axis_low}%–{axis_high}%（两图同范围）。' + subtitle, 180+len(models)*430, synthetic)
         top = 140
         for model in models:
             figure.text(42, top, results["model_labels"][model], 22, weight=650)
             for index, arm in enumerate(arms):
                 x, y = 470+(index%3)*225, top-9+(index//3)*25
-                figure.line(x,y,x+23,y,COLORS[arm],3); figure.text(x+31,y+5,ZH[arm],13)
+                figure.line(x,y,x+23,y,COLORS[arm],2.5,dashes[arm]);figure.marker(x+11.5,y,COLORS[arm],markers[arm],4);figure.text(x+31,y+5,ZH[arm],13)
             left, right, bottom = 100, 1125, top+324
             plot_top = top+57
-            for tick in (0,25,50,75,100):
-                y = bottom - (bottom-plot_top)*tick/100
+            for tick in range(axis_low,axis_high+1,10):
+                y = bottom - (bottom-plot_top)*(tick-axis_low)/(axis_high-axis_low)
                 figure.line(left,y,right,y)
                 figure.text(left-15,y+5,str(tick)+"%",13,color="#526574",anchor="end")
             for round_ in range(results["rounds"]):
                 x = left+(right-left)*round_/(results["rounds"]-1)
                 figure.text(x,bottom+26,str(round_),14,anchor="middle")
+            shared_seed = None
             for arm in arms:
                 points = sorted([item for item in public_rows if item["model"]==model and item["arm"]==arm], key=lambda item:item["round"])
                 previous = None
@@ -897,11 +925,13 @@ def build_figures(output, results):
                     if item["rate"] is None:
                         continue
                     x = left+(right-left)*item["round"]/(results["rounds"]-1)
-                    y = bottom-(bottom-plot_top)*item["rate"]
+                    y = bottom-(bottom-plot_top)*(item["rate"]*100-axis_low)/(axis_high-axis_low)
                     if previous:
-                        figure.line(*previous,x,y,COLORS[arm],2.8)
-                    figure.dot(x,y,COLORS[arm],4)
+                        figure.line(*previous,x,y,COLORS[arm],2.8,dashes[arm])
+                    if item['round'] == 0:shared_seed = (x,y)
+                    else:figure.marker(x,y,COLORS[arm],markers[arm],4)
                     previous=(x,y)
+            if shared_seed:figure.dot(*shared_seed,'#526574',6,True)
             figure.text((left+right)/2,bottom+55,"修改轮次（0＝共同初稿）",14,anchor="middle")
             top += 430
         figure.footer(batch,footer)

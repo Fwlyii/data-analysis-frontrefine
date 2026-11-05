@@ -111,6 +111,7 @@ try{
     for(const topic of ['budget','position','feedback']){await open('?chapter=findings&topic='+topic);assert(await page.locator('[data-topic]').count()===7&&await page.locator('[data-chart-id]').count()===37,'Legacy URL cut the article: '+topic);assert(await page.locator('.section-intro h1').innerText()==='先看总体关系，再进入具体任务。','Legacy topic replaced chapter heading');}return true;
   });
   await open('?chapter=findings');await shot('findings structure','滚动版_发现结构.png');await shot('budget graph in continuous article','滚动版_核心发现.png',{target:'#finding-budget'});assert(page.url().endsWith('?chapter=findings'),'Figure screenshot altered route');
+  if(supplement){await shot('measured feedback extension','补充版_代码反馈结构.png',{target:'.feedback-extension'});await shot('measured feedback model comparison','补充版_代码反馈结论.png',{target:'.feedback-extension .fex-model:first-of-type'});await shot('actual feedback case','补充版_真实修复案例.png',{target:'.fex-cases'});}
   for(const width of [1440,1000,768,390]){
     await page.setViewportSize({width,height:width===390?844:1000});
     for(const chapter of ['home',...chapters]){
