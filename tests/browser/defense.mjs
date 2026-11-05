@@ -45,6 +45,7 @@ async function assertChrome(){
 try{
   await open();
   const catalog=await page.evaluate(async()=>await(await fetch('data/research-charts.json')).json());
+  const supplement=await page.evaluate(async()=>{const path=document.querySelector('meta[name="code-feedback-extension"]')?.content;return path?await(await fetch(path)).json():null;});
   const content=await page.evaluate(async()=>await import('./src/research-content.js').then(module=>module.researchContent));
   await test('root opens exactly five orb links without chapter chrome or footer',async()=>{
     assert(await page.locator('.rh-orb:visible').count()===5,'Home does not expose exactly5 orbs');assert(!await page.locator('.site-header').isVisible(),'Chapter chrome appears on home');assert(await page.locator('.page-footer,#page-progress').count()===0,'Footer still exists');
@@ -85,6 +86,21 @@ try{
     const before=page.url(),plots=page.locator('.findings-long-page [data-chart-id]'),actual=await plots.evaluateAll(nodes=>nodes.map(node=>node.dataset.chartId));assert(actual.length===37&&new Set(actual).size===37,'Not37 unique plots');assert(catalog.charts.every(chart=>actual.includes(chart.id)),'Catalogue figure absent');assert(await page.locator('.main-figure img').count()===7&&await page.locator('.support-figure img').count()===30,'Main/support figure counts differ');
     await imagesReady('.findings-long-page');const loaded=await plots.locator('img').evaluateAll(images=>images.every(image=>image.complete&&image.naturalWidth>0));assert(loaded,'Image did not load');assert(page.url()===before,'Scrolling changed route');const height=await page.evaluate(()=>document.documentElement.scrollHeight);assert(height>10000,'Findings did not form a long article');return {charts:37,main:7,support:30,height,url:before};
   });
+  if(supplement){
+    await test('measured feedback extension preserves all six conditions and separate legacy figures',async()=>{
+      const e=supplement.evidence;assert(e.synthetic===false&&e.status==='complete'&&e.coverage.complete===true&&e.strong_trajectory_complete===true,'Supplement is not fully measured');
+      assert(e.task_clusters===e.planned_tasks&&e.strong_trajectory_task_clusters===e.planned_tasks,'Independent task coverage differs');
+      assert(await page.locator('.feedback-extension').count()===1&&await page.locator('.fex-arms li').count()===6,'Six-arm extension missing');
+      assert(await page.locator('.fex-figure img').count()===7,'Six new and one legacy plot must be visible');
+      assert(await page.locator('.fex-results-table tbody tr').count()===e.models.length*e.arms.length,'Result rows differ from measured matrix');await assertChrome();return {tasks:e.task_clusters,repeats:e.repeats_per_task,responses:e.saved_physical_responses,figures:7};
+    });
+    await test('feedback examples display the actual saved code and feedback',async()=>{
+      const cases=page.locator('.fex-case');assert(supplement.evidence.examples.length>0,'No observed research case');assert(await cases.count()===supplement.evidence.examples.length,'Case count differs');
+      for(const [index,example] of supplement.evidence.examples.entries()){const blocks=cases.nth(index).locator('.fex-code-block code');assert(await blocks.nth(0).textContent()===example.before_code,'Before code changed');assert(await blocks.nth(2).textContent()===example.after_code,'After code changed');if(typeof example.actual_feedback==='string')assert(await blocks.nth(1).textContent()===example.actual_feedback,'Feedback changed');assert(typeof example.before_strong_pass==='boolean'&&typeof example.after_strong_pass==='boolean','Case intermediate strong result missing');}
+      assert(!(await page.locator('.feedback-extension').textContent()).includes('HumanEval/'),'Raw benchmark identifier exposed');return {cases:await cases.count()};
+    });
+    await test('supplementary editable SVG pack is independently available',async()=>{const response=await page.request.get(new URL('assets/research-feedback-svg.zip',base).href);assert(response.ok(),'Supplementary SVG pack missing');assert(supplement.legacyEvidence.checks.complete===true&&supplement.legacyEvidence.summary.length===8,'Historical recheck lost');return {new:supplement.figures.length,legacy:supplement.legacyEvidence.figures.length};});
+  }
   await test('PageDown scrolls without changing chapter or hiding findings',async()=>{
     await page.evaluate(()=>window.scrollTo(0,0));await page.locator('#main-content h1').click();const before=page.url();await page.keyboard.press('PageDown');await page.waitForFunction(()=>scrollY>200);assert(page.url()===before,'Native scrolling changed route');assert(await page.locator('[data-topic]').count()===7,'Scroll replaced article content');return true;
   });

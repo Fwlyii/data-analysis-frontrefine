@@ -13,6 +13,7 @@ node_modules/
 .ipynb_checkpoints/
 # Generated and independently reproducible work
 /build/
+/work/
 /app/dist/
 /app/runtime/
 *.tmp

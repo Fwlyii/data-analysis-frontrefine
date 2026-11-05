@@ -155,13 +155,32 @@ def build():
     for name in ['assets','runtime']:
         shutil.copytree(APP/name,dist/name,dirs_exist_ok=True)
     shutil.copytree(APP/'src',dist/'src',dirs_exist_ok=True)
-    for name in ['research.css','research-content.css','research-explorer.css','research-home.css']:
+    for name in ['research.css','research-content.css','research-explorer.css','research-home.css','research-feedback-extension.css']:
         shutil.copy2(APP/name,dist/name)
     (dist/'data').mkdir(exist_ok=True)
     for name in ['summary.json','demo-evidence.json','research-charts.json','research-content.json']:
         shutil.copy2(APP/'data'/name,dist/'data'/name)
     for name in ['special-records.json.gz']:
         if (APP/'data'/name).exists():shutil.copy2(APP/'data'/name,dist/'data'/name)
+    supplement=APP/'data/code-feedback-extension.json'
+    if supplement.exists():
+        publication=json.loads(supplement.read_text())
+        measured=publication.get('evidence') or {}
+        if measured.get('synthetic') is not False or measured.get('status')!='complete' or measured.get('coverage',{}).get('complete') is not True or measured.get('strong_trajectory_complete') is not True:
+            raise ValueError('Code feedback supplement is not a fully measured real batch')
+        for chart in publication['figures']:
+            if not (dist/'assets/research-extension'/chart['file']).is_file():raise ValueError('Missing supplementary SVG')
+        shutil.copy2(supplement,dist/'data'/supplement.name)
+        # Keep the protected 37-figure archive intact; the measured extension
+        # has its own SVG/CSV pack and an anonymous provenance snapshot.
+        feedback_archive=APP/'assets/research-feedback-svg.zip'
+        with zipfile.ZipFile(feedback_archive,'w',zipfile.ZIP_DEFLATED) as archive:
+            archive.write(supplement,'补充实验证据与图表目录.json')
+            archive.writestr('使用说明.txt','代码执行反馈补充实验\n六组反馈、三份独立初稿及完整保留测试。\n新批次与历史Mini复核分别解释，不能合并独立样本。\n全部SVG可编辑；请保留坐标、区间、分母、资源预算与测试口径。\n')
+            for path in sorted((APP/'assets/research-extension').rglob('*')):
+                if path.is_file() and path.suffix in {'.svg','.csv'}:
+                    archive.write(path,str(path.relative_to(APP/'assets/research-extension')))
+        shutil.copy2(feedback_archive,dist/'assets'/feedback_archive.name)
     for name in ['findings.md','README.md']:
         shutil.copy2(ROOT/'reports/baseline'/name,dist/'data'/f'analysis-{name}')
     shutil.copy2(ROOT/'data/processed/data_dictionary.tsv',dist/'data/data_dictionary.tsv')
@@ -179,7 +198,11 @@ def build():
             lambda m:m.group(1)+m.group(2)+'?v='+modules[m.group(3)]+m.group(1) if m.group(3) in modules else m.group(0),source)
         path.write_text(source)
     markup=(dist/'index.html').read_text()
-    for asset in ['research.css','research-content.css','research-explorer.css','research-home.css','src/research.js']:
+    markup=re.sub(r'<meta name="code-feedback-extension"[^>]*>\s*','',markup)
+    if supplement.exists():
+        supplement_sha=hashlib.sha256(supplement.read_bytes()).hexdigest()[:12]
+        markup=markup.replace('</head>',f'<meta name="code-feedback-extension" content="data/code-feedback-extension.json?v={supplement_sha}">\n</head>')
+    for asset in ['research.css','research-content.css','research-explorer.css','research-home.css','research-feedback-extension.css','src/research.js']:
         digest=hashlib.sha256((dist/asset).read_bytes()).hexdigest()[:12]
         markup=re.sub(r'([\'\"])'+re.escape(asset)+r'(?:\?v=[a-f0-9]+)?([\'\"])',
             lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)

@@ -1,5 +1,6 @@
 import { renderQuestion, renderCollection, renderCleaning, renderConclusion, bindContent } from './research-content.js';
 import { renderHome, mountHome } from './research-home.js';
+import { renderFeedbackExtension } from './research-feedback-extension.js';
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
@@ -31,6 +32,7 @@ const HIGHLIGHTS = {
   feedback: ['具体失败用例，比笼统自查更有效。', '共同初稿126 / 164题通过；具体反例反馈四次修改后达到141题。', '自行检查129题，状态反馈130题；独立重采样另作对照。']
 };
 let catalog = {charts:[]};
+let feedbackPublication;
 let route;
 let disposeContent;
 let disposeHome;
@@ -83,12 +85,16 @@ function supportFigure(chart, tools = false) {
   return `<figure class="support-figure${wide ? ' support-wide' : ''}" data-chart-id="${esc(chart.id)}"><img src="${esc(chart.file)}" alt="${esc(chart.title)}" loading="lazy" width="${chart.width}" height="${chart.height}"><figcaption><p>${esc(chart.description || chart.subtitle)}</p>${tools ? `<div class="figure-downloads"><a href="${esc(chart.file)}" download>SVG</a><button data-figure-csv="${esc(chart.id)}">数值CSV</button></div>` : ''}</figcaption></figure>`;
 }
 function overviewHTML() {
-  return `<section class="topic-overview" aria-label="四个总体规律与三个任务专项">${['总体规律','任务专项'].map(group => `<div class="finding-group"><h2>${group}<span>${group === '总体规律' ? '从共性出发' : '回到具体任务'}</span></h2><ol>${TOPICS.filter(topic => topic.group === group).map(topic => `<li><span class="finding-index">${topic.n}</span><div><h3>${topic.name}</h3><p>${HIGHLIGHTS[topic.id][0]}</p></div></li>`).join('')}</ol></div>`).join('')}</section>`;
+  return `<section class="topic-overview" aria-label="四个总体规律与三个任务专项">${['总体规律','任务专项'].map(group => `<div class="finding-group"><h2>${group}<span>${group === '总体规律' ? '从共性出发' : '回到具体任务'}</span></h2><ol>${TOPICS.filter(topic => topic.group === group).map(topic => `<li><span class="finding-index">${topic.n}</span><div><h3>${topic.name}</h3><p>${topic.id === 'feedback' && feedbackPublication ? '六种反馈并列，比较修复、回退与完整正确性。' : HIGHLIGHTS[topic.id][0]}</p></div></li>`).join('')}</ol></div>`).join('')}</section>`;
 }
 function topicHTML(topic) {
   const charts = catalog.charts.filter(chart => chart.topic === topic.id);
   const main = charts.find(chart => chart.role === 'main') || charts[0];
   const highlights = HIGHLIGHTS[topic.id];
+  if(topic.id === 'feedback' && feedbackPublication) {
+    const extension = renderFeedbackExtension(feedbackPublication.evidence,feedbackPublication.figures,feedbackPublication.legacyEvidence);
+    if(extension) return `<section class="finding-chapter" id="finding-feedback" data-topic="feedback" aria-label="代码中的执行反馈">${extension}<section class="feedback-history" aria-label="保留的历史Mini实验图稿"><header class="support-heading"><div><h3>历史批次：原 Mini 实验图稿</h3><p>以下图稿完整保留原四组实验及原评分。141 / 164 等数值属于当时的 Mini 测试；同一批代码的完整强复测结果在上方单独报告。</p></div></header><div class="finding-stage">${mainFigure(main)}<aside class="finding-insight"><h4>原 Mini 测试中的反馈差异</h4><p>旧实验每模型、每题只有一份共享初稿，包含四种处理和四次后续生成。</p><p>这些历史曲线不与上方三次独立初稿的新批次合并计算。</p><div class="insight-scope">HumanEval+ Mini v0.1.10，164道题，两模型，5,576份物理响应。</div></aside></div><div class="support-section"><div class="support-grid">${charts.filter(chart => chart.id !== main.id).map(chart => supportFigure(chart)).join('')}</div></div></section></section>`;
+  }
   return `<section class="finding-chapter" id="finding-${topic.id}" data-topic="${topic.id}" aria-labelledby="finding-title-${topic.id}"><header class="finding-chapter-heading"><span class="finding-chapter-number" aria-hidden="true">${topic.n}</span><div><h3 id="finding-title-${topic.id}">${topic.title}</h3><p>${topic.name}</p></div></header><div class="finding-stage">${mainFigure(main)}<aside class="finding-insight"><h4>${highlights[0]}</h4>${highlights.slice(1).map(text => `<p>${text}</p>`).join('')}<div class="insight-scope">${esc(topic.scope.replaceAll(' · ','，'))}</div></aside></div><div class="support-section"><div class="support-heading"><h4>实测对照</h4><p>${topic.group === '总体规律' ? '在不同条件下，检验同一规律。' : '沿任务特性，继续看证据。'}</p></div><div class="support-grid">${charts.filter(chart => chart.id !== main.id).map(chart => supportFigure(chart)).join('')}</div></div></section>`;
 }
 function findingsHTML() {
@@ -161,7 +167,16 @@ async function init() {
   try {
     const response = await fetch('data/research-charts.json');
     if(!response.ok) throw new Error('科研图册未找到，请重新启动系统。');
-    catalog = await response.json(); route = readRoute(); await render();
+    catalog = await response.json();
+    const supplement = document.querySelector('meta[name="code-feedback-extension"]')?.content;
+    if(supplement) {
+      const result = await fetch(supplement);
+      if(!result.ok) throw new Error('代码反馈补充实验未找到，请重新构建系统。');
+      const value = await result.json();
+      if(!renderFeedbackExtension(value.evidence,value.figures,value.legacyEvidence)) throw new Error('代码反馈补充实验尚未通过完整性检查。');
+      feedbackPublication = value;
+    }
+    route = readRoute(); await render();
   } catch(error) {
     $('#main-content').innerHTML = `<section class="error-message"><h1>研究内容未能打开</h1><p>${esc(error.message)}</p><button onclick="location.reload()">重新读取</button></section>`;
   }
