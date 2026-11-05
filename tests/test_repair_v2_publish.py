@@ -5,6 +5,7 @@ the counts are fixtures, not research measurements. Nothing is exported outside
 TemporaryDirectory. These tests make no API calls or candidate executions.
 """
 import copy
+import gzip
 import hashlib
 import json
 from pathlib import Path
@@ -15,6 +16,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from experiments.code_repair_v2.src.publish import publish
+from scripts.cleaning.build_unified_features import FIELDS
 
 
 def write_json(path, value):
@@ -111,6 +113,83 @@ class PublishBoundaryTests(unittest.TestCase):
             publish(self.source, self.legacy, destination)
         self.assertFalse((destination / "data/code-feedback-extension.json").exists())
         self.assertFalse((destination / "assets/research-extension").exists())
+        self.assertFalse(destination.exists())
+
+    def unified_fixture(self):
+        """Schema/hash fixture only; no actual research rows are manufactured."""
+        directory = self.source / "unified-format"
+        directory.mkdir()
+        assets = {
+            "unified-records.csv.gz": gzip.compress((",".join(FIELDS) + "\n").encode(), mtime=0),
+            "lineage.csv": b"record_id,replicate_id,arm,round,public_pass,full_pass,code_sha256\n",
+            "field-statistics.csv": b"field,type,meaning,missing_policy,records,missing_count,missing_rate\n",
+        }
+        for name, blob in assets.items():
+            (directory / name).write_bytes(blob)
+        (directory / "responses.jsonl").write_text("PRIVATE_UNIFIED_RAW_SENTINEL\n")
+        metadata = {
+            "schema": "code-repair-unified-supplement-v1", "synthetic": False, "complete": True,
+            "batch_id": self.evidence["batch_id"], "records": 24600, "physical_seeds": 984,
+            "planned_tasks": 164, "replicates_per_task_model": 3, "fields": list(FIELDS),
+            "metric_name": "base_and_full_disjoint_holdout_pass_v2",
+            "assets_sha256": {name: hashlib.sha256(blob).hexdigest() for name, blob in assets.items()},
+            "null_policy": "Empty cell is null; no zero imputation.",
+            "replicate_policy": "Replicate in lineage; independent_sample remains null.",
+            "source_local_path": "PRIVATE_UNIFIED_METADATA_PATH_SENTINEL",
+        }
+        write_json(directory / "metadata.json", metadata)
+        return directory, metadata
+
+    def test_verified_unified_metadata_is_bundled_without_copying_private_sources(self):
+        directory, metadata = self.unified_fixture()
+        publish(self.source, self.legacy, self.app)
+        bundle = json.loads((self.app / "data/code-feedback-extension.json").read_text())
+        supplement = bundle["unifiedFormat"]
+        self.assertEqual(supplement["batch_id"], self.evidence["batch_id"])
+        self.assertEqual((supplement["records"], supplement["physical_seeds"]), (24600, 984))
+        self.assertEqual(supplement["fields"], list(FIELDS))
+        self.assertEqual(supplement["assets_sha256"], metadata["assets_sha256"])
+        self.assertEqual(bundle["provenance"]["unified_metadata_sha256"],
+                         hashlib.sha256((directory / "metadata.json").read_bytes()).hexdigest())
+        self.assertNotIn("source_local_path", supplement)
+        files = [path for path in self.app.rglob("*") if path.is_file()]
+        exported = b"".join(path.read_bytes() for path in files)
+        self.assertNotIn(b"PRIVATE_UNIFIED_RAW_SENTINEL", exported)
+        self.assertNotIn(b"PRIVATE_UNIFIED_METADATA_PATH_SENTINEL", exported)
+        self.assertFalse(any(path.name == "responses.jsonl" for path in files))
+
+    def test_unified_batch_count_and_exact_21_field_schema_fail_before_target_writes(self):
+        directory, original = self.unified_fixture()
+        changes = [
+            lambda m: m.update(batch_id="different-batch"),
+            lambda m: m.update(records=24599),
+            lambda m: m.update(schema="unverified-schema"),
+            lambda m: m.update(fields=list(reversed(FIELDS))),
+            lambda m: m.update(fields=list(FIELDS)[:-1]),
+            lambda m: m.update(complete=False),
+            lambda m: m.update(synthetic=True),
+        ]
+        for number, change in enumerate(changes):
+            with self.subTest(case=number):
+                metadata = copy.deepcopy(original)
+                change(metadata)
+                write_json(directory / "metadata.json", metadata)
+                self.assert_rejected()
+
+    def test_unified_assets_require_all_three_exact_names_and_matching_hashes(self):
+        directory, original = self.unified_fixture()
+        changes = [
+            lambda m: m["assets_sha256"].update({"unified-records.csv.gz": "0" * 64}),
+            lambda m: m["assets_sha256"].pop("lineage.csv"),
+            lambda m: m["assets_sha256"].update({"responses.jsonl": hashlib.sha256(
+                (directory / "responses.jsonl").read_bytes()).hexdigest()}),
+        ]
+        for number, change in enumerate(changes):
+            with self.subTest(case=number):
+                metadata = copy.deepcopy(original)
+                change(metadata)
+                write_json(directory / "metadata.json", metadata)
+                self.assert_rejected()
 
     def test_complete_real_schema_exports_only_anonymous_bundle_and_declared_local_assets(self):
         (self.app / "unrelated.txt").write_text("existing app remains intact")

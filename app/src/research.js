@@ -1,4 +1,4 @@
-import { renderQuestion, renderCollection, renderCleaning, renderConclusion, bindContent } from './research-content.js';
+import { researchContent, renderQuestion, renderCollection, renderCleaning, renderConclusion, bindContent } from './research-content.js';
 import { renderHome, mountHome } from './research-home.js';
 import { renderFeedbackExtension } from './research-feedback-extension.js';
 
@@ -107,6 +107,13 @@ function atlasHTML() {
 function renderNavigation() {
   $('#chapter-nav').innerHTML = CHAPTERS.map((chapter,index) => `<a href="?chapter=${chapter.id}" ${route.chapter === chapter.id ? 'aria-current="page"' : ''}><span class="chapter-number">${String(index + 1).padStart(2,'0')}</span>${chapter.label}</a>`).join('');
 }
+function appendSupplementContext(main) {
+  if(!feedbackPublication) return;
+  const e=feedbackPublication.evidence,fmt=value=>Number(value).toLocaleString('zh-CN');
+  if(route.chapter === 'collection') $('.rc-collection',main)?.insertAdjacentHTML('beforeend',`<section class="rc-collection-ledger" aria-label="代码反馈补充采集"><div class="rc-section-heading"><h3>代码反馈补充批次</h3></div><p>${fmt(e.planned_tasks)}道题、${fmt(e.models.length)}个模型，各有${fmt(e.repeats_per_task)}份独立初稿。每份初稿在${fmt(e.arms.length)}条策略链中再生成${fmt(e.rounds-1)}版，共保存${fmt(e.saved_physical_responses)}份有效回答。</p><p class="rc-source-note">原五项实验保存${fmt(researchContent.totalRecords)}份回答，本轮补充批次另存；累计${fmt(researchContent.totalRecords+e.saved_physical_responses)}份物理回答。共享初稿只计一次，重复和修复版本保持同题配对关系。</p></section>`);
+  const unified=feedbackPublication.unifiedFormat;
+  if(route.chapter === 'cleaning' && unified?.complete) $('.rc-storage-summary',main)?.insertAdjacentHTML('beforeend',`<p class="rc-source-note">代码反馈补充批次的${fmt(unified.records)}份物理响应，另存为同样${fmt(unified.fields.length)}列的 <code>unified-records.csv.gz</code>。匿名父版本可追溯；三份独立初稿编号另存 <code>lineage.csv</code>。完整保留测试使用独立评分名称，与原Mini分别统计。</p>`);
+}
 async function render() {
   const version = ++epoch;
   disposeContent?.(); disposeContent = null;
@@ -127,6 +134,7 @@ async function render() {
   const intro = chapter?.intro || '完整保留37张科研SVG和原有交互探索。';
   const body = route.chapter === 'question' ? renderQuestion() : route.chapter === 'collection' ? renderCollection() : route.chapter === 'cleaning' ? renderCleaning() : route.chapter === 'conclusion' ? renderConclusion() : route.chapter === 'atlas' ? atlasHTML() : findingsHTML();
   main.innerHTML = `<section class="section-intro"><h1>${title}</h1>${intro ? `<p>${intro}</p>` : ''}</section>${body}`;
+  appendSupplementContext(main);
   document.title = `${chapter?.label || '科研图稿'} · 知微`;
   if(route.chapter === 'question') $('.rc-lead',main)?.remove();
   if(['question','collection','cleaning','conclusion'].includes(route.chapter)) disposeContent = bindContent(main,{notify});

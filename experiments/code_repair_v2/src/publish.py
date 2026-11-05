@@ -12,6 +12,7 @@ import xml.etree.ElementTree as ET
 
 from .dataset import ROOT
 from .prepare import atomic_json
+from scripts.cleaning.build_unified_features import FIELDS
 
 
 def read_json(path):
@@ -110,6 +111,22 @@ def publish(source: Path, legacy: Path, app: Path = ROOT / 'app'):
                                  'figures': legacy_manifest['figures']},
               'provenance': {'evidence_sha256': hashlib.sha256((source / 'app-evidence.json').read_bytes()).hexdigest(),
                              'assets': {name: hashlib.sha256(path.read_bytes()).hexdigest() for name, path in files.items()}}}
+    normalized = source / 'unified-format/metadata.json'
+    if normalized.exists():
+        metadata = read_json(normalized)
+        if (metadata.get('schema') != 'code-repair-unified-supplement-v1'
+                or metadata.get('synthetic') is not False or metadata.get('complete') is not True
+                or metadata.get('batch_id') != evidence['batch_id'] or metadata.get('records') != expected
+                or metadata.get('fields') != list(FIELDS)
+                or set(metadata.get('assets_sha256', {})) != {'unified-records.csv.gz', 'lineage.csv', 'field-statistics.csv'}):
+            raise ValueError('Unified-format provenance does not match the complete batch')
+        for name, sha in metadata.get('assets_sha256', {}).items():
+            if Path(name).name != name or hashlib.sha256((normalized.parent / name).read_bytes()).hexdigest() != sha:
+                raise ValueError('Unified-format asset checksum mismatch')
+        bundle['unifiedFormat'] = {key: metadata.get(key) for key in (
+            'schema', 'batch_id', 'complete', 'records', 'physical_seeds', 'planned_tasks',
+            'replicates_per_task_model', 'fields', 'metric_name', 'assets_sha256', 'null_policy', 'replicate_policy')}
+        bundle['provenance']['unified_metadata_sha256'] = hashlib.sha256(normalized.read_bytes()).hexdigest()
     check_anonymous(bundle)
     target = app / 'assets/research-extension'
     target.mkdir(parents=True, exist_ok=True)
