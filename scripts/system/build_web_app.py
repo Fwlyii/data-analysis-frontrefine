@@ -155,7 +155,7 @@ def build():
     for name in ['assets','runtime']:
         shutil.copytree(APP/name,dist/name,dirs_exist_ok=True)
     shutil.copytree(APP/'src',dist/'src',dirs_exist_ok=True)
-    for name in ['research.css','research-content.css','research-explorer.css']:
+    for name in ['research.css','research-content.css','research-explorer.css','research-home.css']:
         shutil.copy2(APP/name,dist/name)
     (dist/'data').mkdir(exist_ok=True)
     for name in ['summary.json','demo-evidence.json','research-charts.json','research-content.json']:

@@ -625,22 +625,22 @@ const typeOf = (value) => value === null ? 'null' : typeof value === 'number' ? 
 
 function taskDetail(id) {
   const task = researchContent.question.tasks.find(t => t.id === id) || researchContent.question.tasks[0];
-  return `<article class="rc-task-example"><div class="rc-example-heading"><h3>${esc(task.exampleTitle)}</h3><span class="rc-scope">${esc(task.variable)}</span></div><p class="rc-example-question">${esc(task.example)}</p><div class="rc-example-answer">${esc(task.answer)}</div><dl class="rc-task-facts"><div><dt>研究问题</dt><dd>${esc(task.question)}</dd></div><div><dt>评价方式</dt><dd>${esc(task.metric)}</dd></div></dl><p class="rc-source-note">${esc(task.source)} · ${esc(task.footnote)}</p><button class="rc-link-button" type="button" data-topic-jump="${esc(task.linkTopic)}">查看对应专项</button></article>`;
+  return `<article class="rc-task-example" data-rc-task-example="${esc(task.id)}"><header class="rc-task-heading"><h3>${esc(task.name)}</h3><p>${esc(task.variable)}</p></header><p class="rc-task-question">${esc(task.question)}</p><div class="rc-task-case"><h4>${esc(task.exampleTitle)}</h4><p class="rc-example-question">${esc(task.example)}</p><p class="rc-example-answer">${esc(task.answer)}</p></div><p class="rc-task-metric"><strong>评价</strong>${esc(task.metric)}</p><p class="rc-source-note">${esc(task.source.split(" · ")[0])}</p></article>`;
 }
 
 export function renderQuestion(selected = 'math') {
   const q = researchContent.question;
-  return `<section class="rc-question" data-rc-question><p class="rc-lead">${esc(q.lead)}</p><div class="rc-branch-layout"><div class="rc-central-question"><span>共同研究问题</span><strong>${esc(q.central)}</strong></div><svg class="rc-branch-lines" viewBox="0 0 900 90" fill="none" aria-hidden="true"><path d="M450 0V30M150 90V50Q150 35 165 35H735Q750 35 750 50V90M450 35V90" stroke="currentColor" stroke-width="1.5"/><circle cx="450" cy="35" r="5" fill="currentColor" stroke="none"/></svg><div class="rc-task-tabs" role="group" aria-label="选择研究任务">${q.tasks.map(t => `<button type="button" class="rc-task-tab" data-rc-task="${esc(t.id)}" aria-pressed="${t.id === selected}"><strong>${esc(t.name)}</strong><span>${esc(t.variable)}</span></button>`).join('')}</div></div><div data-rc-task-detail>${taskDetail(selected)}</div></section>`;
+  return `<section class="rc-question" data-rc-question><p class="rc-lead">${esc(q.lead)}</p><div class="rc-central-question"><strong>${esc(q.central)}</strong></div><svg class="rc-branch-lines" viewBox="0 0 900 90" fill="none" aria-hidden="true"><path d="M450 0V30M150 90V50Q150 35 165 35H735Q750 35 750 50V90M450 35V90" stroke="currentColor" stroke-width="1.5"/><circle cx="450" cy="35" r="5" fill="currentColor" stroke="none"/></svg><div class="rc-task-grid">${q.tasks.map(t => taskDetail(t.id)).join('')}</div></section>`;
 }
 
 function promptItems(dimension = 'all') {
   const list = researchContent.prompts.filter(p => dimension === 'all' || p.dimensions.includes(dimension));
-  return `<p class="rc-prompt-count" data-rc-prompt-count>当前 ${list.length} 种实际策略${dimension !== 'all' ? ` · ${esc(dimensionName(dimension))}` : ''}</p><div class="rc-prompt-list">${list.map(p => `<details class="rc-prompt-item"><summary><span>${esc(p.label)}</span><code>${esc(p.id)}</code><span class="rc-prompt-tags">${p.dimensions.map(d => esc(dimensionName(d))).join(' / ')}</span></summary><p lang="en">${esc(p.instruction)}</p></details>`).join('')}</div>`;
+  return `<div class="rc-prompt-list">${list.map(p => `<article class="rc-prompt-item" title="${esc(p.instruction)}"><strong>${esc(p.label)}</strong><code>${esc(p.id)}</code><span class="rc-prompt-tags">${p.dimensions.map(d => esc(dimensionName(d))).join(' / ')}</span></article>`).join('')}</div>`;
 }
 
 export function renderCollection() {
   const data = researchContent;
-  return `<section class="rc-collection" data-rc-collection><p class="rc-lead">先看四个考察维度，再展开31种实际策略；同一道题在不同条件下重复测试。</p><div class="rc-dimension-grid">${data.dimensions.map(d => `<article class="rc-dimension"><h3>${esc(d.name)}</h3><p>${esc(d.description)}</p><div class="rc-dimension-examples">${d.examples.map(e => `<span>${esc(e)}</span>`).join('')}</div><button class="rc-link-button" type="button" data-rc-dimension="${d.id}">查看对应策略</button></article>`).join('')}</div><details class="rc-prompt-catalog"><summary>展开完整策略与四维映射 <span>31种 · 可按维度筛选</span></summary><div class="rc-prompt-filters" role="group" aria-label="提示词考察维度"><button type="button" data-rc-dimension="all" aria-pressed="true">全部31种</button>${data.dimensions.map(d => `<button type="button" data-rc-dimension="${d.id}" aria-pressed="false">${esc(d.name)}</button>`).join('')}</div><div data-rc-prompt-results>${promptItems()}</div></details><div class="rc-collection-ledger"><div class="rc-section-heading"><h3>五项实验，${number(data.totalRecords)}条物理响应</h3><p>题目数 × 模型 × 条件 × 采样或修改协议</p></div><div class="rc-table-wrap" tabindex="0" role="region" aria-label="实验数据表，可横向滚动"><table class="rc-experiment-table"><thead><tr><th scope="col">实验与任务</th><th scope="col">计算关系</th><th scope="col">响应记录</th><th scope="col">题库与模型</th></tr></thead><tbody>${data.experiments.map(e => `<tr><th scope="row">${esc(e.name)}</th><td class="rc-formula">${esc(e.formula)}</td><td class="rc-numeric">${number(e.records)}</td><td><span>${esc(e.benchmarks)}</span><small>${esc(e.modelsLabel)}</small></td></tr>`).join('')}</tbody></table></div><ul class="rc-method-notes">${data.collectionNotes.map(n => `<li>${esc(n)}</li>`).join('')}</ul></div></section>`;
+  return `<section class="rc-collection" data-rc-collection><p class="rc-lead">同一道题保持不变，分别改变语言、回答组织、长度预算与表达格式。</p><div class="rc-dimension-grid">${data.dimensions.map(d => `<article class="rc-dimension"><h3>${esc(d.name)}</h3><p>${esc(d.description)}</p><div class="rc-dimension-examples">${d.examples.map(e => `<span>${esc(e)}</span>`).join('')}</div></article>`).join('')}</div><section class="rc-collection-ledger"><div class="rc-section-heading"><h3>五项实验，${number(data.totalRecords)}条物理响应</h3><p>题目 × 模型 × 条件 × 采样或修改协议</p></div><div class="rc-table-wrap" tabindex="0" role="region" aria-label="实验数据表，可横向滚动"><table class="rc-experiment-table"><thead><tr><th scope="col">实验与任务</th><th scope="col">计算关系</th><th scope="col">响应记录</th><th scope="col">题库与模型</th></tr></thead><tbody>${data.experiments.map(e => `<tr><th scope="row">${esc(e.name)}</th><td class="rc-formula">${esc(e.formula)}</td><td class="rc-numeric">${number(e.records)}</td><td><span>${esc(e.benchmarks)}</span><small>${esc(e.modelsLabel)}</small></td></tr>`).join('')}</tbody></table></div><ul class="rc-method-notes">${data.collectionNotes.map(n => `<li>${esc(n)}</li>`).join('')}</ul></section><section class="rc-prompt-catalog"><div class="rc-section-heading"><h3>实际采用的31种策略</h3><p>四个维度是考察标签，部分策略跨维度。</p></div>${promptItems()}</section></section>`;
 }
 
 function sourceValue(source, key) {
@@ -651,7 +651,7 @@ function sourceValue(source, key) {
 function sourceKey(source, field, active) {
   const label = source === 'reasoning' ? field.reasoningKey : field.documentKey;
   const rawKey = source === 'document_qa' ? label.split('.').at(-1) : label;
-  return `<button type="button" class="rc-field-token${field.id === active ? ' is-active' : ''}" data-rc-field="${esc(field.id)}" aria-pressed="${field.id === active}" aria-label="${esc(label)} 映射到 ${esc(field.id)}">&quot;${esc(rawKey)}&quot;</button>`;
+  return `<mark class="rc-field-token${field.id === active ? ' is-active' : ''}">&quot;${esc(rawKey)}&quot;</mark>`;
 }
 function sourceFragment(source, active) {
   const fields = Object.fromEntries(researchContent.cleaning.fields.map(f => [f.id, f]));
@@ -660,25 +660,21 @@ function sourceFragment(source, active) {
   if (source === 'reasoning') return `{\n  ${key('model_id')}: ${val('model_id')},\n  ${key('input_tokens')}: ${val('input_tokens')},\n  ${key('output_tokens')}: ${val('output_tokens')},\n  ${key('finish_reason')}: ${val('finish_reason')}\n}`;
   return `{\n  ${key('model_id')}: ${val('model_id')},\n  "response": {\n    "usage": {\n      ${key('input_tokens')}: ${val('input_tokens')},\n      ${key('output_tokens')}: ${val('output_tokens')}\n    },\n    "choices": [{\n      ${key('finish_reason')}: ${val('finish_reason')}\n    }]\n  }\n}`;
 }
-function savedRecord(source, active, view) {
+function savedRecord(source, active) {
   const row = researchContent.cleaning.records[source];
-  if (view === 'json') {
-    const lines = Object.entries(row).map(([key,value]) => `<span class="rc-saved-line${key === active ? ' is-active' : ''}">  "${esc(key)}": <span class="rc-code-value">${esc(JSON.stringify(value))}</span></span>`);
-    return `<pre class="rc-saved-json" tabindex="0" aria-label="同一CSV记录的JSON结构阅读视图"><code>{\n${lines.join(',\n')}\n}</code></pre>`;
-  }
-  return `<div class="rc-table-wrap rc-saved-table-wrap" tabindex="0" role="region" aria-label="统一保存记录，可滚动查看"><table class="rc-saved-table"><caption>按CSV列顺序检查保存值</caption><thead><tr><th scope="col">统一字段</th><th scope="col">保存值</th><th scope="col">类型</th></tr></thead><tbody>${Object.entries(row).map(([key,value]) => `<tr class="${key === active ? 'is-active' : ''}"><th scope="row"><code>${esc(key)}</code></th><td>${value === null ? '<span class="rc-null">null</span>' : esc(String(value))}</td><td>${typeOf(value)}</td></tr>`).join('')}</tbody></table></div>`;
+  const keys = ['model_id','benchmark','input_tokens','output_tokens','finish_reason','metric_name','metric_value','document_count','evidence_position'];
+  return `<div class="rc-table-wrap rc-saved-table-wrap" tabindex="0" role="region" aria-label="统一保存记录的关键字段，可横向滚动"><table class="rc-saved-table"><caption>同一份21列CSV中的关键字段</caption><thead><tr><th scope="col">统一字段</th><th scope="col">保存值</th><th scope="col">类型</th></tr></thead><tbody>${keys.map(key => {const value=row[key];return `<tr class="${key === active ? 'is-active' : ''}"><th scope="row"><code>${esc(key)}</code></th><td>${value === null ? '<span class="rc-null">null</span>' : esc(String(value))}</td><td>${typeOf(value)}</td></tr>`;}).join('')}</tbody></table></div>`;
 }
-function cleaningBody(active, source, view) {
+function cleaningBody(active, source) {
   const d = researchContent.cleaning;
   const f = d.fields.find(f => f.id === active) || d.fields[0];
-  return `<p class="rc-lead">${esc(d.intro)}</p><div class="rc-mapping-toolbar" role="group" aria-label="选择字段映射">${d.fields.map(x => `<button type="button" data-rc-field="${x.id}" aria-pressed="${x.id === f.id}">${esc(x.name)}</button>`).join('')}</div><p class="rc-difference-legend"><span aria-hidden="true"></span>${esc(d.legend)}</p><div class="rc-cleaning-flow"><div class="rc-sources"><h3>来源字段视图</h3>${[['reasoning','推理实验 · 源表格字段'],['document_qa','文档问答 · API字段层级']].map(([id,title]) => `<article class="rc-source-fragment"><div class="rc-source-header"><h4>${title}</h4><button type="button" class="rc-link-button" data-rc-save-source="${id}" aria-pressed="${source === id}">查看清洗结果</button></div><pre><code>${sourceFragment(id,f.id)}</code></pre></article>`).join('')}<p class="rc-source-note">${esc(d.projectionNote)}</p></div><div class="rc-transformation"><svg viewBox="0 0 96 32" aria-hidden="true" class="rc-flow-arrow"><path d="M3 16h84m-14-12 14 12-14 12" fill="none" stroke="currentColor" stroke-width="2"/></svg><h3>映射与清洗</h3><div class="rc-target-field"><code>${esc(f.id)}</code><span>${esc(f.type)}</span></div><p>${esc(f.rule)}</p><pre class="rc-mapping-code" tabindex="0" aria-label="字段映射代码，可横向滚动"><code>${esc(f.code)}</code></pre><p class="rc-source-note">来自已保存清洗代码的对应规则</p></div><div class="rc-unified"><div class="rc-section-heading"><h3>清洗后，统一保存</h3><label>当前记录<select data-rc-saved-source aria-label="选择清洗后记录"><option value="reasoning"${source === 'reasoning'?' selected':''}>推理记录</option><option value="document_qa"${source === 'document_qa'?' selected':''}>文档记录</option></select></label></div><div class="rc-saved-view-tabs" role="group" aria-label="保存数据的阅读方式"><button type="button" data-rc-saved-view="csv" aria-pressed="${view === 'csv'}">CSV字段表</button><button type="button" data-rc-saved-view="json" aria-pressed="${view === 'json'}">JSON结构预览</button></div>${savedRecord(source,f.id,view)}<p class="rc-source-note">${esc(d.savedFormat)}</p><button class="rc-download-button" type="button" data-rc-download="cleaning">下载两条保存样例 CSV</button></div></div><div class="rc-cleaning-rules">${d.rules.map(r=>`<article><h4>${esc(r.title)}</h4><p>${esc(r.text)}</p></article>`).join('')}</div><p class="rc-mapping-status" role="status" aria-live="polite">当前映射：${esc(f.reasoningKey)} / ${esc(f.documentKey)} → ${esc(f.id)}</p><details class="rc-provenance"><summary>查看示例来源与保存规则</summary><p>字段映射：<code>${esc(d.provenance.fieldMapping)}</code></p><p>统一保存：<code>${esc(d.provenance.unifiedBuilder)}</code></p><p>数值：<code>${esc(d.provenance.sampleSource)}</code> 中两条已保存记录，展示仅保留匿名数值字段。</p><p>源文件SHA-256：<code>${esc(d.provenance.sampleSHA256)}</code></p></details>`;
+  return `<div class="rc-mapping-toolbar" role="group" aria-label="选择字段映射">${d.fields.map(x => `<button type="button" data-rc-field="${x.id}" aria-pressed="${x.id === f.id}">${esc(x.name)}</button>`).join('')}</div><p class="rc-difference-legend"><span aria-hidden="true"></span>${esc(d.legend)}</p><div class="rc-cleaning-flow"><div class="rc-sources"><h3>不同来源</h3>${[['reasoning','推理实验：源表格'],['document_qa','文档问答：API响应']].map(([id,title]) => `<article class="rc-source-fragment${source === id?' is-current':''}"><div class="rc-source-header"><h4>${title}</h4></div><pre tabindex="0" aria-label="${title}字段视图，可横向滚动"><code>${sourceFragment(id,f.id)}</code></pre></article>`).join('')}</div><div class="rc-transformation"><svg viewBox="0 0 96 32" aria-hidden="true" class="rc-flow-arrow"><path d="M3 16h84m-14-12 14 12-14 12" fill="none" stroke="currentColor" stroke-width="2"/></svg><h3>映射与清洗</h3><div class="rc-target-field"><code>${esc(f.id)}</code><span>${esc(f.type)}</span></div><p>${esc(f.rule)}</p><pre class="rc-mapping-code" tabindex="0" aria-label="字段映射代码，可横向滚动"><code>${esc(f.code)}</code></pre></div><div class="rc-unified"><div class="rc-section-heading"><h3>统一保存</h3><label>样例来源<select data-rc-saved-source aria-label="选择清洗后记录"><option value="reasoning"${source === 'reasoning'?' selected':''}>推理实验</option><option value="document_qa"${source === 'document_qa'?' selected':''}>文档问答</option></select></label></div>${savedRecord(source,f.id)}<p class="rc-format-note"><code>all_records.csv.gz</code><span>所有来源，按同一套字段与类型保存。</span></p></div></div><div class="rc-cleaning-rules">${d.rules.map(r=>`<article><h4>${esc(r.title)}</h4><p>${esc(r.text)}</p></article>`).join('')}</div><p class="rc-mapping-status" role="status" aria-live="polite">${esc(f.reasoningKey)} / ${esc(f.documentKey)} → ${esc(f.id)}</p><p class="rc-source-note rc-cleaning-provenance">${esc(d.projectionNote)} 统一文件实际为gzip压缩CSV；JSON仅为结构化阅读形式。</p>`;
 }
 
 export function renderCleaning(field = 'output_tokens', source = 'reasoning', view = 'csv') {
   const f = researchContent.cleaning.fields.some(x=>x.id===field)?field:'output_tokens';
   const s = Object.hasOwn(researchContent.cleaning.records,source)?source:'reasoning';
-  const v = view === 'json' ? 'json' : 'csv';
-  return `<section class="rc-cleaning" data-rc-cleaning data-field="${f}" data-source="${s}" data-view="${v}">${cleaningBody(f,s,v)}</section>`;
+  return `<section class="rc-cleaning" data-rc-cleaning data-field="${f}" data-source="${s}" data-view="csv">${cleaningBody(f,s)}</section>`;
 }
 
 export function renderConclusion() {
@@ -694,64 +690,25 @@ export function cleaningSampleCSV() {
   const d=researchContent.cleaning;
   return [d.headers.join(','),...Object.values(d.records).map(row=>d.headers.map(key=>csvCell(row[key])).join(','))].join('\r\n')+'\r\n';
 }
-function downloadCSV() {
-  const blob = new Blob(['\uFEFF',cleaningSampleCSV()],{type:'text/csv;charset=utf-8'});
-  const url=URL.createObjectURL(blob),a=document.createElement('a');
-  a.href=url;a.download='知微-清洗后统一记录.csv';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
-}
-
 export function bindContent(container, options = {}) {
-  function revealMappedField() {
-    const el = container.querySelector('[data-rc-cleaning]');
-    if (!el) return;
-    for (const pre of el.querySelectorAll('.rc-source-fragment pre')) {
-      const active = pre.querySelector('.rc-field-token.is-active');
-      if (active) {
-        const y = active.getBoundingClientRect().top - pre.getBoundingClientRect().top;
-        pre.scrollTop += y - Math.min(90, pre.clientHeight * .35);
-      }
-    }
-    const wrap = el.querySelector('.rc-saved-table-wrap');
-    const active = wrap?.querySelector('tr.is-active');
-    if (wrap && active) {
-      const y = active.getBoundingClientRect().top - wrap.getBoundingClientRect().top;
-      wrap.scrollTop += y - Math.max(45, wrap.clientHeight * .42);
-    }
-  }
   function setMapping(change) {
     const el=container.querySelector('[data-rc-cleaning]');if(!el)return;
-    const focusIndex=[...el.querySelectorAll('button,select')].indexOf(document.activeElement);
-    const field=change.field||el.dataset.field||'output_tokens',source=change.source||el.dataset.source||'reasoning',view=change.view||el.dataset.view||'csv';
-    el.dataset.field=field;el.dataset.source=source;el.dataset.view=view;
-    el.innerHTML=cleaningBody(field,source,view);
-    revealMappedField();
-    if(focusIndex>=0)el.querySelectorAll('button,select')[focusIndex]?.focus({preventScroll:true});
-    options.onFieldChange?.({field,source,view});
+    const focused=document.activeElement;
+    const field=change.field||el.dataset.field||'output_tokens',source=change.source||el.dataset.source||'reasoning';
+    const focusField=focused?.dataset?.rcField,focusSource=focused?.hasAttribute?.('data-rc-saved-source');
+    el.dataset.field=field;el.dataset.source=source;el.dataset.view='csv';
+    el.innerHTML=cleaningBody(field,source);
+    if(focusField)el.querySelector(`[data-rc-field="${focusField}"]`)?.focus({preventScroll:true});
+    if(focusSource)el.querySelector('[data-rc-saved-source]')?.focus({preventScroll:true});
+    options.onFieldChange?.({field,source,view:'csv'});
   }
   function click(event) {
-    const button=event.target.closest('button');if(!button||!container.contains(button))return;
-    if(button.hasAttribute('data-rc-task')) {
-      const id=button.dataset.rcTask;
-      container.querySelectorAll('[data-rc-task]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.rcTask===id)));
-      const target=container.querySelector('[data-rc-task-detail]');if(target)target.innerHTML=taskDetail(id);
-      options.onTaskChange?.(id);return;
-    }
-    if(button.hasAttribute('data-rc-dimension')) {
-      const dim=button.dataset.rcDimension;
-      const catalog=container.querySelector('.rc-prompt-catalog');if(catalog)catalog.open=true;
-      container.querySelectorAll('.rc-prompt-filters [data-rc-dimension]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.rcDimension===dim)));
-      const target=container.querySelector('[data-rc-prompt-results]');if(target)target.innerHTML=promptItems(dim);return;
-    }
-    if(button.hasAttribute('data-rc-field'))return setMapping({field:button.dataset.rcField});
-    if(button.hasAttribute('data-rc-save-source'))return setMapping({source:button.dataset.rcSaveSource});
-    if(button.hasAttribute('data-rc-saved-view'))return setMapping({view:button.dataset.rcSavedView});
-    if(button.dataset.rcDownload==='cleaning')return downloadCSV();
-    if(button.hasAttribute('data-topic-jump'))options.onNavigate?.(button.dataset.topicJump);
+    const button=event.target.closest('button[data-rc-field]');
+    if(button&&container.contains(button))setMapping({field:button.dataset.rcField});
   }
   function change(event) {
     if(event.target.matches('[data-rc-saved-source]'))setMapping({source:event.target.value});
   }
   container.addEventListener('click',click);container.addEventListener('change',change);
-  revealMappedField();
   return ()=>{container.removeEventListener('click',click);container.removeEventListener('change',change);};
 }

@@ -1,76 +1,48 @@
-# 知微重构版交接
+# 知微答辩展示版交接
 
-## 当前内容
+首页恢复深海蓝知微五气泡。五颗气泡进入研究问题、采集设计、数据处理、核心发现、总结与反思。正文只保留五章顶导航和上一段／下一段；可用左右方向键依序讲述。品牌返回五气泡首页。
 
-五个一级模块为研究问题、采集设计、数据处理、核心发现、总结与反思。研究问题采用“提示词总问题 → 数学、文档、代码三任务 → 专项变量”；核心发现采用“四总体＋三专项”：
+## 展示结构
 
-- 总体：Token—成功率log关系、模型规模、简洁表达、限长反弹。
-- 专项：数学语言模板、文档证据位置、代码执行反馈。
+研究问题由总问题分到数学、文档、代码三任务，三组案例同时展示。采集页直接展示四维和31种真实策略。清洗页沿红色同义异名字段、映射规则、保存CSV关键字段展开；保留四字段切换与一个记录来源选择。
 
-系统包含37张可编辑SVG、13类通用交互图、4个代码独立生成视图。专项匿名快照有9,176条记录，即3,600条位置记录和5,576条反馈修复物理响应；它们已包含在总计248,586条中。
+发现部分先展示四总体、三专项的静态结构，然后顺序进入七组证据：Token边际收益、模型规模、简洁表达、限长反弹、数学语言、文档位置、代码反馈。每组为结论标题、大图和旁侧解读，下接全部辅助对照。37张SVG全部保留。
 
-## 启动、生成与检查
+正文不再放置“查看对应专项”、交叉推荐、每图SVG/CSV按钮、“设为主图”、格式切换、独立图册入口和探索按钮。图形来源与条件在图稿内保留，研究细节随正文阅读，不依赖多层展开。
 
-在仓库根目录运行：
+## 文件与接口
+
+| 内容 | 文件 |
+|---|---|
+| 首页五气泡 | `app/src/research-home.js`、`app/research-home.css` |
+| 主壳、五章路由、12段顺序 | `app/index.html`、`app/src/research.js`、`app/research.css` |
+| 三任务、31策略、清洗、总结 | `app/src/research-content.js`、`app/research-content.css` |
+| 37张科学SVG与目录 | `app/assets/research/`、`app/data/research-charts.json` |
+| 图稿生成器 | `scripts/figures/build_research_atlas.py` |
+| 保留的完整探索 | `app/src/research-explorer.js`、`app/research-explorer.css` |
+| 专项匿名记录模块与快照 | `app/src/research-special-records.js`、`app/data/special-records.json.gz` |
+
+`renderHome()`返回首页HTML；`mountHome(container,{onNavigate})`返回清理函数。内容模块保留 `renderQuestion()`、`renderCollection()`、`renderCleaning(field,source)`、`renderConclusion()` 与 `bindContent(container,callbacks)`。离开模块前释放其事件。
+
+图稿资源页通过 `?chapter=atlas` 直接访问，保留逐图SVG／CSV、完整图包与原有13类通用图、4个代码生成视图。该页面服务研究与素材准备，主答辩页面不摆额外按钮。专项匿名记录模块继续作为数据能力保留，未删除快照。
+
+## 科研口径
+
+- 248,586条是物理响应；9,176条专项记录已在其中。
+- 四维是策略标签，31种是实际清单，不是完整笛卡尔组合。
+- CSV（gzip压缩）为实际统一保存格式；清洗页展示同一21列CSV中的9个关键字段。完整行仍保留在数据对象及CSV helper中。
+- 源字段片段由真实清洗代码重建所需字段视图，数值来自同条已保存记录；不冒充原API响应全文。
+- 不混合任务评分。模型未知参数不填0，拟合线不改为实测线。
+- 五次独立生成、反馈修复轮次、HTTP请求重试分别解释。共同修复初稿只计一次。
+
+页面切换和动效可以继续美化；不得增加与答辩无关的导航或把图形重新藏进按钮。保留坐标、单位、范围、来源、点线形状和必要标注。新动效必须遵守减少动态偏好，触控与键盘仍可完整操作。
+
+## 运行与核验
 
 ```bash
 python3 app/launch.py --port 8770
-
-# 需要单独更新图形或静态产物时
-python3 scripts/figures/build_research_atlas.py
-python3 scripts/system/build_web_app.py
+python3 scripts/system/check_reconstruction.py
+BASE_URL=http://127.0.0.1:8770/ node tests/browser/defense.mjs
 ```
 
-启动后在另一个终端执行新界面回归：
-
-```bash
-npm ci --prefix tests
-npm run browser:install --prefix tests
-BASE_URL=http://127.0.0.1:8770/ node tests/browser/reconstruction.mjs
-```
-
-可用 `CHROMIUM_PATH` 指定浏览器。回归结果位于 `artifacts/qa/reconstruction/report.json`。旧 `tests/run.py` 和93状态清单属于旧门户基线，不作为新主界面的状态数量承诺。
-
-## 修改入口与接口
-
-| 模块 | 文件与作用域 |
-|---|---|
-| 主壳、章节路由、主题图册 | `app/src/research.js`、`app/research.css` |
-| 中文章节、四维策略、字段映射 | `app/src/research-content.js`、`app/research-content.css`，`.rc-*` |
-| 通用图表与代码生成探索 | `app/src/research-explorer.js`、`app/research-explorer.css`，`.r-explorer-*` |
-| 专项匿名记录 | `app/src/research-special-records.js`，`.rs-*` |
-| 图形目录与数值 | `app/data/research-charts.json` |
-| SVG与成套下载 | `app/assets/research/*.svg`、`app/assets/research-svg.zip` |
-
-内容模块导出 `researchContent`、`renderQuestion()`、`renderCollection()`、`renderCleaning()`、`renderConclusion()`、`bindContent()`和`cleaningSampleCSV()`。`bindContent(container, {onNavigate, onTaskChange, onFieldChange})`返回清理函数，替换章节前调用。
-
-图表目录的主题ID为 `budget`、`scale`、`concise`、`limits`、`language`、`position`、`feedback`。每图包含标题、条件、来源、SVG路径和数值行；主图、辅助图与导出均以此目录为依据。
-
-## 字段标红与统一保存
-
-来源字段视图来自实际读取代码，数值来自已保存匿名记录：
-
-| 统一字段 | 推理源表格 | 文档问答API层级 |
-|---|---|---|
-| `output_tokens` | `输出词元数` | `response.usage.completion_tokens` |
-| `input_tokens` | `输入词元数` | `response.usage.prompt_tokens` |
-| `finish_reason` | `结束原因` | `response.choices[0].finish_reason` |
-| `model_id` | `模型标识` | `model`，再经规范模型字典映射 |
-
-红色表示同义异名字段；点选后，来源字段、映射规则和统一保存项同步突出。示例仅展示映射所需字段及匿名数值，省略原始问答全文。读取规则见 `scripts/cleaning/clean_baseline_data.py`，统一结构见 `scripts/cleaning/build_unified_features.py`。
-
-实际保存为gzip压缩的CSV；JSON是同一记录的阅读视图。空单元格为null，布尔为true/false，缺失Token不补0。不同任务评分由 `metric_name`区分，不计算跨任务总准确率。31种策略是实际清单，四维为可重叠标签，不代表完整笛卡尔积。
-
-## 后续页面美化的边界
-
-可以调整页面布局、导航表现、整体切换、进出场和图形呈现节奏。以下内容须随研究证据保留：
-
-- 科学数字、坐标范围、单位、编码含义、图例、来源与适用条件。
-- 观测点与拟合线的区别；未知模型规模不补0、不按名称猜测。
-- 图中统计、筛选、记录数量与CSV导出的同一数据集合。
-- URL恢复、有效筛选、图表下钻、分页、真实CSV与SVG导出。
-- 键盘入口、焦点恢复、减少动态效果、播放暂停与离章清理。
-- HTTP请求重试与代码修复的区别；独立生成与多轮反馈的区别。
-- 共享修复初稿只计一次；465条代码环境排除保留为空评分。
-
-替换动效或页面结构后，先跑新回归，再检查1440级电脑窗口和窄屏。报告、讲稿、截图与PPT复用系统中的中文主旨、图形和范围说明。
+使用 `python3 scripts/system/build_web_app.py` 重新构建。交接包用 `scripts/system/package_reconstruction.py --output /绝对路径/交接目录` 生成，含静态网站、可编辑ES模块、SVG生成器、冻结统计与独立启动器。

@@ -1,10 +1,10 @@
 # LENS · 知微
 
-中文模型行为研究与可视化系统。以“提示词策略怎样影响任务质量与输出开销”为总问题，串起研究问题、采集设计、数据处理、核心发现、总结与反思五章。
+中文模型行为研究与可视化系统。首页保留知微五气泡，进入研究问题、采集设计、数据处理、核心发现、总结与反思五章。内容按答辩顺序阅读，只有五章导航与顺序翻页，支持左右方向键推进。
 
 核心发现采用**四个总体主题＋三个任务专项**：Token与成功率的log关系、模型规模、简洁表达、限长反弹，以及数学语言模板、文档证据位置、代码执行反馈。
 
-当前包含 **37张可编辑SVG、13类通用交互图和4个代码独立生成视图**，支持条件筛选、匿名记录、CSV/SVG导出。位置与反馈修复专项另有9,176条匿名记录入口，来自总计248,586条物理响应中的对应子集。
+当前保留 **37张可编辑SVG、13类通用交互图和4个代码独立生成视图**。主展示直接呈现主图、辅助对照与结论，移除跨章推荐和逐图工具按钮。清洗演示只保留四个字段切换与记录来源选择。完整交互、图稿导出留在独立的 `?chapter=atlas` 图稿页，答辩主线不摆放额外入口。位置与反馈修复的9,176条匿名记录快照继续保留，属于总计248,586条响应的子集。
 
 [研究概述](docs/project-summary.md) · [内容与美化交接](docs/reconstruction-handoff.md) · [目录说明](docs/repository-structure.md) · [录制指南](docs/submission.md)
 
@@ -43,18 +43,19 @@ python3 scripts/system/check_reconstruction.py
 ```bash
 npm ci --prefix tests
 npm run browser:install --prefix tests
-BASE_URL=http://127.0.0.1:8770/ node tests/browser/reconstruction.mjs
+BASE_URL=http://127.0.0.1:8770/ node tests/browser/defense.mjs
 ```
 
-已有Chrome等浏览器时，可用 `CHROMIUM_PATH` 指定其可执行文件。新回归检查五章、四维策略、字段映射、七主题图形、探索记录、导出、响应式与可访问性；结果写入 `artifacts/qa/reconstruction/report.json`。
+已有Chrome等浏览器时，可用 `CHROMIUM_PATH` 指定其可执行文件。当前回归检查五气泡首页、五章答辩路径、无多余按钮、字段映射、七主题37图、响应式与可访问性；结果写入 `artifacts/qa/defense/report.json`。
 
-`tests/run.py`及其93状态基线保留用于旧门户维护，不代表新主界面的状态数量，也不能替代上述回归。
+`tests/run.py`和 `tests/browser/reconstruction.mjs` 保留此前界面的基线，不代表当前精简后的控件数量，不能替代上述回归。
 
 ## 源码入口
 
 | 内容 | 入口 |
 |---|---|
 | 主页面、路由、主题图册 | `app/index.html`、`app/src/research.js`、`app/research.css` |
+| 五气泡首页 | `app/src/research-home.js`、`app/research-home.css` |
 | 中文章节、策略与清洗演示 | `app/src/research-content.js`、`app/research-content.css` |
 | 通用图表、代码生成探索 | `app/src/research-explorer.js`、`app/research-explorer.css` |
 | 位置与反馈专项记录 | `app/src/research-special-records.js`、`app/data/special-records.json.gz` |

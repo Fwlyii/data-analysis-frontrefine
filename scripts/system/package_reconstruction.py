@@ -82,13 +82,17 @@ GUIDE = '''知微展示系统 · 研究内容重构版
 五章：研究问题 → 采集设计 → 数据处理 → 核心发现 → 总结与反思。
 总体四项：Token与质量的log关系、模型规模、简洁表达、限长反弹。
 专项三项：数学中英文模板、文档证据位置、代码执行反馈。
-37张中文可编辑SVG，逐图SVG/CSV与整包下载；保留13类通用交互图和4个代码生成视图。
-清洗演示：红色同义异名字段 → 映射规则 → 已保存统一CSV及JSON读取预览。
+首页恢复知微五气泡；正文只留五章导航与上一段/下一段，支持左右方向键。
+37张中文SVG以主图与辅助对照直接呈现，无逐图工具按钮。
+完整图稿、SVG/CSV导出与13类通用交互图、4个代码生成视图保留在 ?chapter=atlas。
+清洗演示：红色同义异名字段 → 映射规则 → 保存CSV的9个关键字段（来自完整21列）。
+只保留4字段与记录来源切换，移除跨章推荐、格式切换和下载按钮。
 专项9,176条匿名记录来自248,586条物理响应中的对应子集，不额外累计。
 
 三、交给页面美化同学
 网站/ 就是可运行的静态前端，src/中保留ES模块源码，可直接编辑后刷新。
-网站/index.html、research.css、src/research.js：主框架、路由和图册。
+网站/index.html、research.css、src/research.js：主框架、路由、12段答辩顺序和图册。
+网站/src/research-home.js、research-home.css：原知微五气泡首页。
 网站/src/research-content.js、research-content.css：中文章节、四维31策略和清洗演示。
 网站/src/research-explorer.js、research-explorer.css：13类交互图、4代码视图。
 网站/src/research-special-records.js：位置和修复匿名记录。
@@ -96,7 +100,8 @@ GUIDE = '''知微展示系统 · 研究内容重构版
 网站/runtime/：已生成的冻结数据脚本，页面通过本地HTTP按需读取。
 内容与图表交接.md：模块接口及后续美化边界。
 
-可以继续美化导航、页面切换、布局与动画。请保留图形坐标、单位、条件、来源和评分口径；
+可以继续美化页面切换、布局与动画，不再添加答辩不会使用的按钮或交叉导航。
+请保留图形坐标、单位、条件、来源和评分口径；
 筛选、记录与导出必须对应同一集合；未知规模保持缺失；独立生成不称为反馈修复轮次。
 本版图表已设计配色、直接标注、点线形状与重点数字，可继续使用SVG原图。
 
@@ -136,7 +141,9 @@ def package(output):
     (destination / '科研源图/app/data/research-charts.json').write_text(json.dumps(catalog, ensure_ascii=False, indent=2), encoding='utf-8')
     shutil.copy2(ROOT / 'app/assets/research-svg.zip', output / '知微科研SVG图包.zip')
     shutil.copy2(destination / '使用与交接.txt', output / '重构版_使用与交接.txt')
-    report = ROOT / 'artifacts/qa/reconstruction/report.json'
+    report = ROOT / 'artifacts/qa/defense/report.json'
+    if not report.is_file():
+        report = ROOT / 'artifacts/qa/reconstruction/report.json'
     if report.is_file():
         shutil.copy2(report, destination / '浏览器检查结果.json')
     archive_path = output / '知微展示系统_重构版.zip'

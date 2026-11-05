@@ -1,10 +1,9 @@
 import { renderQuestion, renderCollection, renderCleaning, renderConclusion, bindContent } from './research-content.js';
-import { mountExplorer, disposeExplorer } from './research-explorer.js';
-import { openSpecialRecords } from './research-special-records.js';
+import { renderHome, mountHome } from './research-home.js';
 
-const $=(s,r=document)=>r.querySelector(s);
-const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const icon=n=>`<svg viewBox="0 0 20 20" aria-hidden="true">${n==='download'?'<path d="M10 2v10m-4-4 4 4 4-4M3 13v4h14v-4"/>':n==='expand'?'<path d="M7 3H3v4m10-4h4v4M3 13v4h4m10-4v4h-4M7 7 3 3m10 4 4-4M7 13l-4 4m10-4 4 4"/>':n==='close'?'<path d="m5 5 10 10M15 5 5 15"/>':n==='next'?'<path d="m7 4 6 6-6 6"/>':'<path d="m13 4-6 6 6 6"/>'}</svg>`;
+const $ = (selector, root = document) => root.querySelector(selector);
+const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
+const arrow = direction => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${direction === 'back' ? 'm14 6-6 6 6 6M8 12h12' : 'm10 6 6 6-6 6M4 12h12'}"/></svg>`;
 const CHAPTERS=[
  {id:'question',label:'研究问题',title:'同一道任务，怎样让模型做得更好？',intro:'从提示词策略出发，在数学、文档与代码三类任务中比较回答质量和输出开销，再沿任务特性研究证据位置与执行反馈。'},
  {id:'collection',label:'采集设计',title:'从四个考察维度，到真实的对照实验。',intro:'语言、推理提示、长度与表达格式，构成理解31种实际策略的线索。题目、模型、条件与响应数量，都能沿来源追溯。'},
@@ -21,53 +20,189 @@ const TOPICS=[
  {id:'position',group:'任务专项',n:'06',name:'文档中的证据位置',title:'关键资料的位置，也改变模型差距。',intro:'固定问题、20篇资料和提示，沿九个实测位置观察两条模型曲线。',reading:'相关证据在首位时，Qwen3相对Qwen2.5的优势为16.5个百分点；在末位缩小到2.5个百分点。九位置专项与原三位置提示实验分别保留。',scope:'200道题 · 两模型 · 九个实测位置 · 配对比较',explore:{chart:'position',dataset:'document_qa',task:'document_qa',prompt:'NoCoT'}},
  {id:'feedback',group:'任务专项',n:'07',name:'代码中的执行反馈',title:'给出具体反例，修复才更有方向。',intro:'从通过率曲线进入失败用例和实际代码，观察反馈方式怎样影响每轮修改。',reading:'Qwen3相同初稿通过126 / 164题，四次修改后自查组通过129题、状态反馈130题、具体用例反馈141题。独立采样与多轮反馈修复分别呈现。',scope:'164道题 · 同一初稿 · 四种处理 · 初稿＋四次生成',explore:{panel:'code',view:'sampling'}}
 ];
-const topicById=id=>TOPICS.find(t=>t.id===id);
-let catalog={charts:[]},route,contentDispose,explorerMounted=false,epoch=0,toastTimer;
-const svgCache=new Map();
-function readRoute(){const p=new URLSearchParams(location.search),h=location.hash.slice(1);let chapter=p.get('chapter')||(CHAPTERS.some(c=>c.id===h)?h:'question');if(h==='landscape'){chapter='findings';if(!p.has('topic'))p.set('topic','budget');}if(!CHAPTERS.some(c=>c.id===chapter)&&chapter!=='atlas')chapter='question';let topic=p.get('topic')||'overview';if(!topicById(topic))topic='overview';return {chapter,topic,figure:p.get('figure')||'',filter:p.get('filter')||'all'};}
-function routeURL(next){const p=new URLSearchParams(location.search);if(route&&(next.chapter!==route.chapter||next.topic!==route.topic)){[...p.keys()].filter(k=>k.startsWith('x')).forEach(k=>p.delete(k));}p.set('chapter',next.chapter);['topic','figure','filter'].forEach(k=>p.delete(k));if(next.chapter==='findings'&&next.topic&&next.topic!=='overview')p.set('topic',next.topic);if(next.figure)p.set('figure',next.figure);if(next.chapter==='atlas'&&next.filter&&next.filter!=='all')p.set('filter',next.filter);return location.pathname+'?'+p.toString();}
-function go(next,{replace=false,scroll=true}={}){const n={chapter:'findings',topic:'overview',figure:'',filter:'all',...next};history[replace?'replaceState':'pushState']({},'',routeURL(n));route=readRoute();render();if(scroll)window.scrollTo({top:0,behavior:'instant'});}
-function notify(message){clearTimeout(toastTimer);const e=$('#research-toast');e.textContent=message;e.classList.add('visible');toastTimer=setTimeout(()=>e.classList.remove('visible'),2800);}
-function download(filename,content,type){const url=URL.createObjectURL(new Blob([content],{type})),a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
-function csv(rows){if(!rows?.length)return '';const keys=Object.keys(rows[0]);return '\ufeff'+[keys,...rows.map(r=>keys.map(k=>r[k]))].map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\r\n');}
-async function svgText(chart){if(!svgCache.has(chart.id))svgCache.set(chart.id,fetch(chart.file).then(r=>{if(!r.ok)throw new Error('本地图稿读取失败');return r.text();}));return svgCache.get(chart.id);}
-async function exportSVG(chart){try{download(`知微-${chart.id}.svg`,await svgText(chart),'image/svg+xml;charset=utf-8');notify('已导出可编辑SVG图表');}catch(e){notify(e.message);}}
-function exportCSV(chart){if(!chart.data?.length){notify('请从深度探索导出对应记录');return;}download(`知微-${chart.id}.csv`,csv(chart.data),'text/csv;charset=utf-8');notify('已导出当前图表数值');}
-function sourceLabel(c){return typeof c.source==='string'?c.source:Array.isArray(c.source)?c.source.join(' · '):'保存的研究统计与匿名特征';}
-function mainFigure(c){return `<figure class="main-figure" data-chart-id="${esc(c.id)}"><div class="figure-topline"><span class="figure-context">当前图稿</span><div class="figure-actions"><button data-root-action="zoom" data-chart="${esc(c.id)}">${icon('expand')}放大图表</button><button data-root-action="svg" data-chart="${esc(c.id)}">${icon('download')}SVG</button><button data-root-action="csv" data-chart="${esc(c.id)}">数值CSV</button>${(c.topic==='position'||(c.topic==='feedback'&&String(c.source).includes('code_repair')))?`<button data-root-action="special-records" data-chart="${esc(c.id)}">专项匿名记录</button>`:''}</div></div><div class="figure-canvas loading" id="primary-figure" tabindex="0" role="img" aria-label="${esc(c.title)}">正在打开SVG图稿…</div><figcaption class="figure-caption"><p>${esc(c.description||c.subtitle||'')}</p><span class="source-link">可编辑矢量 · 实测数据</span></figcaption></figure>`;}
-function supportFigure(c){return `<figure class="support-figure"><button class="support-preview" data-root-action="zoom" data-chart="${esc(c.id)}" aria-label="放大图表：${esc(c.title)}"><img src="${esc(c.file)}" alt="${esc(c.title)}" loading="lazy" width="1000" height="600"></button><figcaption><h3>${esc(c.title)}</h3><p>${esc(c.description||c.subtitle||'')}</p><div class="mini-actions"><button data-root-action="choose-figure" data-chart="${esc(c.id)}">设为主图</button><button data-root-action="svg" data-chart="${esc(c.id)}">导出SVG</button><button data-root-action="csv" data-chart="${esc(c.id)}">数值CSV</button></div></figcaption></figure>`;}
-function overviewHTML(){return `<section class="topic-overview">${['总体规律','任务专项'].map(g=>`<div class="topic-group-heading"><h2>${g}</h2><p>${g==='总体规律'?'从预算与规模，到表达与约束':'回到三类任务，研究各自特有的问题'}</p></div>${TOPICS.filter(t=>t.group===g).map(t=>`<a href="?chapter=findings&topic=${t.id}" class="topic-row"><span class="topic-number">${t.n}</span><div class="topic-copy"><h3>${t.name}</h3><p>${t.intro}</p><small>${catalog.charts.filter(c=>c.topic===t.id).length}张主辅图 · 条件探索与数据导出</small></div><span class="row-arrow" aria-hidden="true">↗</span></a>`).join('')}`).join('')}</section><div class="section-actions"><a class="primary-button" href="?chapter=findings&topic=budget">从总体关系开始 ${icon('next')}</a><a class="secondary-button" href="?chapter=atlas">查看全部科研图表</a></div>`;}
-function explorerHTML(t){const context=t?.id==='position'?['继续探索：原三位置提示实验。','下方保留10/20篇资料的三位置提示实验，与上方九位置专项分别展示。九位置记录可从专项记录入口查看。']:t?.id==='feedback'?['补充：五次独立代码生成。','这里比较独立采样、提示差异、错误类型和开销，与上方收到执行反馈的多轮修复使用不同数据。']:t?['从图表，进入条件记录。','按实际图表条件选择模型、题目和提示，切换图形、查看匿名记录，导出当前集合。']:['保留早期图表库的探索能力。','柱图、雷达、热力、箱线、平行坐标、状态、分类、时间线与请求路径，都可以在同一系统内继续探索。'];return `<section class="exploration-panel" aria-label="深度探索"><div class="exploration-intro"><div><h2>${context[0]}</h2><p>${context[1]}</p></div><button class="secondary-button" data-root-action="explore">打开${t?'深度探索':'交互图表库'} ${icon('next')}</button></div><div class="exploration-host" id="research-explorer-host"></div></section>`;}
-function topicHTML(t){const cs=catalog.charts.filter(c=>c.topic===t.id),c=cs.find(c=>c.id===route.figure)||cs.find(c=>c.role==='main')||cs[0];if(!c)return '<p>请重新运行构建，加载该主题图稿。</p>';return `<div class="scope-line"><span>${t.group}</span><span>${t.scope}</span></div><div class="figure-select"><label for="research-figure-select">图表与条件<select id="research-figure-select">${cs.map(x=>`<option value="${esc(x.id)}" ${x.id===c.id?'selected':''}>${esc(x.title)}${cs.filter(y=>y.title===x.title).length>1?" · "+esc(x.subtitle.split(" · ")[0]):""}</option>`).join('')}</select></label><span class="theme-scope">${cs.length}张图，从不同角度检验同一主题</span></div>${mainFigure(c)}<div class="reading"><h2>怎样读这组图</h2><div><p>${t.reading}</p><small>条件和单位随图稿保留，各任务使用原有评分口径。</small></div></div><div class="supplement-heading"><h2>继续看证据</h2><p>辅助图、跨条件对照与研究细节</p></div><div class="support-grid">${cs.filter(x=>x.id!==c.id).map(supportFigure).join('')}</div>${explorerHTML(t)}<details class="research-note"><summary>数据来源与分析范围</summary><p>${esc(sourceLabel(c))}</p><p>图稿读取已保存的实验结果；条件切换不重新调用模型。未知规模保留缺失，拟合线与观测点分别呈现。</p></details>`;}
-function atlasHTML(){const filter=route.filter||'all',cs=catalog.charts.filter(c=>filter==='all'||c.topic===filter);return `<div class="catalog-tools"><div class="catalog-filters" role="group" aria-label="图册主题"><button data-atlas-filter="all" aria-pressed="${filter==='all'}">全部</button>${TOPICS.map(t=>`<button data-atlas-filter="${t.id}" aria-pressed="${filter===t.id}">${t.name}</button>`).join('')}</div><span class="catalog-count">当前${cs.length}张 · 全部${catalog.charts.length}张</span></div><div class="support-grid">${cs.map(supportFigure).join('')}</div>${explorerHTML()}`;}
-function renderNavigation(){
- $('#chapter-nav').innerHTML=CHAPTERS.map(c=>`<a href="?chapter=${c.id}" ${route.chapter===c.id?'aria-current="page"':''}>${c.label}</a>`).join('');
- const themes=['findings','atlas'].includes(route.chapter);$('.research-rail').dataset.mode=themes?'topics':'chapters';
- $('#chapter-outline').innerHTML=themes?`<a class="back-link" href="?chapter=findings">返回发现总览</a>${['总体规律','任务专项'].map(g=>`<p class="rail-group">${g}</p><ul class="rail-list">${TOPICS.filter(t=>t.group===g).map(t=>`<li><a href="?chapter=findings&topic=${t.id}" ${route.chapter==='findings'&&route.topic===t.id?'aria-current="page"':''}><span>${t.n}</span>${t.name}</a></li>`).join('')}</ul>`).join('')}`:`<p class="rail-title">沿着研究走一遍</p><ol class="rail-list">${CHAPTERS.map((c,i)=>`<li><a href="?chapter=${c.id}" ${route.chapter===c.id?'aria-current="page"':''}><span>${String(i+1).padStart(2,'0')}</span>${c.label}</a></li>`).join('')}</ol>`;
- $('#chart-total').textContent=catalog.charts.length;
- const scenes=[{chapter:'question'},{chapter:'collection'},{chapter:'cleaning'},{chapter:'findings',topic:'overview'},...TOPICS.map(t=>({chapter:'findings',topic:t.id})),{chapter:'conclusion'}],i=Math.max(0,scenes.findIndex(s=>s.chapter===route.chapter&&(s.chapter!=='findings'||s.topic===route.topic)));
- const link=(s,label,ic)=>s?`<a href="${routeURL({...s,figure:'',filter:'all'})}">${ic==='back'?icon(ic):''}${label}${ic==='next'?icon(ic):''}</a>`:'';
- $('#page-progress').innerHTML=`<nav class="scene-pagination" aria-label="讲述顺序">${link(scenes[i-1],'上一段','back')}<span>${i+1} / ${scenes.length}</span>${link(scenes[i+1],'下一段','next')}</nav>`;
+
+const topicById = id => TOPICS.find(topic => topic.id === id);
+const SCENES = [
+  {chapter:'question'}, {chapter:'collection'}, {chapter:'cleaning'},
+  {chapter:'findings',topic:'overview'},
+  ...TOPICS.map(topic => ({chapter:'findings',topic:topic.id})),
+  {chapter:'conclusion'}
+];
+const HIGHLIGHTS = {
+  budget: ['输出增加，收益逐渐放缓。', 'Qwen2.5 / GSM8K，七档真实限制的对数拟合 R² = 0.939。', '横轴使用实际输出Token；不同模型与题库分别比较。'],
+  scale: ['模型规模与任务表现一起看。', 'Qwen2.5为7.61B，Qwen3为8.2B；未知规模保持缺失。', '模型代际、训练和任务同时影响结果，现有数据支持同条件对照。'],
+  concise: ['17组输出全部缩短，15组评分持平或提高。', 'Qwen2.5 / GSM8K：简洁分步节省21.5%输出Token。', '保留推理要求，压缩表达；少数下降分组也完整呈现。'],
+  limits: ['约束收得更紧，实际输出可能反弹。', '词数上限从10压到1，12个分组中有9组输出增加。', '词数、字母数和接口Token各按原有单位比较。'],
+  language: ['中文模板的优势，在数学任务中显现。', 'MATH500：四模型输出都更短，三模型评分提高。', 'Qwen3从58.0%提高到69.5%；题目仍为同一批英文题。'],
+  position: ['证据移到末位，模型优势随之缩小。', 'Qwen3相对Qwen2.5的优势：首位16.5个百分点，末位2.5个百分点。', '固定20篇资料、200道题，九个位置分别实测。'],
+  feedback: ['具体失败用例，比笼统自查更有效。', '共同初稿126 / 164题通过；具体反例反馈四次修改后达到141题。', '自行检查129题，状态反馈130题；独立重采样另作对照。']
+};
+let catalog = {charts:[]};
+let route;
+let disposeContent;
+let disposeHome;
+let disposeExplorer;
+let epoch = 0;
+let toastTimer;
+const svgCache = new Map();
+
+function readRoute() {
+  const params = new URLSearchParams(location.search);
+  const hash = location.hash.slice(1);
+  let chapter = params.get('chapter') || (CHAPTERS.some(item => item.id === hash) ? hash : 'home');
+  if(hash === 'gateway') chapter = 'home';
+  if(hash === 'landscape') chapter = 'atlas';
+  if(!['home','atlas',...CHAPTERS.map(item => item.id)].includes(chapter)) chapter = 'home';
+  const topic = topicById(params.get('topic'))?.id || 'overview';
+  return {chapter,topic,filter:params.get('filter') || 'all',figure:params.get('figure') || ''};
 }
-async function render(){
- const version=++epoch;contentDispose?.();contentDispose=null;disposeExplorer();explorerMounted=false;$('#figure-dialog').close();renderNavigation();
- const chapter=CHAPTERS.find(c=>c.id===route.chapter),t=route.chapter==='findings'?topicById(route.topic):null,title=t?.title||chapter?.title||'完整科研图册。',intro=t?.intro||chapter?.intro||'将早期中文图表版的丰富性，放回统一研究主线。全部主辅图均为可编辑SVG，支持逐图与整包导出。';
- const body=route.chapter==='question'?renderQuestion():route.chapter==='collection'?renderCollection():route.chapter==='cleaning'?renderCleaning():route.chapter==='conclusion'?renderConclusion():route.chapter==='atlas'?atlasHTML():t?topicHTML(t):overviewHTML();
- $('#main-content').innerHTML=`<section class="section-intro"><div class="inline-path"><span>${chapter?.label||'科研图册'}</span>${t?`<span class="path-separator"></span><span>${t.group}</span>`:''}</div><h1>${title}</h1><p>${intro}</p></section>${body}`;
- document.title=`${t?.name||chapter?.label||'科研图册'} · 知微`;
- if(route.chapter==='question')$('.rc-lead',$('#main-content'))?.remove();
- if(['question','collection','cleaning','conclusion'].includes(route.chapter))contentDispose=bindContent($('#main-content'),{onNavigate:id=>go({chapter:'findings',topic:id}),notify});
- const select=$('#research-figure-select');if(select)select.onchange=()=>go({...route,figure:select.value},{replace:true,scroll:false});
- const primary=$('#primary-figure');if(primary){const chart=catalog.charts.find(c=>c.id===primary.closest('[data-chart-id]').dataset.chartId);try{const svg=await svgText(chart);if(version!==epoch)return;primary.innerHTML=svg.replaceAll('chart-title','main-chart-title').replaceAll('chart-desc','main-chart-desc');primary.classList.remove('loading');}catch(e){primary.textContent=e.message+'，请重新启动系统后重试。';}}
+function routeURL(next) {
+  const params = new URLSearchParams();
+  if(next.chapter !== 'home') params.set('chapter', next.chapter);
+  if(next.chapter === 'findings' && next.topic && next.topic !== 'overview') params.set('topic',next.topic);
+  if(next.chapter === 'atlas' && next.filter && next.filter !== 'all') params.set('filter',next.filter);
+  return location.pathname + (params.size ? '?' + params.toString() : '');
 }
-async function openExplorer(){const openEpoch=epoch;const host=$('#research-explorer-host');if(!host){go({chapter:'atlas'});return;}if(!explorerMounted){host.innerHTML='<p>正在读取匿名记录与本地图形组件…</p>';const t=topicById(route.topic);try{await mountExplorer(host,{...(t?.explore||{}),notify});if(openEpoch!==epoch)return;explorerMounted=true;}catch(e){host.innerHTML=`<div class="error-message"><h2>深度探索未能打开</h2><p>${esc(e.message)}</p><button class="secondary-button" data-root-action="explore">重新打开</button></div>`;}}host.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});}
-async function zoom(c){const d=$('#figure-dialog');d.innerHTML=`<div class="dialog-head"><h2>${esc(c.title)}</h2><div class="dialog-actions"><button class="secondary-button" data-root-action="svg" data-chart="${esc(c.id)}">${icon('download')}SVG</button><button class="icon-button" data-root-action="close-figure" aria-label="关闭放大图表">${icon('close')}</button></div></div><div class="figure-canvas" tabindex="0" role="region" aria-label="放大图表，可横向滚动">正在读取图稿…</div><p class="dialog-note">${esc(c.description||c.subtitle||'')}</p>`;d.showModal();try{$('.figure-canvas',d).innerHTML=(await svgText(c)).replaceAll('chart-title','dialog-chart-title').replaceAll('chart-desc','dialog-chart-desc');}catch(e){$('.figure-canvas',d).textContent=e.message;}}
-document.addEventListener('click',e=>{
- const a=e.target.closest('a');if(a&&a.origin===location.origin&&a.pathname===location.pathname&&a.search){const p=new URLSearchParams(a.search);if(p.has('chapter')){e.preventDefault();go({chapter:p.get('chapter'),topic:p.get('topic')||'overview',figure:p.get('figure')||'',filter:p.get('filter')||'all'});return;}}
- const f=e.target.closest('[data-atlas-filter]');if(f){go({...route,filter:f.dataset.atlasFilter},{replace:true,scroll:false});return;}
- const b=e.target.closest('[data-root-action]');if(!b)return;const action=b.dataset.rootAction,c=catalog.charts.find(c=>c.id===b.dataset.chart);
- if(action==='atlas')go({chapter:'atlas'});else if(action==='explore')openExplorer();else if(action==='close-figure')$('#figure-dialog').close();else if(c&&action==='special-records'){const filters={...(c.filters||{})};if(c.id==='feedback-rounds-qwen3')filters.model='qwen3';if(c.id==='feedback-rounds-qwen')filters.model='qwen';openSpecialRecords({topic:c.topic,filters}).catch(e=>notify(e.message));}else if(c&&action==='zoom')zoom(c);else if(c&&action==='svg')exportSVG(c);else if(c&&action==='csv')exportCSV(c);else if(c&&action==='choose-figure')go({chapter:'findings',topic:c.topic,figure:c.id});
+function go(next, {replace = false} = {}) {
+  const value = {chapter:'home',topic:'overview',filter:'all',...next};
+  history[replace ? 'replaceState' : 'pushState']({},'',routeURL(value));
+  route = readRoute();
+  render();
+  window.scrollTo({top:0,behavior:'instant'});
+}
+function notify(message) {
+  clearTimeout(toastTimer);
+  const toast = $('#research-toast');
+  toast.textContent = message;
+  toast.classList.add('visible');
+  toastTimer = setTimeout(() => toast.classList.remove('visible'),2500);
+}
+function download(filename, content, type) {
+  const url = URL.createObjectURL(new Blob([content], {type}));
+  const anchor = document.createElement('a');
+  anchor.href = url; anchor.download = filename;
+  document.body.append(anchor); anchor.click(); anchor.remove();
+  setTimeout(() => URL.revokeObjectURL(url),1000);
+}
+async function svgText(chart) {
+  if(!svgCache.has(chart.id)) svgCache.set(chart.id,fetch(chart.file).then(response => {
+    if(!response.ok) throw new Error('图稿读取失败，请刷新页面重试。');
+    return response.text();
+  }));
+  return svgCache.get(chart.id);
+}
+function sourceLabel(chart) { return chart.source || '保存的研究统计'; }
+function mainFigure(chart) {
+  return `<figure class="main-figure" data-chart-id="${esc(chart.id)}"><div class="figure-canvas loading" id="primary-figure" tabindex="0" role="img" aria-label="${esc(chart.title)}">正在读取图稿…</div></figure>`;
+}
+function supportFigure(chart, tools = false) {
+  const wide = /landscape|matrix|real-code-case|fit-comparison/.test(chart.id);
+  return `<figure class="support-figure${wide ? ' support-wide' : ''}" data-chart-id="${esc(chart.id)}"><img src="${esc(chart.file)}" alt="${esc(chart.title)}" loading="lazy" width="${chart.width}" height="${chart.height}"><figcaption><p>${esc(chart.description || chart.subtitle)}</p>${tools ? `<div class="figure-downloads"><a href="${esc(chart.file)}" download>SVG</a><button data-figure-csv="${esc(chart.id)}">数值CSV</button></div>` : ''}</figcaption></figure>`;
+}
+function overviewHTML() {
+  return `<section class="topic-overview" aria-label="四个总体规律与三个任务专项">${['总体规律','任务专项'].map(group => `<div class="finding-group"><h2>${group}<span>${group === '总体规律' ? '从共性出发' : '回到具体任务'}</span></h2><ol>${TOPICS.filter(topic => topic.group === group).map(topic => `<li><span class="finding-index">${topic.n}</span><div><h3>${topic.name}</h3><p>${HIGHLIGHTS[topic.id][0]}</p></div></li>`).join('')}</ol></div>`).join('')}</section>`;
+}
+function topicHTML(topic) {
+  const charts = catalog.charts.filter(chart => chart.topic === topic.id);
+  const main = charts.find(chart => chart.role === 'main') || charts[0];
+  const highlights = HIGHLIGHTS[topic.id];
+  return `<section class="finding-stage" aria-label="${esc(topic.name)}">${mainFigure(main)}<aside class="finding-insight"><h2>${highlights[0]}</h2>${highlights.slice(1).map(text => `<p>${text}</p>`).join('')}<div class="insight-scope">${esc(topic.scope.replaceAll(' · ','，'))}</div></aside></section><section class="support-section" aria-label="辅助对照图"><div class="support-heading"><h2>对照与细节</h2><p>${topic.group === '总体规律' ? '在不同条件下，检验同一规律。' : '沿任务特性，继续看证据。'}</p></div><div class="support-grid">${charts.filter(chart => chart.id !== main.id).map(chart => supportFigure(chart)).join('')}</div></section>`;
+}
+function atlasHTML() {
+  const charts = catalog.charts.filter(chart => route.filter === 'all' || chart.topic === route.filter);
+  return `<div class="catalog-tools"><label for="atlas-filter">图稿主题<select id="atlas-filter"><option value="all">全部37张</option>${TOPICS.map(topic => `<option value="${topic.id}" ${route.filter === topic.id ? 'selected' : ''}>${topic.name}</option>`).join('')}</select></label><a href="assets/research-svg.zip" download>下载完整SVG与数值图包</a></div><div class="support-grid atlas-grid">${charts.map(chart => supportFigure(chart,true)).join('')}</div><section id="research-explorer-host" class="archive-explorer" aria-label="完整交互图表库"></section>`;
+}
+function sceneTitle(scene) {
+  return scene?.chapter === 'home' ? '知微首页' : topicById(scene?.topic)?.name || CHAPTERS.find(chapter => chapter.id === scene?.chapter)?.label || '';
+}
+function renderNavigation() {
+  const active = route.chapter;
+  $('#chapter-nav').innerHTML = CHAPTERS.map((chapter,index) => `<a href="?chapter=${chapter.id}" ${active === chapter.id ? 'aria-current="page"' : ''}><span class="chapter-number">${String(index + 1).padStart(2,'0')}</span>${chapter.label}</a>`).join('');
+  const index = SCENES.findIndex(scene => scene.chapter === active && (active !== 'findings' || scene.topic === route.topic));
+  if(index < 0) { $('#page-progress').innerHTML = ''; return; }
+  const previous = SCENES[index - 1] || {chapter:'home'};
+  const next = SCENES[index + 1] || {chapter:'home'};
+  $('#page-progress').innerHTML = `<a class="scene-previous" href="${routeURL(previous)}" aria-label="上一段：${sceneTitle(previous)}">${arrow('back')}<span>${sceneTitle(previous)}</span></a><div class="scene-track"><span class="scene-step">${String(index + 1).padStart(2,'0')}<small> / ${SCENES.length}</small></span><span class="scene-track-line"><i style="width:${(index + 1)/SCENES.length*100}%"></i></span><span class="scene-title">${sceneTitle(SCENES[index])}</span></div><a class="scene-next" href="${routeURL(next)}" aria-label="下一段：${sceneTitle(next)}"><span>${sceneTitle(next)}</span>${arrow('next')}</a>`;
+}
+async function render() {
+  const version = ++epoch;
+  disposeContent?.(); disposeContent = null;
+  disposeHome?.(); disposeHome = null;
+  disposeExplorer?.(); disposeExplorer = null;
+  document.body.dataset.view = route.chapter === 'home' ? 'home' : 'chapter';
+  document.body.dataset.chapter = route.chapter;
+  renderNavigation();
+  const main = $('#main-content');
+  if(route.chapter === 'home') {
+    main.innerHTML = renderHome();
+    disposeHome = mountHome(main,{onNavigate:chapter => go({chapter})});
+    document.title = '知微 · 模型行为研究';
+    return;
+  }
+  const chapter = CHAPTERS.find(item => item.id === route.chapter);
+  const topic = route.chapter === 'findings' ? topicById(route.topic) : null;
+  const title = topic?.title || chapter?.title || '科研图稿与交互图表';
+  const intro = topic ? '' : chapter?.intro || '完整保留37张科研SVG和原有交互探索。';
+  const body = route.chapter === 'question' ? renderQuestion() : route.chapter === 'collection' ? renderCollection() : route.chapter === 'cleaning' ? renderCleaning() : route.chapter === 'conclusion' ? renderConclusion() : route.chapter === 'atlas' ? atlasHTML() : topic ? topicHTML(topic) : overviewHTML();
+  main.innerHTML = `<section class="section-intro${topic ? ' topic-intro' : ''}"><h1>${title}</h1>${intro ? `<p>${intro}</p>` : ''}${topic ? `<p class="finding-subject">${topic.group}<span></span>${topic.name}</p>` : ''}</section>${body}`;
+  document.title = `${topic?.name || chapter?.label || '科研图稿'} · 知微`;
+  if(route.chapter === 'question') $('.rc-lead',main)?.remove();
+  if(['question','collection','cleaning','conclusion'].includes(route.chapter)) disposeContent = bindContent(main,{notify});
+  const primary = $('#primary-figure');
+  if(primary) {
+    const chart = catalog.charts.find(item => item.id === primary.closest('[data-chart-id]').dataset.chartId);
+    try {
+      const svg = await svgText(chart);
+      if(version !== epoch) return;
+      primary.innerHTML = svg; primary.classList.remove('loading');
+    } catch(error) { if(version === epoch) primary.textContent = error.message; }
+  }
+  const filter = $('#atlas-filter');
+  if(filter) filter.onchange = () => go({chapter:'atlas',filter:filter.value},{replace:true});
+  if(route.chapter === 'atlas') {
+    try {
+      const {mountExplorer} = await import('./research-explorer.js');
+      if(version !== epoch) return;
+      const explorer = await mountExplorer($('#research-explorer-host'),{notify});
+      if(version === epoch) disposeExplorer = () => explorer?.dispose();
+      else explorer?.dispose();
+    } catch(error) { if(version === epoch) $('#research-explorer-host').textContent = error.message; }
+  }
+}
+document.addEventListener('click',event => {
+  if(event.defaultPrevented) return;
+  const anchor = event.target.closest('a');
+  if(anchor && anchor.origin === location.origin && anchor.pathname === location.pathname && !anchor.download && !event.metaKey && !event.ctrlKey && !event.shiftKey && event.button === 0) {
+    const params = new URLSearchParams(anchor.search);
+    if(params.has('chapter') || anchor.hasAttribute('data-home-link')) {
+      event.preventDefault(); go({chapter:params.get('chapter') || 'home',topic:params.get('topic') || 'overview'}); return;
+    }
+  }
+  const button = event.target.closest('[data-figure-csv]');
+  if(button) {
+    const chart = catalog.charts.find(item => item.id === button.dataset.figureCsv);
+    if(!chart?.data?.length) return;
+    const fields = Object.keys(chart.data[0]);
+    const csv = '\ufeff' + [fields,...chart.data.map(row => fields.map(field => row[field]))].map(row => row.map(value => '"'+String(value ?? '').replaceAll('"','""')+'"').join(',')).join('\r\n');
+    download(`知微-${chart.id}.csv`,csv,'text/csv;charset=utf-8');
+    notify('已导出当前图稿数值');
+  }
 });
-window.addEventListener('popstate',()=>{route=readRoute();render();});window.addEventListener('pagehide',()=>{contentDispose?.();disposeExplorer();});
-async function init(){try{const r=await fetch('data/research-charts.json');if(!r.ok)throw new Error('科研图册未找到，请运行离线构建');catalog=await r.json();if(!Array.isArray(catalog.charts))throw new Error('科研图册格式不完整');route=readRoute();await render();}catch(e){$('#main-content').innerHTML=`<section class="error-message"><h1>研究内容暂时没有打开</h1><p>${esc(e.message)}。请用Python启动系统后重新打开。</p><button class="primary-button" onclick="location.reload()">重新读取</button></section>`;}}
+window.addEventListener('keydown',event => {
+  if(event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || /INPUT|SELECT|TEXTAREA/.test(event.target.tagName) || event.target.isContentEditable || event.target.closest('button,a,.figure-canvas') || route.chapter === 'home' || route.chapter === 'atlas') return;
+  const index = SCENES.findIndex(scene => scene.chapter === route.chapter && (scene.chapter !== 'findings' || scene.topic === route.topic));
+  if(event.key === 'ArrowRight' && index >= 0) {event.preventDefault();go(SCENES[index + 1] || {chapter:'home'});}
+  if(event.key === 'ArrowLeft' && index >= 0) {event.preventDefault();go(SCENES[index - 1] || {chapter:'home'});}
+});
+window.addEventListener('popstate',() => {route = readRoute(); render();});
+window.addEventListener('pagehide',() => {disposeContent?.();disposeHome?.();disposeExplorer?.();});
+async function init() {
+  try {
+    const response = await fetch('data/research-charts.json');
+    if(!response.ok) throw new Error('科研图册未找到，请重新启动系统。');
+    catalog = await response.json(); route = readRoute(); await render();
+  } catch(error) {
+    $('#main-content').innerHTML = `<section class="error-message"><h1>研究内容未能打开</h1><p>${esc(error.message)}</p><button onclick="location.reload()">重新读取</button></section>`;
+  }
+}
 init();
