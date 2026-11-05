@@ -81,6 +81,7 @@ function renderDesign(evidence) {
     <p class="fex-source">${finite(attempts) ? `实际 HTTP 请求尝试 ${number(attempts)} 次${finite(accounting.transport_retries) ? `，其中重试请求 ${number(accounting.transport_retries)} 次` : ''}。` : '有效模型响应与含重试的 API 请求尝试分开计数；本快照未汇总后者。'} 批次：<code>${esc(evidence.batch_id)}</code>。</p>
     ${settingsNote}<div class="fex-splits"><article><span class="fex-split-label">模型能看到的诊断</span><h4>公开基础测试</h4><p><strong>${number(c.public_cases)}</strong> 条输入，合计覆盖全部题目。各版代码接受公开诊断，反馈仅来自这一部分。</p></article><article><span class="fex-split-label">模型看不到的验证</span><h4>额外强保留测试</h4><p><strong>${number(c.holdout_cases)}</strong> 条与公开输入分离的去重输入，合计覆盖全部题目。初稿与终稿为主要强测端点${evidence.strong_trajectory_task_clusters > 0 ? '，中间版本的离线强复测另图报告' : ''}；保留结果不进入反馈。</p></article></div>
     <p class="fex-source">输入数量为全题库合计，实际执行数量按逐程序记录保留。强测试成功要求当前代码同时通过公开与保留两部分；已确认失败的代码即使未扫描所有输入，也不能记为通过。</p>
+    <p class="fex-source">实际逐例执行以 <code>cases_checked</code> 为准。语法或加载失败会阻断整个测试组，原记录中的失败、阻断与未执行标签有重叠，分别解释。</p>
   </section>
   <section class="fex-section" aria-label="六种反馈条件"><div class="fex-section-heading"><span class="fex-index">01</span><div><h4>六条策略链，控制反馈究竟带来了什么</h4><p>从独立重做、自行检查，走向执行状态、诊断与具体反例。六种条件共享同一初稿，按题目配对比较。</p></div></div><ol class="fex-arms">${ARM_INFO.map(([id, label, text], index) => `<li><span class="fex-arm-number">${index + 1}</span><div><h5>${esc(armLabel(evidence, id) || label)}</h5><p>${esc(text)}</p></div></li>`).join('')}</ol></section>`;
 }

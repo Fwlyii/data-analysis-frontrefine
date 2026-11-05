@@ -169,6 +169,27 @@ class NormalizeTests(unittest.TestCase):
         self.assertTrue(gaps)
         self.assertTrue(all(row_by_id[row["record_id"]]["metric_value"] == "0" for row in gaps))
 
+    def test_frozen_load_failure_tags_do_not_block_normalization_or_count_as_executed_cases(self):
+        # A final candidate has no descendants whose previously saved feedback
+        # would need changing. Its suite is logically failed before input calls.
+        target = next(row for row in self.public if row["round"] == 4 and row["arm"] == "self_review")
+        target["public"].update(load_failed=True, passed=False, complete=True, outcome_known=True,
+                                 scan_complete=False, cases_checked=0, passed_cases=0, failed_cases=1,
+                                 blocked_cases=1, unchecked_cases=1)
+        target["public"]["first_failure"].update(kind="load", stage="load", error_type="ModuleNotFoundError")
+        self.save()
+        module.normalize(self.config_path, self.output)
+        _, rows, lineage, metadata = self.read_output()
+        anonymous = module.pseudonym(self.config["batch_id"], "record", target["record_id"])
+        self.assertEqual(next(row for row in rows if row["record_id"] == anonymous)["metric_value"], "0")
+        self.assertEqual(next(row for row in lineage if row["record_id"] == anonymous)["public_pass"], "false")
+        checks = metadata["integrity_checks"]
+        self.assertEqual(checks["load_failed_programs"], 1)
+        self.assertEqual(checks["load_failed_logical_case_labels"], 1)
+        self.assertEqual(checks["actual_cases_checked"], 199)
+        self.assertEqual(checks["actual_failed_cases"], sum(
+            row["public"]["failed_cases"] for row in self.public if row is not target))
+
     def test_missing_tokens_remain_null_and_partial_usage_is_not_discarded(self):
         self.responses[0].pop("usage")
         self.responses[1]["usage"] = {"prompt_tokens": 10}

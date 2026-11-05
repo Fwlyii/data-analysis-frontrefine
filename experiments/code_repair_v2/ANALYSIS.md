@@ -36,6 +36,10 @@ python3 experiments/code_repair_v2/src/analyze.py --config /绝对路径/config.
 
 ## 完整性与输出
 
+原诊断字段按阶段解释：`cases_checked`为实际逐例评测数。`load_failed=true`时，语法或加载异常使整组测试无法进入逐例运行；原`failed_cases`保留测试组逻辑失败标签，与`blocked_cases`、`unchecked_cases`重叠。审计单独校验该形状，普通执行仍要求已测数等于通过数加逐例失败数。特征表另存加载标记、阻断、未执行与实际逐例失败数；主通过率和错误支持数始终按程序统计。
+
+`features.csv`按策略展开五版轨迹，六组会复用同一初稿，属于逻辑行。物理计数须按`physical_record_id`去重；独立的`unified-format/unified-records.csv.gz`直接保存唯一物理响应，初稿只出现一次。
+
 分析逐条核验共享初稿、父版本、各组完整历史、Token记账、候选代码hash和沙箱标记。反馈通过`protocol.feedback_message(arm,{public:...})`重建比较，构造器拿不到隐藏结果。
 
 输出包括：完整性与覆盖表、公开五版曲线、强测初稿与终稿、初错修复／初对回退、公开过但保留失败、Token与调用数、初始错误支持数、配对比较、确定性选择的真实代码差异与反馈示例。不存在的示例类别明确列为未观测，不生成假案例。

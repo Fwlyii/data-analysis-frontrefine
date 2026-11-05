@@ -277,9 +277,30 @@ def audit(config, raw, evaluations, by_position, configuration_sha):
                 errors.append({"record_id": identity, "error": "unsandboxed evaluation"})
             else:
                 counts["sandboxed_evaluations"] += 1
+            public = score.get("public") or {}
+            load_failed = public.get("load_failed") is True
+            if load_failed:
+                values = [public.get(key) for key in ("total_cases", "cases_checked", "passed_cases",
+                                                       "failed_cases", "blocked_cases", "unchecked_cases")]
+                valid_counts = (all(isinstance(value, int) and not isinstance(value, bool) and value >= 0
+                                    for value in values)
+                                and values[0] > 0 and values[1] == values[2] == 0
+                                and values[3] == values[4] == values[5] == values[0])
+                if (not valid_counts or public.get("passed") is not False
+                        or public.get("scan_complete") is not False or public.get("complete") is not True
+                        or public.get("outcome_known") is not True):
+                    errors.append({"record_id": identity, "error": "invalid load-failure case counts or verdict"})
+                else:
+                    counts["load_failed_programs"] += 1
+                    counts["load_failed_logical_case_labels"] += public["failed_cases"]
+                    counts["load_failed_blocked_inputs"] += public["blocked_cases"]
+                    # Frozen load failures label the entire suite as failed,
+                    # blocked and unchecked without executing its inputs.
+                    counts["actual_cases_checked"] += 0
+                    counts["actual_passed_cases"] += 0
+                    counts["actual_failed_cases"] += 0
             if observed(score):
                 counts["complete_public_verdicts"] += 1
-                public = score["public"]
                 if public.get("candidate_resource_violation") is True:
                     counts["audited_candidate_resource_failures"] += 1
                 if score.get("resource_resolution"):
@@ -288,8 +309,13 @@ def audit(config, raw, evaluations, by_position, configuration_sha):
                     errors.append({"record_id": identity, "error": "public PASS without a complete scan"})
                 checked = public.get("cases_checked")
                 passed, failed = public.get("passed_cases"), public.get("failed_cases")
-                if all(isinstance(value, int) for value in (checked, passed, failed)) and checked != passed + failed:
-                    errors.append({"record_id": identity, "error": "tested case counts do not sum"})
+                if not load_failed and all(isinstance(value, int) for value in (checked, passed, failed)):
+                    if checked != passed + failed:
+                        errors.append({"record_id": identity, "error": "tested case counts do not sum"})
+                    else:
+                        counts["actual_cases_checked"] += checked
+                        counts["actual_passed_cases"] += passed
+                        counts["actual_failed_cases"] += failed
             else:
                 counts["unknown_public_verdicts"] += 1
             if strong_observed(score):
@@ -524,6 +550,11 @@ def analyze(config_path, run_dir=None, output=None, allow_partial=False):
                         "error_kind": failure_kind(ev),
                         "passed_cases": ev["public"].get("passed_cases"), "failed_cases": ev["public"].get("failed_cases"),
                         "cases_checked": ev["public"].get("cases_checked"), "total_cases": ev["public"].get("total_cases"),
+                        "public_load_failed": ev["public"].get("load_failed", False),
+                        "public_scan_complete": ev["public"].get("scan_complete"),
+                        "blocked_cases": ev["public"].get("blocked_cases"),
+                        "unchecked_cases": ev["public"].get("unchecked_cases"),
+                        "executed_failed_cases": 0 if ev["public"].get("load_failed") is True else ev["public"].get("failed_cases"),
                         "input_tokens": cost_items[-1][0] if cost_items[-1] is not None else None,
                         "output_tokens": cost_items[-1][1] if cost_items[-1] is not None else None,
                         "cumulative_tokens": chain[2] if chain is not None else None,
@@ -1109,6 +1140,7 @@ def report_markdown(results, integrity):
         '- 基础设施中断或不完整评测保持缺失；不按模型成败剔题。完整块监测的分母和缺失记录见integrity.json。',
         '- planned-endpoint-bounds.csv与planned-contrast-bounds.csv保留原计划分母，给未知结果两种极端下的逻辑上下界；这些不是实测失败，也不是置信区间。',
         '- 反馈逐条从父版本public对象重建，隐藏输入和结果不进入构造器；父版本与各组完整历史均核验。',
+        '- cases_checked统计实际逐例执行。加载失败时，原failed_cases是整套输入的逻辑失败标签，与blocked_cases、unchecked_cases重叠；特征表另列executed_failed_cases，主通过率按程序计数。',
         '- 例子按可观察的结果规则确定性选择，只用于解释机制，不代表平均效果。不存在的错误或回退类别不编造。',
         '- 置信区间按题目聚类；单题或零分母不能支撑区间推断。', '',
         '## 真实案例', '']

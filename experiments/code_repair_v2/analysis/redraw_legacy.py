@@ -40,7 +40,7 @@ def redraw(report,output=None):
             figure.line(a,y,b,y,COLORS[arm],3);figure.dot(a,y,COLORS[arm],6,True);figure.dot(b,y,COLORS[arm],6)
             figure.text(1150,y+5,f'{before} → {after} / 164',16,COLORS[arm],anchor='end');y+=62
         y+=47
-    figure.footer('legacy-full-recheck','事后复核：0 次新模型调用；全部 5,576 物理候选已知。未执行输入不计作失败。')
+    figure.footer('legacy-full-recheck','事后复核：0 次新模型调用；全部 5,576 物理候选已知。程序级判定与逐例执行数分别记录。')
     figure.save(out/'01-mini-full-final.svg')
     manifest={'batch_id':'legacy-full-recheck','synthetic':False,'complete':True,'figures':[
         {'id':'legacy-mini-full-final','file':'01-mini-full-final.svg','title':'旧 Mini 与完整保留测试终稿对照',

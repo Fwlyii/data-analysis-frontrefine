@@ -16,7 +16,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from experiments.code_repair_v2.src.analyze import ARMS, ClusterBootstrap, analyze, observed, strong_observed, select_examples
+from experiments.code_repair_v2.src.analyze import ARMS, ClusterBootstrap, analyze, audit, observed, strong_observed, select_examples
 from experiments.code_repair_v2.src.protocol import feedback_message
 
 
@@ -298,6 +298,66 @@ class AnalysisTests(unittest.TestCase):
         bootstrap=ClusterBootstrap(['one-task'],draws=100)
         self.assertIsNone(bootstrap.mean({'one-task':1.0}))
         self.assertIsNone(bootstrap.ratio({'one-task':0},{'one-task':0}))
+
+
+class AuditCaseCountTests(unittest.TestCase):
+    """Logical suite failure labels are separate from executed-input counts."""
+    def load_failure(self):
+        return {'passed':False, 'complete':True, 'outcome_known':True, 'scan_complete':False,
+                'load_failed':True, 'total_cases':3, 'cases_checked':0, 'passed_cases':0,
+                'failed_cases':3, 'blocked_cases':3, 'unchecked_cases':3,
+                'first_failure':{'kind':'load', 'error_type':'ModuleNotFoundError'}}
+
+    def run_audit(self, public):
+        row = {'record_id':'fixture', 'model':'M', 'task_id':'Toy/0', 'replicate':0, 'arm':'seed',
+               'round':0, 'code':'def f():\n    return 1\n', 'request':{'messages':[]}}
+        return audit({}, {'fixture':row}, {'fixture':{'public':public, 'sandboxed':True}},
+                     {('M', 'Toy/0', 0, 'seed', 0):row}, 'fixture-config-hash')
+
+    def test_valid_load_failure_is_known_program_failure_with_zero_executed_inputs(self):
+        counts = self.run_audit(self.load_failure())
+        self.assertEqual(counts['complete_public_verdicts'], 1)
+        self.assertEqual(counts['load_failed_programs'], 1)
+        self.assertEqual(counts['load_failed_logical_case_labels'], 3)
+        self.assertEqual(counts['load_failed_blocked_inputs'], 3)
+        self.assertEqual((counts['actual_cases_checked'], counts['actual_passed_cases'], counts['actual_failed_cases']),
+                         (0, 0, 0))
+
+    def test_load_failure_rejects_fabricated_counts_or_passing_unknown_verdicts(self):
+        invalid = [('cases_checked', 1), ('passed_cases', 1), ('failed_cases', 2),
+                   ('blocked_cases', 2), ('unchecked_cases', 2), ('total_cases', 0),
+                   ('failed_cases', True), ('passed', True), ('scan_complete', True),
+                   ('complete', False), ('outcome_known', False)]
+        for field, value in invalid:
+            with self.subTest(field=field, value=value):
+                public = self.load_failure()
+                public[field] = value
+                with self.assertRaisesRegex(ValueError, 'invalid load-failure'):
+                    self.run_audit(public)
+
+    def test_normal_runtime_failure_still_requires_checked_equals_passed_plus_failed(self):
+        public = {'passed':False, 'complete':True, 'outcome_known':True, 'scan_complete':True,
+                  'total_cases':3, 'cases_checked':3, 'passed_cases':1, 'failed_cases':2,
+                  'blocked_cases':0, 'unchecked_cases':0,
+                  'first_failure':{'kind':'runtime', 'error_type':'NameError'}}
+        counts = self.run_audit(public)
+        self.assertEqual((counts['actual_cases_checked'], counts['actual_passed_cases'], counts['actual_failed_cases']),
+                         (3, 1, 2))
+        self.assertEqual(counts.get('load_failed_programs', 0), 0)
+        public['cases_checked'] = 0
+        with self.assertRaisesRegex(ValueError, 'tested case counts do not sum'):
+            self.run_audit(public)
+
+    def test_confirmed_resource_failure_with_zero_scanned_cases_remains_valid(self):
+        public = {'passed':False, 'complete':True, 'outcome_known':True, 'scan_complete':False,
+                  'total_cases':3, 'cases_checked':0, 'passed_cases':0, 'failed_cases':0,
+                  'blocked_cases':0, 'unchecked_cases':3, 'candidate_resource_violation':True,
+                  'first_failure':{'kind':'runtime', 'stage':'resource_limit', 'error_type':'MemoryLimitExceeded'}}
+        counts = self.run_audit(public)
+        self.assertEqual(counts['audited_candidate_resource_failures'], 1)
+        self.assertEqual(counts['actual_cases_checked'], 0)
+        self.assertEqual(counts['actual_failed_cases'], 0)
+        self.assertEqual(counts.get('load_failed_programs', 0), 0)
 
 
 class ExampleSelectionTests(unittest.TestCase):
