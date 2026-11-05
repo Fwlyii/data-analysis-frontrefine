@@ -170,6 +170,20 @@ def build():
     for name in ['chart-coverage.md','demo-guide.md','insight-audit.md']:
         path=ROOT/'docs'/name
         if path.exists():shutil.copy2(path,dist/'data'/name)
+    # A live preview may retain the previous ES modules. Version local imports
+    # and the entry stylesheet/script together so a refresh cannot mix shells.
+    modules={p.name:hashlib.sha256(p.read_bytes()).hexdigest()[:12] for p in (dist/'src').glob('*.js')}
+    for path in (dist/'src').glob('*.js'):
+        source=path.read_text()
+        source=re.sub(r'([\'\"])(\./([\w.-]+\.js))(?:\?v=[a-f0-9]+)?\1',
+            lambda m:m.group(1)+m.group(2)+'?v='+modules[m.group(3)]+m.group(1) if m.group(3) in modules else m.group(0),source)
+        path.write_text(source)
+    markup=(dist/'index.html').read_text()
+    for asset in ['research.css','research-content.css','research-explorer.css','research-home.css','src/research.js']:
+        digest=hashlib.sha256((dist/asset).read_bytes()).hexdigest()[:12]
+        markup=re.sub(r'([\'\"])'+re.escape(asset)+r'(?:\?v=[a-f0-9]+)?([\'\"])',
+            lambda m:m.group(1)+asset+'?v='+digest+m.group(2),markup)
+    (dist/'index.html').write_text(markup)
     print('知微研究系统已构建：app/dist（请通过本地HTTP服务打开）。')
     return dist
 
