@@ -694,6 +694,9 @@ def analyze(config_path, run_dir=None, output=None, allow_partial=False):
             "missing_count": len(missing), "public_cases": manifest_totals.get("public_count"),
             "holdout_cases": manifest_totals.get("holdout_count")},
         "request_accounting": request_accounting,
+        "generation_settings": {key: config.get(key) for key in ("temperature", "top_p", "max_tokens", "qwen3_enable_thinking")},
+        "execution_settings": {key: config.get(key) for key in ("evaluation_timeout_s", "holdout_timeout_s", "memory_limit_mb", "minimum_case_timeout_s", "maximum_case_timeout_s", "timeout_factor")},
+        "benchmark_version": config.get("benchmark_version"),
         "primary_metric": "Final code simultaneously passes all public diagnostics and the stronger held-out inputs.",
         "ci_method": "95% paired percentile bootstrap over task clusters, preserving model and independent-initial repetitions within each task.",
         "bootstrap": {"resamples": draws, "seed": seed},
@@ -723,7 +726,7 @@ def analyze(config_path, run_dir=None, output=None, allow_partial=False):
         for (m, a, r, before, after), count in sorted(transitions.items())])
     # Publishable aggregate snapshot excludes raw record keys, timestamps and task IDs.
     if not synthetic:
-        snapshot = {key: value for key, value in results.items() if key not in {"examples", "missing_example_categories"}}
+        snapshot = {key: value for key, value in results.items() if key != "examples"}
         snapshot["examples"] = [{**{key: value for key, value in example.items() if key not in {"task_id", "record_ids"}},
             "anonymous_task": "T" + hashlib.sha256((batch + "|" + example["task_id"]).encode()).hexdigest()[:12]} for example in examples]
         write_json(output / "app-evidence.json", snapshot)
@@ -737,6 +740,8 @@ def analyze(config_path, run_dir=None, output=None, allow_partial=False):
 
 
 def select_examples(models, arms, repeats, tasks, trajectory, score, strong_score):
+    from experiments.code_repair_v2.src.protocol import feedback_message
+
     examples, unavailable = [], []
     categories = ["diagnostic_repair", "semantic_repair", "regression", "diagnostic_hidden_gap"]
     for category in categories:
@@ -744,6 +749,10 @@ def select_examples(models, arms, repeats, tasks, trajectory, score, strong_scor
         preferred = ["diagnostic", "multi_counterexample", "counterexample", "self_review", "pass_fail", "resample"]
         if category == "regression":
             preferred = ["self_review", "diagnostic", "multi_counterexample", "counterexample", "pass_fail", "resample"]
+        elif category == "diagnostic_repair":
+            preferred = ["diagnostic"]
+        elif category == "semantic_repair":
+            preferred = ["multi_counterexample", "counterexample"]
         for model in models:
             if selected:
                 break
@@ -755,24 +764,43 @@ def select_examples(models, arms, repeats, tasks, trajectory, score, strong_scor
                         break
                     for repeat in repeats:
                         seq = trajectory(model, task, repeat, arm)
-                        scores = [score(row) for row in seq]
-                        initial, final = full_pass(strong_score(seq[0])), full_pass(strong_score(seq[-1]))
-                        kind = failure_kind(scores[0])
-                        matches = ((category == "diagnostic_repair" and kind not in {"pass", "output_mismatch"} and not initial and final)
-                                   or (category == "semantic_repair" and kind == "output_mismatch" and not initial and final)
-                                   or (category == "regression" and initial and not final)
-                                   or (category == "diagnostic_hidden_gap" and public_pass(scores[-1])
-                                       and hidden_failure(strong_score(seq[-1]))))
-                        if not matches:
+                        if len(seq) < 2:
                             continue
+                        scores = [score(row) for row in seq]
+                        strong_scores = [strong_score(row) for row in seq]
+                        strong_values = [full_pass(value) for value in strong_scores]
+                        initial, final = strong_values[0], strong_values[-1]
+                        after = None
                         if category in {"diagnostic_repair", "semantic_repair"}:
-                            after = next((index for index in range(1, len(seq))
-                                          if not public_pass(scores[index - 1]) and public_pass(scores[index])), len(seq) - 1)
+                            for index in range(1, len(seq)):
+                                previous = scores[index - 1]
+                                if (strong_values[index - 1] is not False or strong_values[index] is not True
+                                        or not observed(previous) or public_pass(previous)):
+                                    continue
+                                kind = failure_kind(previous)
+                                if (category == "diagnostic_repair" and kind not in {"syntax", "load", "runtime", "timeout"}
+                                        or category == "semantic_repair" and kind != "output_mismatch"):
+                                    continue
+                                # Classify the displayed step, using only the original
+                                # public result that actually produced its feedback.
+                                try:
+                                    expected_feedback = feedback_message(arm, {"public": previous["public"]})
+                                except (KeyError, TypeError, ValueError):
+                                    continue
+                                if seq[index].get("feedback") == expected_feedback:
+                                    after = index
+                                    break
                         elif category == "regression":
-                            after = next((index for index in range(1, len(seq)) if not public_pass(scores[index])), len(seq) - 1)
+                            if initial is True and final is False:
+                                after = next((index for index in range(1, len(seq))
+                                              if strong_values[index - 1] is True and strong_values[index] is False), None)
                         else:
-                            after = len(seq) - 1
-                        before = max(0, after - 1)
+                            if (observed(scores[-1]) and public_pass(scores[-1]) and final is False
+                                    and hidden_failure(strong_scores[-1])):
+                                after = len(seq) - 1
+                        if after is None:
+                            continue
+                        before = after - 1
                         selected = {"category": category, "model": model, "task_id": task, "replicate": repeat,
                             "arm": arm, "before_round": before, "after_round": after,
                             "record_ids": [seq[before]["record_id"], seq[after]["record_id"]],
@@ -781,9 +809,9 @@ def select_examples(models, arms, repeats, tasks, trajectory, score, strong_scor
                                 fromfile="before.py", tofile="after.py", lineterm="")),
                             "actual_feedback": seq[after].get("feedback"),
                             "before_public": scores[before]["public"], "after_public": scores[after]["public"],
-                            "before_strong_pass": full_pass(strong_score(seq[before])), "after_strong_pass": full_pass(strong_score(seq[after])),
+                            "before_strong_pass": strong_values[before], "after_strong_pass": strong_values[after],
                             "initial_strong_pass": initial, "final_strong_pass": final,
-                            "selection_note": "Deterministically selected illustrative trace; not an estimate of typical effect."}
+                            "selection_note": "Fixed-order illustrative trace. Repair/regression requires an adjacent observed strong-test transition; repair feedback is the original public projection. Not an estimate of typical effect."}
                         break
         if selected:
             examples.append(selected)
@@ -795,6 +823,7 @@ def select_examples(models, arms, repeats, tasks, trajectory, score, strong_scor
 class Figure:
     def __init__(self, title, subtitle, height=660, synthetic=False):
         self.height = height
+        self.synthetic = synthetic
         self.parts = [f'<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="{height}" viewBox="0 0 1200 {height}" role="img" aria-labelledby="title desc"><title id="title">{html.escape(title)}</title><desc id="desc">{html.escape(subtitle)}</desc><rect width="1200" height="{height}" fill="#fffdf9"/><style>text{{font-family:"PingFang SC","Microsoft YaHei",sans-serif;font-variant-numeric:tabular-nums}}</style>']
         self.text(42, 45, title, 28, weight=650)
         self.text(42, 77, subtitle, 15, color="#526574")
@@ -832,7 +861,8 @@ class Figure:
 
     def footer(self, batch, note):
         self.text(42, self.height - 49, note, 13, color="#526574")
-        self.text(42, self.height - 23, "来源：代码反馈补充实验 / " + batch, 12, color="#526574")
+        benchmark = '合成自测' if self.synthetic else 'HumanEval+ Full v0.1.10'
+        self.text(42, self.height - 23, "来源：" + benchmark + "，代码反馈补充实验 / " + batch, 12, color="#526574")
 
     def save(self, path):
         Path(path).write_text("".join(self.parts) + '</svg>', encoding="utf-8")
@@ -876,7 +906,7 @@ def build_figures(output, results):
             figure.text(1150, y+5, f'{row["final_success"]}/{row["programs"]}  {percent(row["final_rate"])}', 14, COLORS[arm], anchor="end")
             y += 53
         y += 46
-    figure.footer(batch, "空心点＝共同初稿；实心点＝第四次修改后。程序份数包含重复初稿，不是新增独立题。")
+    figure.footer(batch, "空心点＝共同初稿；实心点＝第4次后续生成。重采样各次独立；份数不增加独立题。")
     figure.save(output / "01-strong-endpoints.svg")
     figures.append({"id":"strong-endpoints", "file":"01-strong-endpoints.svg", "title":"强保留测试的初稿与终稿对照", "data_file":"summary.csv"})
 
@@ -932,7 +962,7 @@ def build_figures(output, results):
                     else:figure.marker(x,y,COLORS[arm],markers[arm],4)
                     previous=(x,y)
             if shared_seed:figure.dot(*shared_seed,'#526574',6,True)
-            figure.text((left+right)/2,bottom+55,"修改轮次（0＝共同初稿）",14,anchor="middle")
+            figure.text((left+right)/2,bottom+55,"后续生成轮次（0＝共同初稿）",14,anchor="middle")
             top += 430
         figure.footer(batch,footer)
         figure.save(output / filename)
@@ -969,19 +999,41 @@ def build_figures(output, results):
         for index in range(5):
             x=left+(right-left)*index/4
             figure.text(x,bottom+24,f'{maximum*index/4:,.0f}',13,color="#526574",anchor="middle")
+        points=[]
         for index,arm in enumerate(arms):
             row=next(item for item in rows if item["model"]==model and item["arm"]==arm)
             if row["mean_chain_total_tokens"] is None:
                 continue
             x=left+(right-left)*row["mean_chain_total_tokens"]/maximum
             y=bottom-(bottom-(top+35))*row["final_rate"]
-            figure.dot(x,y,COLORS[arm],6)
-            figure.text(x+9,y-9,str(index+1),14,COLORS[arm],weight=650)
+            points.append((index,arm,x,y))
+            figure.marker(x,y,COLORS[arm],markers[arm],5)
+        labels=[]
+        for index,arm,x,y in points:
+            options=[(12,-10),(12,21),(-22,-10),(-22,21),(25,-25),(-35,-25),(25,36),(-35,36),(42,5),(-52,5)]
+            choice=None
+            for dx,dy in options:
+                a,b=x+dx,y+dy
+                box=(a-3,b-15,a+12,b+4)
+                if box[0]<left or box[2]>right or box[1]<top+35 or box[3]>bottom:
+                    continue
+                if any(box[0]<old[2]+4 and box[2]>old[0]-4 and box[1]<old[3]+4 and box[3]>old[1]-4 for old in labels):
+                    continue
+                if any(box[0]-5<px<box[2]+5 and box[1]-5<py<box[3]+5 for _,_,px,py in points):
+                    continue
+                choice=(a,b,box);break
+            if choice is None:
+                a,b=right-20,top+51+index*25
+                choice=(a,b,(a-3,b-15,a+12,b+4))
+            a,b,box=choice;labels.append(box)
+            figure.line(x,y,a+4,b-6,COLORS[arm],1)
+            figure.rect(box[0],box[1],box[2]-box[0],box[3]-box[1],'#fffdf9')
+            figure.text(a,b,str(index+1),14,COLORS[arm],weight=650)
         figure.text((left+right)/2,bottom+52,"每份初稿对应的一条五版路径，平均总Token",14,anchor="middle")
         top+=370
     for index,arm in enumerate(arms):
         figure.text(45+(index%3)*380,figure.height-91+(index//3)*22,f'{index+1}  {ZH[arm]}',13,COLORS[arm])
-    figure.footer(batch,"纵轴为终稿强测试通过率；输入历史与反馈长度均计入成本。")
+    figure.footer(batch,"纵轴为终稿强测试通过率；输入历史与反馈长度均计入成本。编号对应下方策略。")
     figure.save(output / "04-cost-quality.svg")
     figures.append({"id":"cost-quality","file":"04-cost-quality.svg","title":"强测试质量与调用成本","data_file":"summary.csv"})
     support = results["initial_error_support"]
@@ -1019,9 +1071,16 @@ def report_markdown(results, integrity):
     lines = [f'# 代码反馈补充实验：{state}', '',
         f'批次 `{results["batch_id"]}`。计划{results["planned_tasks"]}道独立题，当前公开配对{results["public_task_clusters"]}题、强测试配对{results["task_clusters"]}题；每题每模型{results["repeats_per_task"]}份独立初稿。',
         f'已保存{results["saved_physical_responses"]}条物理响应，计划{integrity["expected_physical_responses"]}条。重复初稿与多模型不增加独立题目数。', '',
-        '主指标为第四次修改后，同时通过公开诊断与强保留测试。中间轮只测公开诊断时，不能画成强测试曲线。95%区间按题目聚类，保留同题全部模型与重复。', '',
+        '主指标为第4次后续生成，同时通过公开诊断与强保留测试。独立重采样各次只接收原题，其他策略沿本组历史继续生成。中间轮只测公开诊断时，不能画成强测试曲线。95%区间按题目聚类，保留同题全部模型与重复。', '',
         '| 模型 | 反馈 | 初稿强测 | 终稿强测 | 终稿95%区间 | 初错修复 | 初对回退 | 总Token |',
         '|---|---|---:|---:|---:|---:|---:|---:|']
+    g=results.get('generation_settings') or {}
+    e=results.get('execution_settings') or {}
+    if all(isinstance(g.get(key),(int,float)) for key in ('temperature','top_p','max_tokens')):
+        thinking = '开启' if g.get('qwen3_enable_thinking') is True else '关闭' if g.get('qwen3_enable_thinking') is False else '未记录'
+        lines[5:5] = [f'生成设置：temperature={g["temperature"]}，top_p={g["top_p"]}，单次输出上限{g["max_tokens"]} Token；Qwen3额外思考模式{thinking}。', '']
+    if all(isinstance(e.get(key),(int,float)) for key in ('memory_limit_mb','holdout_timeout_s')):
+        lines[5:5] = [f'执行设置：每程序内存上限{e["memory_limit_mb"]} MB，完整保留验证墙钟上限{e["holdout_timeout_s"]}秒；逐例限时与参考计时按固定协议执行。', '']
     for row in results["summary"]:
         ci=row["final_ci"]
         interval=f'[{percent(ci[0])}, {percent(ci[1])}]' if ci else '不足以估计'
@@ -1054,8 +1113,9 @@ def report_markdown(results, integrity):
         '- 置信区间按题目聚类；单题或零分母不能支撑区间推断。', '',
         '## 真实案例', '']
     for example in results["examples"]:
+        labels = {True: '通过', False: '失败', None: '未测'}
         lines += [f'### {example["category"]}：{results["model_labels"][example["model"]]} / {example["task_id"]}', '',
-            f'重复{example["replicate"]}，{ZH[example["arm"]]}，版本{example["before_round"]}→{example["after_round"]}。最终强测试：{example["final_strong_pass"]}。', '',
+            f'第{example["replicate"]+1}份初稿，{ZH[example["arm"]]}，版本{example["before_round"]+1}→{example["after_round"]+1}。该步强测：{labels[example["before_strong_pass"]]}→{labels[example["after_strong_pass"]]}；整链初稿／终稿：{labels[example["initial_strong_pass"]]}／{labels[example["final_strong_pass"]]}。', '',
             '实际传入的反馈：', '```text', example.get("actual_feedback") or '无执行反馈（独立重采样）', '```', '',
             '代码差异：', '```diff', example["diff"] or '(代码文本未改变)', '```', '']
     if results["missing_example_categories"]:

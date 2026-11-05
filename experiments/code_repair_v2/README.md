@@ -41,3 +41,5 @@ python -m experiments.code_repair_v2.src.publish --source reports/code_repair_ex
 同时报告初错修复、初对回退、公开通过但保留失败、Token与调用成本、各错误类型真实支持数、模型与重复差异。静态中文SVG和真实机制案例来自实际保存结果，尚未完成的实验不生成真实网页证据。
 
 `normalize`在完整物理响应、原公开评测及全五版强测齐全后，另存原21字段格式的`unified-records.csv.gz`，不覆盖原统一表。新评分名为`base_and_full_disjoint_holdout_pass_v2`，与旧Mini分开。题号、记录键与父版本键使用批次内稳定伪名；独立初稿编号另存`lineage.csv`，修复轮次使用`revision_round`。字段缺失统计与资产SHA保存在同目录。`publish`只接受完整真实新批次和独立的完整旧批复核，匿名快照、六张新SVG与一张历史复核图进入静态网站。
+
+`scripts/system/finalize_code_feedback.py --config configs/code_repair_extension.json --once`只检查就绪状态，未齐时返回2并给出缺项。使用`--watch --output ../repair_v2/deliveries`后，每30秒等待完整采集和全轮强测，再依次分析、规范化、发布、构建、运行全部检查并生成唯一暂存交付目录；原本地交付目录保持独立。运行状态及各步日志保存在该批次目录。

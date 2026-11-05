@@ -256,6 +256,9 @@ def normalize(config_path, output):
     descriptions = dict(FIELDS)
     descriptions['feedback_type'] = ('category/null', '/'.join(['seed', *arms]),
                                       'Recorded feedback strategy in this extension batch')
+    descriptions['revision_round'] = ('integer/null',
+        'Recorded subsequent-generation round;0 is the shared initial program;resample rounds are independent',
+        'Design version index;not the independent-initial replicate')
     statistics = [{"field": field, "type": description[0], "meaning": description[1],
                    "missing_policy": description[2], "records": len(rows), "missing_count": missing[field],
                    "missing_rate": missing[field] / len(rows)} for field, description in descriptions.items()]

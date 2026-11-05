@@ -95,9 +95,9 @@ try{
       assert(await page.locator('.fex-results-table tbody tr').count()===e.models.length*e.arms.length,'Result rows differ from measured matrix');await assertChrome();return {tasks:e.task_clusters,repeats:e.repeats_per_task,responses:e.saved_physical_responses,figures:7};
     });
     await test('feedback examples display the actual saved code and feedback',async()=>{
-      const cases=page.locator('.fex-case');assert(supplement.evidence.examples.length>0,'No observed research case');assert(await cases.count()===supplement.evidence.examples.length,'Case count differs');
+      const cases=page.locator('.fex-case');assert(await cases.count()===supplement.evidence.examples.length,'Case count differs');
       for(const [index,example] of supplement.evidence.examples.entries()){const blocks=cases.nth(index).locator('.fex-code-block code');assert(await blocks.nth(0).textContent()===example.before_code,'Before code changed');assert(await blocks.nth(2).textContent()===example.after_code,'After code changed');if(typeof example.actual_feedback==='string')assert(await blocks.nth(1).textContent()===example.actual_feedback,'Feedback changed');assert(typeof example.before_strong_pass==='boolean'&&typeof example.after_strong_pass==='boolean','Case intermediate strong result missing');}
-      assert(!(await page.locator('.feedback-extension').textContent()).includes('HumanEval/'),'Raw benchmark identifier exposed');return {cases:await cases.count()};
+      assert(supplement.evidence.examples.every(row=>!Object.hasOwn(row,'task_id')&&!Object.hasOwn(row,'record_ids')&&typeof row.anonymous_task==='string'),'Raw benchmark identifier field exposed');return {cases:await cases.count(),unobserved:supplement.evidence.missing_example_categories||[]};
     });
     await test('supplementary editable SVG pack is independently available',async()=>{const response=await page.request.get(new URL('assets/research-feedback-svg.zip',base).href);assert(response.ok(),'Supplementary SVG pack missing');assert(supplement.legacyEvidence.checks.complete===true&&supplement.legacyEvidence.summary.length===8,'Historical recheck lost');return {new:supplement.figures.length,legacy:supplement.legacyEvidence.figures.length};});
   }
@@ -111,7 +111,7 @@ try{
     for(const topic of ['budget','position','feedback']){await open('?chapter=findings&topic='+topic);assert(await page.locator('[data-topic]').count()===7&&await page.locator('[data-chart-id]').count()===37,'Legacy URL cut the article: '+topic);assert(await page.locator('.section-intro h1').innerText()==='先看总体关系，再进入具体任务。','Legacy topic replaced chapter heading');}return true;
   });
   await open('?chapter=findings');await shot('findings structure','滚动版_发现结构.png');await shot('budget graph in continuous article','滚动版_核心发现.png',{target:'#finding-budget'});assert(page.url().endsWith('?chapter=findings'),'Figure screenshot altered route');
-  if(supplement){await shot('measured feedback extension','补充版_代码反馈结构.png',{target:'.feedback-extension'});await shot('measured feedback model comparison','补充版_代码反馈结论.png',{target:'.feedback-extension .fex-model:first-of-type'});await shot('actual feedback case','补充版_真实修复案例.png',{target:'.fex-cases'});}
+  if(supplement){await shot('measured feedback extension','补充版_代码反馈结构.png',{target:'.feedback-extension'});await shot('measured feedback model comparison','补充版_代码反馈结论.png',{target:'.feedback-extension .fex-model:first-of-type'});if(await page.locator('.fex-cases').count())await shot('actual feedback case','补充版_真实修复案例.png',{target:'.fex-cases'});}
   for(const width of [1440,1000,768,390]){
     await page.setViewportSize({width,height:width===390?844:1000});
     for(const chapter of ['home',...chapters]){

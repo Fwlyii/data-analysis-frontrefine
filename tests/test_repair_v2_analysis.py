@@ -16,7 +16,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from experiments.code_repair_v2.src.analyze import ARMS, ClusterBootstrap, analyze, observed, strong_observed
+from experiments.code_repair_v2.src.analyze import ARMS, ClusterBootstrap, analyze, observed, strong_observed, select_examples
 from experiments.code_repair_v2.src.protocol import feedback_message
 
 
@@ -142,10 +142,32 @@ class AnalysisTests(unittest.TestCase):
         row=next(row for row in result['summary'] if row['model']=='Model-A' and row['arm']=='diagnostic')
         self.assertIsNone(row['stopping_strong_rate'])
         self.assertLess(row['stopping_strong_measured_programs'],row['programs'])
-        self.assertEqual(set(result['missing_example_categories']),set())
-        example=next(row for row in result['examples'] if row['category']=='diagnostic_repair')
-        self.assertIsNone(example['after_strong_pass'])
-        self.assertTrue(example['final_strong_pass'])
+        self.assertTrue({'diagnostic_repair', 'semantic_repair', 'regression'}
+                        .issubset(result['missing_example_categories']))
+        self.assertFalse(any(row['category']=='diagnostic_repair' for row in result['examples']))
+
+    def test_real_schema_snapshot_preserves_missing_case_categories_without_raw_case_ids(self):
+        # Exercise the real-export schema only inside this synthetic temporary
+        # test directory. No fixture snapshot enters app/ or actual reports.
+        config = json.loads(self.config.read_text())
+        config['synthetic'] = False
+        self.config.write_text(json.dumps(config, sort_keys=True) + '\n')
+        sha = hashlib.sha256(self.config.read_bytes()).hexdigest()
+        plan_path = self.base / 'raw/plan.json'
+        plan = json.loads(plan_path.read_text())
+        plan['config_sha256'] = sha
+        plan_path.write_text(json.dumps(plan))
+        for row in self.responses:
+            row['config_sha256'] = sha
+        write_rows(self.base / 'raw/responses.jsonl', self.responses)
+        result = self.run_analysis()
+        snapshot = json.loads((self.base / 'report/app-evidence.json').read_text())
+        self.assertEqual(snapshot['missing_example_categories'], result['missing_example_categories'])
+        self.assertIn('diagnostic_repair', snapshot['missing_example_categories'])
+        for example in snapshot['examples']:
+            self.assertIn('anonymous_task', example)
+            self.assertNotIn('task_id', example)
+            self.assertNotIn('record_ids', example)
 
     def test_heldout_early_failure_is_a_known_task_failure(self):
         score={'public':{'passed':True,'complete':True},'hidden':{'passed':False,'complete':True,
@@ -276,6 +298,128 @@ class AnalysisTests(unittest.TestCase):
         bootstrap=ClusterBootstrap(['one-task'],draws=100)
         self.assertIsNone(bootstrap.mean({'one-task':1.0}))
         self.assertIsNone(bootstrap.ratio({'one-task':0},{'one-task':0}))
+
+
+class ExampleSelectionTests(unittest.TestCase):
+    """Saved-step semantics only; no files, model calls, or aggregate effects."""
+    def setUp(self):
+        self.chains = {}
+        self.public = {}
+        self.strong = {}
+
+    def add_chain(self, arm, public_values, strong_values, *, kinds=None, model='M', task='Toy/0', repeat=0):
+        kinds = kinds or ['output_mismatch'] * len(public_values)
+        sequence = []
+        for index, (passed, strong_pass, kind) in enumerate(zip(public_values, strong_values, kinds)):
+            rid = f'{model}|{task}|{repeat}|{arm}|{index}'
+            error_type = {'syntax':'SyntaxError', 'runtime':'NameError', 'load':'MissingEntryPoint',
+                          'timeout':'TimeoutError', 'output_mismatch':'OutputMismatch'}.get(kind, 'Unknown')
+            failure = None if passed else {'kind':kind, 'stage':kind, 'case_index':0,
+                'input':'(1,)', 'expected':'2', 'actual':'1', 'error_type':error_type,
+                'error_message':'Synthetic saved error', 'line':2, 'column':1, 'candidate_traceback':[]}
+            public = {'passed':passed, 'complete':True, 'outcome_known':True, 'scan_complete':True,
+                      'total_cases':1, 'cases_checked':1, 'passed_cases':int(passed),
+                      'failed_cases':int(not passed), 'failures':[] if passed else [failure],
+                      'first_failure':failure}
+            code = f'def f(x):\n    return x + {index}\n'
+            row = {'record_id':rid, 'code':code, 'round':index, 'feedback':None}
+            if index and arm != 'resample':
+                row['feedback'] = feedback_message(arm, self.public[sequence[-1]['record_id']])
+            sequence.append(row)
+            self.public[rid] = {'public':public}
+            if strong_pass is None:
+                self.strong[rid] = {'public':copy.deepcopy(public),
+                                    'hidden':{'passed':False, 'complete':False, 'outcome_known':False}}
+            else:
+                strong_public = copy.deepcopy(public)
+                if strong_pass:
+                    strong_public.update(passed=True)
+                self.strong[rid] = {'public':strong_public, 'hidden':{'passed':strong_pass,
+                    'complete':True, 'outcome_known':True, 'scan_complete':strong_pass}, 'full_pass':strong_pass}
+        self.chains[model, task, repeat, arm] = sequence
+        return sequence
+
+    def select(self, *, models=('M',), arms=('diagnostic',), tasks=('Toy/0',), repeats=(0,)):
+        return select_examples(list(models), list(arms), list(repeats), list(tasks),
+            lambda model, task, repeat, arm: self.chains[model, task, repeat, arm],
+            lambda row: self.public[row['record_id']], lambda row: self.strong[row['record_id']])
+
+    def test_early_public_improvement_is_not_a_strong_repair_and_later_real_step_is_used(self):
+        self.add_chain('counterexample', [False, True, True, False, True], [False, False, False, False, True])
+        examples, missing = self.select(arms=('counterexample',))
+        repair = next(row for row in examples if row['category']=='semantic_repair')
+        self.assertEqual((repair['before_round'], repair['after_round']), (3, 4))
+        self.assertEqual((repair['before_strong_pass'], repair['after_strong_pass']), (False, True))
+        self.assertEqual(repair['actual_feedback'], self.chains['M', 'Toy/0', 0, 'counterexample'][4]['feedback'])
+
+    def test_regression_uses_hidden_quality_drop_before_the_later_public_failure(self):
+        self.add_chain('self_review', [True, True, False, False, False], [True, False, False, False, False])
+        examples, _ = self.select(arms=('self_review',))
+        regression = next(row for row in examples if row['category']=='regression')
+        self.assertEqual((regression['before_round'], regression['after_round']), (0, 1))
+        self.assertEqual((regression['before_strong_pass'], regression['after_strong_pass']), (True, False))
+        self.assertTrue(regression['before_public']['passed'])
+        self.assertTrue(regression['after_public']['passed'])
+
+    def test_intermediate_real_syntax_feedback_can_support_a_diagnostic_case(self):
+        sequence = self.add_chain('diagnostic', [False, False, False, True, True],
+                                  [False, False, False, True, True],
+                                  kinds=['output_mismatch', 'output_mismatch', 'syntax', 'runtime', 'runtime'])
+        examples, _ = self.select()
+        diagnostic = next(row for row in examples if row['category']=='diagnostic_repair')
+        self.assertEqual((diagnostic['before_round'], diagnostic['after_round']), (2, 3))
+        self.assertEqual(diagnostic['before_public']['first_failure']['error_type'], 'SyntaxError')
+        self.assertEqual(diagnostic['actual_feedback'], feedback_message('diagnostic', self.public[sequence[2]['record_id']]))
+        self.assertIn('SyntaxError', diagnostic['actual_feedback'])
+        sequence[3]['feedback'] += '\nFabricated extra compiler feedback'
+        examples, missing = self.select()
+        self.assertIn('diagnostic_repair', missing)
+        self.assertFalse(any(row['category']=='diagnostic_repair' for row in examples))
+
+    def test_self_review_or_status_only_cannot_be_presented_as_error_or_counterexample_feedback(self):
+        for arm in ('self_review', 'pass_fail', 'resample'):
+            with self.subTest(arm=arm):
+                self.add_chain(arm, [False, True, True, True, True], [False, True, True, True, True],
+                               kinds=['runtime'] * 5)
+                examples, missing = self.select(arms=(arm,))
+                self.assertTrue({'diagnostic_repair', 'semantic_repair'}.issubset(missing))
+                self.assertFalse(any(row['category'].endswith('_repair') for row in examples))
+        self.add_chain('diagnostic', [False, True, True, True, True], [False, True, True, True, True])
+        _, missing = self.select()
+        self.assertIn('semantic_repair', missing)
+
+    def test_unknown_intermediate_strong_results_do_not_become_failure_or_verified_repair(self):
+        self.add_chain('diagnostic', [False, False, True, True, True], [False, None, True, True, True],
+                       kinds=['runtime'] * 5)
+        examples, missing = self.select()
+        self.assertIn('diagnostic_repair', missing)
+        self.assertFalse(any(row['category']=='diagnostic_repair' for row in examples))
+
+    def test_selection_is_fixed_order_and_chooses_the_earliest_qualified_step(self):
+        for task in ('Toy/first', 'Toy/second'):
+            for model in ('Preferred', 'Other'):
+                self.add_chain('diagnostic', [False, True, False, True, True], [False, True, False, True, True],
+                               kinds=['runtime'] * 5, model=model, task=task)
+        arguments = {'models':('Preferred', 'Other'), 'tasks':('Toy/first', 'Toy/second')}
+        first, _ = self.select(**arguments)
+        again, _ = self.select(**arguments)
+        self.assertEqual(first, again)
+        selected = next(row for row in first if row['category']=='diagnostic_repair')
+        self.assertEqual((selected['model'], selected['task_id'], selected['before_round'], selected['after_round']),
+                         ('Preferred', 'Toy/first', 0, 1))
+
+    def test_public_pass_with_unknown_hidden_result_is_not_a_hidden_gap_case(self):
+        sequence = self.add_chain('resample', [True] * 5, [True, True, True, True, None])
+        _, missing = self.select(arms=('resample',))
+        self.assertIn('diagnostic_hidden_gap', missing)
+        final = sequence[-1]['record_id']
+        self.strong[final] = {'public':{'passed':True, 'complete':True},
+                              'hidden':{'passed':False, 'complete':True}, 'full_pass':False}
+        examples, _ = self.select(arms=('resample',))
+        gap = next(row for row in examples if row['category']=='diagnostic_hidden_gap')
+        self.assertEqual(gap['after_round'], 4)
+        self.assertTrue(gap['after_public']['passed'])
+        self.assertFalse(gap['after_strong_pass'])
 
 
 if __name__=='__main__':
