@@ -2,15 +2,15 @@
   "schema": "zhiwei-research-atlas-v1",
   "generated_at": "2026-11-05",
   "palette": {
-    "paper": "#fffdf9",
-    "ink": "#142b3d",
-    "muted": "#617381",
-    "grid": "#e2e9e8",
-    "teal": "#147d83",
-    "clay": "#d46b4c",
-    "blue": "#547cba",
-    "gold": "#b78b38",
-    "violet": "#8a70a0"
+    "paper": "#042735",
+    "ink": "#f5fbff",
+    "muted": "#b5d1de",
+    "grid": "#315361",
+    "teal": "#61e6d3",
+    "clay": "#ff967f",
+    "blue": "#76ccff",
+    "gold": "#f4cf84",
+    "violet": "#d6c3ff"
   },
   "chart_count": 37,
   "topics": [

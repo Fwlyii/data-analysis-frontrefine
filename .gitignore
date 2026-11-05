@@ -25,6 +25,7 @@ node_modules/
 
 # Generated browser output and optional manual recordings
 /artifacts/
+/.impeccable/review/
 /optimization/
 /submission/
 *.mp4

@@ -270,11 +270,15 @@ GUIDE = '''知微展示系统 · 研究内容重构版
 网站/index.html、research.css、src/research.js：主框架、五章路由、核心发现长页和图册。
 网站/src/research-home.js、research-home.css：原知微五气泡首页。
 网站/src/research-content.js、research-content.css：中文章节、四维31策略和清洗演示。
+网站/research-ocean.css、research-content-ocean.css：深海光学玻璃v5的全局材质与内容图解。
+网站/src/research-ocean-summary.js：由同一冻结目录数值绘制四项总体发现概览。
+网站/assets/visual/ocean-optics-v5.png：从用户参考图提取的干净背景；提示词与来源随素材保留。
 网站/src/research-explorer.js、research-explorer.css：13类交互图、4代码视图。
 网站/src/research-special-records.js：位置和修复匿名记录。
 网站/assets/research/：全部可编辑SVG；网站/data/research-charts.json：目录与实际数值。
 网站/runtime/：已生成的冻结数据脚本，页面通过本地HTTP按需读取。
 内容与图表交接.md：模块接口及后续美化边界。
+docs/design.md、.impeccable/design.json：当前设计规范与组件令牌；docs/design-sources.md：素材来源。
 
 可以继续美化页面切换、布局与动画，不再添加答辩不会使用的按钮或交叉导航。
 请保留图形坐标、单位、条件、来源和评分口径；
@@ -303,7 +307,26 @@ def package(output, extension_report=None):
     (destination / '启动系统.py').write_text(LAUNCHER, encoding='utf-8')
     (destination / '重建科研图册.py').write_text(REBUILD, encoding='utf-8')
     (destination / '使用与交接.txt').write_text(GUIDE + (EXTENSION_GUIDE if extension else ''), encoding='utf-8')
-    shutil.copy2(ROOT / 'docs/reconstruction-handoff.md', destination / '内容与图表交接.md')
+    (destination / 'README.md').write_text('# 知微 · 深海光学玻璃展示系统\n\n运行 `python3 启动系统.py`，默认在本机8770端口打开。\n\n[使用与交接](使用与交接.txt) · [内容与图表交接](内容与图表交接.md) · [设计规范](docs/design.md) · [设计令牌](.impeccable/design.json) · [素材来源](docs/design-sources.md)\n\n网站为本地静态文件；37张原科研SVG与独立代码反馈补充图包分别保留。\n', encoding='utf-8')
+    # Keep the designer's token and provenance documents usable in the standalone bundle.
+    docs = destination / 'docs'
+    docs.mkdir()
+    for name in ['design.md', 'design-sources.md', 'reconstruction-handoff.md']:
+        shutil.copy2(public_file(ROOT / 'docs' / name), docs / name)
+    shutil.copytree(ROOT / 'docs/provenance', docs / 'provenance')
+    (destination / '.impeccable').mkdir()
+    shutil.copy2(public_file(ROOT / '.impeccable/design.json'), destination / '.impeccable/design.json')
+    shutil.copy2(public_file(ROOT / 'experiments/code_repair_v2/ANALYSIS.md'), docs / 'code-feedback-methods.md')
+    handoff = (docs / 'reconstruction-handoff.md').read_text(encoding='utf-8')
+    handoff = handoff.replace('(../experiments/code_repair_v2/ANALYSIS.md)', '(code-feedback-methods.md)')
+    (docs / 'reconstruction-handoff.md').write_text(handoff, encoding='utf-8')
+    for original, bundled in [('(design.md)', '(docs/design.md)'),
+                              ('(design-sources.md)', '(docs/design-sources.md)'),
+                              ('(../.impeccable/design.json)', '(.impeccable/design.json)'),
+                              ('(../README.md)', '(README.md)'),
+                              ('(code-feedback-methods.md)', '(docs/code-feedback-methods.md)')]:
+        handoff = handoff.replace(original, bundled)
+    (destination / '内容与图表交接.md').write_text(handoff, encoding='utf-8')
     source_path = Path('scripts/figures/build_research_atlas.py')
     inputs = {source_path}
     for node in ast.walk(ast.parse((ROOT / source_path).read_text())):

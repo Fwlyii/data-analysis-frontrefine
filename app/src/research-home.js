@@ -9,12 +9,11 @@ const CHAPTERS = [
 /** The original five-orb portal, isolated from the old deck and intro globals. */
 export function renderHome(){
   return `<section class="research-home" aria-labelledby="home-title">
-    <div class="rh-atmosphere" aria-hidden="true"><img src="assets/visual/gateway-atmosphere.webp" alt="" decoding="async"/><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"><g class="rh-tracks"><ellipse cx="720" cy="460" rx="640" ry="245" transform="rotate(-22 720 460)"/><ellipse cx="720" cy="460" rx="680" ry="280" transform="rotate(25 720 460)"/></g>${Array.from({length:32},(_,i)=>`<circle cx="${(i*373+137)%1440}" cy="${(i*211+53)%900}" r="${i%7===0?1.4:.7}" opacity="${.16+(i%5)*.1}"/>`).join('')}</svg></div>
+    <div class="rh-atmosphere" aria-hidden="true"><img data-home-background src="assets/visual/ocean-optics-v5.png" data-fallback="assets/visual/gateway-atmosphere.webp" alt="" decoding="async" fetchpriority="high"/><svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"><g class="rh-tracks"><ellipse cx="720" cy="460" rx="640" ry="245" transform="rotate(-22 720 460)"/><ellipse cx="720" cy="460" rx="680" ry="280" transform="rotate(25 720 460)"/></g></svg></div>
     <div class="rh-stage">
       <header class="rh-heading"><p>知微之门</p><span>提示、证据与反馈，如何改变模型的回答？</span></header>
       <svg class="rh-orbits" viewBox="0 0 1000 700" aria-hidden="true"><ellipse cx="500" cy="350" rx="480" ry="255" transform="rotate(-18 500 350)"/><ellipse cx="500" cy="350" rx="410" ry="325" transform="rotate(24 500 350)"/></svg>
-      <div class="rh-center" aria-hidden="true"><div class="rh-lens"><svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="270" stroke-dasharray="1 14"/><circle cx="300" cy="300" r="245"/><circle cx="300" cy="300" r="232" opacity=".4"/><path d="M110 180a245 245 0 0 1 315-94M490 420a245 245 0 0 1-315 94"/><path d="M300 25v20m0 510v20M25 300h20m510 0h20"/></svg></div><div class="rh-brand"><span class="rh-lens-word">LENS<span>.</span></span><span class="rh-chinese-name">知微</span><span class="rh-brand-caption">模型行为研究</span></div></div>
-      <h1 id="home-title" class="rh-sr">知微 · 模型行为研究</h1>
+      <div class="rh-center"><div class="rh-lens" aria-hidden="true"><svg viewBox="0 0 600 600"><circle cx="300" cy="300" r="270" stroke-dasharray="1 14"/><circle cx="300" cy="300" r="245"/><circle cx="300" cy="300" r="232" opacity=".4"/><path d="M110 180a245 245 0 0 1 315-94M490 420a245 245 0 0 1-315 94"/><path d="M300 25v20m0 510v20M25 300h20m510 0h20"/></svg></div><div class="rh-brand"><h1 id="home-title" class="rh-chinese-name">知微</h1><span class="rh-brand-caption">模型行为研究</span></div></div>
       <nav class="rh-navigation" aria-label="五个研究章节">${CHAPTERS.map((chapter,i)=>`<a class="rh-orb rh-orb-${i}" href="?chapter=${chapter.id}" data-home-chapter="${chapter.id}" aria-label="${chapter.title}"><img class="rh-planet" src="assets/visual/planet-${chapter.planet}.webp" width="512" height="512" alt="" decoding="async"/><svg class="rh-rim" viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="77"/><path d="M23 49a65 65 0 0 1 68-33"/></svg><svg class="rh-orb-icon" viewBox="0 0 24 24" aria-hidden="true">${chapter.icon}</svg><span class="rh-orb-number" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><span class="rh-orb-label">${chapter.title}</span><span class="rh-orb-caption">${chapter.caption}</span></a>`).join('')}</nav>
       <p class="rh-foot">由问题出发，循证据知微。</p>
     </div>
@@ -25,6 +24,12 @@ export function mountHome(container,{onNavigate}={}){
   const home=container.matches?.('.research-home')?container:container.querySelector('.research-home');
   if(!home)return ()=>{};
   const links=[...home.querySelectorAll('[data-home-chapter]')];
+  const background=home.querySelector('[data-home-background]');
+  const fallbackBackground=()=>{
+    if(background?.dataset.fallback){background.src=background.dataset.fallback;delete background.dataset.fallback;}
+  };
+  background?.addEventListener('error',fallbackBackground,{once:true});
+  if(background?.complete&&!background.naturalWidth)fallbackBackground();
   const click=event=>{
     const link=event.target.closest('[data-home-chapter]');
     if(!link||!home.contains(link)||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
@@ -38,5 +43,5 @@ export function mountHome(container,{onNavigate}={}){
     links[next].focus();
   };
   home.addEventListener('click',click);home.addEventListener('keydown',keydown);
-  return ()=>{home.removeEventListener('click',click);home.removeEventListener('keydown',keydown);};
+  return ()=>{home.removeEventListener('click',click);home.removeEventListener('keydown',keydown);background?.removeEventListener('error',fallbackBackground);};
 }

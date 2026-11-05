@@ -1,15 +1,16 @@
 import { researchContent, renderQuestion, renderCollection, renderCleaning, renderConclusion, bindContent } from './research-content.js';
 import { renderHome, mountHome } from './research-home.js';
 import { renderFeedbackExtension } from './research-feedback-extension.js';
+import { renderOceanOverview } from './research-ocean-summary.js';
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 const CHAPTERS=[
  {id:'question',label:'研究问题',title:'同一道任务，怎样让模型做得更好？',intro:'从提示词策略出发，在数学、文档与代码三类任务中比较回答质量和输出开销，再沿任务特性研究证据位置与执行反馈。'},
- {id:'collection',label:'采集设计',title:'从四个考察维度，到真实的对照实验。',intro:'语言、推理提示、长度与表达格式，构成理解31种实际策略的线索。题目、模型、条件与响应数量，都能沿来源追溯。'},
- {id:'cleaning',label:'数据处理',title:'名字不同的字段，怎样成为同一份数据？',intro:'把来源差异直接摆出来：标红同义异名字段，查看映射规则，再检查保存后的统一记录。'},
- {id:'findings',label:'核心发现',title:'先看总体关系，再进入具体任务。',intro:'四个总体主题与三个任务专项，串起从输出预算、模型规模到表达策略、资料位置和反馈修复的研究。'},
- {id:'conclusion',label:'总结与反思',title:'从一次研究，回到更有效的使用。',intro:'把实测发现转成可以解释、可以操作的建议，同时保留模型、任务、评分与测试的适用范围。'}
+ {id:'collection',label:'采集设计',title:'四个维度，具体怎样写 Prompt？',intro:'相同题目，替换作答指令，记录每次回答。'},
+ {id:'cleaning',label:'数据处理',title:'异名字段，清洗后统一保存',intro:'两类原始来源 → 同义字段映射 → 同一份21列数据。'},
+ {id:'findings',label:'核心发现',title:'总体规律：Token、模型与表达',intro:'四项对照，解释准确率与输出开销；再进入数学、文档和代码。'},
+ {id:'conclusion',label:'总结与反思',title:'从实测发现，到五条使用建议',intro:'把研究中的对照结果，转化为选择提示、组织证据和使用反馈的依据。'}
 ];
 const TOPICS=[
  {id:'budget',group:'总体规律',n:'01',name:'Token投入与边际收益',title:'多一些 Token，能多解决多少问题？',intro:'把实际输出开销与任务成功率放在一起，观察对数关系与边际收益的变化。',reading:'先读实测点，再读拟合线。对比前后区间，每增加一份输出预算，成功率带来的变化并不相同。切换模型与题库，查看这种关系的适用范围。',scope:'实际输出Token · 原生评分 · 同条件对照',explore:{chart:'bubble',dataset:'reasoning',task:'gsm8k',prompt:'__core'}},
@@ -85,8 +86,9 @@ function supportFigure(chart, tools = false) {
   return `<figure class="support-figure${wide ? ' support-wide' : ''}" data-chart-id="${esc(chart.id)}"><img src="${esc(chart.file)}" alt="${esc(chart.title)}" loading="lazy" width="${chart.width}" height="${chart.height}"><figcaption><p>${esc(chart.description || chart.subtitle)}</p>${tools ? `<div class="figure-downloads"><a href="${esc(chart.file)}" download>SVG</a><button data-figure-csv="${esc(chart.id)}">数值CSV</button></div>` : ''}</figcaption></figure>`;
 }
 function overviewHTML() {
-  return `<section class="topic-overview" aria-label="四个总体规律与三个任务专项">${['总体规律','任务专项'].map(group => `<div class="finding-group"><h2>${group}<span>${group === '总体规律' ? '从共性出发' : '回到具体任务'}</span></h2><ol>${TOPICS.filter(topic => topic.group === group).map(topic => `<li><span class="finding-index">${topic.n}</span><div><h3>${topic.name}</h3><p>${topic.id === 'feedback' && feedbackPublication ? '六种反馈并列，比较修复、回退与完整正确性。' : HIGHLIGHTS[topic.id][0]}</p></div></li>`).join('')}</ol></div>`).join('')}</section>`;
+  return renderOceanOverview(catalog, Boolean(feedbackPublication));
 }
+
 function topicHTML(topic) {
   const charts = catalog.charts.filter(chart => chart.topic === topic.id);
   const main = charts.find(chart => chart.role === 'main') || charts[0];
@@ -133,7 +135,7 @@ async function render() {
   const title = chapter?.title || '科研图稿与交互图表';
   const intro = chapter?.intro || '完整保留37张科研SVG和原有交互探索。';
   const body = route.chapter === 'question' ? renderQuestion() : route.chapter === 'collection' ? renderCollection() : route.chapter === 'cleaning' ? renderCleaning() : route.chapter === 'conclusion' ? renderConclusion() : route.chapter === 'atlas' ? atlasHTML() : findingsHTML();
-  main.innerHTML = `<section class="section-intro"><h1>${title}</h1>${intro ? `<p>${intro}</p>` : ''}</section>${body}`;
+  main.innerHTML = `${route.chapter === 'question' ? '' : `<section class="section-intro"><h1>${title}</h1>${intro ? `<p>${intro}</p>` : ''}</section>`}${body}`;
   appendSupplementContext(main);
   document.title = `${chapter?.label || '科研图稿'} · 知微`;
   if(route.chapter === 'question') $('.rc-lead',main)?.remove();

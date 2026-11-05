@@ -10,7 +10,7 @@ from collections import defaultdict
 ROOT = Path(__file__).resolve().parents[2]
 DEST = ROOT / 'app/assets/research'
 CATALOG = ROOT / 'app/data/research-charts.json'
-PALETTE = {'paper':'#fffdf9','ink':'#142b3d','muted':'#617381','grid':'#e2e9e8','teal':'#147d83','clay':'#d46b4c','blue':'#547cba','gold':'#b78b38','violet':'#8a70a0'}
+PALETTE = {'paper':'#042735','ink':'#f5fbff','muted':'#b5d1de','grid':'#315361','teal':'#61e6d3','clay':'#ff967f','blue':'#76ccff','gold':'#f4cf84','violet':'#d6c3ff'}
 COLORS = [PALETTE[k] for k in ['teal','clay','blue','gold','violet']]
 MODELS = {'deepseek':'DeepSeek Flash','hy4':'HY4 preview','qwen':'Qwen2.5 7B','qwen3':'Qwen3 8B','Qwen2.5-7B':'Qwen2.5 7B','Qwen3-8B':'Qwen3 8B','Qwen/Qwen2.5-7B-Instruct':'Qwen2.5 7B','Qwen/Qwen3-8B':'Qwen3 8B'}
 TASKS = {'gsm8k':'GSM8K','math500':'MATH500','mmlu':'MMLU-Pro','document_qa':'文档问答','CodePromptEval':'代码生成'}
@@ -185,13 +185,13 @@ def heatmap(id,topic,title,subtitle,source,row_labels,col_labels,matrix,note='',
         svg.text(left-15,top+ch*(i+.5)+5,label,14,anchor='end')
         for j,v in enumerate(matrix[i]):
             t=abs(v)/maxabs if diverging else max(0,min(1,v/100))
-            rgb=(20,125,131) if not diverging or v>=0 else (212,107,76)
-            bg=tuple(round(249+(c-249)*(.12+.82*t)) for c in rgb)
+            rgb=(41,123,129) if not diverging or v>=0 else (137,70,66)
+            bg=tuple(round(a+(c-a)*(.12+.82*t)) for a,c in zip((5,35,48),rgb))
             color=f'#{bg[0]:02x}{bg[1]:02x}{bg[2]:02x}'
             x,y=left+j*cw,top+i*ch
             svg.rect(x+2,y+2,cw-4,ch-4,color,3)
             val=format_value(v) if format_value else fmt(v)
-            svg.text(x+cw/2,y+ch/2+5,val,13.5,'#fff' if t>.65 else P['ink'],anchor='middle',weight=550)
+            svg.text(x+cw/2,y+ch/2+5,val,13.5,P['ink'],anchor='middle',weight=550)
             rows.append({'row':label,'column':col_labels[j],'value':v})
     save(id,topic,title,subtitle,source,note,svg,rows,role,filters)
 
@@ -350,8 +350,8 @@ def build():
     hbars('feedback-code-errors','feedback','代码失败类型：断言与运行问题有多大？','独立代码生成补充 · 三模型与31策略合计','reports/code_generation/conditions.csv',sorted(er,key=lambda r:r['count'],reverse=True),'count','label','错误类型按源评测保存；环境排除记录单独保留，不填为模型失败。',unit='')
     DEST.mkdir(parents=True,exist_ok=True)
     case=SVG('一个失败输入，暴露了错误的边界假设','Qwen3 · HumanEval/102 · 具体失败反例 · 已保存修改轨迹','reports/code_repair/full/examples.md','第二次收到具体反例后修正；随后同时通过诊断与额外测试。')
-    case.rect(42,137,435,235,'#f5eeea',10)
-    case.rect(523,137,435,235,'#e7f1ed',10)
+    case.rect(42,137,435,235,'#382c32',10)
+    case.rect(523,137,435,235,'#123c3e',10)
     case.text(66,175,'初稿：交换区间端点',20,P['clay'],weight=650)
     case.text(547,175,'修改后：按规格处理倒置区间',20,P['teal'],weight=650)
     for i,line in enumerate(['if x > y:','    x, y = y, x']):case.text(70,225+i*33,line,20,P['ink'])

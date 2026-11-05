@@ -30,8 +30,8 @@ if str(ROOT) not in sys.path:
 ARMS = ("resample", "self_review", "pass_fail", "diagnostic", "counterexample", "multi_counterexample")
 ZH = {"resample": "独立重采样", "self_review": "自行检查", "pass_fail": "仅通过状态",
       "diagnostic": "错误定位诊断", "counterexample": "单个失败反例", "multi_counterexample": "多个失败反例"}
-COLORS = {"resample": "#71818d", "self_review": "#b27838", "pass_fail": "#457a9a",
-          "diagnostic": "#8170a8", "counterexample": "#c55e43", "multi_counterexample": "#147d83"}
+COLORS = {"resample": "#b5c7d0", "self_review": "#f4cf84", "pass_fail": "#76ccff",
+          "diagnostic": "#d6c3ff", "counterexample": "#ff967f", "multi_counterexample": "#61e6d3"}
 KEYS = ("model", "task_id", "replicate", "arm", "round")
 SECRET = re.compile(r"(?:sk-[A-Za-z0-9_-]{20,}|Bearer\s+[A-Za-z0-9._-]{20,})")
 
@@ -896,7 +896,13 @@ class Figure:
         self.text(42, self.height - 23, "来源：" + benchmark + "，代码反馈补充实验 / " + batch, 12, color="#526574")
 
     def save(self, path):
-        Path(path).write_text("".join(self.parts) + '</svg>', encoding="utf-8")
+        # Presentation palette only; all positions, values and evidence stay intact.
+        svg = "".join(self.parts) + '</svg>'
+        palette = {"#fffdf9":"#042735", "#142b3d":"#f5fbff", "#526574":"#b5d1de",
+                   "#d9e2e6":"#315361", "#a43d38":"#ff967f", "#a44b42":"#ff967f"}
+        for original, optical in palette.items():
+            svg = svg.replace(original, optical)
+        Path(path).write_text(svg, encoding="utf-8")
 
 
 def percent(value, digits=1):

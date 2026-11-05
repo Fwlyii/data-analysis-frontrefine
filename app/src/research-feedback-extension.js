@@ -62,6 +62,19 @@ function contrastReading(row) {
   return '区间包含 0，尚不能认定存在稳定提升。';
 }
 
+function renderTakeaways(evidence) {
+  const models=evidence.models.map(model=>{
+    const single=evidence.summary.find(row=>row.model===model&&row.arm==='counterexample');
+    const self=evidence.summary.find(row=>row.model===model&&row.arm==='self_review');
+    const comparison=getContrast(evidence,model,'counterexample','self_review');
+    if(!single||!self||!comparison||![comparison.delta_pp,comparison.ci_low_pp,comparison.ci_high_pp].every(finite))return '';
+    return `<article><h4>${esc(modelLabel(evidence,model))}</h4><p class="fex-takeaway-value">${rate(single.final_rate)}<span>单反例 / ${rate(self.final_rate)} 自查</span></p><p>终稿完整通过 ${number(single.final_success)} / ${number(single.programs)}，自行检查 ${number(self.final_success)} / ${number(self.programs)}。</p><p>配对差 ${signed(comparison.delta_pp)} 个百分点，95%区间 [${signed(comparison.ci_low_pp)}, ${signed(comparison.ci_high_pp)}]。${contrastReading(comparison)}</p></article>`;
+  }).join('');
+  const multi=evidence.models.map(model=>getContrast(evidence,model,'multi_counterexample','counterexample'));
+  const noStableExtra=multi.every(row=>row&&finite(row.ci_low_pp)&&finite(row.ci_high_pp)&&row.ci_low_pp<=0&&row.ci_high_pp>=0);
+  return `<section class="fex-takeaways" aria-label="补充实验的主要发现">${models}</section>${noStableExtra?'<p class="fex-takeaway-note">两模型中，多反例相对单反例的配对区间都包含 0；本轮尚未观察到稳定的额外收益。以下继续拆解错误类型、修改轨迹与 Token 代价。</p>':''}`;
+}
+
 function renderDesign(evidence) {
   const c = evidence.coverage;
   const repeats = c.repeats_per_task ?? evidence.repeats_per_task;
@@ -74,7 +87,7 @@ function renderDesign(evidence) {
   if(g.qwen3_enable_thinking===false)settings.push('Qwen3采用非思考模式');
   if(finite(x.memory_limit_mb)&&finite(x.holdout_timeout_s))settings.push(`每程序内存上限 ${number(x.memory_limit_mb)} MB，完整验证墙钟上限 ${number(x.holdout_timeout_s)} 秒`);
   const settingsNote=settings.length?`<p class="fex-source">${settings.map(esc).join('；')}。</p>`:'';
-  return `<header class="fex-heading"><p class="fex-kicker">代码执行反馈 · 扩展实验</p><h3>反馈信息更充分，修复就一定更可靠吗？</h3><p class="fex-lead">把初稿质量、反馈内容、修复代价和保留测试放在同一条证据链里：先看终稿是否真的正确，再解释代码为什么改变。</p></header>
+  return `<header class="fex-heading"><p class="fex-kicker">代码执行反馈 · 扩展实验</p><h3>同样的执行反馈，在不同模型上收益不同。</h3><p class="fex-lead">单个失败反例相对自行检查的收益，先按模型分别看。通过率使用公开与保留测试的联合判定，区间按题目聚类；以下比较为预设探索分析。</p></header>${renderTakeaways(evidence)}
   <section class="fex-section fex-design" aria-label="实验设计与样本规模">
     <div class="fex-ledger"><div><strong>${number(c.planned_tasks)}</strong><span>独立编程题</span></div><div><strong>${number(repeats)}</strong><span>每题、每模型独立初稿</span></div><div><strong>${number(evidence.models.length)} × ${number(evidence.arms.length)}</strong><span>模型 × 修复策略</span></div><div><strong>${number(c.saved_physical_responses)}</strong><span>实际保存的有效模型响应</span></div></div>
     <p class="fex-method">共 ${number(initials)} 份独立初稿；同一初稿分到六条策略链，各自再生成 ${number(evidence.rounds - 1)} 版。统计独立单位仍为 ${number(c.planned_tasks)} 道题，不能把重复初稿、修复版本或测试输入当成更多独立题目。</p>
